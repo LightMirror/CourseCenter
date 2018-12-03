@@ -209,8 +209,82 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\img\about-bg.jpg" />
+    <Content Include="assets\img\apple-touch-icon.png" />
+    <Content Include="assets\img\favicon.png" />
+    <Content Include="assets\img\gallery\1.jpg" />
+    <Content Include="assets\img\gallery\2.jpg" />
+    <Content Include="assets\img\gallery\3.jpg" />
+    <Content Include="assets\img\gallery\4.jpg" />
+    <Content Include="assets\img\gallery\5.jpg" />
+    <Content Include="assets\img\gallery\6.jpg" />
+    <Content Include="assets\img\gallery\7.jpg" />
+    <Content Include="assets\img\gallery\8.jpg" />
+    <Content Include="assets\img\hotels\1.jpg" />
+    <Content Include="assets\img\hotels\2.jpg" />
+    <Content Include="assets\img\hotels\3.jpg" />
+    <Content Include="assets\img\intro-bg.jpg" />
+    <Content Include="assets\img\logo.png" />
+    <Content Include="assets\img\speakers\1.jpg" />
+    <Content Include="assets\img\speakers\2.jpg" />
+    <Content Include="assets\img\speakers\3.jpg" />
+    <Content Include="assets\img\speakers\4.jpg" />
+    <Content Include="assets\img\speakers\5.jpg" />
+    <Content Include="assets\img\speakers\6.jpg" />
+    <Content Include="assets\img\speakers\bizpage-preview.png" />
+    <Content Include="assets\img\sponsors\1.png" />
+    <Content Include="assets\img\sponsors\2.png" />
+    <Content Include="assets\img\sponsors\3.png" />
+    <Content Include="assets\img\sponsors\4.png" />
+    <Content Include="assets\img\sponsors\5.png" />
+    <Content Include="assets\img\sponsors\6.png" />
+    <Content Include="assets\img\sponsors\7.png" />
+    <Content Include="assets\img\sponsors\8.png" />
+    <Content Include="assets\img\subscribe-bg.jpg" />
+    <Content Include="assets\img\venue-gallery\1.jpg" />
+    <Content Include="assets\img\venue-gallery\2.jpg" />
+    <Content Include="assets\img\venue-gallery\3.jpg" />
+    <Content Include="assets\img\venue-gallery\4.jpg" />
+    <Content Include="assets\img\venue-gallery\5.jpg" />
+    <Content Include="assets\img\venue-gallery\6.jpg" />
+    <Content Include="assets\img\venue-gallery\7.jpg" />
+    <Content Include="assets\img\venue-gallery\8.jpg" />
+    <Content Include="assets\img\venue-info-bg.jpg" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\scss-files.txt" />
+    <Content Include="Content\css\style.css" />
+    <Content Include="Content\lib\animate\animate.css" />
+    <Content Include="Content\lib\animate\animate.min.css" />
+    <Content Include="Content\lib\bootstrap\css\bootstrap.css" />
+    <Content Include="Content\lib\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Content\lib\bootstrap\js\bootstrap.bundle.min.js" />
+    <Content Include="Content\lib\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Content\lib\easing\easing.js" />
+    <Content Include="Content\lib\easing\easing.min.js" />
+    <Content Include="Content\lib\font-awesome\css\font-awesome.css" />
+    <Content Include="Content\lib\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Content\lib\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\lib\jquery\jquery-migrate.min.js" />
+    <Content Include="Content\lib\jquery\jquery.min.js" />
+    <Content Include="Content\lib\owlcarousel\assets\ajax-loader.gif" />
+    <Content Include="Content\lib\owlcarousel\assets\owl.carousel.css" />
+    <Content Include="Content\lib\owlcarousel\assets\owl.carousel.min.css" />
+    <Content Include="Content\lib\owlcarousel\assets\owl.theme.default.css" />
+    <Content Include="Content\lib\owlcarousel\assets\owl.theme.default.min.css" />
+    <Content Include="Content\lib\owlcarousel\assets\owl.theme.green.css" />
+    <Content Include="Content\lib\owlcarousel\assets\owl.theme.green.min.css" />
+    <Content Include="Content\lib\owlcarousel\assets\owl.video.play.png" />
+    <Content Include="Content\lib\owlcarousel\owl.carousel.js" />
+    <Content Include="Content\lib\owlcarousel\owl.carousel.min.js" />
+    <Content Include="Content\lib\superfish\hoverIntent.js" />
+    <Content Include="Content\lib\superfish\superfish.js" />
+    <Content Include="Content\lib\superfish\superfish.min.js" />
+    <Content Include="Content\lib\venobox\venobox.css" />
+    <Content Include="Content\lib\venobox\venobox.js" />
+    <Content Include="Content\lib\venobox\venobox.min.js" />
+    <Content Include="Content\lib\wow\wow.js" />
+    <Content Include="Content\lib\wow\wow.min.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -222,7 +296,16 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="assets\img\Thumbs.db" />
+    <Content Include="Content\lib\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\lib\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\lib\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\lib\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\lib\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="Content\lib\owlcarousel\LICENSE" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\contactform\contactform.js" />
+    <Content Include="Scripts\contactform\Readme.txt" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -230,6 +313,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\js\main.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
@@ -268,10 +352,10 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Home\Main.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="assets\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
