@@ -13,7 +13,8 @@ namespace CourseSite.Common
         public static bool SendEmail(List<string> recevir, string subject, string body, System.Net.Mail.Attachment attachment = null) //abdulrheem 16-01-2018
         {
             try
-            {                
+            {
+                
                 var Senderemail = new MailAddress("lightmirror.eg@gmail.com");
                 var Password = "lightmirror@123";
                 // var Reciveremail = new MailAddress(recevir);
@@ -63,6 +64,7 @@ namespace CourseSite.Common
             }
             catch (Exception ex)
             {
+                throw new Exception();
                 return false;
             }
         }       

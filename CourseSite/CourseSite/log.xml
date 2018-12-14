@@ -1,0 +1,6 @@
+<LogEntry><Time>12/14/2018 3:28:54 PM</Time><Message>System.Exception: Exception of type 'System.Exception' was thrown.
+   at CourseSite.Controllers.HomeController.ChangeLang() in E:\lightmirror\CourseCenter\CourseSite\CourseSite\Controllers\HomeController.cs:line 39 in HomeController.cs</Message></LogEntry>
+<LogEntry><Time>12/14/2018 3:54:27 PM</Time><Message>System.Exception: Exception of type 'System.Exception' was thrown.
+   at CourseSite.Controllers.HomeController.ChangeLang() in E:\lightmirror\CourseCenter\CourseSite\CourseSite\Controllers\HomeController.cs:line 39 in HomeController.cs</Message></LogEntry>
+<LogEntry><Time>12/14/2018 4:09:42 PM</Time><Message>System.Exception: Exception of type 'System.Exception' was thrown.
+   at CourseSite.Controllers.HomeController.ChangeLang() in E:\lightmirror\CourseCenter\CourseSite\CourseSite\Controllers\HomeController.cs:line 39 in HomeController.cs</Message></LogEntry>
