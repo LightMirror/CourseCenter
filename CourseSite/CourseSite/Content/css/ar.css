@@ -1,0 +1,330 @@
+﻿html {
+    direction: rtl;
+}
+
+nav h1 {
+    float: right;
+}
+
+nav ul {
+    float: left;
+    padding: 0;
+}
+
+nav.header ul li:first-of-type {
+    margin-right: 0;
+    margin-left: 20px;
+}
+
+nav.header ul li:last-of-type {
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.services .grid-container > div {
+    float: right;
+}
+
+.services .grid-container div .grid-text h2, .services .grid-container div .grid-text p {
+    text-align: right;
+}
+
+.samples .grid-container > div {
+    float: right;
+}
+
+.process .grid-container > div {
+    float: right;
+}
+
+.process .grid-container div .grid-text h2, .process .grid-container div .grid-text p {
+    text-align: right;
+    text-align: center;
+}
+
+.portrait {
+    float: right;
+    border-left: 47px solid #304661;
+    border-right: 0;
+    border-radius: 20px 0 0 0;
+    padding-left: 45px;
+}
+
+.contact-info {
+    margin: 0 auto;
+}
+
+.contact-means p {
+    float: right;
+}
+
+.clients .grid-container > div {
+    float: right;
+}
+
+    .clients .grid-container > div:nth-child(4n+5) {
+        clear: right;
+    }
+
+footer section.container > div {
+    float: right;
+}
+
+    footer section.container > div:nth-of-type(1) {
+        float: left;
+    }
+
+.process .grid-container > div + div::before {
+    left: auto;
+    right: -60px;
+}
+
+.contact-means p[class^="screen-icon"] {
+    background-position: 100% 0;
+}
+
+footer section.container > div > div:first-of-type {
+    margin-left: 20px;
+    margin-right: 0;
+}
+
+.row .one-third.text-right {
+    text-align: left;
+}
+
+.products .actions {
+    text-align: left;
+}
+
+    .products .actions .bc-pull-left {
+        float: right;
+        text-align: right;
+    }
+
+.custom-checkbox-wrapper label {
+    padding: 0 34px 0 0;
+}
+
+    .custom-checkbox-wrapper label::before {
+        left: auto;
+        right: 0;
+    }
+
+.icon-download, .icon-photos, .icon-expand, .icon-download:hover, .icon-photos:hover, .icon-expand:hover {
+    padding: 0 36px 0 0;
+    background-position: 100% 50%;
+}
+
+.products .actions .custom-checkbox-wrapper {
+    margin: 0 0 0 30px;
+}
+
+.product ul li + li {
+    margin: 0 15px 0 0;
+}
+
+.icon-data {
+    padding: 0 24px 0 0;
+    background-position: 100% 50%;
+}
+
+.internal header nav a.parent {
+    padding: 0 30px 0 45px;
+}
+
+    .internal header nav a.parent::after {
+        right: auto;
+        left: 10px;
+    }
+
+.internal header form input[type="text"] {
+    background-position: 98%;
+    padding: 0 30px 0 15px;
+}
+
+.internal header nav > ul > li {
+    float: right;
+}
+
+    .internal header nav > ul > li:last-child > a {
+        border-left: 1px solid #e5e5e5;
+    }
+
+    .internal header nav > ul > li > a {
+        border: none;
+    }
+
+    .internal header nav > ul > li .user-avatar {
+        margin: 0 0 0 4px;
+    }
+
+@media (max-width: 425px) {
+    .bc-pull-left li + li {
+        margin-right: 16px;
+    }
+
+    .bc-pull-left li + li {
+        margin-right: 16px;
+    }
+
+    .actions .custom-checkbox-wrapper label, .icon-download {
+        padding-right: 25px;
+        padding-left: 0;
+    }
+
+    .products .actions, .products .actions .bc-pull-left {
+        text-align: center;
+    }
+
+    .home nav.header h1, .plain nav.header h1 {
+        display: inline-block;
+        width: 200px;
+        float: right;
+    }
+
+    .home nav.header .border-menu, .plain nav.header .border-menu {
+        float: left;
+    }
+
+    .container .main-nav-wrapper {
+        left: 20px;
+        right: auto;
+    }
+
+    .container .responsive-nav nav.header li, .container .responsive-nav nav.header .parent {
+        margin-right: 0;
+        text-align: right;
+    }
+
+    .container .responsive-nav .parent.user-menu {
+        padding-left: 30px;
+        padding-right: 15px;
+    }
+}
+
+.internal header nav > ul:first-child > li:first-child a::before {
+    margin-left: 7px;
+}
+
+.splash .close-btn {
+    right: auto;
+    left: 25px;
+}
+
+header nav ul {
+    text-align: right;
+}
+
+.internal header form {
+    border-left: 1px solid #e5e5e5;
+}
+
+.bc-pull-left {
+    text-align: right;
+}
+
+.product__thumb {
+    border-right: 0;
+    border-left: 1px solid #979797;
+}
+
+.product .tab-photos > ul > li {
+    float: right;
+}
+
+.custom-checkbox-wrapper input:checked + label::after {
+    left: auto;
+    right: 0;
+}
+
+.custom-radio-wrapper label::before {
+    left: auto;
+    right: 0;
+}
+
+.custom-radio-wrapper input:checked + label::after {
+    left: auto;
+    right: 5px;
+}
+
+.header .pull-right {
+    float: left !important;
+}
+
+.home nav.header ul li + li, .plain nav.header ul li + li {
+    margin-right: 0;
+    margin-left: 20px;
+}
+
+/*.video {
+    float: right;
+}
+
+    .video:nth-child(odd) {
+        clear: right;
+    }*/
+
+.process .grid-container div .grid-icon__2, .process .grid-container div .grid-icon__3 {
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: FlipH;
+    -ms-filter: 'FlipH';
+}
+
+.contact-info .contact-means {
+    float: right;
+}
+
+    .contact-info .contact-means:nth-child(even) {
+        text-align: right;
+    }
+
+.contact-means:nth-child(even) p:nth-of-type(1) {
+    float: right;
+}
+
+.internal header {
+    direction: ltr;
+}
+
+.internal header {
+    direction: ltr;
+}
+
+nav.mobile-hide a {
+    text-align: right;
+}
+
+.flex-link {
+    display: flex !important;
+}
+
+    .flex-link span:first-child {
+        order: 2;
+        padding-right: 3px;
+    }
+
+    .flex-link span:nth-child(2n) {
+        order: 1;
+    }
+
+footer nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li.user-menu > a.parent {
+    max-width: 250px;
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1075px) {
+    nav ul li.user-menu > a.parent {
+        max-width: 60px;
+    }
+
+    .internal header nav a.parent {
+        padding-right: 15px;
+        padding-left: 25px;
+    }
+}

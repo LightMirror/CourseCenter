@@ -12,6 +12,7 @@ namespace CourseSite.Controllers
     {
         public ActionResult Index()
         {
+
             return View();
         }
         public ActionResult Main()
@@ -29,23 +30,26 @@ namespace CourseSite.Controllers
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
-
             return View();
         }
-        public ActionResult ChangeLang(string lang)
+        public ActionResult ChangeLang()
         {
-            if (lang != null)
-            {
+            try
+            {               
+                string lang = "en";
+                lang = Common.UImanger.CurrentLang == "en" ? "ar-EG" : "en";
                 Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture(lang);
                 Thread.CurrentThread.CurrentUICulture = new CultureInfo(lang);
-
+                HttpCookie cookie = new HttpCookie("Language");
+                cookie.Value = lang;
+                Response.Cookies.Add(cookie);
+                return Redirect(Request.UrlReferrer.AbsoluteUri);
             }
-            HttpCookie cookie = new HttpCookie("Language");
-            cookie.Value = lang;
-            Response.Cookies.Add(cookie);
-
-            return View("Index");
+            catch(Exception ex)
+            {
+                Common.General.LogError(ex, "HomeController.cs");
+                return Redirect(Request.UrlReferrer.AbsoluteUri);
+            }
         }
-
     }
 }
