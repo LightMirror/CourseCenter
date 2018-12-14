@@ -12,10 +12,14 @@ namespace CourseSite.Controllers
     {
         public ActionResult Index()
         {
+
             return View();
         }
         public ActionResult Main()
         {
+            List<string> x = new List<string>();
+            x.Add("eng.abdulreem@gmail.com");
+            Common.Email.SendEmail(x, "Test", "test");
             return View();
         }
 
@@ -32,20 +36,17 @@ namespace CourseSite.Controllers
 
             return View();
         }
-        public ActionResult ChangeLang(string lang)
+        public ActionResult ChangeLang()
         {
-            if (lang != null)
-            {
-                Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture(lang);
-                Thread.CurrentThread.CurrentUICulture = new CultureInfo(lang);
-
-            }
+            string lang = "en";
+            lang = Common.UImanger.CurrentLang == "en" ? "ar-EG" : "en";
+            Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture(lang);
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(lang);
             HttpCookie cookie = new HttpCookie("Language");
             cookie.Value = lang;
             Response.Cookies.Add(cookie);
 
-            return View("Index");
+            return Redirect(Request.UrlReferrer.AbsoluteUri);
         }
-
     }
 }

@@ -138,4 +138,7 @@
   <data name="Home" xml:space="preserve">
     <value>Home</value>
   </data>
+  <data name="Lang" xml:space="preserve">
+    <value>ع</value>
+  </data>
 </root>
