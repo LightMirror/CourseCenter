@@ -84,6 +84,8 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -219,6 +221,72 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\DAL\CenterDB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CenterDB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DAL\CenterDB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CenterDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DAL\CenterDB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CenterDB.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DAL\Corporates.cs">
+      <DependentUpon>CenterDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DAL\CorporatesStatus.cs">
+      <DependentUpon>CenterDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DAL\Courses.cs">
+      <DependentUpon>CenterDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DAL\Course_Instractors.cs">
+      <DependentUpon>CenterDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DAL\Course_status.cs">
+      <DependentUpon>CenterDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DAL\Customerabsent.cs">
+      <DependentUpon>CenterDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DAL\Customers.cs">
+      <DependentUpon>CenterDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DAL\CustomerStatus.cs">
+      <DependentUpon>CenterDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DAL\Gender.cs">
+      <DependentUpon>CenterDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DAL\GroupCustomers.cs">
+      <DependentUpon>CenterDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DAL\Groups.cs">
+      <DependentUpon>CenterDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DAL\GroupStatus.cs">
+      <DependentUpon>CenterDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DAL\Instractors.cs">
+      <DependentUpon>CenterDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DAL\InstractorStatus.cs">
+      <DependentUpon>CenterDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DAL\schedules.cs">
+      <DependentUpon>CenterDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DAL\Specifications.cs">
+      <DependentUpon>CenterDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DAL\sysdiagrams.cs">
+      <DependentUpon>CenterDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -308,6 +376,16 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Models\DAL\CenterDB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CenterDB.edmx</DependentUpon>
+      <LastGenOutput>CenterDB.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\DAL\CenterDB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CenterDB.edmx</DependentUpon>
+      <LastGenOutput>CenterDB.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\ai.0.22.9-build00167.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -322,6 +400,13 @@
     <Content Include="Content\lib\font-awesome\fonts\fontawesome-webfont.woff2" />
     <Content Include="Content\lib\font-awesome\fonts\FontAwesome.otf" />
     <Content Include="Content\lib\owlcarousel\LICENSE" />
+    <EntityDeploy Include="Models\DAL\CenterDB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>CenterDB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\DAL\CenterDB.edmx.diagram">
+      <DependentUpon>CenterDB.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\contactform\contactform.js" />
     <Content Include="Scripts\contactform\Readme.txt" />
@@ -397,6 +482,9 @@
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>Main.ar-EG.designer.cs</LastGenOutput>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

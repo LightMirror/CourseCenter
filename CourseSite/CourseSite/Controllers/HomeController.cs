@@ -35,7 +35,7 @@ namespace CourseSite.Controllers
         public ActionResult ChangeLang()
         {
             try
-            {               
+            {
                 string lang = "en";
                 lang = Common.UImanger.CurrentLang == "en" ? "ar-EG" : "en";
                 Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture(lang);
@@ -45,7 +45,7 @@ namespace CourseSite.Controllers
                 Response.Cookies.Add(cookie);
                 return Redirect(Request.UrlReferrer.AbsoluteUri);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Common.General.LogError(ex, "HomeController.cs");
                 return Redirect(Request.UrlReferrer.AbsoluteUri);

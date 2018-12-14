@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="39d7dbe12b79473a84efadbc29c7c292" Name="Diagram1" ZoomLevel="64">
+        <EntityTypeShape EntityType="CenterDBModel.Corporates" Width="1.5" PointX="0.75" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CenterDBModel.CorporatesStatus" Width="1.5" PointX="1.5" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CenterDBModel.Course_Instractors" Width="1.5" PointX="11.25" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CenterDBModel.Course_status" Width="1.5" PointX="6.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CenterDBModel.Courses" Width="1.5" PointX="9" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CenterDBModel.Customerabsent" Width="1.5" PointX="10.5" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="CenterDBModel.Customers" Width="1.5" PointX="3" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CenterDBModel.CustomerStatus" Width="1.5" PointX="0.75" PointY="16.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CenterDBModel.Gender" Width="1.5" PointX="0.75" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="CenterDBModel.GroupCustomers" Width="1.5" PointX="8.25" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CenterDBModel.Groups" Width="1.5" PointX="13.5" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CenterDBModel.GroupStatus" Width="1.5" PointX="11.25" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CenterDBModel.Instractors" Width="1.5" PointX="6" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CenterDBModel.InstractorStatus" Width="1.5" PointX="3.75" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CenterDBModel.schedules" Width="1.5" PointX="15.75" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CenterDBModel.Specifications" Width="1.5" PointX="9" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CenterDBModel.sysdiagrams" Width="1.5" PointX="3.75" PointY="12.5" IsExpanded="true" />
+        <AssociationConnector Association="CenterDBModel.FK_Corporates_CorporatesStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="CenterDBModel.FK_Customers_Corporates" ManuallyRouted="false" />
+        <AssociationConnector Association="CenterDBModel.FK_Course_Instractors_Course_Instractors" ManuallyRouted="false" />
+        <AssociationConnector Association="CenterDBModel.FK_Course_Instractors_Instractors" ManuallyRouted="false" />
+        <AssociationConnector Association="CenterDBModel.FK_Course_Instractors_Specifications" ManuallyRouted="false" />
+        <AssociationConnector Association="CenterDBModel.FK_Groups_Groups" ManuallyRouted="false" />
+        <AssociationConnector Association="CenterDBModel.FK_Courses_Course_status" ManuallyRouted="false" />
+        <AssociationConnector Association="CenterDBModel.FK_Customerabsent_Customerabsent" ManuallyRouted="false" />
+        <AssociationConnector Association="CenterDBModel.FK_Customers_CustomerStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="CenterDBModel.FK_Customers_Gender" ManuallyRouted="false" />
+        <AssociationConnector Association="CenterDBModel.FK_GroupCustomers_Customers" ManuallyRouted="false" />
+        <AssociationConnector Association="CenterDBModel.FK_Instractors_Gender" ManuallyRouted="false" />
+        <AssociationConnector Association="CenterDBModel.FK_GroupCustomers_Groups" ManuallyRouted="false" />
+        <AssociationConnector Association="CenterDBModel.FK_Groups_GroupStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="CenterDBModel.FK_schedules_schedules" ManuallyRouted="false" />
+        <AssociationConnector Association="CenterDBModel.FK_Instractors_InstractorStatus" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
