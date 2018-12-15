@@ -122,7 +122,7 @@
   </data>
   <data name="BTL" xml:space="preserve">
     <value>العودة  إلى القائمة</value>
-	 </data>
+  </data>
   <data name="Allcourses" xml:space="preserve">
     <value>جميع الكورسات</value>
   </data>
@@ -137,7 +137,7 @@
   </data>
   <data name="Create" xml:space="preserve">
     <value>إنشاء</value>
-	</data>
+  </data>
   <data name="Email" xml:space="preserve">
     <value>البريد الالكتروني</value>
   </data>
@@ -161,5 +161,17 @@
   </data>
   <data name="UsefulLinks" xml:space="preserve">
     <value>روابط مفيدة</value>
+  </data>
+  <data name="Active" xml:space="preserve">
+    <value>نشط</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>تفاصيل</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>تعديل</value>
+  </data>
+  <data name="Inactive" xml:space="preserve">
+    <value>غير نشط</value>
   </data>
 </root>
