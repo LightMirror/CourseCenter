@@ -38,6 +38,8 @@
         <AssociationConnector Association="CenterDBModel.FK_Groups_GroupStatus" ManuallyRouted="false" />
         <AssociationConnector Association="CenterDBModel.FK_schedules_schedules" ManuallyRouted="false" />
         <AssociationConnector Association="CenterDBModel.FK_Instractors_InstractorStatus" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="CenterDBModel.FAQs" Width="1.5" PointX="11.375" PointY="0.75" />
+        <AssociationConnector Association="CenterDBModel.FK_FAQs_FAQs" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

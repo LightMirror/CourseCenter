@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="CenterDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="CenterDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Corporates">
           <Key>
             <PropertyRef Name="ID" />
@@ -106,6 +106,21 @@
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Status_EngName" Type="nvarchar" MaxLength="50" />
           <Property Name="Status_AraName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="FAQs">
+          <Key>
+            <PropertyRef Name="FAQ_ID" />
+          </Key>
+          <Property Name="FAQ_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FAQ_QuestionEng" Type="nvarchar" MaxLength="300" />
+          <Property Name="FAQ_QuestionAra" Type="nvarchar" MaxLength="300" />
+          <Property Name="FAQ_AnswerEng" Type="nvarchar" MaxLength="300" />
+          <Property Name="FAQ_AnswerAra" Type="nvarchar" MaxLength="300" />
+          <Property Name="FAQ_Status" Type="bit" Nullable="false" />
+          <Property Name="FAQ_CreattonUser" Type="nvarchar" MaxLength="200" />
+          <Property Name="FAQ_CreationDate" Type="datetime" />
+          <Property Name="FAQ_ModifiedUser" Type="nvarchar" MaxLength="200" />
+          <Property Name="FAQ_ModifiedDate" Type="datetime" />
         </EntityType>
         <EntityType Name="Gender">
           <Key>
@@ -316,6 +331,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_FAQs_FAQs">
+          <End Role="FAQs" Type="Self.FAQs" Multiplicity="1" />
+          <End Role="FAQs1" Type="Self.FAQs" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="FAQs">
+              <PropertyRef Name="FAQ_ID" />
+            </Principal>
+            <Dependent Role="FAQs1">
+              <PropertyRef Name="FAQ_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_GroupCustomers_Customers">
           <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
           <End Role="GroupCustomers" Type="Self.GroupCustomers" Multiplicity="*" />
@@ -409,6 +436,7 @@
           <EntitySet Name="Customerabsent" EntityType="Self.Customerabsent" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CustomerStatus" EntityType="Self.CustomerStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FAQs" EntityType="Self.FAQs" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Gender" EntityType="Self.Gender" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GroupCustomers" EntityType="Self.GroupCustomers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Groups" EntityType="Self.Groups" Schema="dbo" store:Type="Tables" />
@@ -454,6 +482,10 @@
             <End Role="Gender" EntitySet="Gender" />
             <End Role="Customers" EntitySet="Customers" />
           </AssociationSet>
+          <AssociationSet Name="FK_FAQs_FAQs" Association="Self.FK_FAQs_FAQs">
+            <End Role="FAQs" EntitySet="FAQs" />
+            <End Role="FAQs1" EntitySet="FAQs" />
+          </AssociationSet>
           <AssociationSet Name="FK_GroupCustomers_Customers" Association="Self.FK_GroupCustomers_Customers">
             <End Role="Customers" EntitySet="Customers" />
             <End Role="GroupCustomers" EntitySet="GroupCustomers" />
@@ -483,8 +515,7 @@
             <End Role="schedules" EntitySet="schedules" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="CenterDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -997,7 +1028,41 @@
             <End Role="InstractorStatus" EntitySet="InstractorStatus" />
             <End Role="Instractors" EntitySet="Instractors" />
           </AssociationSet>
+          <EntitySet Name="FAQs" EntityType="CenterDBModel.FAQs" />
+          <AssociationSet Name="FK_FAQs_FAQs" Association="CenterDBModel.FK_FAQs_FAQs">
+            <End Role="FAQs" EntitySet="FAQs" />
+            <End Role="FAQs1" EntitySet="FAQs" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="FAQs">
+          <Key>
+            <PropertyRef Name="FAQ_ID" />
+          </Key>
+          <Property Name="FAQ_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FAQ_QuestionEng" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="FAQ_QuestionAra" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="FAQ_AnswerEng" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="FAQ_AnswerAra" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="FAQ_Status" Type="Boolean" Nullable="false" />
+          <Property Name="FAQ_CreattonUser" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="FAQ_CreationDate" Type="DateTime" Precision="3" />
+          <Property Name="FAQ_ModifiedUser" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="FAQ_ModifiedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="FAQs1" Relationship="CenterDBModel.FK_FAQs_FAQs" FromRole="FAQs" ToRole="FAQs1" />
+          <NavigationProperty Name="FAQs2" Relationship="CenterDBModel.FK_FAQs_FAQs" FromRole="FAQs1" ToRole="FAQs" />
+        </EntityType>
+        <Association Name="FK_FAQs_FAQs">
+          <End Type="CenterDBModel.FAQs" Role="FAQs" Multiplicity="1" />
+          <End Type="CenterDBModel.FAQs" Role="FAQs1" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="FAQs">
+              <PropertyRef Name="FAQ_ID" />
+            </Principal>
+            <Dependent Role="FAQs1">
+              <PropertyRef Name="FAQ_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1221,6 +1286,22 @@
                 <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
                 <ScalarProperty Name="version" ColumnName="version" />
                 <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FAQs">
+            <EntityTypeMapping TypeName="CenterDBModel.FAQs">
+              <MappingFragment StoreEntitySet="FAQs">
+                <ScalarProperty Name="FAQ_ModifiedDate" ColumnName="FAQ_ModifiedDate" />
+                <ScalarProperty Name="FAQ_ModifiedUser" ColumnName="FAQ_ModifiedUser" />
+                <ScalarProperty Name="FAQ_CreationDate" ColumnName="FAQ_CreationDate" />
+                <ScalarProperty Name="FAQ_CreattonUser" ColumnName="FAQ_CreattonUser" />
+                <ScalarProperty Name="FAQ_Status" ColumnName="FAQ_Status" />
+                <ScalarProperty Name="FAQ_AnswerAra" ColumnName="FAQ_AnswerAra" />
+                <ScalarProperty Name="FAQ_AnswerEng" ColumnName="FAQ_AnswerEng" />
+                <ScalarProperty Name="FAQ_QuestionAra" ColumnName="FAQ_QuestionAra" />
+                <ScalarProperty Name="FAQ_QuestionEng" ColumnName="FAQ_QuestionEng" />
+                <ScalarProperty Name="FAQ_ID" ColumnName="FAQ_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
