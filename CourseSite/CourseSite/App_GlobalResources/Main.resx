@@ -118,13 +118,19 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="About" xml:space="preserve">
-    <value>About</value>
+    <value>About us</value>
+  </data>
+  <data name="Allcourses" xml:space="preserve">
+    <value>All courses</value>
   </data>
   <data name="ContactUS" xml:space="preserve">
-    <value>Contact US</value>
+    <value>Contact us</value>
   </data>
   <data name="Courses" xml:space="preserve">
     <value>Courses</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email:</value>
   </data>
   <data name="Events" xml:space="preserve">
     <value>Events</value>
@@ -139,6 +145,12 @@
     <value>Home</value>
   </data>
   <data name="Lang" xml:space="preserve">
-    <value>ع</value>
+    <value>عربي</value>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>Phone:</value>
+  </data>
+  <data name="UsefulLinks" xml:space="preserve">
+    <value>Useful Links</value>
   </data>
 </root>

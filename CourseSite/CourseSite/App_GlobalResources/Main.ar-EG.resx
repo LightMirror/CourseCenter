@@ -120,11 +120,20 @@
   <data name="About" xml:space="preserve">
     <value>عنا </value>
   </data>
+  <data name="Allcourses" xml:space="preserve">
+    <value>جميع الكورسات</value>
+  </data>
+  <data name="AvailableSchedules" xml:space="preserve">
+    <value>الجداول المتاحة</value>
+  </data>
   <data name="ContactUS" xml:space="preserve">
     <value>اتصل بنا</value>
   </data>
   <data name="Courses" xml:space="preserve">
     <value>كورسات</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>البريد الالكتروني</value>
   </data>
   <data name="Events" xml:space="preserve">
     <value>الاحداث</value>
@@ -140,5 +149,11 @@
   </data>
   <data name="Lang" xml:space="preserve">
     <value>En</value>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>رقم الهاتف</value>
+  </data>
+  <data name="UsefulLinks" xml:space="preserve">
+    <value>روابط مفيدة</value>
   </data>
 </root>

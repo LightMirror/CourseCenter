@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>TheEvent - Bootstrap Event Template</title>
+    <title> </title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -46,17 +46,17 @@
 
             <nav id="nav-menu-container">
                 <ul class="nav-menu">
-                    <li class="menu-active"><a href="#intro">@Resources.Main.Home</a></li>                    
+                    <li class="menu-active"><a href="#Home">@Resources.Main.Home</a></li>                    
                     <li><a href="#about">@Resources.Main.About</a></li>
-                    <li><a href="#speakers">Speakers</a></li>
-                    <li><a href="#schedule">Schedule</a></li>
-                    <li><a href="#venue">Venue</a></li>
-                    <li><a href="#hotels">Courses</a></li>
+                    @*<li><a href="#speakers">Speakers</a></li>
+                    <li><a href="#schedule">Schedule</a></li>*@
+                    <li><a href="#faq">@Resources.Main.FAQ</a></li>
+                    <li><a href="#hotels">@Resources.Main.Courses</a></li>
                     <li><a href="#gallery">@Resources.Main.Gallery</a></li>
                     <li><a href="#sponsors">Sponsors</a></li>
                     <li><a href="#contact">@Resources.Main.ContactUS</a></li>
-                    <li>@Html.ActionLink(Resources.Main.Lang, "ChangeLang", null, new { @id = "lnkLanguage" })</li>
-                    <li class="buy-tickets"><a href="#buy-tickets">Buy Tickets</a></li>                    
+                    <li class="buy-tickets">@Html.ActionLink(Resources.Main.Lang, "ChangeLang","Home" , new { @id = "lnkLanguage" })</li>
+                    @*<li class="buy-tickets"><a href="#buy-tickets">Buy Tickets</a></li>*@                    
                 </ul>
             </nav><!-- #nav-menu-container -->
         </div>
@@ -75,35 +75,36 @@
                     </div>
 
                     <div class="col-lg-3 col-md-6 footer-links">
-                        <h4>Useful Links</h4>
+                        <h4>@Resources.Main.UsefulLinks</h4>
                         <ul>
-                            <li><i class="fa fa-angle-right"></i> <a href="#">Home</a></li>
-                            <li><i class="fa fa-angle-right"></i> <a href="#">About us</a></li>
-                            <li><i class="fa fa-angle-right"></i> <a href="#">Services</a></li>
-                            <li><i class="fa fa-angle-right"></i> <a href="#">Terms of service</a></li>
-                            <li><i class="fa fa-angle-right"></i> <a href="#">Privacy policy</a></li>
+                            <li><i class="fa fa-angle-right"></i> <a href="#intro">@Resources.Main.Home</a></li>
+                            <li><i class="fa fa-angle-right"></i> <a href="#about">@Resources.Main.About</a></li>
+                            <li><i class="fa fa-angle-right"></i> <a href="#hotels">@Resources.Main.Courses</a></li>
+                            <li><i class="fa fa-angle-right"></i> <a href="#faq">@Resources.Main.FAQ</a></li>
+                            <li><i class="fa fa-angle-right"></i> <a href="#contact">@Resources.Main.ContactUS</a></li>
                         </ul>
                     </div>
 
                     <div class="col-lg-3 col-md-6 footer-links">
                         <h4>Useful Links</h4>
                         <ul>
-                            <li><i class="fa fa-angle-right"></i> <a href="#">Home</a></li>
-                            <li><i class="fa fa-angle-right"></i> <a href="#">About us</a></li>
-                            <li><i class="fa fa-angle-right"></i> <a href="#">Services</a></li>
+                            <li><i class="fa fa-angle-right"></i> <a href="#">@Resources.Main.Allcourses</a></li> @*course index all active*@
+                            @*<li><i class="fa fa-angle-right"></i> <a href="#">Available schedules</a></li> @*schedules index all active*@
+                            @*<li><i class="fa fa-angle-right"></i> <a href="#">Services</a></li>
                             <li><i class="fa fa-angle-right"></i> <a href="#">Terms of service</a></li>
-                            <li><i class="fa fa-angle-right"></i> <a href="#">Privacy policy</a></li>
+                            <li><i class="fa fa-angle-right"></i> <a href="#">Privacy policy</a></li>*@
                         </ul>
                     </div>
 
                     <div class="col-lg-3 col-md-6 footer-contact">
-                        <h4>Contact Us</h4>
+                        <h4>@Resources.Main.ContactUS</h4>
                         <p>
                             A108 Adam Street <br>
                             New York, NY 535022<br>
                             United States <br>
-                            <strong>Phone:</strong> +1 5589 55488 55<br>
-                            <strong>Email:</strong> info@example.com<br>
+                            <strong> <span class="glyphicon glyphicon-earphone"></span> </strong> +1 5589 55488 55<br>
+                            <strong>@Resources.Main.Email</strong> info@example.com<br>
+                            <strong>@Resources.Main.Email</strong> info@example.com<br>
                         </p>
 
                         <div class="social-links">

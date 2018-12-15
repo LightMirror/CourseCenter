@@ -19,7 +19,7 @@ namespace Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option or rebuild the Visual Studio project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Web.Application.StronglyTypedResourceProxyBuilder", "15.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Web.Application.StronglyTypedResourceProxyBuilder", "14.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Main {
@@ -61,7 +61,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to About.
+        ///   Looks up a localized string similar to About us.
         /// </summary>
         internal static string About {
             get {
@@ -70,7 +70,16 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Contact US.
+        ///   Looks up a localized string similar to All courses.
+        /// </summary>
+        internal static string Allcourses {
+            get {
+                return ResourceManager.GetString("Allcourses", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Contact us.
         /// </summary>
         internal static string ContactUS {
             get {
@@ -84,6 +93,15 @@ namespace Resources {
         internal static string Courses {
             get {
                 return ResourceManager.GetString("Courses", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email:.
+        /// </summary>
+        internal static string Email {
+            get {
+                return ResourceManager.GetString("Email", resourceCulture);
             }
         }
         
@@ -124,11 +142,29 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ع.
+        ///   Looks up a localized string similar to عربي.
         /// </summary>
         internal static string Lang {
             get {
                 return ResourceManager.GetString("Lang", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Phone:.
+        /// </summary>
+        internal static string Phone {
+            get {
+                return ResourceManager.GetString("Phone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Useful Links.
+        /// </summary>
+        internal static string UsefulLinks {
+            get {
+                return ResourceManager.GetString("UsefulLinks", resourceCulture);
             }
         }
     }
