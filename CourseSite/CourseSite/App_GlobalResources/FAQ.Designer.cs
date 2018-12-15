@@ -22,14 +22,14 @@ namespace Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Web.Application.StronglyTypedResourceProxyBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Main {
+    internal class FAQ {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Main() {
+        internal FAQ() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace Resources {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Resources.Main", global::System.Reflection.Assembly.Load("App_GlobalResources"));
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Resources.FAQ", global::System.Reflection.Assembly.Load("App_GlobalResources"));
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,92 +61,56 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to About.
+        ///   Looks up a localized string similar to Answer In Ar.
         /// </summary>
-        internal static string About {
+        internal static string AnsAr {
             get {
-                return ResourceManager.GetString("About", resourceCulture);
+                return ResourceManager.GetString("AnsAr", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Back To List.
+        ///   Looks up a localized string similar to Answer In En.
         /// </summary>
-        internal static string BTL {
+        internal static string AnsEn {
             get {
-                return ResourceManager.GetString("BTL", resourceCulture);
+                return ResourceManager.GetString("AnsEn", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Contact US.
+        ///   Looks up a localized string similar to FAQs.
         /// </summary>
-        internal static string ContactUS {
+        internal static string FAQs {
             get {
-                return ResourceManager.GetString("ContactUS", resourceCulture);
+                return ResourceManager.GetString("FAQs", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Courses.
+        ///   Looks up a localized string similar to Question in Ar.
         /// </summary>
-        internal static string Courses {
+        internal static string QAr {
             get {
-                return ResourceManager.GetString("Courses", resourceCulture);
+                return ResourceManager.GetString("QAr", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Create.
+        ///   Looks up a localized string similar to Question in En.
         /// </summary>
-        internal static string Create {
+        internal static string QEn {
             get {
-                return ResourceManager.GetString("Create", resourceCulture);
+                return ResourceManager.GetString("QEn", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Events.
+        ///   Looks up a localized string similar to Question Status.
         /// </summary>
-        internal static string Events {
+        internal static string QStatus {
             get {
-                return ResourceManager.GetString("Events", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to F.A.Q.
-        /// </summary>
-        internal static string FAQ {
-            get {
-                return ResourceManager.GetString("FAQ", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Gallery.
-        /// </summary>
-        internal static string Gallery {
-            get {
-                return ResourceManager.GetString("Gallery", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Home.
-        /// </summary>
-        internal static string Home {
-            get {
-                return ResourceManager.GetString("Home", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to ع.
-        /// </summary>
-        internal static string Lang {
-            get {
-                return ResourceManager.GetString("Lang", resourceCulture);
+                return ResourceManager.GetString("QStatus", resourceCulture);
             }
         }
     }

@@ -1,0 +1,91 @@
+﻿@model CourseSite.Models.DAL.FAQs
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>FAQs</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FAQ_QuestionEng)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FAQ_QuestionEng)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FAQ_QuestionAra)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FAQ_QuestionAra)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FAQ_AnswerEng)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FAQ_AnswerEng)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FAQ_AnswerAra)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FAQ_AnswerAra)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FAQ_Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FAQ_Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FAQ_CreattonUser)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FAQ_CreattonUser)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FAQ_CreationDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FAQ_CreationDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FAQ_ModifiedUser)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FAQ_ModifiedUser)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FAQ_ModifiedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FAQ_ModifiedDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.FAQ_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
