@@ -1,0 +1,82 @@
+﻿@model IEnumerable<CourseSite.Models.DAL.Instractors>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Instractor_EngName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Instractor_AraName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Instractor_Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Instractor_Mobile)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Instractor_phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Instractor_Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Instractor_Birthdate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gender.Gender_EngName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InstractorStatus.Status_EngName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Instractor_EngName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Instractor_AraName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Instractor_Address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Instractor_Mobile)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Instractor_phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Instractor_Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Instractor_Birthdate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Gender.Gender_EngName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InstractorStatus.Status_EngName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

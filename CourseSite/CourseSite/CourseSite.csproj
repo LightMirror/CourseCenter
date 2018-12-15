@@ -216,6 +216,7 @@
     <Compile Include="Common\UImanger.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InstractorController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -459,6 +460,11 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\Main.cshtml" />
+    <Content Include="Views\Instractor\Create.cshtml" />
+    <Content Include="Views\Instractor\Delete.cshtml" />
+    <Content Include="Views\Instractor\Details.cshtml" />
+    <Content Include="Views\Instractor\Edit.cshtml" />
+    <Content Include="Views\Instractor\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
