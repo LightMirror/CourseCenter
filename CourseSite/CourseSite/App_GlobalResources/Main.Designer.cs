@@ -72,9 +72,13 @@ namespace Resources {
         /// <summary>
         ///   Looks up a localized string similar to Back To List.
         /// </summary>
-        internal static string BTL {
-            get {
+        internal static string BTL
+        {
+            get
+            {
                 return ResourceManager.GetString("BTL", resourceCulture);
+            }
+        }
 
         ///   Looks up a localized string similar to All courses.
         /// </summary>
@@ -105,9 +109,13 @@ namespace Resources {
         /// <summary>
         ///   Looks up a localized string similar to Create.
         /// </summary>
-        internal static string Create {
-            get {
+        internal static string Create
+        {
+            get
+            {
                 return ResourceManager.GetString("Create", resourceCulture);
+            }
+        }
         ///   Looks up a localized string similar to Email:.
         /// </summary>
         internal static string Email {
