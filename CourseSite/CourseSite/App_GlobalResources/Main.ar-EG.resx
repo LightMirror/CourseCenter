@@ -126,9 +126,6 @@
   <data name="Courses" xml:space="preserve">
     <value>كورسات</value>
   </data>
-  <data name="Email" xml:space="preserve">
-    <value>البريد الالكتروني</value>
-  </data>
   <data name="Events" xml:space="preserve">
     <value>الاحداث</value>
   </data>
@@ -143,11 +140,5 @@
   </data>
   <data name="Lang" xml:space="preserve">
     <value>En</value>
-  </data>
-  <data name="Phone" xml:space="preserve">
-    <value>رقم الهاتف</value>
-  </data>
-  <data name="UsefulLinks" xml:space="preserve">
-    <value>روابط مفيدة</value>
   </data>
 </root>
