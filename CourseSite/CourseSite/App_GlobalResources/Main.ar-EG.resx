@@ -120,6 +120,8 @@
   <data name="About" xml:space="preserve">
     <value>عنا </value>
   </data>
+  <data name="BTL" xml:space="preserve">
+    <value>العودة  إلى القائمة</value>
   <data name="Allcourses" xml:space="preserve">
     <value>جميع الكورسات</value>
   </data>
@@ -132,6 +134,8 @@
   <data name="Courses" xml:space="preserve">
     <value>كورسات</value>
   </data>
+  <data name="Create" xml:space="preserve">
+    <value>إنشاء</value>
   <data name="Email" xml:space="preserve">
     <value>البريد الالكتروني</value>
   </data>

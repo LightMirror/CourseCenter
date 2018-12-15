@@ -1,0 +1,97 @@
+﻿@model CourseSite.Models.DAL.FAQs
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>FAQs</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FAQ_QuestionEng)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FAQ_QuestionEng)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FAQ_QuestionAra)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FAQ_QuestionAra)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FAQ_AnswerEng)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FAQ_AnswerEng)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FAQ_AnswerAra)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FAQ_AnswerAra)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FAQ_Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FAQ_Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FAQ_CreattonUser)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FAQ_CreattonUser)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FAQ_CreationDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FAQ_CreationDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FAQ_ModifiedUser)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FAQ_ModifiedUser)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FAQ_ModifiedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FAQ_ModifiedDate)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
