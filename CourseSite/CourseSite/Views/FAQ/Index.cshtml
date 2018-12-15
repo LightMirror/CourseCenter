@@ -1,0 +1,68 @@
+﻿@model IEnumerable<CourseSite.Models.DAL.FAQs>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<div class="container">
+    <table class="table table-hover table-striped table-bordered table-margin-bottom-clear ">
+        <tr>
+            <th>
+                @Resources.FAQ.QEn
+            </th>
+            <th>
+                @Resources.FAQ.QAr
+            </th>
+            <th>
+                @Resources.FAQ.AnsEn
+            </th>
+            <th>
+                @Resources.FAQ.AnsAr
+            </th>
+            <th>
+                @Resources.FAQ.QStatus
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FAQ_QuestionEng)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FAQ_QuestionAra)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FAQ_AnswerEng)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FAQ_AnswerAra)
+                </td>
+                <td>
+                    @{
+                if (item.FAQ_Status)
+                {
+                            @Resources.Main.Active
+                }
+                else
+                {
+                            @Resources.Main.Inactive
+                }
+                    }
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id=item.FAQ_ID }) |
+                    @Html.ActionLink("Details", "Details", new { id=item.FAQ_ID })
+                </td>
+            </tr>
+}
+
+    </table>
+</div>

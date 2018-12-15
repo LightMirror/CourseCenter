@@ -61,7 +61,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to About.
+        ///   Looks up a localized string similar to About us.
         /// </summary>
         internal static string About {
             get {
@@ -70,7 +70,34 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Contact US.
+        ///   Looks up a localized string similar to Active.
+        /// </summary>
+        internal static string Active {
+            get {
+                return ResourceManager.GetString("Active", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to All courses.
+        /// </summary>
+        internal static string Allcourses {
+            get {
+                return ResourceManager.GetString("Allcourses", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Back To List.
+        /// </summary>
+        internal static string BTL {
+            get {
+                return ResourceManager.GetString("BTL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Contact us.
         /// </summary>
         internal static string ContactUS {
             get {
@@ -84,6 +111,42 @@ namespace Resources {
         internal static string Courses {
             get {
                 return ResourceManager.GetString("Courses", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create.
+        /// </summary>
+        internal static string Create {
+            get {
+                return ResourceManager.GetString("Create", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Details.
+        /// </summary>
+        internal static string Details {
+            get {
+                return ResourceManager.GetString("Details", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit.
+        /// </summary>
+        internal static string Edit {
+            get {
+                return ResourceManager.GetString("Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email:.
+        /// </summary>
+        internal static string Email {
+            get {
+                return ResourceManager.GetString("Email", resourceCulture);
             }
         }
         
@@ -124,11 +187,38 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ع.
+        ///   Looks up a localized string similar to Inactive.
+        /// </summary>
+        internal static string Inactive {
+            get {
+                return ResourceManager.GetString("Inactive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to عربي.
         /// </summary>
         internal static string Lang {
             get {
                 return ResourceManager.GetString("Lang", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Phone:.
+        /// </summary>
+        internal static string Phone {
+            get {
+                return ResourceManager.GetString("Phone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Useful Links.
+        /// </summary>
+        internal static string UsefulLinks {
+            get {
+                return ResourceManager.GetString("UsefulLinks", resourceCulture);
             }
         }
     }

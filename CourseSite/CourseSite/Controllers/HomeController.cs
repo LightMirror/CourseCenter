@@ -13,12 +13,12 @@ namespace CourseSite.Controllers
         public ActionResult Index()
         {
 
-            return View();
+            return View("Main");
         }
-        public ActionResult Main()
-        {
-            return View();
-        }
+        //public ActionResult Main()
+        //{
+        //    return View();
+        //}
 
         public ActionResult About()
         {

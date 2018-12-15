@@ -196,6 +196,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_GlobalResources\FAQ.ar-EG.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FAQ.ar-EG.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\FAQ.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FAQ.resx</DependentUpon>
+    </Compile>
     <Compile Include="App_GlobalResources\Main.ar-EG.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -216,6 +226,7 @@
     <Compile Include="Common\UImanger.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CourseController.cs" />
+    <Compile Include="Controllers\FAQController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InstractorController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -263,7 +274,9 @@
     <Compile Include="Models\DAL\CustomerStatus.cs">
       <DependentUpon>CenterDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DAL\FAQs.cs" />
+    <Compile Include="Models\DAL\FAQs.cs">
+      <DependentUpon>CenterDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\DAL\Gender.cs">
       <DependentUpon>CenterDB.tt</DependentUpon>
     </Compile>
@@ -469,6 +482,11 @@
     <Content Include="Views\Instractor\Edit.cshtml" />
     <Content Include="Views\Instractor\Index.cshtml" />
     <Content Include="Views\Course\Index.cshtml" />
+    <Content Include="Views\FAQ\Create.cshtml" />
+    <Content Include="Views\FAQ\Delete.cshtml" />
+    <Content Include="Views\FAQ\Details.cshtml" />
+    <Content Include="Views\FAQ\Edit.cshtml" />
+    <Content Include="Views\FAQ\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -495,6 +513,18 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\FAQ.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>FAQ.Designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\FAQ.ar-EG.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>FAQ.ar-EG.designer.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

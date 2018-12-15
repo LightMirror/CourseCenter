@@ -24,8 +24,5 @@ namespace CourseSite.Models.DAL
         public Nullable<System.DateTime> FAQ_CreationDate { get; set; }
         public string FAQ_ModifiedUser { get; set; }
         public Nullable<System.DateTime> FAQ_ModifiedDate { get; set; }
-    
-        public virtual FAQs FAQs1 { get; set; }
-        public virtual FAQs FAQs2 { get; set; }
     }
 }
