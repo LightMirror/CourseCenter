@@ -261,6 +261,7 @@
     <Compile Include="Models\DAL\CustomerStatus.cs">
       <DependentUpon>CenterDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\DAL\FAQs.cs" />
     <Compile Include="Models\DAL\Gender.cs">
       <DependentUpon>CenterDB.tt</DependentUpon>
     </Compile>
