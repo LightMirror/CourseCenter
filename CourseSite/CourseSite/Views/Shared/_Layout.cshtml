@@ -1,16 +1,8 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <!--<meta http-equiv="X-UA-Compatible" content="IE=8, IE=9, chrome=1" />-->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - IATLC</title>
-
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
-
-    @RenderSection("scripts", required: false)
+    <meta charset="utf-8">
+    <title> </title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -40,26 +32,7 @@
           Author: BootstrapMade.com
           License: https://bootstrapmade.com/license/
         !-->
-
-    <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
-
-    <!-- JavaScript Libraries -->
-    <script src="~/Content/lib/jquery/jquery.min.js"></script>
-    <script src="~/Content/lib/jquery/jquery-migrate.min.js"></script>
-    <script src="~/Content/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="~/Content/lib/easing/easing.min.js"></script>
-    <script src="~/Content/lib/superfish/hoverIntent.js"></script>
-    <script src="~/Content/lib/superfish/superfish.min.js"></script>
-    <script src="~/Content/lib/wow/wow.min.js"></script>
-    <script src="~/Content/lib/venobox/venobox.min.js"></script>
-    <script src="~/Content/lib/owlcarousel/owl.carousel.min.js"></script>
-
-    <!-- Contact Form JavaScript File -->
-    <script src="~/Scripts/contactform/contactform.js"></script>
-
-    <!-- Template Main Javascript File -->
-    <script src="~/Scripts/js/main.js"></script>
-
+    @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
     <header id="header">
@@ -131,7 +104,7 @@
                             A108 Adam Street <br>
                             New York, NY 535022<br>
                             United States <br>
-                            <strong> <span class="glyphicon glyphicon-earphone"></span> </strong> +1 5589 55488 55<br>
+                            <strong> @Resources.Main.Phone</strong> +1 5589 55488 55<br>
                             <strong>@Resources.Main.Email</strong> info@example.com<br>
                             <strong>@Resources.Main.Email</strong> info@example.com<br>
                         </p>
@@ -166,7 +139,27 @@
         </div>
     </footer>
 
+    <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
 
+    <!-- JavaScript Libraries -->
+    <script src="~/Content/lib/jquery/jquery.min.js"></script>
+    <script src="~/Content/lib/jquery/jquery-migrate.min.js"></script>
+    <script src="~/Content/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/Content/lib/easing/easing.min.js"></script>
+    <script src="~/Content/lib/superfish/hoverIntent.js"></script>
+    <script src="~/Content/lib/superfish/superfish.min.js"></script>
+    <script src="~/Content/lib/wow/wow.min.js"></script>
+    <script src="~/Content/lib/venobox/venobox.min.js"></script>
+    <script src="~/Content/lib/owlcarousel/owl.carousel.min.js"></script>
 
+    <!-- Contact Form JavaScript File -->
+    <script src="~/Scripts/contactform/contactform.js"></script>
+
+    <!-- Template Main Javascript File -->
+    <script src="~/Scripts/js/main.js"></script>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
 </body>
     </html>
