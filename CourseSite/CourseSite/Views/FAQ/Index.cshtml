@@ -1,16 +1,19 @@
 ﻿@model IEnumerable<CourseSite.Models.DAL.FAQs>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = Resources.Main.List + Resources.FAQ.FAQs;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+
+
 <div class="container">
+    <h2>@Resources.Main.List  @Resources.FAQ.FAQs</h2>
+    <p>
+        @Html.ActionLink(@Resources.Main.CreateNew, "Create")
+    </p>
+
     <table class="table table-hover table-striped table-bordered table-margin-bottom-clear ">
         <tr>
             <th>
@@ -58,8 +61,7 @@
                     }
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id=item.FAQ_ID }) |
-                    @Html.ActionLink("Details", "Details", new { id=item.FAQ_ID })
+                    @Html.ActionLink(Resources.Main.Edit, "Edit", new { id=item.FAQ_ID })                 
                 </td>
             </tr>
 }
