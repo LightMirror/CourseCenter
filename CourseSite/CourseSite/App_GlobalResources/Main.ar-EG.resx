@@ -174,4 +174,13 @@
   <data name="Inactive" xml:space="preserve">
     <value>غير نشط</value>
   </data>
+  <data name="Save" xml:space="preserve">
+    <value>حفظ</value>
+  </data>
+  <data name="CreateNew" xml:space="preserve">
+    <value>إنشاء جديد</value>
+  </data>
+  <data name="List" xml:space="preserve">
+    <value>قائمة</value>
+  </data>
 </root>
