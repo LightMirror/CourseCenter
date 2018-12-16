@@ -487,6 +487,7 @@
     <Content Include="Views\FAQ\Details.cshtml" />
     <Content Include="Views\FAQ\Edit.cshtml" />
     <Content Include="Views\FAQ\Index.cshtml" />
+    <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
