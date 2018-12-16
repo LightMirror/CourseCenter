@@ -135,4 +135,7 @@
   <data name="QStatus" xml:space="preserve">
     <value>حالة السؤال</value>
   </data>
+  <data name="RequiredFiled" xml:space="preserve">
+    <value>الرجاء ادخال {0}</value>
+  </data>
 </root>

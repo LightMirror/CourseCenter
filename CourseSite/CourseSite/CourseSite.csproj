@@ -515,10 +515,10 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_GlobalResources\FAQ.resx">
-      <Generator>GlobalResourceProxyGenerator</Generator>
+    <EmbeddedResource Include="App_GlobalResources\FAQ.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>FAQ.Designer.cs</LastGenOutput>
-    </Content>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_GlobalResources\FAQ.ar-EG.resx">
