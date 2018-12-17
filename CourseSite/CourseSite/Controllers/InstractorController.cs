@@ -53,8 +53,9 @@ namespace CourseSite.Controllers
         // GET: Instractor/Create
         public ActionResult Create()
         {
-            ViewBag.Instractor_GenderID = new SelectList(db.Gender, "ID", "Gender_EngName");
-            ViewBag.Instractor_StatusID = new SelectList(db.InstractorStatus, "ID", "Status_EngName");
+
+            ViewBag.Instractor_GenderID = new SelectList(db.Gender, "ID", CourseSite.Common.UImanger.CurrentLang=="en"?"Gender_EngName": "Gender_AraName");
+            ViewBag.Instractor_StatusID = new SelectList(db.InstractorStatus, "ID", CourseSite.Common.UImanger.CurrentLang == "en" ? "Status_EngName": "Status_AraName");
             return View();
         }
 
@@ -72,8 +73,8 @@ namespace CourseSite.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.Instractor_GenderID = new SelectList(db.Gender, "ID", "Gender_EngName", instractors.Instractor_GenderID);
-            ViewBag.Instractor_StatusID = new SelectList(db.InstractorStatus, "ID", "Status_EngName", instractors.Instractor_StatusID);
+            ViewBag.Instractor_GenderID = new SelectList(db.Gender, "ID", CourseSite.Common.UImanger.CurrentLang=="en"?"Gender_EngName": "Gender_AraName");
+            ViewBag.Instractor_StatusID = new SelectList(db.InstractorStatus, "ID", CourseSite.Common.UImanger.CurrentLang == "en" ? "Status_EngName": "Status_AraName");
             return View(instractors);
         }
 
@@ -89,8 +90,8 @@ namespace CourseSite.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.Instractor_GenderID = new SelectList(db.Gender, "ID", "Gender_EngName", instractors.Instractor_GenderID);
-            ViewBag.Instractor_StatusID = new SelectList(db.InstractorStatus, "ID", "Status_EngName", instractors.Instractor_StatusID);
+            ViewBag.Instractor_GenderID = new SelectList(db.Gender, "ID", CourseSite.Common.UImanger.CurrentLang == "en" ? "Gender_EngName" : "Gender_AraName");
+            ViewBag.Instractor_StatusID = new SelectList(db.InstractorStatus, "ID", CourseSite.Common.UImanger.CurrentLang == "en" ? "Status_EngName": "Status_AraName");
             return View(instractors);
         }
 
@@ -107,8 +108,8 @@ namespace CourseSite.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.Instractor_GenderID = new SelectList(db.Gender, "ID", "Gender_EngName", instractors.Instractor_GenderID);
-            ViewBag.Instractor_StatusID = new SelectList(db.InstractorStatus, "ID", "Status_EngName", instractors.Instractor_StatusID);
+            ViewBag.Instractor_GenderID = new SelectList(db.Gender, "ID", CourseSite.Common.UImanger.CurrentLang == "en" ? "Gender_EngName" : "Gender_AraName");
+            ViewBag.Instractor_StatusID = new SelectList(db.InstractorStatus, "ID", CourseSite.Common.UImanger.CurrentLang == "en" ? "Status_EngName": "Status_AraName");
             return View(instractors);
         }
 
