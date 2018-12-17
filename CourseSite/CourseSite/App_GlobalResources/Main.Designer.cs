@@ -124,6 +124,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Create New.
+        /// </summary>
+        internal static string CreateNew {
+            get {
+                return ResourceManager.GetString("CreateNew", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Details.
         /// </summary>
         internal static string Details {
@@ -205,11 +214,29 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to List.
+        /// </summary>
+        internal static string List {
+            get {
+                return ResourceManager.GetString("List", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Phone:.
         /// </summary>
         internal static string Phone {
             get {
                 return ResourceManager.GetString("Phone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save.
+        /// </summary>
+        internal static string Save {
+            get {
+                return ResourceManager.GetString("Save", resourceCulture);
             }
         }
         

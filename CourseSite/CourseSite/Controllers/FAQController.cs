@@ -50,6 +50,8 @@ namespace CourseSite.Controllers
         {
             if (ModelState.IsValid)
             {
+                fAQs.FAQ_CreationDate = DateTime.Now;
+                fAQs.FAQ_ModifiedDate = DateTime.Now;
                 db.FAQs.Add(fAQs);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -82,6 +84,7 @@ namespace CourseSite.Controllers
         {
             if (ModelState.IsValid)
             {
+                fAQs.FAQ_ModifiedDate = DateTime.Now;
                 db.Entry(fAQs).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
