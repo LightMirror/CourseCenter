@@ -16,6 +16,7 @@ namespace CourseSite.Controllers
             return View("Main");
         }
 
+        [Authorize]
         public ActionResult MainAdmin()
         {
             return View("MainAdmin");
