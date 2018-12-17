@@ -500,6 +500,9 @@
     <Content Include="Views\FAQ\Edit.cshtml" />
     <Content Include="Views\FAQ\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
+    <Content Include="Views\Home\MainAdmin.cshtml" />
+    <Content Include="Views\Course\CourseDetails.cshtml" />
+    <Content Include="Views\Course\_Courses.cshtml" />
     <Content Include="Views\Instractor\Create.cshtml" />
     <Content Include="Views\Instractor\Delete.cshtml" />
     <Content Include="Views\Instractor\Details.cshtml" />

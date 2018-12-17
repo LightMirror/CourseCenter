@@ -2,12 +2,139 @@
 
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - IATLC</title>
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+
+
+    <!--Kendo----------------------------------------------------------------------------------------------->
+    <link rel="stylesheet" href="//kendo.cdn.telerik.com/2015.3.1111/styles/kendo.common-material.min.css" />
+    <link rel="stylesheet" href="//kendo.cdn.telerik.com/2015.3.1111/styles/kendo.material.min.css" />
+    <script src="//kendo.cdn.telerik.com/2015.3.1111/js/jquery.min.js"></script>
+    <script src="//kendo.cdn.telerik.com/2015.3.1111/js/kendo.all.min.js"></script>
 </head>
 <body>
-    <div>
-        @RenderBody()
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("IATLC ", "MainAdmin", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            @Resources.Main.MainDashBoard
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/">@Resources.Main.Courses</a></li>
+                            <li><a href="/">@Resources.Main.Instructors</a></li>
+                            <li><a href="/">@Resources.Main.Customers</a></li>
+                            <li><a href="/">@Resources.Main.corporates</a></li>
+                            <li><a href="/">@Resources.Main.Scheduals</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            @Resources.Main.SiteDashBoard
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/">@Resources.Main.CompanyProfile</a></li>
+                            <li><a href="/">@Resources.FAQ.FAQs</a></li>
+                            <li><a href="/">@Resources.Main.Images</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            @Resources.Main.Groups
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/">@Resources.Main.CreateGroup</a></li>
+                            <li><a href="/">@Resources.Main.AvailableGroup</a></li>
+                            <li><a href="/">@Resources.Main.GroupSearch</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
     </div>
+
+
+
+    <div class="container body-content">
+
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - IATLC</p>
+        </footer>
+
+    </div>
+
+    @RenderSection("scripts", required: false)
+
+    <script>
+
+             $(document).ready(function () {
+                 $(".kendoDate").kendoDateTimePicker();
+
+                 $("kendoTime").kendoDateTimePicker({
+                    timeFormat: "HH:mm" //24 hours format
+                });
+
+                 $('.datepicker').datepicker()
+
+                 $('.ShortDate').datetimepicker({
+                     weekStart: 1,
+                     todayBtn: 1,
+                     autoclose: 1,
+                     todayHighlight: 1,
+                     startView: 2,
+                     minView: 2,
+                     forceParse: 0,
+                     format: "dd/mm/yyyy",
+                     startDate: "01/11/2015"
+                 });
+                 $('.LongDateTime').datetimepicker({
+                     weekStart: 1,
+                     todayBtn: 1,
+                     autoclose: 1,
+                     todayHighlight: 1,
+                     startView: 2,
+                     minView: 2,
+                     forceParse: 1,
+                     format: "dd/mm/yyyy hh:mm:ii P",
+                     startDate: "11-11-2015 10:00:00",
+                     language: 'en',
+                     pick12HourFormat: true
+                 });
+                 $('.date').datepicker({ dateFormat: "dd-M-yyyy HH:mm P" });
+
+             });
+
+    </script>
+
 </body>
 </html>
