@@ -19,7 +19,7 @@ namespace Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option or rebuild the Visual Studio project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Web.Application.StronglyTypedResourceProxyBuilder", "15.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Web.Application.StronglyTypedResourceProxyBuilder", "14.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Main {
@@ -88,6 +88,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Available group.
+        /// </summary>
+        internal static string AvailableGroup {
+            get {
+                return ResourceManager.GetString("AvailableGroup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Back To List.
         /// </summary>
         internal static string BTL {
@@ -97,11 +106,29 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Company Profile.
+        /// </summary>
+        internal static string CompanyProfile {
+            get {
+                return ResourceManager.GetString("CompanyProfile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Contact us.
         /// </summary>
         internal static string ContactUS {
             get {
                 return ResourceManager.GetString("ContactUS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to corporates.
+        /// </summary>
+        internal static string corporates {
+            get {
+                return ResourceManager.GetString("corporates", resourceCulture);
             }
         }
         
@@ -120,6 +147,24 @@ namespace Resources {
         internal static string Create {
             get {
                 return ResourceManager.GetString("Create", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create group.
+        /// </summary>
+        internal static string CreateGroup {
+            get {
+                return ResourceManager.GetString("CreateGroup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Customers.
+        /// </summary>
+        internal static string Customers {
+            get {
+                return ResourceManager.GetString("Customers", resourceCulture);
             }
         }
         
@@ -178,11 +223,47 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Groups.
+        /// </summary>
+        internal static string Groups {
+            get {
+                return ResourceManager.GetString("Groups", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Group schedules.
+        /// </summary>
+        internal static string Groupschedules {
+            get {
+                return ResourceManager.GetString("Groupschedules", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Group Search.
+        /// </summary>
+        internal static string GroupSearch {
+            get {
+                return ResourceManager.GetString("GroupSearch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Home.
         /// </summary>
         internal static string Home {
             get {
                 return ResourceManager.GetString("Home", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Images.
+        /// </summary>
+        internal static string Images {
+            get {
+                return ResourceManager.GetString("Images", resourceCulture);
             }
         }
         
@@ -196,6 +277,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Instructors.
+        /// </summary>
+        internal static string Instructors {
+            get {
+                return ResourceManager.GetString("Instructors", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to عربي.
         /// </summary>
         internal static string Lang {
@@ -205,11 +295,38 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Main dashboard.
+        /// </summary>
+        internal static string MainDashBoard {
+            get {
+                return ResourceManager.GetString("MainDashBoard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Phone:.
         /// </summary>
         internal static string Phone {
             get {
                 return ResourceManager.GetString("Phone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Scheduals.
+        /// </summary>
+        internal static string Scheduals {
+            get {
+                return ResourceManager.GetString("Scheduals", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Site dashboard.
+        /// </summary>
+        internal static string SiteDashBoard {
+            get {
+                return ResourceManager.GetString("SiteDashBoard", resourceCulture);
             }
         }
         
