@@ -206,6 +206,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>FAQ.resx</DependentUpon>
     </Compile>
+    <Compile Include="App_GlobalResources\Instractors.ar-EG.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Instractors.ar-EG.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Instractors.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Instractors.resx</DependentUpon>
+    </Compile>
     <Compile Include="App_GlobalResources\Main.ar-EG.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -476,11 +486,6 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\Main.cshtml" />
-    <Content Include="Views\Instractor\Create.cshtml" />
-    <Content Include="Views\Instractor\Delete.cshtml" />
-    <Content Include="Views\Instractor\Details.cshtml" />
-    <Content Include="Views\Instractor\Edit.cshtml" />
-    <Content Include="Views\Instractor\Index.cshtml" />
     <Content Include="Views\Course\Index.cshtml" />
     <Content Include="Views\FAQ\Create.cshtml" />
     <Content Include="Views\FAQ\Delete.cshtml" />
@@ -489,6 +494,13 @@
     <Content Include="Views\FAQ\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
     <Content Include="Views\Home\MainAdmin.cshtml" />
+    <Content Include="Views\Course\CourseDetails.cshtml" />
+    <Content Include="Views\Course\_Courses.cshtml" />
+    <Content Include="Views\Instractor\Create.cshtml" />
+    <Content Include="Views\Instractor\Delete.cshtml" />
+    <Content Include="Views\Instractor\Details.cshtml" />
+    <Content Include="Views\Instractor\Edit.cshtml" />
+    <Content Include="Views\Instractor\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -517,16 +529,24 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_GlobalResources\FAQ.resx">
-      <Generator>GlobalResourceProxyGenerator</Generator>
+    <EmbeddedResource Include="App_GlobalResources\FAQ.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>FAQ.Designer.cs</LastGenOutput>
-    </Content>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\Instractors.ar-EG.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Instractors.ar-EG.designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\Instractors.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Instractors.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_GlobalResources\FAQ.ar-EG.resx">
-      <Generator>GlobalResourceProxyGenerator</Generator>
+    <EmbeddedResource Include="App_GlobalResources\FAQ.ar-EG.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>FAQ.ar-EG.designer.cs</LastGenOutput>
-    </Content>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

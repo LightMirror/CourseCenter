@@ -1,12 +1,13 @@
 ﻿@model CourseSite.Models.DAL.FAQs
 
 @{
-    ViewBag.Title = "Create";
+
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewBag.Title = @Resources.Main.Create;
 }
 
 <div class="container">
-    <h2>Create</h2>
+    <h2>@Resources.Main.Create</h2>
 
 
     @using (Html.BeginForm())
@@ -15,7 +16,7 @@
 
 
         <div class="form-horizontal">
-            <h4>FAQs</h4>
+            <h4>@Resources.FAQ.FAQs</h4>
             <hr />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             <div class="form-group">

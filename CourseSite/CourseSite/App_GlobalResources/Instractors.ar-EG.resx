@@ -117,109 +117,40 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="About" xml:space="preserve">
-    <value>عنا </value>
+  <data name="FiledISRequired" xml:space="preserve">
+    <value>الرجاء إدخال {0}</value>
   </data>
-  <data name="BTL" xml:space="preserve">
-    <value>العودة  إلى القائمة</value>
+  <data name="FiledMaxLengtt" xml:space="preserve">
+    <value>الحد الاقصى ل {0} هو</value>
   </data>
-  <data name="Allcourses" xml:space="preserve">
-    <value>جميع الكورسات</value>
+  <data name="Instractor_Address" xml:space="preserve">
+    <value>العنوان</value>
   </data>
-  <data name="AvailableSchedules" xml:space="preserve">
-    <value>الجداول المتاحة</value>
+  <data name="Instractor_AraName" xml:space="preserve">
+    <value>الإسم بالعربية</value>
   </data>
-  <data name="ContactUS" xml:space="preserve">
-    <value>اتصل بنا</value>
+  <data name="Instractor_Birthdate" xml:space="preserve">
+    <value>تاريخ الميلاد</value>
   </data>
-  <data name="Courses" xml:space="preserve">
-    <value>كورسات</value>
-  </data>
-  <data name="Create" xml:space="preserve">
-    <value>إنشاء</value>
-  </data>
-  <data name="Email" xml:space="preserve">
+  <data name="Instractor_Email" xml:space="preserve">
     <value>البريد الالكتروني</value>
   </data>
-  <data name="Events" xml:space="preserve">
-    <value>الاحداث</value>
+  <data name="Instractor_EngName" xml:space="preserve">
+    <value>الإسم بالانجليزية</value>
   </data>
-  <data name="FAQ" xml:space="preserve">
-    <value>الاسئلة الشائعة</value>
+  <data name="Instractor_Gender" xml:space="preserve">
+    <value>النوع</value>
   </data>
-  <data name="Gallery" xml:space="preserve">
-    <value>الصور</value>
+  <data name="Instractor_Mobile" xml:space="preserve">
+    <value>المحمول</value>
   </data>
-  <data name="Home" xml:space="preserve">
-    <value>الرئيسية</value>
+  <data name="Instractor_phone" xml:space="preserve">
+    <value>الهاتف</value>
   </data>
-  <data name="Lang" xml:space="preserve">
-    <value>En</value>
+  <data name="Instractor_Status" xml:space="preserve">
+    <value>الحالة</value>
   </data>
-  <data name="Phone" xml:space="preserve">
-    <value>رقم الهاتف</value>
-  </data>
-  <data name="UsefulLinks" xml:space="preserve">
-    <value>روابط مفيدة</value>
-  </data>
-  <data name="Active" xml:space="preserve">
-    <value>نشط</value>
-  </data>
-  <data name="Details" xml:space="preserve">
-    <value>تفاصيل</value>
-  </data>
-  <data name="Edit" xml:space="preserve">
-    <value>تعديل</value>
-  </data>
-  <data name="Inactive" xml:space="preserve">
-    <value>غير نشط</value>
-  </data>
-  <data name="AvailableGroup" xml:space="preserve">
-    <value>المجموعة المتاحة</value>
-  </data>
-  <data name="CompanyProfile" xml:space="preserve">
-    <value>ملف الشركة</value>
-  </data>
-  <data name="corporates" xml:space="preserve">
-    <value>الشركات</value>
-  </data>
-  <data name="CreateGroup" xml:space="preserve">
-    <value>إنشاء مجموعه</value>
-  </data>
-  <data name="Customers" xml:space="preserve">
-    <value>العملاء</value>
-  </data>
-  <data name="Groups" xml:space="preserve">
-    <value>المجموعات</value>
-  </data>
-  <data name="Groupschedules" xml:space="preserve">
-    <value>مواعيد المجموعات</value>
-  </data>
-  <data name="GroupSearch" xml:space="preserve">
-    <value>البحث عن مجموعة</value>
-  </data>
-  <data name="Images" xml:space="preserve">
-    <value>الصور</value>
-  </data>
-  <data name="Instructors" xml:space="preserve">
-    <value>المدربين</value>
-  </data>
-  <data name="MainDashBoard" xml:space="preserve">
-    <value>وحدة التكم الاساسية</value>
-  </data>
-  <data name="Scheduals" xml:space="preserve">
-    <value>جدول المواعيد</value>
-  </data>
-  <data name="SiteDashBoard" xml:space="preserve">
-    <value>وحدة تحكم الموقع</value>
-	</data>
-  <data name="Save" xml:space="preserve">
-    <value>حفظ</value>
-  </data>
-  <data name="CreateNew" xml:space="preserve">
-    <value>إنشاء جديد</value>
-  </data>
-  <data name="List" xml:space="preserve">
-    <value>قائمة</value>
+  <data name="InstractorsTitle" xml:space="preserve">
+    <value>المحاضرين</value>
   </data>
 </root>

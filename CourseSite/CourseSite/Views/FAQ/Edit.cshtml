@@ -1,107 +1,74 @@
 ﻿@model CourseSite.Models.DAL.FAQs
 
 @{
-    ViewBag.Title = "Edit";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewBag.Title = @Resources.Main.Edit;
 }
 
-<h2>Edit</h2>
+<h2>@Resources.Main.Edit</h2>
 
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>FAQs</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.FAQ_ID)
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.FAQ_QuestionEng, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.FAQ_QuestionEng, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.FAQ_QuestionEng, "", new { @class = "text-danger" })
-            </div>
-        </div>
+    <div class="container">
+        <div class="form-horizontal">
+            <h4>@Resources.FAQ.FAQs</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.FAQ_ID)
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.FAQ_QuestionAra, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.FAQ_QuestionAra, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.FAQ_QuestionAra, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.FAQ_AnswerEng, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.FAQ_AnswerEng, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.FAQ_AnswerEng, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.FAQ_AnswerAra, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.FAQ_AnswerAra, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.FAQ_AnswerAra, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.FAQ_Status, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.FAQ_Status)
-                    @Html.ValidationMessageFor(model => model.FAQ_Status, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.FAQ_QuestionEng, Resources.FAQ.QEn, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.FAQ_QuestionEng, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.FAQ_QuestionEng, "", new { @class = "text-danger" })
                 </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.FAQ_CreattonUser, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.FAQ_CreattonUser, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.FAQ_CreattonUser, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.FAQ_QuestionAra, Resources.FAQ.QAr, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.FAQ_QuestionAra, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.FAQ_QuestionAra, "", new { @class = "text-danger" })
+                </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.FAQ_CreationDate, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.FAQ_CreationDate, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.FAQ_CreationDate, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.FAQ_AnswerEng, Resources.FAQ.AnsEn, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.FAQ_AnswerEng, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.FAQ_AnswerEng, "", new { @class = "text-danger" })
+                </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.FAQ_ModifiedUser, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.FAQ_ModifiedUser, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.FAQ_ModifiedUser, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.FAQ_AnswerAra, Resources.FAQ.AnsAr, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.FAQ_AnswerAra, new { htmlAttributes = new { @class = "form-control" } })                    
+                    @Html.ValidationMessageFor(model => model.FAQ_AnswerAra, "", new { @class = "text-danger" })
+                </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.FAQ_ModifiedDate, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.FAQ_ModifiedDate, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.FAQ_ModifiedDate, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.FAQ_Status, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    
+                        @Html.EditorFor(model => model.FAQ_Status)
+                        @Html.ValidationMessageFor(model => model.FAQ_Status, "", new { @class = "text-danger" })                          
+                
             </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value='@Resources.Main.Save' class="btn btn-default" />
+                </div>
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink(Resources.Main.BTL, "Index")
 </div>
 
 @section Scripts {

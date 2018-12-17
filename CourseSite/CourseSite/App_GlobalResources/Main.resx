@@ -152,6 +152,9 @@
   </data>
   <data name="Customers" xml:space="preserve">
     <value>Customers</value>
+	</data>
+  <data name="CreateNew" xml:space="preserve">
+    <value>Create New</value>
   </data>
   <data name="Details" xml:space="preserve">
     <value>Details</value>
@@ -197,6 +200,9 @@
   </data>
   <data name="MainDashBoard" xml:space="preserve">
     <value>Main dashboard</value>
+	 </data>
+  <data name="List" xml:space="preserve">
+    <value>List</value>
   </data>
   <data name="Phone" xml:space="preserve">
     <value>Phone:</value>
@@ -206,6 +212,9 @@
   </data>
   <data name="SiteDashBoard" xml:space="preserve">
     <value>Site dashboard</value>
+	 </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
   </data>
   <data name="UsefulLinks" xml:space="preserve">
     <value>Useful Links</value>
