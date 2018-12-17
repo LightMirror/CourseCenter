@@ -20,7 +20,20 @@ namespace CourseSite.Controllers
             }
         }
 
-        public PartialViewResult CourseDetails(int id)
+        public PartialViewResult Courses()
+        {
+            using (CenterDBEntities db = new CenterDBEntities())
+            {
+                CourseVM VMCors = new CourseVM();
+                var query = db.Courses.FirstOrDefault();
+                VMCors.CourseName = query.Course_EngName;
+                VMCors.CourseImg = query.Course_ImgePath;
+                VMCors.CourseSumery = query.Course_EngSummary;
+                return PartialView("_Courses", VMCors);
+            }
+        }
+
+        public ActionResult CourseDetails(int id)
         {
             using (CenterDBEntities db = new CenterDBEntities())
             {
@@ -30,7 +43,7 @@ namespace CourseSite.Controllers
                 VMCors.CourseImg = query.Course_ImgePath;
                 VMCors.CourseObjective = query.Course_EngObjective;
                 VMCors.CourseSumery = query.Course_EngSummary;
-                return PartialView("_CourseDetails", VMCors);
+                return PartialView(VMCors);
             }
         }
     }
