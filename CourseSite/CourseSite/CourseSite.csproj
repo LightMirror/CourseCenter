@@ -488,6 +488,8 @@
     <Content Include="Views\FAQ\Edit.cshtml" />
     <Content Include="Views\FAQ\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
+    <Content Include="Views\Course\CourseDetails.cshtml" />
+    <Content Include="Views\Course\_Courses.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
