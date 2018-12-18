@@ -25,6 +25,11 @@ namespace CourseSite.Models.DAL
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<C__MigrationHistory> C__MigrationHistory { get; set; }
+        public virtual DbSet<AspNetRoles> AspNetRoles { get; set; }
+        public virtual DbSet<AspNetUserClaims> AspNetUserClaims { get; set; }
+        public virtual DbSet<AspNetUserLogins> AspNetUserLogins { get; set; }
+        public virtual DbSet<AspNetUsers> AspNetUsers { get; set; }
         public virtual DbSet<Corporates> Corporates { get; set; }
         public virtual DbSet<CorporatesStatus> CorporatesStatus { get; set; }
         public virtual DbSet<Course_Instractors> Course_Instractors { get; set; }
@@ -33,15 +38,16 @@ namespace CourseSite.Models.DAL
         public virtual DbSet<Customerabsent> Customerabsent { get; set; }
         public virtual DbSet<Customers> Customers { get; set; }
         public virtual DbSet<CustomerStatus> CustomerStatus { get; set; }
+        public virtual DbSet<FAQs> FAQs { get; set; }
         public virtual DbSet<Gender> Gender { get; set; }
         public virtual DbSet<GroupCustomers> GroupCustomers { get; set; }
-        public virtual DbSet<Groups> Groups { get; set; }
         public virtual DbSet<GroupStatus> GroupStatus { get; set; }
         public virtual DbSet<Instractors> Instractors { get; set; }
         public virtual DbSet<InstractorStatus> InstractorStatus { get; set; }
         public virtual DbSet<schedules> schedules { get; set; }
         public virtual DbSet<Specifications> Specifications { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
-        public virtual DbSet<FAQs> FAQs { get; set; }
+        public virtual DbSet<CompanyProfile> CompanyProfile { get; set; }
+        public virtual DbSet<Groups> Groups { get; set; }
     }
 }

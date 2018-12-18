@@ -15,10 +15,12 @@ namespace CourseSite.Controllers
 
             return View("Main");
         }
-        //public ActionResult Main()
-        //{
-        //    return View();
-        //}
+
+        [Authorize]
+        public ActionResult MainAdmin()
+        {
+            return View("MainAdmin");
+        }
 
         public ActionResult About()
         {

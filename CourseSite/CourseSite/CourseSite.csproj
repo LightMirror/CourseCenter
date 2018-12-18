@@ -81,6 +81,12 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -235,16 +241,36 @@
     <Compile Include="Common\General.cs" />
     <Compile Include="Common\UImanger.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CompanyProfilesController.cs" />
     <Compile Include="Controllers\CourseController.cs" />
+    <Compile Include="Controllers\Course_InstractorsController.cs" />
+    <Compile Include="Controllers\CustomerabsentsController.cs" />
+    <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\FAQController.cs" />
+    <Compile Include="Controllers\GroupCustomersController.cs" />
+    <Compile Include="Controllers\GroupsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InstractorController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\schedulesController.cs" />
+    <Compile Include="Controllers\SpecificationsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CourseVM.cs" />
+    <Compile Include="Models\DAL\AspNetRoles.cs">
+      <DependentUpon>CenterDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DAL\AspNetUserClaims.cs">
+      <DependentUpon>CenterDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DAL\AspNetUserLogins.cs">
+      <DependentUpon>CenterDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DAL\AspNetUsers.cs">
+      <DependentUpon>CenterDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\DAL\CenterDB.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -259,6 +285,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CenterDB.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DAL\CompanyProfile.cs">
+      <DependentUpon>CenterDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DAL\Corporates.cs">
       <DependentUpon>CenterDB.tt</DependentUpon>
@@ -282,6 +311,9 @@
       <DependentUpon>CenterDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DAL\CustomerStatus.cs">
+      <DependentUpon>CenterDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DAL\C__MigrationHistory.cs">
       <DependentUpon>CenterDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DAL\FAQs.cs">
@@ -399,6 +431,7 @@
     <Content Include="Content\lib\venobox\venobox.min.js" />
     <Content Include="Content\lib\wow\wow.js" />
     <Content Include="Content\lib\wow\wow.min.js" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -493,6 +526,7 @@
     <Content Include="Views\FAQ\Edit.cshtml" />
     <Content Include="Views\FAQ\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
+    <Content Include="Views\Home\MainAdmin.cshtml" />
     <Content Include="Views\Course\CourseDetails.cshtml" />
     <Content Include="Views\Course\_Courses.cshtml" />
     <Content Include="Views\Instractor\Create.cshtml" />
@@ -500,6 +534,46 @@
     <Content Include="Views\Instractor\Details.cshtml" />
     <Content Include="Views\Instractor\Edit.cshtml" />
     <Content Include="Views\Instractor\Index.cshtml" />
+    <Content Include="Views\CompanyProfiles\Create.cshtml" />
+    <Content Include="Views\CompanyProfiles\Delete.cshtml" />
+    <Content Include="Views\CompanyProfiles\Details.cshtml" />
+    <Content Include="Views\CompanyProfiles\Edit.cshtml" />
+    <Content Include="Views\CompanyProfiles\Index.cshtml" />
+    <Content Include="Views\Customers\Create.cshtml" />
+    <Content Include="Views\Customers\Delete.cshtml" />
+    <Content Include="Views\Customers\Details.cshtml" />
+    <Content Include="Views\Customers\Edit.cshtml" />
+    <Content Include="Views\Customers\Index.cshtml" />
+    <Content Include="Views\Customerabsents\Create.cshtml" />
+    <Content Include="Views\Customerabsents\Delete.cshtml" />
+    <Content Include="Views\Customerabsents\Details.cshtml" />
+    <Content Include="Views\Customerabsents\Edit.cshtml" />
+    <Content Include="Views\Customerabsents\Index.cshtml" />
+    <Content Include="Views\GroupCustomers\Create.cshtml" />
+    <Content Include="Views\GroupCustomers\Delete.cshtml" />
+    <Content Include="Views\GroupCustomers\Details.cshtml" />
+    <Content Include="Views\GroupCustomers\Edit.cshtml" />
+    <Content Include="Views\GroupCustomers\Index.cshtml" />
+    <Content Include="Views\Groups\Create.cshtml" />
+    <Content Include="Views\Groups\Delete.cshtml" />
+    <Content Include="Views\Groups\Details.cshtml" />
+    <Content Include="Views\Groups\Edit.cshtml" />
+    <Content Include="Views\Groups\Index.cshtml" />
+    <Content Include="Views\schedules\Create.cshtml" />
+    <Content Include="Views\schedules\Delete.cshtml" />
+    <Content Include="Views\schedules\Details.cshtml" />
+    <Content Include="Views\schedules\Edit.cshtml" />
+    <Content Include="Views\schedules\Index.cshtml" />
+    <Content Include="Views\Course_Instractors\Create.cshtml" />
+    <Content Include="Views\Course_Instractors\Delete.cshtml" />
+    <Content Include="Views\Course_Instractors\Details.cshtml" />
+    <Content Include="Views\Course_Instractors\Edit.cshtml" />
+    <Content Include="Views\Course_Instractors\Index.cshtml" />
+    <Content Include="Views\Specifications\Create.cshtml" />
+    <Content Include="Views\Specifications\Delete.cshtml" />
+    <Content Include="Views\Specifications\Details.cshtml" />
+    <Content Include="Views\Specifications\Edit.cshtml" />
+    <Content Include="Views\Specifications\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

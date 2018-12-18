@@ -1,0 +1,131 @@
+﻿@model CourseSite.Models.DAL.Groups
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Groups</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Group_CreationDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Group_CreationDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Group_CreationUser)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Group_CreationUser)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Group_modifiedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Group_modifiedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Group_modifiedUser)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Group_modifiedUser)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Group_StartDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Group_StartDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Group_EndDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Group_EndDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Group_CostPerPerson)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Group_CostPerPerson)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Group_SessionNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Group_SessionNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Group_hoursPerSession)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Group_hoursPerSession)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Group_CustomerNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Group_CustomerNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Group_ImagePath)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Group_ImagePath)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Group_ImagePath2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Group_ImagePath2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Course_Instractors.ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Course_Instractors.ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GroupStatus.GroupStatus_EngName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GroupStatus.GroupStatus_EngName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Group_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

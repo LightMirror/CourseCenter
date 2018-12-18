@@ -1,0 +1,49 @@
+﻿@model CourseSite.Models.DAL.GroupCustomers
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>GroupCustomers</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.GroupCustomer_payingCost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GroupCustomer_payingCost)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Customers.Customer_EngName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Customers.Customer_EngName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Groups.Group_CreationUser)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Groups.Group_CreationUser)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,195 @@
+﻿@model CourseSite.Models.DAL.CompanyProfile
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CompanyProfile</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CompanyNameEng)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompanyNameEng)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CompanyNameAra)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompanyNameAra)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CompanyAddress_FlatNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompanyAddress_FlatNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CompanyAddress_StreetNameEng)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompanyAddress_StreetNameEng)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CompanyAddress_StreetNameAra)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompanyAddress_StreetNameAra)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CompanyAddress_DistricNameEng)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompanyAddress_DistricNameEng)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CompanyAddress_DistricNameAr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompanyAddress_DistricNameAr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CompanyAddress_CityNameEng)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompanyAddress_CityNameEng)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CompanyAddress_CityNameAra)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompanyAddress_CityNameAra)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CompanyAddress_CountryNameEng)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompanyAddress_CountryNameEng)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CompanyAddress_CountryNameAra)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompanyAddress_CountryNameAra)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CompanyPhone1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompanyPhone1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CompanyPhone2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompanyPhone2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CompanyEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompanyEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CompanySummarEng)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompanySummarEng)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CompanySummaryAra)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompanySummaryAra)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CompanyVideoPath)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompanyVideoPath)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CompanyImagePath)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompanyImagePath)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CompanyObjectiveEng)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompanyObjectiveEng)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CompanyObjectiveAra)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompanyObjectiveAra)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CompanyHeadLineEng)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompanyHeadLineEng)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CompanyHeadLineAra)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompanyHeadLineAra)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

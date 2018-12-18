@@ -1,0 +1,112 @@
+﻿@model IEnumerable<CourseSite.Models.DAL.Groups>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Group_CreationDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Group_CreationUser)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Group_modifiedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Group_modifiedUser)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Group_StartDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Group_EndDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Group_CostPerPerson)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Group_SessionNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Group_hoursPerSession)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Group_CustomerNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Group_ImagePath)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Group_ImagePath2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Course_Instractors.ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GroupStatus.GroupStatus_EngName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Group_CreationDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Group_CreationUser)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Group_modifiedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Group_modifiedUser)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Group_StartDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Group_EndDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Group_CostPerPerson)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Group_SessionNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Group_hoursPerSession)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Group_CustomerNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Group_ImagePath)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Group_ImagePath2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Course_Instractors.ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GroupStatus.GroupStatus_EngName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Group_ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Group_ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Group_ID })
+        </td>
+    </tr>
+}
+
+</table>
