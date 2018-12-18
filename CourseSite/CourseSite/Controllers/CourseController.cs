@@ -24,12 +24,19 @@ namespace CourseSite.Controllers
         {
             using (CenterDBEntities db = new CenterDBEntities())
             {
-                CourseVM VMCors = new CourseVM();
-                var query = db.Courses.FirstOrDefault();
-                VMCors.CourseName = query.Course_EngName;
-                VMCors.CourseImg = query.Course_ImgePath;
-                VMCors.CourseSumery = query.Course_EngSummary;
-                return PartialView("_Courses", VMCors);
+                var q = from s in db.Courses
+                        select new
+                        {
+                            s.Course_EngName,
+                            s.Course_EngSummary,
+                            s.Course_ImgePath
+                        };
+                //CourseVM VMCors = new CourseVM();
+                //var query = db.Courses.FirstOrDefault();
+                //VMCors.CourseName = query.Course_EngName;
+                //VMCors.CourseImg = query.Course_ImgePath;
+                //VMCors.CourseSumery = query.Course_EngSummary;
+                return PartialView("_Courses", q.ToList());
             }
         }
 
