@@ -5,156 +5,51 @@
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.CompanyNameEng)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CompanyNameAra)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CompanyAddress_FlatNumber)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CompanyAddress_StreetNameEng)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CompanyAddress_StreetNameAra)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CompanyAddress_DistricNameEng)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CompanyAddress_DistricNameAr)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CompanyAddress_CityNameEng)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CompanyAddress_CityNameAra)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CompanyAddress_CountryNameEng)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CompanyAddress_CountryNameAra)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CompanyPhone1)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CompanyPhone2)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CompanyEmail)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CompanySummarEng)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CompanySummaryAra)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CompanyVideoPath)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CompanyImagePath)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CompanyObjectiveEng)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CompanyObjectiveAra)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CompanyHeadLineEng)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CompanyHeadLineAra)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.CompanyNameEng)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CompanyNameAra)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CompanyAddress_FlatNumber)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CompanyAddress_StreetNameEng)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CompanyAddress_StreetNameAra)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CompanyAddress_DistricNameEng)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CompanyAddress_DistricNameAr)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CompanyAddress_CityNameEng)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CompanyAddress_CityNameAra)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CompanyAddress_CountryNameEng)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CompanyAddress_CountryNameAra)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CompanyPhone1)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CompanyPhone2)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CompanyEmail)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CompanySummarEng)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CompanySummaryAra)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CompanyVideoPath)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CompanyImagePath)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CompanyObjectiveEng)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CompanyObjectiveAra)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CompanyHeadLineEng)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CompanyHeadLineAra)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>
-    </tr>
+@if (TempData["Done"] != null)
+{
+    <div id="clos" class="alert alert-success alert-dismissible fade in">
+        <a href="#clos" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <p> @TempData["Done"].ToString()</p>
+    </div>
 }
 
-</table>
+
+<h2>@Resources.Main.CompanyProfile</h2>
+
+<div class="container">
+
+    <p>
+        <span class="glyphicon glyphicon-plus"></span>
+        @Html.ActionLink("Create New", "Create") &nbsp;
+        <span class="glyphicon glyphicon-refresh"></span>
+        @Html.ActionLink("Refresh Offloading", "Index") &nbsp;
+    </p>
+
+    <div class="table table-responsive">
+        <table class="table">
+            <tr>
+                <th class="text-center" style="background-color: #CED8F6;">
+                    @Html.DisplayNameFor(model => model.CompanyNameEng)
+                </th>
+                <th class="text-center" style="background-color: #CED8F6;">
+                    Actions
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td class="text-center">
+                        @Html.DisplayFor(modelItem => item.CompanyNameEng)
+                    </td>
+                    <td class="text-center">
+                        <a href="/CompanyProfiles/Edit/@item.ID" class="glyphicon glyphicon-edit btn btn-primary "></a>
+                                
+                    </td>
+                </tr>
+            }
+
+        </table>
+
+        </div>
+    </div>
