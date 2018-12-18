@@ -11,24 +11,14 @@ namespace CourseSite.Models.DAL
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class FAQs
-    {    
+    {
         public int FAQ_ID { get; set; }
-        [Display(ResourceType = typeof(CourseSite.App_GlobalResources.FAQ), Name = "QEn")]
-        [Required(ErrorMessageResourceType = typeof(CourseSite.App_GlobalResources.FAQ), ErrorMessageResourceName = "RequiredFiled")]
         public string FAQ_QuestionEng { get; set; }
-        [Display(ResourceType = typeof(CourseSite.App_GlobalResources.FAQ), Name = "QAr")]
-        [Required(ErrorMessageResourceType = typeof(CourseSite.App_GlobalResources.FAQ), ErrorMessageResourceName = "RequiredFiled")]
         public string FAQ_QuestionAra { get; set; }
-        [Display(ResourceType = typeof(CourseSite.App_GlobalResources.FAQ), Name = "AnsEn")]
-        [Required(ErrorMessageResourceType = typeof(CourseSite.App_GlobalResources.FAQ), ErrorMessageResourceName = "RequiredFiled")]
         public string FAQ_AnswerEng { get; set; }
-        [Display(ResourceType = typeof(CourseSite.App_GlobalResources.FAQ), Name = "AnsAr")]
-        [Required(ErrorMessageResourceType = typeof(CourseSite.App_GlobalResources.FAQ), ErrorMessageResourceName = "RequiredFiled")]
         public string FAQ_AnswerAra { get; set; }
-        [Display(ResourceType = typeof(CourseSite.App_GlobalResources.FAQ), Name = "QStatus")]
         public bool FAQ_Status { get; set; }
         public string FAQ_CreattonUser { get; set; }
         public Nullable<System.DateTime> FAQ_CreationDate { get; set; }

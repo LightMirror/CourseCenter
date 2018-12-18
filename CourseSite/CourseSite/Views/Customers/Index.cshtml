@@ -1,0 +1,106 @@
+﻿@model IEnumerable<CourseSite.Models.DAL.Customers>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Customer_EngName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Customer_AraName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Customer_Phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Customer_Mobile)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Customer_Birthdate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Customer_Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Customer_Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Customer_Comment)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Customer_imagePath)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Customer_Nid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Corporates.Corporates_EngName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CustomerStatus.Status_EngName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gender.Gender_EngName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Customer_EngName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Customer_AraName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Customer_Phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Customer_Mobile)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Customer_Birthdate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Customer_Address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Customer_Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Customer_Comment)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Customer_imagePath)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Customer_Nid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Corporates.Corporates_EngName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CustomerStatus.Status_EngName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Gender.Gender_EngName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

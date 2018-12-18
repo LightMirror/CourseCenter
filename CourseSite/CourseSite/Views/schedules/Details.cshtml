@@ -1,0 +1,75 @@
+﻿@model CourseSite.Models.DAL.schedules
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>schedules</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Schedule_DatetimeFrom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Schedule_DatetimeFrom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Schedule_DateTimeTo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Schedule_DateTimeTo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Schedule_CreationDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Schedule_CreationDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Schedule_CreationUser)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Schedule_CreationUser)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Schedule_ModifiedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Schedule_ModifiedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Schedule_ModifiedUser)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Schedule_ModifiedUser)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Groups.Group_CreationUser)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Groups.Group_CreationUser)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Schedule_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

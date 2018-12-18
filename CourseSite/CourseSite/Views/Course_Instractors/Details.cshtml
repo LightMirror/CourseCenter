@@ -1,0 +1,43 @@
+﻿@model CourseSite.Models.DAL.Course_Instractors
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Course_Instractors</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Courses.Course_EngName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Courses.Course_EngName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Instractors.Instractor_EngName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Instractors.Instractor_EngName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Specifications.Specification_EngName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Specifications.Specification_EngName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
