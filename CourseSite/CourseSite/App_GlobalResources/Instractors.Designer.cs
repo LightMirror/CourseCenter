@@ -167,5 +167,23 @@ namespace CourseSite.App_GlobalResources {
                 return ResourceManager.GetString("InstractorsTitle", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid Email Address.
+        /// </summary>
+        public static string InvalidEmailAddress {
+            get {
+                return ResourceManager.GetString("InvalidEmailAddress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid Mobile Number.
+        /// </summary>
+        public static string InvalidMobileNumber {
+            get {
+                return ResourceManager.GetString("InvalidMobileNumber", resourceCulture);
+            }
+        }
     }
 }

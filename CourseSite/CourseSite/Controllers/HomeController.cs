@@ -53,5 +53,6 @@ namespace CourseSite.Controllers
                 return Redirect(Request.UrlReferrer.AbsoluteUri);
             }
         }
+        public ActionResult SendEmailMessage(EmailViewModel EVM)
     }
 }
