@@ -49,5 +49,6 @@ namespace CourseSite.Models.DAL
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<CompanyProfile> CompanyProfile { get; set; }
         public virtual DbSet<Groups> Groups { get; set; }
+        public virtual DbSet<Gallary> Gallary { get; set; }
     }
 }

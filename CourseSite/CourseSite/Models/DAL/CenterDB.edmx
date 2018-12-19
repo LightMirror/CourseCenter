@@ -211,6 +211,14 @@
           <Property Name="FAQ_ModifiedUser" Type="nvarchar" MaxLength="200" />
           <Property Name="FAQ_ModifiedDate" Type="datetime" />
         </EntityType>
+        <EntityType Name="Gallary">
+          <Key>
+            <PropertyRef Name="ImageID" />
+          </Key>
+          <Property Name="ImageID" Type="int" Nullable="false" />
+          <Property Name="ImagePath" Type="nvarchar" MaxLength="300" />
+          <Property Name="ImageStatus" Type="bit" Nullable="false" />
+        </EntityType>
         <EntityType Name="Gender">
           <Key>
             <PropertyRef Name="ID" />
@@ -577,6 +585,7 @@
           <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CustomerStatus" EntityType="Self.CustomerStatus" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FAQs" EntityType="Self.FAQs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Gallary" EntityType="Self.Gallary" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Gender" EntityType="Self.Gender" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GroupCustomers" EntityType="Self.GroupCustomers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Groups" EntityType="Self.Groups" Schema="dbo" store:Type="Tables" />
@@ -772,6 +781,7 @@
             <End Role="Groups" EntitySet="Groups" />
             <End Role="schedules" EntitySet="schedules" />
           </AssociationSet>
+          <EntitySet Name="Gallary" EntityType="CenterDBModel.Gallary" />
         </EntityContainer>
         <EntityType Name="C__MigrationHistory">
           <Key>
@@ -1334,6 +1344,14 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Gallary">
+          <Key>
+            <PropertyRef Name="ImageID" />
+          </Key>
+          <Property Name="ImageID" Type="Int32" Nullable="false" />
+          <Property Name="ImagePath" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="ImageStatus" Type="Boolean" Nullable="false" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1665,6 +1683,15 @@
                 <ScalarProperty Name="Group_CreationUser" ColumnName="Group_CreationUser" />
                 <ScalarProperty Name="Group_CreationDate" ColumnName="Group_CreationDate" />
                 <ScalarProperty Name="Group_ID" ColumnName="Group_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Gallary">
+            <EntityTypeMapping TypeName="CenterDBModel.Gallary">
+              <MappingFragment StoreEntitySet="Gallary">
+                <ScalarProperty Name="ImageStatus" ColumnName="ImageStatus" />
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+                <ScalarProperty Name="ImageID" ColumnName="ImageID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

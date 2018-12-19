@@ -48,6 +48,7 @@
         <AssociationConnector Association="CenterDBModel.FK_GroupCustomers_Groups" />
         <AssociationConnector Association="CenterDBModel.FK_Groups_GroupStatus" />
         <AssociationConnector Association="CenterDBModel.FK_schedules_schedules" />
+        <EntityTypeShape EntityType="CenterDBModel.Gallary" Width="1.5" PointX="3.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

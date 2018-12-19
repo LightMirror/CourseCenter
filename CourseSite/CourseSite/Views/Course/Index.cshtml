@@ -1,139 +1,177 @@
 ﻿@model IEnumerable<CourseSite.Models.DAL.Courses>
 
+
 @{
+    /**/
+
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+@foreach (var item in Model)
+{
+    <div>
+        <div class="home-main">
+            <div class ="topic-cards">
+                <div class="container">
+                    <div>
+                        <div class="tab-content">
+                            <div class="row">
+                <ul class="discover-courses-list">
+                    <li col-lg-4 col-md-4 col-sm-6 col-xs-12 card--home>
+                        <a class="fxdc" href="">
+                            <span class="course-thumb">
+                                <img src="~/assets/img/sponsors/2.png" />
+                            </span>
+                            <span class=".card--home .card-info">
+                                <span class="title">
+                                    @item.Course_EngName
+                                </span>
+                                <span class="dib title ins-title description" style="display:block">
+                                    @item.Course_EngSummary
+                                </span>
+                            </span>
+                            <div class="clearfix"></div>
+                            <div class="clearfix" style="height: 35px;"></div>
+                        </a>
+                        <a class="btn btn-default supscription-btn">details</a>
+                    </li>
+                </ul>
+            </div>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<div class="table table-hover table-striped table-bordered table-margin-bottom-clear ">
-    <table class="table table-responsive table-responsive-md">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Course_EngName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Course_AraName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Course_VedioPath)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Course_ImgePath)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Course_ImagePath2)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Course_EngObjective)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Course_AraObjective)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Course_EngSummary)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Course_AraSummary)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Course_ArabicContentPath)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Course_EnglishContent)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Course_TotalHour)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Course_OrignalCost)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Course_CreationDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Course_CreationUsers)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Course_ModifyDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Course_modifyUsers)
-            </th>
-            @*<th>
-                    @Html.DisplayNameFor(model => model.Course_status.Status_EngName)
-                </th>*@
-            <th></th>
-        </tr>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+    </div>
 
-        @foreach (var item in Model)
-        {
+    
+}
+@*<div class="table table-hover table-striped table-bordered table-margin-bottom-clear ">
+        <table class="table table-responsive table-responsive-md">
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Course_EngName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Course_AraName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Course_VedioPath)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Course_ImgePath)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Course_ImagePath2)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Course_EngObjective)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Course_AraObjective)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Course_EngSummary)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Course_AraSummary)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Course_ArabicContentPath)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Course_EnglishContent)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Course_TotalHour)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Course_OrignalCost)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Course_CreationDate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Course_CreationUsers)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Course_ModifyDate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Course_modifyUsers)
-                </td>
-                @*<td>
-                        @Html.DisplayFor(modelItem => item.Course_status.Status_EngName)
-                    </td>*@
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.ID })
-                </td>
+                <th>
+                    @Html.DisplayNameFor(model => model.Course_EngName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Course_AraName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Course_VedioPath)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Course_ImgePath)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Course_ImagePath2)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Course_EngObjective)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Course_AraObjective)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Course_EngSummary)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Course_AraSummary)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Course_ArabicContentPath)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Course_EnglishContent)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Course_TotalHour)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Course_OrignalCost)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Course_CreationDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Course_CreationUsers)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Course_ModifyDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Course_modifyUsers)
+                </th>
+                <th>
+                        @Html.DisplayNameFor(model => model.Course_status.Status_EngName)
+                    </th>
+                <th></th>
             </tr>
-        }
 
-    </table>
-</div>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Course_EngName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Course_AraName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Course_VedioPath)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Course_ImgePath)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Course_ImagePath2)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Course_EngObjective)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Course_AraObjective)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Course_EngSummary)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Course_AraSummary)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Course_ArabicContentPath)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Course_EnglishContent)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Course_TotalHour)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Course_OrignalCost)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Course_CreationDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Course_CreationUsers)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Course_ModifyDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Course_modifyUsers)
+                    </td>
+                    <td>
+                            @Html.DisplayFor(modelItem => item.Course_status.Status_EngName)
+                        </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>*@
