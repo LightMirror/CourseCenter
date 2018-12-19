@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CourseSite.Models;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -52,6 +53,11 @@ namespace CourseSite.Controllers
                 Common.General.LogError(ex, "HomeController.cs");
                 return Redirect(Request.UrlReferrer.AbsoluteUri);
             }
+        }
+        [HttpPost]
+        public ActionResult SendEmailMessage([Bind(Include = "name")]MailViewModel EVM)
+        {
+            return Redirect(Request.UrlReferrer.AbsoluteUri);
         }
     }
 }
