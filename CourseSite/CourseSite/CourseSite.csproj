@@ -319,6 +319,9 @@
     <Compile Include="Models\DAL\FAQs.cs">
       <DependentUpon>CenterDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\DAL\Gallary.cs">
+      <DependentUpon>CenterDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\DAL\Gender.cs">
       <DependentUpon>CenterDB.tt</DependentUpon>
     </Compile>

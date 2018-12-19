@@ -53,7 +53,8 @@ namespace CourseSite.Controllers
             if (ModelState.IsValid)
             {
                 db.CompanyProfile.Add(companyProfile);
-                db.SaveChanges();
+                if (db.SaveChanges() > 0)
+                    TempData["Done"] = "Create Success";
                 return RedirectToAction("Index");
             }
 
@@ -87,7 +88,8 @@ namespace CourseSite.Controllers
             if (ModelState.IsValid)
             {
                 db.Entry(companyProfile).State = EntityState.Modified;
-                db.SaveChanges();
+                if(db.SaveChanges() > 0)
+                    TempData["Done"] = "Create Success";
                 return RedirectToAction("Index");
             }
             return View(companyProfile);
