@@ -1,0 +1,163 @@
+﻿@model CourseSite.Models.DAL.Courses
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Courses</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Course_EngName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Course_EngName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Course_AraName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Course_AraName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Course_VedioPath)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Course_VedioPath)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Course_ImgePath)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Course_ImgePath)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Course_ImagePath2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Course_ImagePath2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Course_EngObjective)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Course_EngObjective)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Course_AraObjective)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Course_AraObjective)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Course_EngSummary)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Course_EngSummary)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Course_AraSummary)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Course_AraSummary)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Course_ArabicContentPath)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Course_ArabicContentPath)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Course_EnglishContent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Course_EnglishContent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Course_TotalHour)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Course_TotalHour)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Course_OrignalCost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Course_OrignalCost)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Course_CreationDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Course_CreationDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Course_CreationUsers)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Course_CreationUsers)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Course_ModifyDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Course_ModifyDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Course_modifyUsers)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Course_modifyUsers)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Course_status.Status_EngName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Course_status.Status_EngName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

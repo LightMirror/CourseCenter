@@ -24,7 +24,7 @@ ul {
     flex-direction:column;
 }
 a {
-    color: #1376d7;
+    color: #000;
     outline: 0 !important;
     font-weight:400;
 }
@@ -61,11 +61,13 @@ img{
     direction:rtl;
 }
 span.title{
-    text-align: right;
-    direction:rtl;
+    text-align: left;
+    padding-left: 10px;
 }
 .title{
     flex: 1;
+    text-align:center;
+    font-size:large;
 }
 span.dib.title.ins-title.description{
     margin-bottom:10px;
@@ -144,3 +146,4 @@ a.supscription-btn {
     border-radius:0;
     background: 0 0;
 }
+
