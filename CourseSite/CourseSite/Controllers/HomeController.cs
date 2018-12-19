@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CourseSite.Models;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -53,6 +54,10 @@ namespace CourseSite.Controllers
                 return Redirect(Request.UrlReferrer.AbsoluteUri);
             }
         }
-        public ActionResult SendEmailMessage(EmailViewModel EVM)
+        [HttpPost]
+        public ActionResult SendEmailMessage([Bind(Include = "name")]MailViewModel EVM)
+        {
+            return Redirect(Request.UrlReferrer.AbsoluteUri);
+        }
     }
 }
