@@ -1,0 +1,146 @@
+﻿.discover-courses-list{
+    font-size: 15px;
+    margin-top: 15px;
+    vertical-align:top;
+}
+ul {
+    list-style: none;
+    margin :0;
+    padding : 0;
+}
+.card--home {
+    width: 270px;
+    margin : 20px 0 0 20px;
+    float : right;
+    margin-bottom : 25px;
+}
+.card--home a{
+    background: #fff;
+    min-height: 340px;
+}
+.fxdc {
+    width: 100%;
+    display: flex;
+    flex-direction:column;
+}
+a {
+    color: #1376d7;
+    outline: 0 !important;
+    font-weight:400;
+}
+a, a:focus, a:hover{
+    text-decoration:none;
+    }
+* {
+    box-sizing: border-box;
+}
+.card--home img {
+    width: 100%;
+}
+img{
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+    border: 0;
+
+}
+.card--home .card-info {
+    padding: 10px;
+}
+.fx {
+    flex:1;
+    min-width: 1px;
+}
+.card--home .title {
+    font-size: 18px;
+    color: #16222d;
+    display:block;
+    line-height:1.2;
+    font-weight:400;
+    text-align:right;
+    direction:rtl;
+}
+span.title{
+    text-align: right;
+    direction:rtl;
+}
+.title{
+    flex: 1;
+}
+span.dib.title.ins-title.description{
+    margin-bottom:10px;
+
+}
+.dib.title.ins-title.description{
+    margin-bottom:25px !important;
+}
+.title.description{
+    font-size:14px;
+    margin-top:11px;
+    line-height:19px;
+}
+.card--home .title {
+    font-size: 10px;
+    color: #16222d;
+    display:block;
+    line-height:1.2;
+    font-weight:400;
+    text-align:right;
+    direction:rtl;
+}
+.dib{
+    display:inline-block;
+}
+a.supscription-btn {
+    min-height: 28px;
+    position: absolute;
+    bottom: 13px;
+    background: #17aa1c;
+    right: 28px;
+    padding:4px 22px;
+    width:81px;
+    font-weight:normal;
+}
+.btn {
+    display: inline-block;
+    background-color: #0c9547;
+    padding: 10px 15px;
+    font-weight: 700;
+    margin-right: 10px;
+    line-height: 1.35135;
+    margin-bottom:0;
+    text-align:center;
+    vertical-align: middle;
+    touch-action:manipulation;
+    cursor:pointer;
+    border: 1px solid transparent;
+    white-space:nowrap;
+    font-size: 15px;
+    border-radius: 2px;
+
+}
+.btn, .btn:hover, .btn:visited{
+    color:#fff;
+}
+.home-main{
+    position: relative;
+    z-index :0;
+    width: 100%;
+    top: -48px;
+}
+.topic-cards {
+    background: #f4f3f2;
+    padding-bottom: 55px;
+}
+.container{
+    width:1170px;
+    margin-right:auto;
+    margin-left: auto;
+    padding-left:15px;
+    padding-right:15px;
+}
+.topic-cards .tab-content{
+    border:0;
+    border-radius:0;
+    background: 0 0;
+}
