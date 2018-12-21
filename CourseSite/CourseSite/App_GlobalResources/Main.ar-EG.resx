@@ -212,7 +212,7 @@
   </data>
   <data name="SiteDashBoard" xml:space="preserve">
     <value>وحدة تحكم الموقع</value>
-	</data>
+  </data>
   <data name="Save" xml:space="preserve">
     <value>حفظ</value>
   </data>
@@ -221,5 +221,8 @@
   </data>
   <data name="List" xml:space="preserve">
     <value>قائمة</value>
+  </data>
+  <data name="Partners" xml:space="preserve">
+    <value>شركائنا</value>
   </data>
 </root>

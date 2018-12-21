@@ -322,6 +322,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Our partners.
+        /// </summary>
+        internal static string OurPartners {
+            get {
+                return ResourceManager.GetString("OurPartners", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Partners.
+        /// </summary>
+        internal static string Partners {
+            get {
+                return ResourceManager.GetString("Partners", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Phone:.
         /// </summary>
         internal static string Phone {
