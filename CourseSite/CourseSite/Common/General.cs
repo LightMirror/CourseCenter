@@ -1,4 +1,5 @@
-﻿using log4net;
+﻿using CourseSite.Models;
+using log4net;
 using log4net.Core;
 using log4net.Layout;
 using System;
@@ -46,6 +47,12 @@ namespace CourseSite.Common
         }
 
         #endregion
+        public static MainViewModel BuildMainView()
+        {
+            MainViewModel MVM = new MainViewModel();
+            MVM.Faqs = FAQsRoutines.GetTopFAQsForMAin();
+            return MVM;
+        }
     }
     public class MyXmlLayout : XmlLayoutBase
     {

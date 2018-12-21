@@ -319,9 +319,9 @@
     <Compile Include="Models\DAL\FAQs.cs">
       <DependentUpon>CenterDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DAL\Gallary.cs" >
-	   <DependentUpon>CenterDB.tt</DependentUpon>
-	 </Compile>
+    <Compile Include="Models\DAL\Gallary.cs">
+      <DependentUpon>CenterDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\DAL\Gender.cs">
       <DependentUpon>CenterDB.tt</DependentUpon>
     </Compile>
@@ -349,8 +349,10 @@
     <Compile Include="Models\DAL\sysdiagrams.cs">
       <DependentUpon>CenterDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\FAQsRoutines.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\MailViewModel.cs" />
+    <Compile Include="Models\MainViewModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -578,6 +580,7 @@
     <Content Include="Views\Specifications\Details.cshtml" />
     <Content Include="Views\Specifications\Edit.cshtml" />
     <Content Include="Views\Specifications\Index.cshtml" />
+    <Content Include="Views\FAQ\_FAQsPV.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
