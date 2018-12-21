@@ -373,8 +373,7 @@
     <Content Include="assets\img\hotels\2.jpg" />
     <Content Include="assets\img\hotels\3.jpg" />
     <Content Include="assets\img\intro-bg.jpg" />
-    <Content Include="assets\img\logo.png" />
-    <Content Include="assets\img\NewLogo.jpg" />
+    <Content Include="assets\img\__logo.png" />
     <Content Include="assets\img\NewLogo1.jpg" />
     <Content Include="assets\img\speakers\1.jpg" />
     <Content Include="assets\img\speakers\2.jpg" />
