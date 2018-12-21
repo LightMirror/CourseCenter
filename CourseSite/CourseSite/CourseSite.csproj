@@ -375,6 +375,7 @@
     <Content Include="assets\img\intro-bg.jpg" />
     <Content Include="assets\img\logo.png" />
     <Content Include="assets\img\NewLogo.jpg" />
+    <Content Include="assets\img\NewLogo1.jpg" />
     <Content Include="assets\img\speakers\1.jpg" />
     <Content Include="assets\img\speakers\2.jpg" />
     <Content Include="assets\img\speakers\3.jpg" />
@@ -581,6 +582,11 @@
     <Content Include="Views\Specifications\Edit.cshtml" />
     <Content Include="Views\Specifications\Index.cshtml" />
     <Content Include="Views\FAQ\_FAQsPV.cshtml" />
+    <Content Include="Views\Course\Create.cshtml" />
+    <Content Include="Views\Course\Edit.cshtml" />
+    <Content Include="Views\Course\Delete.cshtml" />
+    <Content Include="Views\Course\Details.cshtml" />
+    <Content Include="Views\Course\ShowCourses.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
