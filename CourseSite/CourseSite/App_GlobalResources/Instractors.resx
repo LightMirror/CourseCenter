@@ -153,4 +153,10 @@
   <data name="Instractor_Status" xml:space="preserve">
     <value>Status</value>
   </data>
+  <data name="InvalidEmailAddress" xml:space="preserve">
+    <value>Invalid Email Address</value>
+  </data>
+  <data name="InvalidMobileNumber" xml:space="preserve">
+    <value>Invalid Mobile Number</value>
+  </data>
 </root>

@@ -1,7 +1,7 @@
-﻿
-@*@{
+﻿@*@{
     Layout = null;
 }*@
+@model CourseSite.Models.MainViewModel 
 <!DOCTYPE html>
 <html lang="en">
 
@@ -531,69 +531,61 @@
                     <h2>Courses</h2>
                     <p>Here are some more useful courses</p>
                 </div>
-<<<<<<< HEAD
-               <a href="~/Course/Index">Details</a>
-
                 <div class="row">
-                    @*@{
-                        Html.RenderAction("Courses");
-                    }*@
-                    @*<div class="col-lg-4 col-md-6">
-            <div class="hotel">
-                <div class="hotel-img">
-                    <img src="~/assets/img/hotels/1.jpg" alt="Hotel 1" class="img-fluid">
-                </div>
-                <h3><a href="#">Medical Rep</a></h3>
-                <div class="stars">
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-        </div>
-                <p>سنتعلم من خلال كورس فن البيع وإدارة المبيعات إتقان نظام البيع والمحاور الأساسية لنظام البيع ومهارة التوقع في تصنيف العملاء وكيفية إقفال عملية البيع </p>
-                <button class="btn btn-success righ" style="margin-bottom:3px; margin-left:3px"> Details </button>
-            </div>
-=======
-                <div class="row">
->>>>>>> 2532d96fdc4ffb1938a8588d8457cf9643e04dd5
 
-        </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="hotel">
+                            <div class="hotel-img">
+                                <img src="~/assets/img/hotels/1.jpg" alt="Hotel 1" class="img-fluid">
+                            </div>
+                            <h3><a href="#">Medical Rep</a></h3>
+                            @*<div class="stars">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </div>*@
+                            <p>سنتعلم من خلال كورس فن البيع وإدارة المبيعات إتقان نظام البيع والمحاور الأساسية لنظام البيع ومهارة التوقع في تصنيف العملاء وكيفية إقفال عملية البيع </p>
+                            <button class="btn btn-success righ" style="margin-bottom:3px; margin-left:3px" > Details </button>
+                        </div>
+                        
+                    </div>
 
-        <div class="col-lg-4 col-md-6">
-            <div class="hotel">
-                <div class="hotel-img">
-                    <img src="~/assets/img/hotels/2.jpg" alt="Hotel 2" class="img-fluid">
-                </div>
-                <h3><a href="#">Hotel 2</a></h3>
-                <div class="stars">
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star-half-full"></i>
-        </div>
-                <p>0.5 Mile from the Venue</p>
-                <button class="btn btn-success" style="margin-bottom:3px; margin-left:3px"> Details </button>
-            </div>
-        </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="hotel">
+                            <div class="hotel-img">
+                                <img src="~/assets/img/hotels/2.jpg" alt="Hotel 2" class="img-fluid">
+                            </div>
+                            <h3><a href="#">Hotel 2</a></h3>
+                            @*<div class="stars">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-half-full"></i>
+                            </div>*@
+                            <p>0.5 Mile from the Venue</p>
+                            <button class="btn btn-success" style="margin-bottom:3px; margin-left:3px" > Details </button>
+                        </div>
+                    </div>
 
-        <div class="col-lg-4 col-md-6">
-            <div class="hotel">
-                <div class="hotel-img">
-                    <img src="~/assets/img/hotels/3.jpg" alt="Hotel 3" class="img-fluid">
-                </div>
-                <h3><a href="#">Hotel 3</a></h3>
-                <div class="stars">
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-        </div>
-                <p>0.6 Mile from the Venue</p>
-                <button class="btn btn-success" style="margin-bottom:3px; margin-left:3px"> Details </button>
-            </div>
-        </div>*@
+                    <div class="col-lg-4 col-md-6">
+                        <div class="hotel">
+                            <div class="hotel-img">
+                                <img src="~/assets/img/hotels/3.jpg" alt="Hotel 3" class="img-fluid">
+                            </div>
+                            <h3><a href="#">Hotel 3</a></h3>
+                            @*<div class="stars">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </div>*@
+                            <p>0.6 Mile from the Venue</p>
+                            <button class="btn btn-success" style="margin-bottom:3px; margin-left:3px" > Details </button>
+                        </div>
+                    </div>
 
                 </div>
             </div>
@@ -695,7 +687,11 @@
           F.A.Q Section
         ============================-->
 
-        <section id="faq" class="wow fadeInUp">
+        @{
+            
+            Html.RenderPartial("~/Views/FAQ/_FAQsPV.cshtml", Model.Faqs);
+         }
+        @*<section id="faq" class="wow fadeInUp">
 
             <div class="container">
 
@@ -767,7 +763,7 @@
 
             </div>
 
-        </section>
+        </section>*@
 
         <!--==========================
           Subscribe Section
@@ -951,11 +947,11 @@
                     </div>
 
                 </div>
-
+                
                 <div class="form">
                     <div id="sendmessage">Your message has been sent. Thank you!</div>
                     <div id="errormessage"></div>
-                    <form action="" method="post" role="form" class="contactForm">
+                    <form action="~/Home/SendEmailMessage" method="post" role="form" class="contactForm">
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
@@ -971,10 +967,11 @@
                             <div class="validation"></div>
                         </div>
                         <div class="form-group">
-                            <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+                            <textarea class="form-control" name="message" id="message" rows="5" data-rule="required" 
+                                      data-msg="Please write something for us" placeholder="Message"></textarea>
                             <div class="validation"></div>
                         </div>
-                        <div class="text-center"><button type="submit">Send Message</button></div>
+                        <div class="text-center"><button type="submit" >Send Message</button></div>
                     </form>
                 </div>
 

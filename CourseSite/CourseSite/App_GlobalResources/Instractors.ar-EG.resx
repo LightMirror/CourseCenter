@@ -153,4 +153,10 @@
   <data name="InstractorsTitle" xml:space="preserve">
     <value>المحاضرين</value>
   </data>
+  <data name="InvalidEmailAddress" xml:space="preserve">
+    <value>بريد الكتروني غير صحيح</value>
+  </data>
+  <data name="InvalidMobileNumber" xml:space="preserve">
+    <value>رقم محمول خاطئ</value>
+  </data>
 </root>

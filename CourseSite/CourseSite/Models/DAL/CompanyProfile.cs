@@ -35,7 +35,11 @@ namespace CourseSite.Models.DAL
         public string CompanyObjectiveEng { get; set; }
         public string CompanyObjectiveAra { get; set; }
         public string CompanyHeadLineEng { get; set; }
+        [Display(Name = "Arabic HeadLine")]
         public string CompanyHeadLineAra { get; set; }
         public int ID { get; set; }
+
+        public string CompanyHeadLineAra { get; set; }
+        //bda8897219d551403cc11b19ea69b08aded921bd
     }
 }

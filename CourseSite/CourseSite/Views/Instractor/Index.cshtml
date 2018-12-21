@@ -2,77 +2,55 @@
 
 @{
     ViewBag.Title = Resources.Instractors.InstractorsTitle;
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
 <h2>Index</h2>
 <p>
-    @Html.ActionLink(Resources.Main.CreateNew, "Create")
+    <span class="glyphicon glyphicon-plus"></span>
+    @Html.ActionLink(Resources.Main.CreateNew, "Create")&nbsp;
+    <span class="glyphicon glyphicon-refresh"></span>
+    @Html.ActionLink("Refresh Offloading", "Index") &nbsp;
 </p>
-<div class="container">
+<div class="table table-responsive">
     <table class="table table-hover table-striped table-bordered table-margin-bottom-clear ">
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Instractor_EngName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Instractor_AraName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Instractor_Mobile)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Instractor_Email)
-            </th>
-            <th>
-                @Resources.Instractors.Instractor_Gender
-            </th>
-            <th>
-                @Resources.Instractors.Instractor_Status
-            </th>
-            <th></th>
-        </tr>
+            @if (CourseSite.Common.UImanger.CurrentLang == "en")
+            {
+                <th class="text-center" style="background-color: #CED8F6;">
+                    @Html.DisplayNameFor(model => model.Instractor_EngName)
+                </th>
+            }
+            else
+            {
+                <th class="text-center" style="background-color: #CED8F6;">
+                    @Html.DisplayNameFor(model => model.Instractor_AraName)
+                </th>
+            }
+            <th class="text-center" style="background-color: #CED8F6;"></th>
 
-        @foreach (var item in Model)
-    {
+            @foreach (var item in Model)
+            {
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Instractor_EngName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Instractor_AraName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Instractor_Mobile)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Instractor_Email)
-                </td>
-                <td>
-                    @if (CourseSite.Common.UImanger.CurrentLang == "en")
+                @if (CourseSite.Common.UImanger.CurrentLang == "en")
                 {
-                        @Html.DisplayFor(modelItem => item.Gender.Gender_EngName)
+                    <td class="text-center">
+                        @Html.DisplayFor(modelItem => item.Instractor_EngName)
+                    </td>
                 }
                 else
                 {
-                        @Html.DisplayFor(modelItem => item.Gender.Gender_AraName)
+                    <td class="text-center">
+                        @Html.DisplayFor(modelItem => item.Instractor_AraName)
+                    </td>
                 }
-                </td>
-                <td>
-                    @if (CourseSite.Common.UImanger.CurrentLang == "en")
-                {
-                        @Html.DisplayFor(modelItem => item.InstractorStatus.Status_EngName)
-                }
-                else
-                {
-                        @Html.DisplayFor(modelItem => item.InstractorStatus.Status_AraName)
-                }
-                </td>
-                <td>
-                    @Html.ActionLink(Resources.Main.Edit, "Edit", new { id = item.ID }) )
+
+                <td class="text-center">
+                    @Html.ActionLink(Resources.Main.Edit+" ", "", new { id = item.ID }, new { @class = "glyphicon glyphicon-edit btn btn-primary" })
+
                 </td>
             </tr>
-    }
+            }
 
-    </table>
-</div>
+        </table>
+    </div>
