@@ -43,11 +43,11 @@ namespace CourseSite.Models.DAL
         [Required(ErrorMessageResourceType = typeof(CourseSite.App_GlobalResources.Instractors), ErrorMessageResourceName = "FiledISRequired")]
         public string Instractor_Mobile { get; set; }
 
-        [Display(ResourceType = typeof(CourseSite.App_GlobalResources.Instractors), Name = "Instractor_phone")]       
+        [Display(ResourceType = typeof(CourseSite.App_GlobalResources.Instractors), Name = "Instractor_phone")]
         public string Instractor_phone { get; set; }
-        
+
         [Display(ResourceType = typeof(CourseSite.App_GlobalResources.Instractors), Name = "Instractor_Email")]
-        
+
         [EmailAddress(ErrorMessageResourceType = typeof(CourseSite.App_GlobalResources.Instractors), ErrorMessageResourceName = "InvalidEmailAddress")]
         [Required(ErrorMessageResourceType = typeof(CourseSite.App_GlobalResources.Instractors), ErrorMessageResourceName = "FiledISRequired")]
         public string Instractor_Email { get; set; }
