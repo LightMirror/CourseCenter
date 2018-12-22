@@ -204,6 +204,18 @@ namespace CourseSite.Controllers
         //    }
         //}
 
-
+        //public ActionResult CourseDetails(int id)
+        //{
+        //    using (CenterDBEntities db = new CenterDBEntities())
+        //    {
+        //        CourseVM VMCors = new CourseVM();
+        //        var query = db.Courses.Where(x => x.ID == id).FirstOrDefault();
+        //        VMCors.CourseName = query.Course_EngName;
+        //        VMCors.CourseImg = query.Course_ImgePath;
+        //        VMCors.CourseObjective = query.Course_EngObjective;
+        //        VMCors.CourseSumery = query.Course_EngSummary;
+        //        return PartialView(VMCors);
+        //    }
+        //}
     }
 }

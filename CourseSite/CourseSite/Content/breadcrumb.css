@@ -11,6 +11,8 @@ html, body {
 body {
     text-align: center;
     padding-top: 100px;
+    background: #689976;
+    background: linear-gradient(#689976, #ACDACC);
     font-family: 'Merriweather Sans', arial, verdana;
 }
 

@@ -17,7 +17,17 @@
         padding: 15px;
     }
 </style>
-<h2>Create</h2> 
+<h2>Create</h2>
+<<<<<<< HEAD
+
+<div class="breadcrumb flat">
+    <span class="fa fa-home"></span>
+    <a href="#">@Resources.Main.Home</a>
+    <a href="#" class="active">@Resources.Main.Create</a>
+</div>
+
+@using (Html.BeginForm()) 
+=======
 <script type="text/javascript">
     function previewFileFDP(input) {
         console.log(input);
@@ -46,6 +56,7 @@
 </script>
 
 @using (Html.BeginForm("Create", "Course", FormMethod.Post, new { enctype = "multipart/form-data" }))
+>>>>>>> 482e42054669340cd01b781b38edc6f286d7ea13
 {
     @Html.AntiForgeryToken()
 
