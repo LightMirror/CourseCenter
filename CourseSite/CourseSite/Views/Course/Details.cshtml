@@ -2697,7 +2697,9 @@
                 <div class="row">
                     <div class="col-xs-12 col-sm-3 center">
                         <span class="profile-picture">
-                            <img class="editable img-responsive" src="@Model.Course_ImgePath" alt="Course" id="avatar2">
+                            <a href="#">
+                                <img src="@Url.Content(Model.Course_ImgePath)" alt="Course" class="editable img-responsive" id="avatar2" />
+                            </a>
                         </span>
 
                         <div class="space space-4"></div>
@@ -2751,9 +2753,7 @@
 
                             <div class="widget-body">
                                 <div class="widget-main">
-                                    <p style="text-justify:initial">
-                                        @Model.Course_EngObjective
-                                    </p>
+                                        @Model.Course_EngObjective.ToString()
                                 </div>
                             </div>
                         </div>
