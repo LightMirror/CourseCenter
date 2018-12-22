@@ -12,6 +12,7 @@ namespace CourseSite.Models.DAL
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using System.Web;
     using System.Xml.Linq;
 
     public partial class Courses
@@ -21,7 +22,7 @@ namespace CourseSite.Models.DAL
         {
             this.Course_Instractors = new HashSet<Course_Instractors>();
         }
-    
+
         public int ID { get; set; }
         [Required]
         [Display(Name = "Course Name")]
@@ -53,9 +54,11 @@ namespace CourseSite.Models.DAL
         public string Course_CreationUsers { get; set; }
         public Nullable<System.DateTime> Course_ModifyDate { get; set; }
         public string Course_modifyUsers { get; set; }
-    
+        public Nullable<bool> Course_ISInMain { get; set; }
+        public HttpPostedFileBase ImageUpload { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Course_Instractors> Course_Instractors { get; set; }
-        public virtual Course_status Course_status { get; set; }
+
     }
 }
+

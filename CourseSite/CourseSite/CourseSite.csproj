@@ -295,6 +295,7 @@
     <Compile Include="Models\DAL\CorporatesStatus.cs">
       <DependentUpon>CenterDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\CourseRoutine.cs" />
     <Compile Include="Models\DAL\Courses.cs">
       <DependentUpon>CenterDB.tt</DependentUpon>
     </Compile>
@@ -349,8 +350,10 @@
     <Compile Include="Models\DAL\sysdiagrams.cs">
       <DependentUpon>CenterDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\FAQsRoutines.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\MailViewModel.cs" />
+    <Compile Include="Models\MainViewModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -370,9 +373,15 @@
     <Content Include="assets\img\hotels\1.jpg" />
     <Content Include="assets\img\hotels\2.jpg" />
     <Content Include="assets\img\hotels\3.jpg" />
+    <Content Include="assets\img\5intro-bg.jpg" />
+    <Content Include="assets\img\-bg.jpg" />
     <Content Include="assets\img\intro-bg.jpg" />
-    <Content Include="assets\img\logo.png" />
+    <Content Include="assets\img\logo.jpg" />
     <Content Include="assets\img\NewLogo.jpg" />
+    <Content Include="assets\img\NoImage.png" />
+    <Content Include="assets\img\Partners\Alpha.JPG" />
+    <Content Include="assets\img\Partners\EAPB.jpeg" />
+    <Content Include="assets\img\__logo.png" />
     <Content Include="assets\img\NewLogo1.jpg" />
     <Content Include="assets\img\speakers\1.jpg" />
     <Content Include="assets\img\speakers\2.jpg" />
@@ -489,6 +498,7 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="Uploads\Photo\Courses\WhatsApp Image 2018-12-15 at 8.12.44 PM.jpeg" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -581,11 +591,13 @@
     <Content Include="Views\Specifications\Details.cshtml" />
     <Content Include="Views\Specifications\Edit.cshtml" />
     <Content Include="Views\Specifications\Index.cshtml" />
+    <Content Include="Views\FAQ\_FAQsPV.cshtml" />
     <Content Include="Views\Course\Create.cshtml" />
     <Content Include="Views\Course\Edit.cshtml" />
     <Content Include="Views\Course\Delete.cshtml" />
     <Content Include="Views\Course\Details.cshtml" />
     <Content Include="Views\Course\ShowCourses.cshtml" />
+    <Content Include="Views\FAQ\_CoursePV.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -10,20 +10,20 @@
         <EntityTypeShape EntityType="CenterDBModel.AspNetUserClaims" Width="1.5" PointX="18.25" PointY="12.75" />
         <EntityTypeShape EntityType="CenterDBModel.AspNetUserLogins" Width="1.5" PointX="18.25" PointY="15.5" />
         <EntityTypeShape EntityType="CenterDBModel.AspNetUsers" Width="1.5" PointX="16" PointY="13.125" />
-        <EntityTypeShape EntityType="CenterDBModel.Corporates" Width="1.5" PointX="0.75" PointY="2.875" />
+        <EntityTypeShape EntityType="CenterDBModel.Corporates" Width="1.5" PointX="0.5" PointY="3" IsExpanded="false" />
         <EntityTypeShape EntityType="CenterDBModel.CorporatesStatus" Width="1.5" PointX="1.5" PointY="12.875" />
-        <EntityTypeShape EntityType="CenterDBModel.Course_Instractors" Width="1.5" PointX="11.25" PointY="7.75" />
-        <EntityTypeShape EntityType="CenterDBModel.Course_status" Width="1.5" PointX="6.75" PointY="3.875" />
-        <EntityTypeShape EntityType="CenterDBModel.Courses" Width="1.5" PointX="9" PointY="0.75" />
+        <EntityTypeShape EntityType="CenterDBModel.Course_Instractors" Width="1.5" PointX="11.125" PointY="6.125" />
+        <EntityTypeShape EntityType="CenterDBModel.Course_status" Width="1.5" PointX="6.75" PointY="3.875" IsExpanded="false" />
+        <EntityTypeShape EntityType="CenterDBModel.Courses" Width="1.5" PointX="9" PointY="0.75" IsExpanded="false" />
         <EntityTypeShape EntityType="CenterDBModel.Customerabsent" Width="1.5" PointX="10.5" PointY="12" />
-        <EntityTypeShape EntityType="CenterDBModel.Customers" Width="1.5" PointX="3" PointY="6.75" />
+        <EntityTypeShape EntityType="CenterDBModel.Customers" Width="1.5" PointX="1.5" PointY="9.5" IsExpanded="false" />
         <EntityTypeShape EntityType="CenterDBModel.CustomerStatus" Width="1.5" PointX="0.75" PointY="16.375" />
         <EntityTypeShape EntityType="CenterDBModel.FAQs" Width="1.5" PointX="5.75" PointY="12.5" />
-        <EntityTypeShape EntityType="CenterDBModel.Gender" Width="1.5" PointX="0.75" PointY="8" />
-        <EntityTypeShape EntityType="CenterDBModel.GroupCustomers" Width="1.5" PointX="8.25" PointY="7.875" />
+        <EntityTypeShape EntityType="CenterDBModel.Gender" Width="1.5" PointX="0.75" PointY="8" IsExpanded="false" />
+        <EntityTypeShape EntityType="CenterDBModel.GroupCustomers" Width="1.5" PointX="8.25" PointY="7.875" IsExpanded="false" />
         <EntityTypeShape EntityType="CenterDBModel.GroupStatus" Width="1.5" PointX="11.25" PointY="15.375" />
-        <EntityTypeShape EntityType="CenterDBModel.Instractors" Width="1.5" PointX="6" PointY="7.25" />
-        <EntityTypeShape EntityType="CenterDBModel.InstractorStatus" Width="1.5" PointX="3.75" PointY="4.125" />
+        <EntityTypeShape EntityType="CenterDBModel.Instractors" Width="1.5" PointX="4.375" PointY="5.5" IsExpanded="false" />
+        <EntityTypeShape EntityType="CenterDBModel.InstractorStatus" Width="1.5" PointX="7.375" PointY="6" IsExpanded="false" />
         <EntityTypeShape EntityType="CenterDBModel.schedules" Width="1.5" PointX="15.75" PointY="7.625" />
         <EntityTypeShape EntityType="CenterDBModel.Specifications" Width="1.5" PointX="9" PointY="15.5" />
         <EntityTypeShape EntityType="CenterDBModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="12.5" />
@@ -48,7 +48,8 @@
         <AssociationConnector Association="CenterDBModel.FK_GroupCustomers_Groups" />
         <AssociationConnector Association="CenterDBModel.FK_Groups_GroupStatus" />
         <AssociationConnector Association="CenterDBModel.FK_schedules_schedules" />
-        <EntityTypeShape EntityType="CenterDBModel.Gallary" Width="1.5" PointX="3.375" PointY="0.75" />
+        <EntityTypeShape EntityType="CenterDBModel.Gallary" Width="1.5" PointX="3.375" PointY="0.75" IsExpanded="false" />
+        <AssociationConnector Association="CenterDBModel.AspNetUserRoles1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -13,8 +13,9 @@ namespace CourseSite.Controllers
     {
         public ActionResult Index()
         {
-
-            return View("Main");
+            MainViewModel MVM = new MainViewModel();
+            MVM = CourseSite.Common.General.BuildMainView();
+            return View("Main", MVM);
         }
 
         [Authorize]
@@ -55,9 +56,16 @@ namespace CourseSite.Controllers
             }
         }
         [HttpPost]
-        public ActionResult SendEmailMessage([Bind(Include = "name")]MailViewModel EVM)
+        public ActionResult SendEmailMessage([Bind(Include = "name,email,subject,message")]MailViewModel EVM)
         {
-            return Redirect(Request.UrlReferrer.AbsoluteUri);
+
+            string NewLine = "\n";
+            string RealBody = "Name: " +EVM.Name+ NewLine;
+            RealBody += "E-mail: " + EVM.email + NewLine;
+            RealBody += "Message:" + NewLine + EVM.message;
+            List<string> Recivers = new List<string>();Recivers.Add("eng.abdulrheem@gmail.com");
+            CourseSite.Common.Email.SendEmail(Recivers, EVM.subject, RealBody);
+            return View("Main");
         }
     }
 }

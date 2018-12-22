@@ -7,10 +7,10 @@ namespace CourseSite.Models
 {
     public class MailViewModel
     {
-        string FirstName { get; set; }
-        string SecondName { get; set; }
-        string subject { get; set; }
-        string body { get; set; }
+        public string Name { get; set; }
+        public string email { get; set; }
+        public string subject { get; set; }
+        public string message { get; set; }
         System.Net.Mail.Attachment attachment { get; set; }
     }
 }
