@@ -7,8 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - IATLC</title>
 
-    @Styles.Render("~/Content/css",
-    "~/Content/breadcrumb.css")
+    @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
 
@@ -20,7 +19,7 @@
     <!--Kendo----------------------------------------------------------------------------------------------->
     <link rel="stylesheet" href="//kendo.cdn.telerik.com/2015.3.1111/styles/kendo.common-material.min.css" />
     <link rel="stylesheet" href="//kendo.cdn.telerik.com/2015.3.1111/styles/kendo.material.min.css" />
-    @*<script src="//kendo.cdn.telerik.com/2015.3.1111/js/jquery.min.js"></script>*@
+    <script src="//kendo.cdn.telerik.com/2015.3.1111/js/jquery.min.js"></script>
     <script src="//kendo.cdn.telerik.com/2015.3.1111/js/kendo.all.min.js"></script>
 </head>
 <body>
@@ -97,16 +96,12 @@
     @RenderSection("scripts", required: false)
 
     <script>
-
              $(document).ready(function () {
                  $(".kendoDate").kendoDateTimePicker();
-
                  $("kendoTime").kendoDateTimePicker({
                     timeFormat: "HH:mm" //24 hours format
                 });
-
                  $('.datepicker').datepicker()
-
                  $('.ShortDate').datetimepicker({
                      weekStart: 1,
                      todayBtn: 1,
@@ -132,9 +127,7 @@
                      pick12HourFormat: true
                  });
                  $('.date').datepicker({ dateFormat: "dd-M-yyyy HH:mm P" });
-
              });
-
     </script>
 
 
