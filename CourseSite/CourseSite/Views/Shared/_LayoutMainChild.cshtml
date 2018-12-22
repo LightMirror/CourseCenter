@@ -34,25 +34,25 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <header id="header">
+    <header id="header" style="background-color:#0B1126">
         <div class="container">
 
             <div id="logo" class="pull-left">
                 <!-- Uncomment below if you prefer to use a text logo -->
                 <!-- <h1><a href="#main">C<span>o</span>nf</a></h1>-->
-                <a href="#intro" class="scrollto"><img src="~/assets/img/logo.jpg" style="height:128px;" alt="" title=""></a>
+                <a href="~/Home/Index" class="scrollto"><img src="~/assets/img/logo.jpg" style="height:128px;" alt="" title=""></a>
             </div>
 
             <nav id="nav-menu-container">
                 <ul class="nav-menu">
-                    <li class="menu-active"><a href="#intro">@Resources.Main.Home</a></li>
-                    <li><a href="#about">@Resources.Main.About</a></li>
-                    <li><a href="#hotels">@Resources.Main.Courses</a></li>
-                    <li><a href="#speakers">@Resources.Main.TeamMember</a></li>
-                    <li><a href="#sponsors">@Resources.Main.Partners</a></li>
-                    <li><a href="#faq">@Resources.Main.FAQ</a></li>
-                    <li><a href="#gallery">@Resources.Main.Gallery</a></li>
-                    <li><a href="#contact">@Resources.Main.ContactUS</a></li>
+                    <li class="menu-active"><a href="~/Home/Index">@Resources.Main.Home</a></li>
+                    <li><a href="@Url.Action("Index","Home")#about">@Resources.Main.About</a></li>
+                    <li><a href="@Url.Action("Index","Home")#hotels">@Resources.Main.Courses</a></li>
+                    <li><a href="@Url.Action("Index","Home")#speakers">@Resources.Main.TeamMember</a></li>
+                    <li><a href="@Url.Action("Index","Home")#sponsors">@Resources.Main.Partners</a></li>
+                    <li><a href="@Url.Action("Index","Home")#faq">@Resources.Main.FAQ</a></li>
+                    <li><a href="@Url.Action("Index","Home")#gallery">@Resources.Main.Gallery</a></li>
+                    <li><a href="@Url.Action("Index","Home")#contact">@Resources.Main.ContactUS</a></li>
                     <li class="buy-tickets">@Html.ActionLink(Resources.Main.Lang, "ChangeLang", "Home", null, null)</li>
                 </ul>
             </nav><!-- #nav-menu-container -->
