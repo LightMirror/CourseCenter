@@ -1,0 +1,43 @@
+﻿@model CourseSite.Models.DAL.GroupCustomers
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>GroupCustomers</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.GroupCustomer_payingCost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GroupCustomer_payingCost)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Customers.Customer_EngName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Customers.Customer_EngName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Groups.Group_CreationUser)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Groups.Group_CreationUser)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.GroupCustomer_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

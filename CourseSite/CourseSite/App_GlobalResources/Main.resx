@@ -126,17 +126,32 @@
   <data name="Allcourses" xml:space="preserve">
     <value>All courses</value>
   </data>
+  <data name="AvailableGroup" xml:space="preserve">
+    <value>Available group</value>
+  </data>
   <data name="BTL" xml:space="preserve">
     <value>Back To List</value>
   </data>
+  <data name="CompanyProfile" xml:space="preserve">
+    <value>Company Profile</value>
+  </data>
   <data name="ContactUS" xml:space="preserve">
     <value>Contact us</value>
+  </data>
+  <data name="corporates" xml:space="preserve">
+    <value>corporates</value>
   </data>
   <data name="Courses" xml:space="preserve">
     <value>Courses</value>
   </data>
   <data name="Create" xml:space="preserve">
     <value>Create</value>
+  </data>
+  <data name="CreateGroup" xml:space="preserve">
+    <value>Create group</value>
+  </data>
+  <data name="Customers" xml:space="preserve">
+    <value>Customers</value>
   </data>
   <data name="CreateNew" xml:space="preserve">
     <value>Create New</value>
@@ -159,14 +174,32 @@
   <data name="Gallery" xml:space="preserve">
     <value>Gallery</value>
   </data>
+  <data name="Groups" xml:space="preserve">
+    <value>Groups</value>
+  </data>
+  <data name="Groupschedules" xml:space="preserve">
+    <value>Group schedules</value>
+  </data>
+  <data name="GroupSearch" xml:space="preserve">
+    <value>Group Search</value>
+  </data>
   <data name="Home" xml:space="preserve">
     <value>Home</value>
+  </data>
+  <data name="Images" xml:space="preserve">
+    <value>Images</value>
   </data>
   <data name="Inactive" xml:space="preserve">
     <value>Inactive</value>
   </data>
+  <data name="Instructors" xml:space="preserve">
+    <value>Instructors</value>
+  </data>
   <data name="Lang" xml:space="preserve">
     <value>عربي</value>
+  </data>
+  <data name="MainDashBoard" xml:space="preserve">
+    <value>Main dashboard</value>
   </data>
   <data name="List" xml:space="preserve">
     <value>List</value>
@@ -174,10 +207,25 @@
   <data name="Phone" xml:space="preserve">
     <value>Phone:</value>
   </data>
+  <data name="Scheduals" xml:space="preserve">
+    <value>Scheduals</value>
+  </data>
+  <data name="SiteDashBoard" xml:space="preserve">
+    <value>Site dashboard</value>
+  </data>
   <data name="Save" xml:space="preserve">
     <value>Save</value>
   </data>
   <data name="UsefulLinks" xml:space="preserve">
     <value>Useful Links</value>
+  </data>
+  <data name="OurPartners" xml:space="preserve">
+    <value>Our partners</value>
+  </data>
+  <data name="Partners" xml:space="preserve">
+    <value>Partners</value>
+  </data>
+  <data name="TeamMember" xml:space="preserve">
+    <value>Team member</value>
   </data>
 </root>

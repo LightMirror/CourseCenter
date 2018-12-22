@@ -1,0 +1,52 @@
+﻿@model IEnumerable<CourseSite.Models.DAL.Specifications>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Specification_EngName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Specification_AraName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Specification_EngDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Specification_AraDescription)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Specification_EngName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Specification_AraName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Specification_EngDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Specification_AraDescription)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

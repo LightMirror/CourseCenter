@@ -31,9 +31,9 @@ namespace CourseSite.Models.DAL
         public Nullable<System.DateTime> Group_EndDate { get; set; }
         public Nullable<decimal> Group_CostPerPerson { get; set; }
         public Nullable<int> Group_SessionNumber { get; set; }
-        public Nullable<byte> Group_hoursPerSession { get; set; }
+        public Nullable<decimal> Group_hoursPerSession { get; set; }
         public Nullable<int> Group_statusID { get; set; }
-        public Nullable<byte> Group_CustomerNumber { get; set; }
+        public Nullable<int> Group_CustomerNumber { get; set; }
         public string Group_ImagePath { get; set; }
         public string Group_ImagePath2 { get; set; }
     

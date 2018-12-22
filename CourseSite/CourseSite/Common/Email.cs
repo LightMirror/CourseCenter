@@ -58,6 +58,7 @@ namespace CourseSite.Common
                     message.Subject = subject;
                     message.Body = body;
                     message.Attachments.Add(attachment);
+                    message.IsBodyHtml = true;
                     stmp.Send(message);
                 }
                 return true;

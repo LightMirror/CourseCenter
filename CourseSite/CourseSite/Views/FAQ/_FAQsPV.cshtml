@@ -1,0 +1,59 @@
+﻿@model IEnumerable<CourseSite.Models.DAL.FAQs>
+
+<section id="faq" class="wow fadeInUp">
+
+    <div class="container">
+
+        <div class="section-header">
+            <h2>F.A.Q </h2>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-9">
+                <ul id="faq-list">
+                    @foreach (var item in Model)
+                    {
+
+                        string hrefName = "#faq" + item.FAQ_ID;
+                        string DivId = "faq" + item.FAQ_ID.ToString();
+
+                        <li>
+                            <a data-toggle="collapse" class="collapsed" href='@hrefName'>
+                            @if (CourseSite.Common.UImanger.CurrentLang == "en")
+                            {
+                            @item.FAQ_QuestionEng 
+                            }
+                            else
+                            {
+                                @item.FAQ_QuestionAra
+                            }
+                            <i class="fa fa-minus-circle"></i></a>
+                            <div id="@DivId" class="collapse" data-parent="#faq-list">
+                                @if (CourseSite.Common.UImanger.CurrentLang == "en")
+                                {
+                                    @item.FAQ_AnswerEng
+                                }
+                                else
+                                {
+                                    @item.FAQ_AnswerAra
+                                }                            
+                            </div>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+
+
+
+
+
+

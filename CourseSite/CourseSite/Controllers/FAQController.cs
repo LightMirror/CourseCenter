@@ -118,6 +118,14 @@ namespace CourseSite.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult AllFAQs()
+        {
+            using (Models.DAL.CenterDBEntities db = new Models.DAL.CenterDBEntities())
+            {
+                return PartialView("~/Views/FAQ/_FAQsPV.cshtml", db.FAQs.ToList());
+            }
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

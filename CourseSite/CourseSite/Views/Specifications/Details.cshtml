@@ -1,0 +1,51 @@
+﻿@model CourseSite.Models.DAL.Specifications
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Specifications</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Specification_EngName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Specification_EngName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Specification_AraName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Specification_AraName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Specification_EngDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Specification_EngDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Specification_AraDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Specification_AraDescription)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

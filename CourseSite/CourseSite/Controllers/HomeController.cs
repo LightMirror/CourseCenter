@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CourseSite.Models;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -12,13 +13,16 @@ namespace CourseSite.Controllers
     {
         public ActionResult Index()
         {
-
-            return View("Main");
+            MainViewModel MVM = new MainViewModel();
+            MVM = CourseSite.Common.General.BuildMainView();
+            return View("Main", MVM);
         }
-        //public ActionResult Main()
-        //{
-        //    return View();
-        //}
+
+        [Authorize]
+        public ActionResult MainAdmin()
+        {
+            return View("MainAdmin");
+        }
 
         public ActionResult About()
         {
@@ -50,6 +54,18 @@ namespace CourseSite.Controllers
                 Common.General.LogError(ex, "HomeController.cs");
                 return Redirect(Request.UrlReferrer.AbsoluteUri);
             }
+        }
+        [HttpPost]
+        public ActionResult SendEmailMessage([Bind(Include = "name,email,subject,message")]MailViewModel EVM)
+        {
+
+            string NewLine = "\n";
+            string RealBody = "Name: " +EVM.Name+ NewLine;
+            RealBody += "E-mail: " + EVM.email + NewLine;
+            RealBody += "Message:" + NewLine + EVM.message;
+            List<string> Recivers = new List<string>();Recivers.Add("eng.abdulrheem@gmail.com");
+            CourseSite.Common.Email.SendEmail(Recivers, EVM.subject, RealBody);
+            return View("Main");
         }
     }
 }

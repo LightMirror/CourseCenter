@@ -14,7 +14,7 @@ namespace CourseSite.Models.DAL
     using System.ComponentModel.DataAnnotations;
 
     public partial class FAQs
-    {    
+    {
         public int FAQ_ID { get; set; }
         [Display(ResourceType = typeof(CourseSite.App_GlobalResources.FAQ), Name = "QEn")]
         [Required(ErrorMessageResourceType = typeof(CourseSite.App_GlobalResources.FAQ), ErrorMessageResourceName = "RequiredFiled")]

@@ -1,0 +1,56 @@
+﻿@model IEnumerable<CourseSite.Models.DAL.CompanyProfile>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@if (TempData["Done"] != null)
+{
+    <div id="clos" class="alert alert-success alert-dismissible fade in">
+        <a href="#clos" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <p> @TempData["Done"].ToString()</p>
+    </div>
+}
+
+
+<h2>@Resources.Main.CompanyProfile</h2>
+
+<div class="container">
+
+    <p>
+        <span class="glyphicon glyphicon-plus"></span>
+        @Html.ActionLink("Create New", "Create") &nbsp;
+        <span class="glyphicon glyphicon-refresh"></span>
+        @Html.ActionLink("Refresh Offloading", "Index") &nbsp;
+    </p>
+
+    <div class="table table-responsive">
+
+        <table class="table">
+            <tr>
+                <th class="text-center" style="background-color: #CED8F6;">
+                    @Html.DisplayNameFor(model => model.CompanyNameEng)
+                </th>
+                <th class="text-center" style="background-color: #CED8F6;">
+                    Actions
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td class="text-center">
+                        @Html.DisplayFor(modelItem => item.CompanyNameEng)
+                    </td>
+                    <td class="text-center">
+                        <a href="/CompanyProfiles/Edit/@item.ID" class="glyphicon glyphicon-edit btn btn-primary "></a>
+                                
+                    </td>
+                </tr>
+            }
+
+        </table>
+
+        </div>
+    </div>
