@@ -11,6 +11,7 @@ namespace CourseSite.Models.DAL
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     using System.Web;
 
     public partial class Courses
@@ -20,32 +21,45 @@ namespace CourseSite.Models.DAL
         {
             this.Course_Instractors = new HashSet<Course_Instractors>();
         }
-    
-        public int ID { get; set; }
-        public string Course_EngName { get; set; }
-        public string Course_AraName { get; set; }
-        public string Course_VedioPath { get; set; }
-        public string Course_ImgePath { get; set; }
-        public string Course_ImagePath2 { get; set; }
-        public string Course_EngObjective { get; set; }
-        public string Course_AraObjective { get; set; }
-        public string Course_EngSummary { get; set; }
-        public string Course_AraSummary { get; set; }
-        public string Course_ArabicContentPath { get; set; }
-        public string Course_EnglishContent { get; set; }
-        public Nullable<int> Course_StatusID { get; set; }
-        public Nullable<decimal> Course_TotalHour { get; set; }
-        public Nullable<decimal> Course_OrignalCost { get; set; }
-        public Nullable<System.DateTime> Course_CreationDate { get; set; }
-        public string Course_CreationUsers { get; set; }
-        public Nullable<System.DateTime> Course_ModifyDate { get; set; }
-        public string Course_modifyUsers { get; set; }
-        public Nullable<bool> Course_ISInMain { get; set; }
 
-        public HttpPostedFileBase ImageUpload { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Course_Instractors> Course_Instractors { get; set; }
-        public virtual Course_status Course_status { get; set; }
-    }
+    public int ID { get; set; }
+    [Required]
+    [Display(Name = "Course Name")]
+    public string Course_EngName { get; set; }
+    [Display(Name = "Course Name")]
+    public string Course_AraName { get; set; }
+    [Display(Name = "Vedio Path")]
+    public string Course_VedioPath { get; set; }
+    [Display(Name = "Image Path")]
+    public string Course_ImgePath { get; set; }
+    public string Course_ImagePath2 { get; set; }
+    [Display(Name = "Objective")]
+    public string Course_EngObjective { get; set; }
+    public string Course_AraObjective { get; set; }
+    [Required]
+    [Display(Name = "Summary")]
+    public string Course_EngSummary { get; set; }
+    public string Course_AraSummary { get; set; }
+    public string Course_ArabicContentPath { get; set; }
+    [Display(Name = "Content")]
+    public string Course_EnglishContent { get; set; }
+    [Display(Name = "Status ID")]
+    public Nullable<int> Course_StatusID { get; set; }
+    [Display(Name = "Total Hour")]
+    public Nullable<decimal> Course_TotalHour { get; set; }
+    [Display(Name = "Cost")]
+    public Nullable<decimal> Course_OrignalCost { get; set; }
+    public Nullable<System.DateTime> Course_CreationDate { get; set; }
+    public string Course_CreationUsers { get; set; }
+    public Nullable<System.DateTime> Course_ModifyDate { get; set; }
+    public string Course_modifyUsers { get; set; }
+    public Nullable<bool> Course_ISInMain { get; set; }
+    public HttpPostedFileBase ImageUpload { get; set; }
+
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+    public virtual ICollection<Course_Instractors> Course_Instractors { get; set; }
+
+    public virtual Course_status Course_status { get; set; }
+}
 }
