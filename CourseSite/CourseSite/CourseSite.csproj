@@ -597,6 +597,7 @@
     <Content Include="Views\Course\Details.cshtml" />
     <Content Include="Views\Course\ShowCourses.cshtml" />
     <Content Include="Views\FAQ\_CoursePV.cshtml" />
+    <Content Include="Views\Shared\_LayoutMainChild.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
