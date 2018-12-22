@@ -56,6 +56,16 @@
           <Property Name="AccessFailedCount" Type="int" Nullable="false" />
           <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
         </EntityType>
+        <EntityType Name="C__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+          <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+        </EntityType>
         <EntityType Name="CompanyProfile">
           <Key>
             <PropertyRef Name="ID" />
@@ -565,6 +575,7 @@
           <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CompanyProfile" EntityType="Self.CompanyProfile" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Corporates" EntityType="Self.Corporates" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CorporatesStatus" EntityType="Self.CorporatesStatus" Schema="dbo" store:Type="Tables" />
@@ -671,11 +682,12 @@
     <edmx:ConceptualModels>
       <Schema Namespace="CenterDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="CenterDBEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="C__MigrationHistory" EntityType="CenterDBModel.C__MigrationHistory" />
           <EntitySet Name="AspNetRoles" EntityType="CenterDBModel.AspNetRoles" />
           <EntitySet Name="AspNetUserClaims" EntityType="CenterDBModel.AspNetUserClaims" />
           <EntitySet Name="AspNetUserLogins" EntityType="CenterDBModel.AspNetUserLogins" />
           <EntitySet Name="AspNetUsers" EntityType="CenterDBModel.AspNetUsers" />
+          <EntitySet Name="C__MigrationHistory" EntityType="CenterDBModel.C__MigrationHistory" />
+          <EntitySet Name="CompanyProfile" EntityType="CenterDBModel.CompanyProfile" />
           <EntitySet Name="Corporates" EntityType="CenterDBModel.Corporates" />
           <EntitySet Name="CorporatesStatus" EntityType="CenterDBModel.CorporatesStatus" />
           <EntitySet Name="Course_Instractors" EntityType="CenterDBModel.Course_Instractors" />
@@ -685,8 +697,10 @@
           <EntitySet Name="Customers" EntityType="CenterDBModel.Customers" />
           <EntitySet Name="CustomerStatus" EntityType="CenterDBModel.CustomerStatus" />
           <EntitySet Name="FAQs" EntityType="CenterDBModel.FAQs" />
+          <EntitySet Name="Gallary" EntityType="CenterDBModel.Gallary" />
           <EntitySet Name="Gender" EntityType="CenterDBModel.Gender" />
           <EntitySet Name="GroupCustomers" EntityType="CenterDBModel.GroupCustomers" />
+          <EntitySet Name="Groups" EntityType="CenterDBModel.Groups" />
           <EntitySet Name="GroupStatus" EntityType="CenterDBModel.GroupStatus" />
           <EntitySet Name="Instractors" EntityType="CenterDBModel.Instractors" />
           <EntitySet Name="InstractorStatus" EntityType="CenterDBModel.InstractorStatus" />
@@ -721,6 +735,10 @@
             <End Role="Specifications" EntitySet="Specifications" />
             <End Role="Course_Instractors" EntitySet="Course_Instractors" />
           </AssociationSet>
+          <AssociationSet Name="FK_Groups_Groups" Association="CenterDBModel.FK_Groups_Groups">
+            <End Role="Course_Instractors" EntitySet="Course_Instractors" />
+            <End Role="Groups" EntitySet="Groups" />
+          </AssociationSet>
           <AssociationSet Name="FK_Courses_Course_status" Association="CenterDBModel.FK_Courses_Course_status">
             <End Role="Course_status" EntitySet="Course_status" />
             <End Role="Courses" EntitySet="Courses" />
@@ -745,20 +763,6 @@
             <End Role="Gender" EntitySet="Gender" />
             <End Role="Instractors" EntitySet="Instractors" />
           </AssociationSet>
-          <AssociationSet Name="FK_Instractors_InstractorStatus" Association="CenterDBModel.FK_Instractors_InstractorStatus">
-            <End Role="InstractorStatus" EntitySet="InstractorStatus" />
-            <End Role="Instractors" EntitySet="Instractors" />
-          </AssociationSet>
-          <AssociationSet Name="AspNetUserRoles" Association="CenterDBModel.AspNetUserRoles">
-            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-          </AssociationSet>
-          <EntitySet Name="CompanyProfile" EntityType="CenterDBModel.CompanyProfile" />
-          <EntitySet Name="Groups" EntityType="CenterDBModel.Groups" />
-          <AssociationSet Name="FK_Groups_Groups" Association="CenterDBModel.FK_Groups_Groups">
-            <End Role="Course_Instractors" EntitySet="Course_Instractors" />
-            <End Role="Groups" EntitySet="Groups" />
-          </AssociationSet>
           <AssociationSet Name="FK_GroupCustomers_Groups" Association="CenterDBModel.FK_GroupCustomers_Groups">
             <End Role="Groups" EntitySet="Groups" />
             <End Role="GroupCustomers" EntitySet="GroupCustomers" />
@@ -771,22 +775,15 @@
             <End Role="Groups" EntitySet="Groups" />
             <End Role="schedules" EntitySet="schedules" />
           </AssociationSet>
-          <EntitySet Name="Gallary" EntityType="CenterDBModel.Gallary" />
-          <AssociationSet Name="AspNetUserRoles1" Association="CenterDBModel.AspNetUserRoles1">
+          <AssociationSet Name="FK_Instractors_InstractorStatus" Association="CenterDBModel.FK_Instractors_InstractorStatus">
+            <End Role="InstractorStatus" EntitySet="InstractorStatus" />
+            <End Role="Instractors" EntitySet="Instractors" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="CenterDBModel.AspNetUserRoles">
             <End Role="AspNetRoles" EntitySet="AspNetRoles" />
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
           </AssociationSet>
         </EntityContainer>
-        <EntityType Name="C__MigrationHistory">
-          <Key>
-            <PropertyRef Name="MigrationId" />
-            <PropertyRef Name="ContextKey" />
-          </Key>
-          <Property Name="MigrationId" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="ContextKey" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
-          <Property Name="Model" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
-          <Property Name="ProductVersion" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
-        </EntityType>
         <EntityType Name="AspNetRoles">
           <Key>
             <PropertyRef Name="Id" />
@@ -794,7 +791,6 @@
           <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="AspNetUsers" Relationship="CenterDBModel.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
-          <NavigationProperty Name="AspNetUsers1" Relationship="CenterDBModel.AspNetUserRoles1" FromRole="AspNetRoles" ToRole="AspNetUsers" />
         </EntityType>
         <EntityType Name="AspNetUserClaims">
           <Key>
@@ -836,7 +832,44 @@
           <NavigationProperty Name="AspNetUserClaims" Relationship="CenterDBModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
           <NavigationProperty Name="AspNetUserLogins" Relationship="CenterDBModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
           <NavigationProperty Name="AspNetRoles" Relationship="CenterDBModel.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
-          <NavigationProperty Name="AspNetRoles1" Relationship="CenterDBModel.AspNetUserRoles1" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+        </EntityType>
+        <EntityType Name="C__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="ContextKey" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Model" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Name="ProductVersion" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CompanyProfile">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="CompanyNameEng" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyNameAra" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyAddress_FlatNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyAddress_StreetNameEng" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyAddress_StreetNameAra" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyAddress_DistricNameEng" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyAddress_DistricNameAr" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyAddress_CityNameEng" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyAddress_CityNameAra" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyAddress_CountryNameEng" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyAddress_CountryNameAra" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyPhone1" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyPhone2" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyEmail" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="CompanySummarEng" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="CompanySummaryAra" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyVideoPath" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyImagePath" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyObjectiveEng" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyObjectiveAra" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyHeadLineEng" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyHeadLineAra" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
         </EntityType>
         <EntityType Name="Corporates">
           <Key>
@@ -911,9 +944,9 @@
           <Property Name="Course_CreationUsers" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="Course_ModifyDate" Type="DateTime" Precision="3" />
           <Property Name="Course_modifyUsers" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Course_ISInMain" Type="Boolean" />
           <NavigationProperty Name="Course_Instractors" Relationship="CenterDBModel.FK_Course_Instractors_Course_Instractors" FromRole="Courses" ToRole="Course_Instractors" />
           <NavigationProperty Name="Course_status" Relationship="CenterDBModel.FK_Courses_Course_status" FromRole="Courses" ToRole="Course_status" />
-          <Property Name="Course_ISInMain" Type="Boolean" />
         </EntityType>
         <EntityType Name="Customerabsent">
           <Key>
@@ -972,6 +1005,14 @@
           <Property Name="FAQ_ModifiedUser" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="FAQ_ModifiedDate" Type="DateTime" Precision="3" />
         </EntityType>
+        <EntityType Name="Gallary">
+          <Key>
+            <PropertyRef Name="ImageID" />
+          </Key>
+          <Property Name="ImageID" Type="Int32" Nullable="false" />
+          <Property Name="ImagePath" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="ImageStatus" Type="Boolean" Nullable="false" />
+        </EntityType>
         <EntityType Name="Gender">
           <Key>
             <PropertyRef Name="ID" />
@@ -993,6 +1034,30 @@
           <NavigationProperty Name="Customerabsent" Relationship="CenterDBModel.FK_Customerabsent_Customerabsent" FromRole="GroupCustomers" ToRole="Customerabsent" />
           <NavigationProperty Name="Customers" Relationship="CenterDBModel.FK_GroupCustomers_Customers" FromRole="GroupCustomers" ToRole="Customers" />
           <NavigationProperty Name="Groups" Relationship="CenterDBModel.FK_GroupCustomers_Groups" FromRole="GroupCustomers" ToRole="Groups" />
+        </EntityType>
+        <EntityType Name="Groups">
+          <Key>
+            <PropertyRef Name="Group_ID" />
+          </Key>
+          <Property Name="Group_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Group_CreationDate" Type="DateTime" Precision="3" />
+          <Property Name="Group_CreationUser" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Group_modifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="Group_modifiedUser" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Group_CourseInstractorID" Type="Int32" />
+          <Property Name="Group_StartDate" Type="DateTime" Precision="3" />
+          <Property Name="Group_EndDate" Type="DateTime" Precision="3" />
+          <Property Name="Group_CostPerPerson" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Group_SessionNumber" Type="Int32" />
+          <Property Name="Group_hoursPerSession" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Group_statusID" Type="Int32" />
+          <Property Name="Group_CustomerNumber" Type="Int32" />
+          <Property Name="Group_ImagePath" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Group_ImagePath2" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Course_Instractors" Relationship="CenterDBModel.FK_Groups_Groups" FromRole="Groups" ToRole="Course_Instractors" />
+          <NavigationProperty Name="GroupCustomers" Relationship="CenterDBModel.FK_GroupCustomers_Groups" FromRole="Groups" ToRole="GroupCustomers" />
+          <NavigationProperty Name="GroupStatus" Relationship="CenterDBModel.FK_Groups_GroupStatus" FromRole="Groups" ToRole="GroupStatus" />
+          <NavigationProperty Name="schedules" Relationship="CenterDBModel.FK_schedules_schedules" FromRole="Groups" ToRole="schedules" />
         </EntityType>
         <EntityType Name="GroupStatus">
           <Key>
@@ -1153,6 +1218,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Groups_Groups">
+          <End Type="CenterDBModel.Course_Instractors" Role="Course_Instractors" Multiplicity="0..1" />
+          <End Type="CenterDBModel.Groups" Role="Groups" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Course_Instractors">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Groups">
+              <PropertyRef Name="Group_CourseInstractorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Courses_Course_status">
           <End Type="CenterDBModel.Course_status" Role="Course_status" Multiplicity="0..1" />
           <End Type="CenterDBModel.Courses" Role="Courses" Multiplicity="*" />
@@ -1225,86 +1302,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Instractors_InstractorStatus">
-          <End Type="CenterDBModel.InstractorStatus" Role="InstractorStatus" Multiplicity="0..1" />
-          <End Type="CenterDBModel.Instractors" Role="Instractors" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="InstractorStatus">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Instractors">
-              <PropertyRef Name="Instractor_StatusID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="AspNetUserRoles">
-          <End Type="CenterDBModel.AspNetRoles" Role="AspNetRoles" Multiplicity="*" />
-          <End Type="CenterDBModel.AspNetUsers" Role="AspNetUsers" Multiplicity="*" />
-        </Association>
-        <EntityType Name="CompanyProfile">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="CompanyNameEng" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
-          <Property Name="CompanyNameAra" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
-          <Property Name="CompanyAddress_FlatNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CompanyAddress_StreetNameEng" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CompanyAddress_StreetNameAra" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CompanyAddress_DistricNameEng" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CompanyAddress_DistricNameAr" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CompanyAddress_CityNameEng" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CompanyAddress_CityNameAra" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CompanyAddress_CountryNameEng" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CompanyAddress_CountryNameAra" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CompanyPhone1" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="CompanyPhone2" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="CompanyEmail" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="CompanySummarEng" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
-          <Property Name="CompanySummaryAra" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
-          <Property Name="CompanyVideoPath" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
-          <Property Name="CompanyImagePath" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
-          <Property Name="CompanyObjectiveEng" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
-          <Property Name="CompanyObjectiveAra" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
-          <Property Name="CompanyHeadLineEng" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="CompanyHeadLineAra" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-        </EntityType>
-        <EntityType Name="Groups">
-          <Key>
-            <PropertyRef Name="Group_ID" />
-          </Key>
-          <Property Name="Group_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Group_CreationDate" Type="DateTime" Precision="3" />
-          <Property Name="Group_CreationUser" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="Group_modifiedDate" Type="DateTime" Precision="3" />
-          <Property Name="Group_modifiedUser" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="Group_CourseInstractorID" Type="Int32" />
-          <Property Name="Group_StartDate" Type="DateTime" Precision="3" />
-          <Property Name="Group_EndDate" Type="DateTime" Precision="3" />
-          <Property Name="Group_CostPerPerson" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="Group_SessionNumber" Type="Int32" />
-          <Property Name="Group_hoursPerSession" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="Group_statusID" Type="Int32" />
-          <Property Name="Group_CustomerNumber" Type="Int32" />
-          <Property Name="Group_ImagePath" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="Group_ImagePath2" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Course_Instractors" Relationship="CenterDBModel.FK_Groups_Groups" FromRole="Groups" ToRole="Course_Instractors" />
-          <NavigationProperty Name="GroupCustomers" Relationship="CenterDBModel.FK_GroupCustomers_Groups" FromRole="Groups" ToRole="GroupCustomers" />
-          <NavigationProperty Name="GroupStatus" Relationship="CenterDBModel.FK_Groups_GroupStatus" FromRole="Groups" ToRole="GroupStatus" />
-          <NavigationProperty Name="schedules" Relationship="CenterDBModel.FK_schedules_schedules" FromRole="Groups" ToRole="schedules" />
-        </EntityType>
-        <Association Name="FK_Groups_Groups">
-          <End Type="CenterDBModel.Course_Instractors" Role="Course_Instractors" Multiplicity="0..1" />
-          <End Type="CenterDBModel.Groups" Role="Groups" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Course_Instractors">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Groups">
-              <PropertyRef Name="Group_CourseInstractorID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_GroupCustomers_Groups">
           <End Type="CenterDBModel.Groups" Role="Groups" Multiplicity="0..1" />
           <End Type="CenterDBModel.GroupCustomers" Role="GroupCustomers" Multiplicity="*" />
@@ -1341,15 +1338,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="Gallary">
-          <Key>
-            <PropertyRef Name="ImageID" />
-          </Key>
-          <Property Name="ImageID" Type="Int32" Nullable="false" />
-          <Property Name="ImagePath" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
-          <Property Name="ImageStatus" Type="Boolean" Nullable="false" />
-        </EntityType>
-        <Association Name="AspNetUserRoles1">
+        <Association Name="FK_Instractors_InstractorStatus">
+          <End Type="CenterDBModel.InstractorStatus" Role="InstractorStatus" Multiplicity="0..1" />
+          <End Type="CenterDBModel.Instractors" Role="Instractors" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InstractorStatus">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Instractors">
+              <PropertyRef Name="Instractor_StatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AspNetUserRoles">
           <End Type="CenterDBModel.AspNetRoles" Role="AspNetRoles" Multiplicity="*" />
           <End Type="CenterDBModel.AspNetUsers" Role="AspNetUsers" Multiplicity="*" />
         </Association>
@@ -1359,329 +1360,337 @@
     <edmx:Mappings>
     <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="CenterDBModelStoreContainer" CdmEntityContainer="CenterDBEntities">
-    <EntitySetMapping Name="AspNetRoles">
-      <EntityTypeMapping TypeName="IsTypeOf(CenterDBModel.AspNetRoles)">
-        <MappingFragment StoreEntitySet="AspNetRoles">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="AspNetUserClaims">
-      <EntityTypeMapping TypeName="IsTypeOf(CenterDBModel.AspNetUserClaims)">
-        <MappingFragment StoreEntitySet="AspNetUserClaims">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="UserId" ColumnName="UserId" />
-          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
-          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="AspNetUserLogins">
-      <EntityTypeMapping TypeName="IsTypeOf(CenterDBModel.AspNetUserLogins)">
-        <MappingFragment StoreEntitySet="AspNetUserLogins">
-          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
-          <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
-          <ScalarProperty Name="UserId" ColumnName="UserId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="AspNetUsers">
-      <EntityTypeMapping TypeName="IsTypeOf(CenterDBModel.AspNetUsers)">
-        <MappingFragment StoreEntitySet="AspNetUsers">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Email" ColumnName="Email" />
-          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
-          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
-          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
-          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
-          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
-          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
-          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
-          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
-          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
-          <ScalarProperty Name="UserName" ColumnName="UserName" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Corporates">
-      <EntityTypeMapping TypeName="IsTypeOf(CenterDBModel.Corporates)">
-        <MappingFragment StoreEntitySet="Corporates">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="Corporates_EngName" ColumnName="Corporates_EngName" />
-          <ScalarProperty Name="Corporates_AraName" ColumnName="Corporates_AraName" />
-          <ScalarProperty Name="Corporates_Address" ColumnName="Corporates_Address" />
-          <ScalarProperty Name="Corporates_phone" ColumnName="Corporates_phone" />
-          <ScalarProperty Name="Corporates_mobile" ColumnName="Corporates_mobile" />
-          <ScalarProperty Name="Corporates_email" ColumnName="Corporates_email" />
-          <ScalarProperty Name="Corporates_FocalPoint" ColumnName="Corporates_FocalPoint" />
-          <ScalarProperty Name="Corporates_Summary" ColumnName="Corporates_Summary" />
-          <ScalarProperty Name="Corporates_ImagePath1" ColumnName="Corporates_ImagePath1" />
-          <ScalarProperty Name="Corporates_imagePath2" ColumnName="Corporates_imagePath2" />
-          <ScalarProperty Name="Corporates_statusId" ColumnName="Corporates_statusId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="CorporatesStatus">
-      <EntityTypeMapping TypeName="IsTypeOf(CenterDBModel.CorporatesStatus)">
-        <MappingFragment StoreEntitySet="CorporatesStatus">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="Status_EngName" ColumnName="Status_EngName" />
-          <ScalarProperty Name="Status_AraName" ColumnName="Status_AraName" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Course_Instractors">
-      <EntityTypeMapping TypeName="IsTypeOf(CenterDBModel.Course_Instractors)">
-        <MappingFragment StoreEntitySet="Course_Instractors">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="CourseID" ColumnName="CourseID" />
-          <ScalarProperty Name="InstractorID" ColumnName="InstractorID" />
-          <ScalarProperty Name="SpecificationID" ColumnName="SpecificationID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Course_status">
-      <EntityTypeMapping TypeName="IsTypeOf(CenterDBModel.Course_status)">
-        <MappingFragment StoreEntitySet="Course_status">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="Status_EngName" ColumnName="Status_EngName" />
-          <ScalarProperty Name="Status_AraName" ColumnName="Status_AraName" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Courses">
-      <EntityTypeMapping TypeName="IsTypeOf(CenterDBModel.Courses)">
-        <MappingFragment StoreEntitySet="Courses">
-          <ScalarProperty Name="Course_ISInMain" ColumnName="Course_ISInMain" />
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="CenterDBModel.AspNetRoles">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserClaims">
+            <EntityTypeMapping TypeName="CenterDBModel.AspNetUserClaims">
+              <MappingFragment StoreEntitySet="AspNetUserClaims">
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserLogins">
+            <EntityTypeMapping TypeName="CenterDBModel.AspNetUserLogins">
+              <MappingFragment StoreEntitySet="AspNetUserLogins">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="CenterDBModel.AspNetUsers">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="C__MigrationHistory">
+            <EntityTypeMapping TypeName="CenterDBModel.C__MigrationHistory">
+              <MappingFragment StoreEntitySet="C__MigrationHistory">
+                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CompanyProfile">
+            <EntityTypeMapping TypeName="CenterDBModel.CompanyProfile">
+              <MappingFragment StoreEntitySet="CompanyProfile">
                 <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="Course_EngName" ColumnName="Course_EngName" />
-          <ScalarProperty Name="Course_AraName" ColumnName="Course_AraName" />
-          <ScalarProperty Name="Course_VedioPath" ColumnName="Course_VedioPath" />
-          <ScalarProperty Name="Course_ImgePath" ColumnName="Course_ImgePath" />
-          <ScalarProperty Name="Course_ImagePath2" ColumnName="Course_ImagePath2" />
-          <ScalarProperty Name="Course_EngObjective" ColumnName="Course_EngObjective" />
-          <ScalarProperty Name="Course_AraObjective" ColumnName="Course_AraObjective" />
-          <ScalarProperty Name="Course_EngSummary" ColumnName="Course_EngSummary" />
-          <ScalarProperty Name="Course_AraSummary" ColumnName="Course_AraSummary" />
-          <ScalarProperty Name="Course_ArabicContentPath" ColumnName="Course_ArabicContentPath" />
-          <ScalarProperty Name="Course_EnglishContent" ColumnName="Course_EnglishContent" />
-          <ScalarProperty Name="Course_StatusID" ColumnName="Course_StatusID" />
-          <ScalarProperty Name="Course_TotalHour" ColumnName="Course_TotalHour" />
-          <ScalarProperty Name="Course_OrignalCost" ColumnName="Course_OrignalCost" />
-          <ScalarProperty Name="Course_CreationDate" ColumnName="Course_CreationDate" />
-          <ScalarProperty Name="Course_CreationUsers" ColumnName="Course_CreationUsers" />
-          <ScalarProperty Name="Course_ModifyDate" ColumnName="Course_ModifyDate" />
-          <ScalarProperty Name="Course_modifyUsers" ColumnName="Course_modifyUsers" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Customerabsent">
-      <EntityTypeMapping TypeName="IsTypeOf(CenterDBModel.Customerabsent)">
-        <MappingFragment StoreEntitySet="Customerabsent">
-          <ScalarProperty Name="Customerabsent_ID" ColumnName="Customerabsent_ID" />
-          <ScalarProperty Name="Customerabsent_Date" ColumnName="Customerabsent_Date" />
-          <ScalarProperty Name="Customerabsent_ISabsent" ColumnName="Customerabsent_ISabsent" />
-          <ScalarProperty Name="Customerabsent_GroupCustomerID" ColumnName="Customerabsent_GroupCustomerID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Customers">
-      <EntityTypeMapping TypeName="IsTypeOf(CenterDBModel.Customers)">
-        <MappingFragment StoreEntitySet="Customers">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="Customer_EngName" ColumnName="Customer_EngName" />
-          <ScalarProperty Name="Customer_AraName" ColumnName="Customer_AraName" />
-          <ScalarProperty Name="Customer_Phone" ColumnName="Customer_Phone" />
-          <ScalarProperty Name="Customer_Mobile" ColumnName="Customer_Mobile" />
-          <ScalarProperty Name="Customer_Birthdate" ColumnName="Customer_Birthdate" />
-          <ScalarProperty Name="Customer_Address" ColumnName="Customer_Address" />
-          <ScalarProperty Name="Customer_Email" ColumnName="Customer_Email" />
-          <ScalarProperty Name="Customer_Comment" ColumnName="Customer_Comment" />
-          <ScalarProperty Name="Customer_GenderId" ColumnName="Customer_GenderId" />
-          <ScalarProperty Name="Customer_imagePath" ColumnName="Customer_imagePath" />
-          <ScalarProperty Name="Customer_Nid" ColumnName="Customer_Nid" />
-          <ScalarProperty Name="Customer_CorporateID" ColumnName="Customer_CorporateID" />
-          <ScalarProperty Name="Customer_statusID" ColumnName="Customer_statusID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="CustomerStatus">
-      <EntityTypeMapping TypeName="IsTypeOf(CenterDBModel.CustomerStatus)">
-        <MappingFragment StoreEntitySet="CustomerStatus">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="Status_EngName" ColumnName="Status_EngName" />
-          <ScalarProperty Name="Status_AraName" ColumnName="Status_AraName" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="FAQs">
-      <EntityTypeMapping TypeName="IsTypeOf(CenterDBModel.FAQs)">
-        <MappingFragment StoreEntitySet="FAQs">
-          <ScalarProperty Name="FAQ_ID" ColumnName="FAQ_ID" />
-          <ScalarProperty Name="FAQ_QuestionEng" ColumnName="FAQ_QuestionEng" />
-          <ScalarProperty Name="FAQ_QuestionAra" ColumnName="FAQ_QuestionAra" />
-          <ScalarProperty Name="FAQ_AnswerEng" ColumnName="FAQ_AnswerEng" />
-          <ScalarProperty Name="FAQ_AnswerAra" ColumnName="FAQ_AnswerAra" />
-          <ScalarProperty Name="FAQ_Status" ColumnName="FAQ_Status" />
-          <ScalarProperty Name="FAQ_CreattonUser" ColumnName="FAQ_CreattonUser" />
-          <ScalarProperty Name="FAQ_CreationDate" ColumnName="FAQ_CreationDate" />
-          <ScalarProperty Name="FAQ_ModifiedUser" ColumnName="FAQ_ModifiedUser" />
-          <ScalarProperty Name="FAQ_ModifiedDate" ColumnName="FAQ_ModifiedDate" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Gender">
-      <EntityTypeMapping TypeName="IsTypeOf(CenterDBModel.Gender)">
-        <MappingFragment StoreEntitySet="Gender">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="Gender_EngName" ColumnName="Gender_EngName" />
-          <ScalarProperty Name="Gender_AraName" ColumnName="Gender_AraName" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="GroupCustomers">
-      <EntityTypeMapping TypeName="IsTypeOf(CenterDBModel.GroupCustomers)">
-        <MappingFragment StoreEntitySet="GroupCustomers">
-          <ScalarProperty Name="GroupCustomer_ID" ColumnName="GroupCustomer_ID" />
-          <ScalarProperty Name="GroupCustomer_CustomerID" ColumnName="GroupCustomer_CustomerID" />
-          <ScalarProperty Name="GroupCustomer_GroupID" ColumnName="GroupCustomer_GroupID" />
-          <ScalarProperty Name="GroupCustomer_payingCost" ColumnName="GroupCustomer_payingCost" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="GroupStatus">
-      <EntityTypeMapping TypeName="IsTypeOf(CenterDBModel.GroupStatus)">
-        <MappingFragment StoreEntitySet="GroupStatus">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="GroupStatus_EngName" ColumnName="GroupStatus_EngName" />
-          <ScalarProperty Name="GroupStatus_AraName" ColumnName="GroupStatus_AraName" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Instractors">
-      <EntityTypeMapping TypeName="IsTypeOf(CenterDBModel.Instractors)">
-        <MappingFragment StoreEntitySet="Instractors">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="Instractor_EngName" ColumnName="Instractor_EngName" />
-          <ScalarProperty Name="Instractor_AraName" ColumnName="Instractor_AraName" />
-          <ScalarProperty Name="Instractor_Address" ColumnName="Instractor_Address" />
-          <ScalarProperty Name="Instractor_Mobile" ColumnName="Instractor_Mobile" />
-          <ScalarProperty Name="Instractor_phone" ColumnName="Instractor_phone" />
-          <ScalarProperty Name="Instractor_Email" ColumnName="Instractor_Email" />
-          <ScalarProperty Name="Instractor_StatusID" ColumnName="Instractor_StatusID" />
-          <ScalarProperty Name="Instractor_GenderID" ColumnName="Instractor_GenderID" />
-          <ScalarProperty Name="Instractor_Birthdate" ColumnName="Instractor_Birthdate" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="InstractorStatus">
-      <EntityTypeMapping TypeName="IsTypeOf(CenterDBModel.InstractorStatus)">
-        <MappingFragment StoreEntitySet="InstractorStatus">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="Status_EngName" ColumnName="Status_EngName" />
-          <ScalarProperty Name="Status_AraName" ColumnName="Status_AraName" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="schedules">
-      <EntityTypeMapping TypeName="IsTypeOf(CenterDBModel.schedules)">
-        <MappingFragment StoreEntitySet="schedules">
-          <ScalarProperty Name="Schedule_ID" ColumnName="Schedule_ID" />
-          <ScalarProperty Name="Schedule_GroupID" ColumnName="Schedule_GroupID" />
-          <ScalarProperty Name="Schedule_DatetimeFrom" ColumnName="Schedule_DatetimeFrom" />
-          <ScalarProperty Name="Schedule_DateTimeTo" ColumnName="Schedule_DateTimeTo" />
-          <ScalarProperty Name="Schedule_CreationDate" ColumnName="Schedule_CreationDate" />
-          <ScalarProperty Name="Schedule_CreationUser" ColumnName="Schedule_CreationUser" />
-          <ScalarProperty Name="Schedule_ModifiedDate" ColumnName="Schedule_ModifiedDate" />
-          <ScalarProperty Name="Schedule_ModifiedUser" ColumnName="Schedule_ModifiedUser" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Specifications">
-      <EntityTypeMapping TypeName="IsTypeOf(CenterDBModel.Specifications)">
-        <MappingFragment StoreEntitySet="Specifications">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="Specification_EngName" ColumnName="Specification_EngName" />
-          <ScalarProperty Name="Specification_AraName" ColumnName="Specification_AraName" />
-          <ScalarProperty Name="Specification_EngDescription" ColumnName="Specification_EngDescription" />
-          <ScalarProperty Name="Specification_AraDescription" ColumnName="Specification_AraDescription" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="sysdiagrams">
-      <EntityTypeMapping TypeName="IsTypeOf(CenterDBModel.sysdiagrams)">
-        <MappingFragment StoreEntitySet="sysdiagrams">
-          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-          <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-          <ScalarProperty Name="version" ColumnName="version" />
-          <ScalarProperty Name="definition" ColumnName="definition" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="CompanyProfile">
-      <EntityTypeMapping TypeName="IsTypeOf(CenterDBModel.CompanyProfile)">
-        <MappingFragment StoreEntitySet="CompanyProfile">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="CompanyNameEng" ColumnName="CompanyNameEng" />
-          <ScalarProperty Name="CompanyNameAra" ColumnName="CompanyNameAra" />
-          <ScalarProperty Name="CompanyAddress_FlatNumber" ColumnName="CompanyAddress_FlatNumber" />
-          <ScalarProperty Name="CompanyAddress_StreetNameEng" ColumnName="CompanyAddress_StreetNameEng" />
-          <ScalarProperty Name="CompanyAddress_StreetNameAra" ColumnName="CompanyAddress_StreetNameAra" />
-          <ScalarProperty Name="CompanyAddress_DistricNameEng" ColumnName="CompanyAddress_DistricNameEng" />
-          <ScalarProperty Name="CompanyAddress_DistricNameAr" ColumnName="CompanyAddress_DistricNameAr" />
-          <ScalarProperty Name="CompanyAddress_CityNameEng" ColumnName="CompanyAddress_CityNameEng" />
-          <ScalarProperty Name="CompanyAddress_CityNameAra" ColumnName="CompanyAddress_CityNameAra" />
-          <ScalarProperty Name="CompanyAddress_CountryNameEng" ColumnName="CompanyAddress_CountryNameEng" />
-          <ScalarProperty Name="CompanyAddress_CountryNameAra" ColumnName="CompanyAddress_CountryNameAra" />
-          <ScalarProperty Name="CompanyPhone1" ColumnName="CompanyPhone1" />
-          <ScalarProperty Name="CompanyPhone2" ColumnName="CompanyPhone2" />
-          <ScalarProperty Name="CompanyEmail" ColumnName="CompanyEmail" />
-          <ScalarProperty Name="CompanySummarEng" ColumnName="CompanySummarEng" />
-          <ScalarProperty Name="CompanySummaryAra" ColumnName="CompanySummaryAra" />
-          <ScalarProperty Name="CompanyVideoPath" ColumnName="CompanyVideoPath" />
-          <ScalarProperty Name="CompanyImagePath" ColumnName="CompanyImagePath" />
-          <ScalarProperty Name="CompanyObjectiveEng" ColumnName="CompanyObjectiveEng" />
-          <ScalarProperty Name="CompanyObjectiveAra" ColumnName="CompanyObjectiveAra" />
-          <ScalarProperty Name="CompanyHeadLineEng" ColumnName="CompanyHeadLineEng" />
-          <ScalarProperty Name="CompanyHeadLineAra" ColumnName="CompanyHeadLineAra" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Groups">
-      <EntityTypeMapping TypeName="IsTypeOf(CenterDBModel.Groups)">
-        <MappingFragment StoreEntitySet="Groups">
-          <ScalarProperty Name="Group_ID" ColumnName="Group_ID" />
-          <ScalarProperty Name="Group_CreationDate" ColumnName="Group_CreationDate" />
-          <ScalarProperty Name="Group_CreationUser" ColumnName="Group_CreationUser" />
-          <ScalarProperty Name="Group_modifiedDate" ColumnName="Group_modifiedDate" />
-          <ScalarProperty Name="Group_modifiedUser" ColumnName="Group_modifiedUser" />
-          <ScalarProperty Name="Group_CourseInstractorID" ColumnName="Group_CourseInstractorID" />
-          <ScalarProperty Name="Group_StartDate" ColumnName="Group_StartDate" />
-          <ScalarProperty Name="Group_EndDate" ColumnName="Group_EndDate" />
-          <ScalarProperty Name="Group_CostPerPerson" ColumnName="Group_CostPerPerson" />
-          <ScalarProperty Name="Group_SessionNumber" ColumnName="Group_SessionNumber" />
-          <ScalarProperty Name="Group_hoursPerSession" ColumnName="Group_hoursPerSession" />
-          <ScalarProperty Name="Group_statusID" ColumnName="Group_statusID" />
-          <ScalarProperty Name="Group_CustomerNumber" ColumnName="Group_CustomerNumber" />
-          <ScalarProperty Name="Group_ImagePath" ColumnName="Group_ImagePath" />
-          <ScalarProperty Name="Group_ImagePath2" ColumnName="Group_ImagePath2" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Gallary">
-      <EntityTypeMapping TypeName="IsTypeOf(CenterDBModel.Gallary)">
-        <MappingFragment StoreEntitySet="Gallary">
-          <ScalarProperty Name="ImageID" ColumnName="ImageID" />
-          <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
-          <ScalarProperty Name="ImageStatus" ColumnName="ImageStatus" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <AssociationSetMapping Name="AspNetUserRoles" TypeName="CenterDBModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
-      </AssociationSetMapping>
-          <AssociationSetMapping Name="AspNetUserRoles1" TypeName="CenterDBModel.AspNetUserRoles1" StoreEntitySet="AspNetUserRoles">
+                <ScalarProperty Name="CompanyHeadLineAra" ColumnName="CompanyHeadLineAra" />
+                <ScalarProperty Name="CompanyHeadLineEng" ColumnName="CompanyHeadLineEng" />
+                <ScalarProperty Name="CompanyObjectiveAra" ColumnName="CompanyObjectiveAra" />
+                <ScalarProperty Name="CompanyObjectiveEng" ColumnName="CompanyObjectiveEng" />
+                <ScalarProperty Name="CompanyImagePath" ColumnName="CompanyImagePath" />
+                <ScalarProperty Name="CompanyVideoPath" ColumnName="CompanyVideoPath" />
+                <ScalarProperty Name="CompanySummaryAra" ColumnName="CompanySummaryAra" />
+                <ScalarProperty Name="CompanySummarEng" ColumnName="CompanySummarEng" />
+                <ScalarProperty Name="CompanyEmail" ColumnName="CompanyEmail" />
+                <ScalarProperty Name="CompanyPhone2" ColumnName="CompanyPhone2" />
+                <ScalarProperty Name="CompanyPhone1" ColumnName="CompanyPhone1" />
+                <ScalarProperty Name="CompanyAddress_CountryNameAra" ColumnName="CompanyAddress_CountryNameAra" />
+                <ScalarProperty Name="CompanyAddress_CountryNameEng" ColumnName="CompanyAddress_CountryNameEng" />
+                <ScalarProperty Name="CompanyAddress_CityNameAra" ColumnName="CompanyAddress_CityNameAra" />
+                <ScalarProperty Name="CompanyAddress_CityNameEng" ColumnName="CompanyAddress_CityNameEng" />
+                <ScalarProperty Name="CompanyAddress_DistricNameAr" ColumnName="CompanyAddress_DistricNameAr" />
+                <ScalarProperty Name="CompanyAddress_DistricNameEng" ColumnName="CompanyAddress_DistricNameEng" />
+                <ScalarProperty Name="CompanyAddress_StreetNameAra" ColumnName="CompanyAddress_StreetNameAra" />
+                <ScalarProperty Name="CompanyAddress_StreetNameEng" ColumnName="CompanyAddress_StreetNameEng" />
+                <ScalarProperty Name="CompanyAddress_FlatNumber" ColumnName="CompanyAddress_FlatNumber" />
+                <ScalarProperty Name="CompanyNameAra" ColumnName="CompanyNameAra" />
+                <ScalarProperty Name="CompanyNameEng" ColumnName="CompanyNameEng" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Corporates">
+            <EntityTypeMapping TypeName="CenterDBModel.Corporates">
+              <MappingFragment StoreEntitySet="Corporates">
+                <ScalarProperty Name="Corporates_statusId" ColumnName="Corporates_statusId" />
+                <ScalarProperty Name="Corporates_imagePath2" ColumnName="Corporates_imagePath2" />
+                <ScalarProperty Name="Corporates_ImagePath1" ColumnName="Corporates_ImagePath1" />
+                <ScalarProperty Name="Corporates_Summary" ColumnName="Corporates_Summary" />
+                <ScalarProperty Name="Corporates_FocalPoint" ColumnName="Corporates_FocalPoint" />
+                <ScalarProperty Name="Corporates_email" ColumnName="Corporates_email" />
+                <ScalarProperty Name="Corporates_mobile" ColumnName="Corporates_mobile" />
+                <ScalarProperty Name="Corporates_phone" ColumnName="Corporates_phone" />
+                <ScalarProperty Name="Corporates_Address" ColumnName="Corporates_Address" />
+                <ScalarProperty Name="Corporates_AraName" ColumnName="Corporates_AraName" />
+                <ScalarProperty Name="Corporates_EngName" ColumnName="Corporates_EngName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CorporatesStatus">
+            <EntityTypeMapping TypeName="CenterDBModel.CorporatesStatus">
+              <MappingFragment StoreEntitySet="CorporatesStatus">
+                <ScalarProperty Name="Status_AraName" ColumnName="Status_AraName" />
+                <ScalarProperty Name="Status_EngName" ColumnName="Status_EngName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Course_Instractors">
+            <EntityTypeMapping TypeName="CenterDBModel.Course_Instractors">
+              <MappingFragment StoreEntitySet="Course_Instractors">
+                <ScalarProperty Name="SpecificationID" ColumnName="SpecificationID" />
+                <ScalarProperty Name="InstractorID" ColumnName="InstractorID" />
+                <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Course_status">
+            <EntityTypeMapping TypeName="CenterDBModel.Course_status">
+              <MappingFragment StoreEntitySet="Course_status">
+                <ScalarProperty Name="Status_AraName" ColumnName="Status_AraName" />
+                <ScalarProperty Name="Status_EngName" ColumnName="Status_EngName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Courses">
+            <EntityTypeMapping TypeName="CenterDBModel.Courses">
+              <MappingFragment StoreEntitySet="Courses">
+                <ScalarProperty Name="Course_ISInMain" ColumnName="Course_ISInMain" />
+                <ScalarProperty Name="Course_modifyUsers" ColumnName="Course_modifyUsers" />
+                <ScalarProperty Name="Course_ModifyDate" ColumnName="Course_ModifyDate" />
+                <ScalarProperty Name="Course_CreationUsers" ColumnName="Course_CreationUsers" />
+                <ScalarProperty Name="Course_CreationDate" ColumnName="Course_CreationDate" />
+                <ScalarProperty Name="Course_OrignalCost" ColumnName="Course_OrignalCost" />
+                <ScalarProperty Name="Course_TotalHour" ColumnName="Course_TotalHour" />
+                <ScalarProperty Name="Course_StatusID" ColumnName="Course_StatusID" />
+                <ScalarProperty Name="Course_EnglishContent" ColumnName="Course_EnglishContent" />
+                <ScalarProperty Name="Course_ArabicContentPath" ColumnName="Course_ArabicContentPath" />
+                <ScalarProperty Name="Course_AraSummary" ColumnName="Course_AraSummary" />
+                <ScalarProperty Name="Course_EngSummary" ColumnName="Course_EngSummary" />
+                <ScalarProperty Name="Course_AraObjective" ColumnName="Course_AraObjective" />
+                <ScalarProperty Name="Course_EngObjective" ColumnName="Course_EngObjective" />
+                <ScalarProperty Name="Course_ImagePath2" ColumnName="Course_ImagePath2" />
+                <ScalarProperty Name="Course_ImgePath" ColumnName="Course_ImgePath" />
+                <ScalarProperty Name="Course_VedioPath" ColumnName="Course_VedioPath" />
+                <ScalarProperty Name="Course_AraName" ColumnName="Course_AraName" />
+                <ScalarProperty Name="Course_EngName" ColumnName="Course_EngName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customerabsent">
+            <EntityTypeMapping TypeName="CenterDBModel.Customerabsent">
+              <MappingFragment StoreEntitySet="Customerabsent">
+                <ScalarProperty Name="Customerabsent_GroupCustomerID" ColumnName="Customerabsent_GroupCustomerID" />
+                <ScalarProperty Name="Customerabsent_ISabsent" ColumnName="Customerabsent_ISabsent" />
+                <ScalarProperty Name="Customerabsent_Date" ColumnName="Customerabsent_Date" />
+                <ScalarProperty Name="Customerabsent_ID" ColumnName="Customerabsent_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="CenterDBModel.Customers">
+              <MappingFragment StoreEntitySet="Customers">
+                <ScalarProperty Name="Customer_statusID" ColumnName="Customer_statusID" />
+                <ScalarProperty Name="Customer_CorporateID" ColumnName="Customer_CorporateID" />
+                <ScalarProperty Name="Customer_Nid" ColumnName="Customer_Nid" />
+                <ScalarProperty Name="Customer_imagePath" ColumnName="Customer_imagePath" />
+                <ScalarProperty Name="Customer_GenderId" ColumnName="Customer_GenderId" />
+                <ScalarProperty Name="Customer_Comment" ColumnName="Customer_Comment" />
+                <ScalarProperty Name="Customer_Email" ColumnName="Customer_Email" />
+                <ScalarProperty Name="Customer_Address" ColumnName="Customer_Address" />
+                <ScalarProperty Name="Customer_Birthdate" ColumnName="Customer_Birthdate" />
+                <ScalarProperty Name="Customer_Mobile" ColumnName="Customer_Mobile" />
+                <ScalarProperty Name="Customer_Phone" ColumnName="Customer_Phone" />
+                <ScalarProperty Name="Customer_AraName" ColumnName="Customer_AraName" />
+                <ScalarProperty Name="Customer_EngName" ColumnName="Customer_EngName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CustomerStatus">
+            <EntityTypeMapping TypeName="CenterDBModel.CustomerStatus">
+              <MappingFragment StoreEntitySet="CustomerStatus">
+                <ScalarProperty Name="Status_AraName" ColumnName="Status_AraName" />
+                <ScalarProperty Name="Status_EngName" ColumnName="Status_EngName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FAQs">
+            <EntityTypeMapping TypeName="CenterDBModel.FAQs">
+              <MappingFragment StoreEntitySet="FAQs">
+                <ScalarProperty Name="FAQ_ModifiedDate" ColumnName="FAQ_ModifiedDate" />
+                <ScalarProperty Name="FAQ_ModifiedUser" ColumnName="FAQ_ModifiedUser" />
+                <ScalarProperty Name="FAQ_CreationDate" ColumnName="FAQ_CreationDate" />
+                <ScalarProperty Name="FAQ_CreattonUser" ColumnName="FAQ_CreattonUser" />
+                <ScalarProperty Name="FAQ_Status" ColumnName="FAQ_Status" />
+                <ScalarProperty Name="FAQ_AnswerAra" ColumnName="FAQ_AnswerAra" />
+                <ScalarProperty Name="FAQ_AnswerEng" ColumnName="FAQ_AnswerEng" />
+                <ScalarProperty Name="FAQ_QuestionAra" ColumnName="FAQ_QuestionAra" />
+                <ScalarProperty Name="FAQ_QuestionEng" ColumnName="FAQ_QuestionEng" />
+                <ScalarProperty Name="FAQ_ID" ColumnName="FAQ_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Gallary">
+            <EntityTypeMapping TypeName="CenterDBModel.Gallary">
+              <MappingFragment StoreEntitySet="Gallary">
+                <ScalarProperty Name="ImageStatus" ColumnName="ImageStatus" />
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+                <ScalarProperty Name="ImageID" ColumnName="ImageID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Gender">
+            <EntityTypeMapping TypeName="CenterDBModel.Gender">
+              <MappingFragment StoreEntitySet="Gender">
+                <ScalarProperty Name="Gender_AraName" ColumnName="Gender_AraName" />
+                <ScalarProperty Name="Gender_EngName" ColumnName="Gender_EngName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GroupCustomers">
+            <EntityTypeMapping TypeName="CenterDBModel.GroupCustomers">
+              <MappingFragment StoreEntitySet="GroupCustomers">
+                <ScalarProperty Name="GroupCustomer_payingCost" ColumnName="GroupCustomer_payingCost" />
+                <ScalarProperty Name="GroupCustomer_GroupID" ColumnName="GroupCustomer_GroupID" />
+                <ScalarProperty Name="GroupCustomer_CustomerID" ColumnName="GroupCustomer_CustomerID" />
+                <ScalarProperty Name="GroupCustomer_ID" ColumnName="GroupCustomer_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Groups">
+            <EntityTypeMapping TypeName="CenterDBModel.Groups">
+              <MappingFragment StoreEntitySet="Groups">
+                <ScalarProperty Name="Group_ImagePath2" ColumnName="Group_ImagePath2" />
+                <ScalarProperty Name="Group_ImagePath" ColumnName="Group_ImagePath" />
+                <ScalarProperty Name="Group_CustomerNumber" ColumnName="Group_CustomerNumber" />
+                <ScalarProperty Name="Group_statusID" ColumnName="Group_statusID" />
+                <ScalarProperty Name="Group_hoursPerSession" ColumnName="Group_hoursPerSession" />
+                <ScalarProperty Name="Group_SessionNumber" ColumnName="Group_SessionNumber" />
+                <ScalarProperty Name="Group_CostPerPerson" ColumnName="Group_CostPerPerson" />
+                <ScalarProperty Name="Group_EndDate" ColumnName="Group_EndDate" />
+                <ScalarProperty Name="Group_StartDate" ColumnName="Group_StartDate" />
+                <ScalarProperty Name="Group_CourseInstractorID" ColumnName="Group_CourseInstractorID" />
+                <ScalarProperty Name="Group_modifiedUser" ColumnName="Group_modifiedUser" />
+                <ScalarProperty Name="Group_modifiedDate" ColumnName="Group_modifiedDate" />
+                <ScalarProperty Name="Group_CreationUser" ColumnName="Group_CreationUser" />
+                <ScalarProperty Name="Group_CreationDate" ColumnName="Group_CreationDate" />
+                <ScalarProperty Name="Group_ID" ColumnName="Group_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GroupStatus">
+            <EntityTypeMapping TypeName="CenterDBModel.GroupStatus">
+              <MappingFragment StoreEntitySet="GroupStatus">
+                <ScalarProperty Name="GroupStatus_AraName" ColumnName="GroupStatus_AraName" />
+                <ScalarProperty Name="GroupStatus_EngName" ColumnName="GroupStatus_EngName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Instractors">
+            <EntityTypeMapping TypeName="CenterDBModel.Instractors">
+              <MappingFragment StoreEntitySet="Instractors">
+                <ScalarProperty Name="Instractor_Birthdate" ColumnName="Instractor_Birthdate" />
+                <ScalarProperty Name="Instractor_GenderID" ColumnName="Instractor_GenderID" />
+                <ScalarProperty Name="Instractor_StatusID" ColumnName="Instractor_StatusID" />
+                <ScalarProperty Name="Instractor_Email" ColumnName="Instractor_Email" />
+                <ScalarProperty Name="Instractor_phone" ColumnName="Instractor_phone" />
+                <ScalarProperty Name="Instractor_Mobile" ColumnName="Instractor_Mobile" />
+                <ScalarProperty Name="Instractor_Address" ColumnName="Instractor_Address" />
+                <ScalarProperty Name="Instractor_AraName" ColumnName="Instractor_AraName" />
+                <ScalarProperty Name="Instractor_EngName" ColumnName="Instractor_EngName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InstractorStatus">
+            <EntityTypeMapping TypeName="CenterDBModel.InstractorStatus">
+              <MappingFragment StoreEntitySet="InstractorStatus">
+                <ScalarProperty Name="Status_AraName" ColumnName="Status_AraName" />
+                <ScalarProperty Name="Status_EngName" ColumnName="Status_EngName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="schedules">
+            <EntityTypeMapping TypeName="CenterDBModel.schedules">
+              <MappingFragment StoreEntitySet="schedules">
+                <ScalarProperty Name="Schedule_ModifiedUser" ColumnName="Schedule_ModifiedUser" />
+                <ScalarProperty Name="Schedule_ModifiedDate" ColumnName="Schedule_ModifiedDate" />
+                <ScalarProperty Name="Schedule_CreationUser" ColumnName="Schedule_CreationUser" />
+                <ScalarProperty Name="Schedule_CreationDate" ColumnName="Schedule_CreationDate" />
+                <ScalarProperty Name="Schedule_DateTimeTo" ColumnName="Schedule_DateTimeTo" />
+                <ScalarProperty Name="Schedule_DatetimeFrom" ColumnName="Schedule_DatetimeFrom" />
+                <ScalarProperty Name="Schedule_GroupID" ColumnName="Schedule_GroupID" />
+                <ScalarProperty Name="Schedule_ID" ColumnName="Schedule_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Specifications">
+            <EntityTypeMapping TypeName="CenterDBModel.Specifications">
+              <MappingFragment StoreEntitySet="Specifications">
+                <ScalarProperty Name="Specification_AraDescription" ColumnName="Specification_AraDescription" />
+                <ScalarProperty Name="Specification_EngDescription" ColumnName="Specification_EngDescription" />
+                <ScalarProperty Name="Specification_AraName" ColumnName="Specification_AraName" />
+                <ScalarProperty Name="Specification_EngName" ColumnName="Specification_EngName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="CenterDBModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="CenterDBModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
             <EndProperty Name="AspNetUsers">
               <ScalarProperty Name="Id" ColumnName="UserId" />
             </EndProperty>
@@ -1689,7 +1698,7 @@
               <ScalarProperty Name="Id" ColumnName="RoleId" />
             </EndProperty>
           </AssociationSetMapping>
-  </EntityContainerMapping>
+        </EntityContainerMapping>
 </Mapping></edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
