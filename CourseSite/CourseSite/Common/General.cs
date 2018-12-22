@@ -51,6 +51,7 @@ namespace CourseSite.Common
         {
             MainViewModel MVM = new MainViewModel();
             MVM.Faqs = FAQsRoutines.GetTopFAQsForMAin();
+            MVM.Courses = CourseRoutine.GetTopCoursesForMAin();
             return MVM;
         }
     }

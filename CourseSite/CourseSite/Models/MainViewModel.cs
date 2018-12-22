@@ -8,5 +8,7 @@ namespace CourseSite.Models
     public class MainViewModel
     {
         public List<DAL.FAQs> Faqs { get; set; }
+
+        public List<DAL.Courses> Courses { get; set; }
     }
 }

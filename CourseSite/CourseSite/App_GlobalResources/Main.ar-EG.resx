@@ -133,7 +133,7 @@
     <value>اتصل بنا</value>
   </data>
   <data name="Courses" xml:space="preserve">
-    <value>كورسات</value>
+    <value>الكورسات</value>
   </data>
   <data name="Create" xml:space="preserve">
     <value>إنشاء</value>
@@ -224,5 +224,8 @@
   </data>
   <data name="Partners" xml:space="preserve">
     <value>شركائنا</value>
+  </data>
+  <data name="TeamMember" xml:space="preserve">
+    <value>فريق العمل</value>
   </data>
 </root>

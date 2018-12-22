@@ -376,6 +376,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Team member.
+        /// </summary>
+        internal static string TeamMember {
+            get {
+                return ResourceManager.GetString("TeamMember", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Useful Links.
         /// </summary>
         internal static string UsefulLinks {

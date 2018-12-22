@@ -225,4 +225,7 @@
   <data name="Partners" xml:space="preserve">
     <value>Partners</value>
   </data>
+  <data name="TeamMember" xml:space="preserve">
+    <value>Team member</value>
+  </data>
 </root>
