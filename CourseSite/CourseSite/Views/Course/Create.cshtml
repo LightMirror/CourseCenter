@@ -1,5 +1,7 @@
 ﻿@model CourseSite.Models.DAL.Courses
 
+
+
 @{
     ViewBag.Title = "Create";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
@@ -8,6 +10,11 @@
 
 <h2>Create</h2>
 
+<div class="breadcrumb flat">
+    <span class="fa fa-home"></span>
+    <a href="#">@Resources.Main.Home</a>
+    <a href="#" class="active">@Resources.Main.Create</a>
+</div>
 
 @using (Html.BeginForm()) 
 {
