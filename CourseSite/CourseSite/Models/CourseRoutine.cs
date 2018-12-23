@@ -14,5 +14,14 @@ namespace CourseSite.Models
                 return db.Courses.Take(6).ToList();
             }
         }
+
+        public static List<DAL.Courses> GetTopCoursesForIndex()
+        {
+            using (DAL.CenterDBEntities db = new DAL.CenterDBEntities())
+            {
+                return db.Courses.ToList();
+            }
+        }
+
     }
 }

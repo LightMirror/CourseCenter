@@ -41,8 +41,8 @@
                         <h2>About IATLC</h2>
                         <p>
                             IATLC is an active firm working on fields of Training, Languages and Consulting.
-                             Our main objective is to serve clients till reaching their 
-                            satisfaction by delivering reputable service which has a positive impact on clients’ business. 
+                            Our main objective is to serve clients till reaching their
+                            satisfaction by delivering reputable service which has a positive impact on clients’ business.
                         </p>
                     </div>
                     <div class="col-lg-3">
@@ -61,11 +61,23 @@
         <!--==========================
           Courses Section
         ============================-->
-        @{
+        <section id="hotels" class="section-with-bg wow fadeInUp">
 
-            Html.RenderPartial("~/Views/FAQ/_CoursePV.cshtml", Model.Courses);
-        }
+            <div class="container">
+                <div class="section-header">
+                    <h2>@Resources.Main.Courses</h2>
+                    <p>
+                        <a href="~/Course/Index">
+                            @Resources.Main.Allcourses
+                        </a>
+                    </p>
+                </div>
+                @{
 
+                    Html.RenderPartial("~/Views/FAQ/_CoursePV.cshtml", Model.Courses);
+                }
+            </div>
+        </section>
 
         <!--==========================
          Team member Section
@@ -175,8 +187,8 @@
 
 
         <!--==========================
-      Partiners Section
-    ============================-->
+          Partiners Section
+        ============================-->
         <section id="sponsors" class="section-with-bg wow fadeInUp">
 
             <div class="container">
@@ -194,7 +206,7 @@
 
                     <div class="col-lg-3 col-md-4 col-xs-6">
                         <div class="sponsor-logo">
-                            <img src="~/assets/img/Partners/EAPB.jpeg"  class="img-fluid" alt="EAPB"/>
+                            <img src="~/assets/img/Partners/EAPB.jpeg" class="img-fluid" alt="EAPB" />
                         </div>
                     </div>
 
@@ -211,28 +223,28 @@
                     </div>
 
                     @*<div class="col-lg-3 col-md-4 col-xs-6">
-                        <div class="sponsor-logo">
-                            <img src="" class="img-fluid" alt="" />
+                            <div class="sponsor-logo">
+                                <img src="" class="img-fluid" alt="" />
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="col-lg-3 col-md-4 col-xs-6">
-                        <div class="sponsor-logo">
-                            <img src="" class="img-fluid" alt="" />
+                        <div class="col-lg-3 col-md-4 col-xs-6">
+                            <div class="sponsor-logo">
+                                <img src="" class="img-fluid" alt="" />
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="col-lg-3 col-md-4 col-xs-6">
-                        <div class="sponsor-logo">
-                            <img src="" class="img-fluid" alt="" />
+                        <div class="col-lg-3 col-md-4 col-xs-6">
+                            <div class="sponsor-logo">
+                                <img src="" class="img-fluid" alt="" />
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="col-lg-3 col-md-4 col-xs-6">
-                        <div class="sponsor-logo">
-                            <img src="" class="img-fluid" alt="" />
-                        </div>
-                    </div>*@
+                        <div class="col-lg-3 col-md-4 col-xs-6">
+                            <div class="sponsor-logo">
+                                <img src="" class="img-fluid" alt="" />
+                            </div>
+                        </div>*@
 
                 </div>
 
@@ -271,9 +283,9 @@
           F.A.Q Section
         ============================-->
         @{
-            
+
             Html.RenderPartial("~/Views/FAQ/_FAQsPV.cshtml", Model.Faqs);
-         }
+        }
 
 
 
@@ -315,7 +327,7 @@
                     </div>
 
                 </div>
-                
+
                 <div class="form">
                     <div id="sendmessage">Your message has been sent. Thank you!</div>
                     <div id="errormessage"></div>
@@ -335,11 +347,11 @@
                             <div class="validation"></div>
                         </div>
                         <div class="form-group">
-                            <textarea class="form-control" name="message" id="message" rows="5" data-rule="required" 
+                            <textarea class="form-control" name="message" id="message" rows="5" data-rule="required"
                                       data-msg="Please write something for us" placeholder="Message"></textarea>
                             <div class="validation"></div>
                         </div>
-                        <div class="text-center"><button type="submit" >Send Message</button></div>
+                        <div class="text-center"><button type="submit">Send Message</button></div>
                     </form>
                 </div>
 
@@ -347,6 +359,9 @@
         </section><!-- #contact -->
 
     </main>
+
+
+
 
 
     <!--==========================

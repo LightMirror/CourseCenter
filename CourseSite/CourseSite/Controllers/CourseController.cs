@@ -18,9 +18,13 @@ namespace CourseSite.Controllers
         {
             using (CenterDBEntities db = new CenterDBEntities())
             {
-                CourseVM vmCourse = new CourseVM();
-                var query = db.Courses.Where(x => x.Course_StatusID == 1).ToList();
-                return View(query);
+                MainViewModel MVM = new MainViewModel();
+                MVM = CourseSite.Common.General.BuildMainView();
+                MVM.Courses = CourseRoutine.GetTopCoursesForIndex();
+                return View("Index", MVM);
+                //CourseVM vmCourse = new CourseVM();
+                //var query = db.Courses.Where(x => x.Course_StatusID == 1).ToList();
+                //return View(query);
             }
         }
         [HttpGet]

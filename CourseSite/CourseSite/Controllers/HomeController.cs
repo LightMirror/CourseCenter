@@ -63,7 +63,7 @@ namespace CourseSite.Controllers
             string RealBody = "Name: " +EVM.Name+ NewLine;
             RealBody += "E-mail: " + EVM.email + NewLine;
             RealBody += "Message:" + NewLine + EVM.message;
-            List<string> Recivers = new List<string>();Recivers.Add("eng.abdulrheem@gmail.com");
+            List<string> Recivers = new List<string>();Recivers.Add("info@iatlcegypt.com");
             CourseSite.Common.Email.SendEmail(Recivers, EVM.subject, RealBody);
             return View("Main");
         }
