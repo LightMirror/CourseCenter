@@ -122,7 +122,7 @@ namespace CourseSite.Controllers
         {
             using (Models.DAL.CenterDBEntities db = new Models.DAL.CenterDBEntities())
             {
-                return PartialView("~/Views/FAQ/_FAQsPV.cshtml", db.FAQs.ToList());
+                return View("~/Views/FAQ/AllFAQs.cshtml", db.FAQs.ToList());
             }
         }
 

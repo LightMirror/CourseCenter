@@ -1,0 +1,11 @@
+﻿@model IEnumerable<CourseSite.Models.DAL.FAQs>
+
+@{
+    ViewBag.Title = "F.A.Q.s";
+    Layout = "~/Views/Shared/_LayoutMainChild.cshtml";
+}
+
+@{
+
+    Html.RenderPartial("~/Views/FAQ/_FAQsPV.cshtml", Model);
+}
