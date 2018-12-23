@@ -11,7 +11,7 @@ namespace CourseSite.Models
         {
             using (DAL.CenterDBEntities db = new DAL.CenterDBEntities())
             {
-                return db.Courses.ToList();
+                return db.Courses.Take(6).ToList();
             }
         }
     }
