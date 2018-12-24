@@ -77,7 +77,7 @@ namespace CourseSite.Controllers
                 {
                     courses.Course_CreationDate = DateTime.Now;
                     courses.Course_ModifyDate = DateTime.Now;
-                    string subPath = Server.MapPath("~/Uploads/Photo/Courses/");
+                    string subPath = "~/Uploads/Photo/Courses/";
                     db.Courses.Add(courses);
                     db.SaveChanges();                    
                     var filename = Path.GetFileName(courses.ImageUpload.FileName);
@@ -88,11 +88,11 @@ namespace CourseSite.Controllers
                     bool exists = System.IO.Directory.Exists(subPath);
 
                     if (!exists)
-                        System.IO.Directory.CreateDirectory(Server.MapPath(subPath));
-
-                    var path = Path.Combine(subPath, filename);
+                        System.IO.Directory.CreateDirectory(Server.MapPath("~/Uploads/Photo/Courses/"));
+                    subPath= Path.Combine("~/Uploads/Photo/Courses/", filename);
+                    var path = Path.Combine(Server.MapPath("~/Uploads/Photo/Courses/"), filename);
                     courses.ImageUpload.SaveAs(path);
-                    courses.Course_ImgePath = path;
+                    courses.Course_ImgePath = subPath;
 
 
                     db.Entry(courses).State = EntityState.Modified;

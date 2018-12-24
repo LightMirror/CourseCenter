@@ -482,6 +482,7 @@
     <Content Include="Models\DAL\CenterDB.edmx.diagram">
       <DependentUpon>CenterDB.edmx</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\CourseSite.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\contactform\contactform.js" />
     <Content Include="Scripts\contactform\Readme.txt" />

@@ -8,7 +8,14 @@
                 <div class="col-sm-4">
                     <div class="hotel">
                         <div class="hotel-img">
+                           @if (string.IsNullOrEmpty(item.Course_ImgePath))
+                           {
                             <img src="~/assets/img/hotels/1.jpg" style="max-width:100%; margin:auto" alt="CourseImage" class="img-fluid">
+                           }
+                           else
+                           {
+                            <img src="@Url.Content(item.Course_ImgePath)" style="max-width:100%; margin:auto" alt="CourseImage" class="img-fluid">
+                           }
                         </div>
                         <h4 style="text-align:center;">
                             <a href="~/Course/Details/@item.ID">
