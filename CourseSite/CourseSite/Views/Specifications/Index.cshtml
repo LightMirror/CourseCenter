@@ -8,45 +8,67 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <span class="glyphicon glyphicon-plus"></span>
+    @Html.ActionLink(Resources.Main.CreateNew, "Create")&nbsp;
+    <span class="glyphicon glyphicon-refresh"></span>
+    @Html.ActionLink("Refresh Offloading", "Index") &nbsp;
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Specification_EngName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Specification_AraName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Specification_EngDescription)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Specification_AraDescription)
-        </th>
-        <th></th>
-    </tr>
+<div class="table table-responsive table-bordered">
+    <table class="table table-hover table-striped table-bordered table-margin-bottom-clear">
+        <tr>
+            @if (CourseSite.Common.UImanger.CurrentLang == "en")
+            {
+                <th class="text-center" style="background-color: #CED8F6;">
+                    @Html.DisplayNameFor(model => model.Specification_EngName)
+                </th>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Specification_EngName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Specification_AraName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Specification_EngDescription)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Specification_AraDescription)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>
-    </tr>
-}
+                <th class="text-center" style="background-color: #CED8F6;">
+                    @Html.DisplayNameFor(model => model.Specification_EngDescription)
+                </th>
+            }
+            else
+            {
+                <th class="text-center" style="background-color: #CED8F6;">
+                    @Html.DisplayNameFor(model => model.Specification_AraName)
+                </th>
 
-</table>
+                <th class="text-center" style="background-color: #CED8F6;">
+                    @Html.DisplayNameFor(model => model.Specification_AraDescription)
+                </th>
+            }
+
+                <th class="text-center" style="background-color: #CED8F6;"></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+        <tr>
+            @if (CourseSite.Common.UImanger.CurrentLang == "en")
+            {
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.Specification_EngName)
+                </td>
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.Specification_EngDescription)
+                </td>
+            }
+            else
+            {
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.Specification_AraName)
+                </td>
+
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.Specification_AraDescription)
+                </td>
+            }
+
+                <td class="text-center">
+                    @Html.ActionLink(Resources.Main.Edit, "Edit", new { id = item.ID }, new { @class = "glyphicon glyphicon-edit btn btn-primary" })
+                    @Html.ActionLink(Resources.Main.Details, "Details", new { id = item.ID }, new { @class = "fa fa-info-circle btn btn-primary" })
+                </td>
+        </tr>
+        }
+
+    </table>
+</div>

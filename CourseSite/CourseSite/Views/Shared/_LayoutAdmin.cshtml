@@ -16,6 +16,12 @@
     @Scripts.Render("~/bundles/bootstrap")
 
 
+    <meta charset="utf-8">
+    <title>IATLC Egypt</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+    
     <!--Kendo----------------------------------------------------------------------------------------------->
     <link rel="stylesheet" href="//kendo.cdn.telerik.com/2015.3.1111/styles/kendo.common-material.min.css" />
     <link rel="stylesheet" href="//kendo.cdn.telerik.com/2015.3.1111/styles/kendo.material.min.css" />
@@ -88,49 +94,48 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - IATLC</p>
-        </footer>
+                <p>&copy; @DateTime.Now.Year - IATLC</p>
+            </footer>
+        
 
     </div>
 
     @RenderSection("scripts", required: false)
 
     <script>
-             $(document).ready(function () {
-                 $(".kendoDate").kendoDateTimePicker();
-                 $("kendoTime").kendoDateTimePicker({
-                    timeFormat: "HH:mm" //24 hours format
-                });
-                 $('.datepicker').datepicker()
-                 $('.ShortDate').datetimepicker({
-                     weekStart: 1,
-                     todayBtn: 1,
-                     autoclose: 1,
-                     todayHighlight: 1,
-                     startView: 2,
-                     minView: 2,
-                     forceParse: 0,
-                     format: "dd/mm/yyyy",
-                     startDate: "01/11/2015"
-                 });
-                 $('.LongDateTime').datetimepicker({
-                     weekStart: 1,
-                     todayBtn: 1,
-                     autoclose: 1,
-                     todayHighlight: 1,
-                     startView: 2,
-                     minView: 2,
-                     forceParse: 1,
-                     format: "dd/mm/yyyy hh:mm:ii P",
-                     startDate: "11-11-2015 10:00:00",
-                     language: 'en',
-                     pick12HourFormat: true
-                 });
-                 $('.date').datepicker({ dateFormat: "dd-M-yyyy HH:mm P" });
-             });
+        $(document).ready(function () {
+            $(".kendoDate").kendoDateTimePicker();
+            $("kendoTime").kendoDateTimePicker({
+                timeFormat: "HH:mm" //24 hours format
+            });
+            $('.datepicker').datepicker()
+            $('.ShortDate').datetimepicker({
+                weekStart: 1,
+                todayBtn: 1,
+                autoclose: 1,
+                todayHighlight: 1,
+                startView: 2,
+                minView: 2,
+                forceParse: 0,
+                format: "dd/mm/yyyy",
+                startDate: "01/11/2015"
+            });
+            $('.LongDateTime').datetimepicker({
+                weekStart: 1,
+                todayBtn: 1,
+                autoclose: 1,
+                todayHighlight: 1,
+                startView: 2,
+                minView: 2,
+                forceParse: 1,
+                format: "dd/mm/yyyy hh:mm:ii P",
+                startDate: "11-11-2015 10:00:00",
+                language: 'en',
+                pick12HourFormat: true
+            });
+            $('.date').datepicker({ dateFormat: "dd-M-yyyy HH:mm P" });
+        });
     </script>
-
-
 
 </body>
 </html>
