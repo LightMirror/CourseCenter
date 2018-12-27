@@ -2698,7 +2698,14 @@
                     <div class="col-xs-12 col-sm-3 center">
                         <span class="profile-picture">
                             <a href="#">
+                                @if (string.IsNullOrEmpty(Model.Course_ImgePath))
+                                {
                                 <img src="~/Uploads/Photo/Courses/WhatsApp Image 2018-12-15 at 8.12.44 PM.jpeg" alt="Course" class="editable img-responsive" id="avatar2" />
+                                }
+                                else
+                                {
+                                    <img src="@Url.Content(Model.Course_ImgePath)" alt="Course" class="editable img-responsive" id="avatar2" />
+                                }
                             </a>
                         </span>
 
