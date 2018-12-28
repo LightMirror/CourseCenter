@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CourseSite.Models.DAL;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
@@ -6,6 +7,7 @@ using System.Drawing.Imaging;
 using System.Linq;
 using System.Threading;
 using System.Web;
+using System.Web.Mvc;
 
 namespace CourseSite.Common
 {
@@ -38,6 +40,14 @@ namespace CourseSite.Common
             }
 
             return destImage;
+        }
+
+        public static SelectList GenderDll()
+        {
+            using (CenterDBEntities db = new CenterDBEntities())
+            {
+                return (new SelectList(db.Gender.ToList(), "ID", CourseSite.Common.UImanger.CurrentLang == "en" ? "Gender_EngName" : "Gender_AraName"));
+            }
         }
     }
 

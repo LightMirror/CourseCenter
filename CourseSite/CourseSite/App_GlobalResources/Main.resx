@@ -247,7 +247,7 @@
     <value>Course Name In Ar</value>
   </data>
   <data name="ImagePath" xml:space="preserve">
-    <value>Course Image</value>
+    <value>Image</value>
   </data>
   <data name="Objective" xml:space="preserve">
     <value>Objective</value>
@@ -266,5 +266,14 @@
   </data>
   <data name="TotalHour" xml:space="preserve">
     <value>Total Hour</value>
+  </data>
+  <data name="Facebook" xml:space="preserve">
+    <value>Facebook</value>
+  </data>
+  <data name="linkedIn" xml:space="preserve">
+    <value>linkedIn</value>
+  </data>
+  <data name="Twitter" xml:space="preserve">
+    <value>Twitter</value>
   </data>
 </root>

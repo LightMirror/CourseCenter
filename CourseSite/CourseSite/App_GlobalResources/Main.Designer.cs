@@ -268,6 +268,15 @@ namespace CourseSite.App_GlobalResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Facebook.
+        /// </summary>
+        public static string Facebook {
+            get {
+                return ResourceManager.GetString("Facebook", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to F.A.Q.
         /// </summary>
         public static string FAQ {
@@ -322,7 +331,7 @@ namespace CourseSite.App_GlobalResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Course Image.
+        ///   Looks up a localized string similar to Image.
         /// </summary>
         public static string ImagePath {
             get {
@@ -363,6 +372,15 @@ namespace CourseSite.App_GlobalResources {
         public static string Lang {
             get {
                 return ResourceManager.GetString("Lang", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to linkedIn.
+        /// </summary>
+        public static string linkedIn {
+            get {
+                return ResourceManager.GetString("linkedIn", resourceCulture);
             }
         }
         
@@ -498,6 +516,15 @@ namespace CourseSite.App_GlobalResources {
         public static string TotalHour {
             get {
                 return ResourceManager.GetString("TotalHour", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Twitter.
+        /// </summary>
+        public static string Twitter {
+            get {
+                return ResourceManager.GetString("Twitter", resourceCulture);
             }
         }
         

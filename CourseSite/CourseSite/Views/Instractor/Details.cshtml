@@ -2,7 +2,7 @@
 
 @{
     ViewBag.Title = "Details";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
 <h2>Details</h2>
@@ -59,6 +59,32 @@
             @Html.DisplayFor(model => model.Instractor_Email)
         </dd>
 
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Instractor_Facebook)
+        </dt>
+
+        <dd>            
+            <a href="@Html.DisplayFor(model => model.Instractor_Facebook)" target="_blank">@Html.DisplayFor(model => model.Instractor_Facebook)</a>
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.instractor_twitter)
+        </dt>
+
+        <dd>
+            <a href="@Html.DisplayFor(model => model.instractor_twitter)" target="_blank">  @Html.DisplayFor(model => model.instractor_twitter)</a>
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Instractor_LinkedIn)
+        </dt>
+
+        <dd>
+            <a href="@Html.DisplayFor(model => model.Instractor_LinkedIn)" target="_blank" > @Html.DisplayFor(model => model.Instractor_LinkedIn)</a>
+        </dd>
+
+
         <dt>
             @Html.DisplayNameFor(model => model.Instractor_Birthdate)
         </dt>
@@ -68,7 +94,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Gender.Gender_EngName)
+            @Resources.Instractors.Instractor_Status
         </dt>
 
         <dd>
@@ -76,7 +102,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.InstractorStatus.Status_EngName)
+            @Resources.Instractors.Instractor_Gender
         </dt>
 
         <dd>
@@ -86,6 +112,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink(Resources.Main.Edit, "Edit", new { id = Model.ID }) |
+    @Html.ActionLink(Resources.Main.BTL, "Index")
 </p>

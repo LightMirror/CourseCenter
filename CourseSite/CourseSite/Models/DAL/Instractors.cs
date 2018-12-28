@@ -12,6 +12,7 @@ namespace CourseSite.Models.DAL
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using System.Web;
 
     public partial class Instractors
     {
@@ -62,8 +63,15 @@ namespace CourseSite.Models.DAL
 
         [Display(ResourceType = typeof(CourseSite.App_GlobalResources.Instractors), Name = "Instractor_Birthdate")]
         public Nullable<System.DateTime> Instractor_Birthdate { get; set; }
-
-
+        [Display(ResourceType = typeof(CourseSite.App_GlobalResources.Main), Name = "Facebook")]
+        public string Instractor_Facebook { get; set; }
+        [Display(ResourceType = typeof(CourseSite.App_GlobalResources.Main), Name = "linkedIn")]
+        public string Instractor_LinkedIn { get; set; }
+        [Display(ResourceType = typeof(CourseSite.App_GlobalResources.Main), Name = "Twitter")]
+        public string instractor_twitter { get; set; }
+        [Display(ResourceType = typeof(CourseSite.App_GlobalResources.Main), Name = "ImagePath")]
+        public string instractor_imagePath { get; set; }
+        public HttpPostedFileBase ImageUpload { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Course_Instractors> Course_Instractors { get; set; }
         public virtual Gender Gender { get; set; }
