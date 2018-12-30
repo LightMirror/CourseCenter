@@ -247,6 +247,7 @@
     <Compile Include="Controllers\CustomerabsentsController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\FAQController.cs" />
+    <Compile Include="Controllers\GalleryController.cs" />
     <Compile Include="Controllers\GroupCustomersController.cs" />
     <Compile Include="Controllers\GroupsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -498,6 +499,7 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="Uploads\Gallary\defaultcourse.jpg" />
     <Content Include="Uploads\Photo\Courses\WhatsApp Image 2018-12-15 at 8.12.44 PM.jpeg" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -600,6 +602,11 @@
     <Content Include="Views\FAQ\_CoursePV.cshtml" />
     <Content Include="Views\Shared\_LayoutMainChild.cshtml" />
     <Content Include="Views\FAQ\AllFAQs.cshtml" />
+    <Content Include="Views\Gallery\Create.cshtml" />
+    <Content Include="Views\Gallery\Delete.cshtml" />
+    <Content Include="Views\Gallery\Details.cshtml" />
+    <Content Include="Views\Gallery\Edit.cshtml" />
+    <Content Include="Views\Gallery\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

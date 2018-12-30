@@ -1,0 +1,151 @@
+﻿@model IEnumerable<CourseSite.Models.DAL.Gallary>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-bordered table-striped table-responsive">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ImagePath)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ImageStatus)
+        </th>
+        <th> Actions </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ImagePath)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ImageStatus)
+            </td>
+            <td>
+                @if (item.ImageStatus)
+                {
+                    <button id="@item.ImageID" type="button" onclick="setCurrentUser('@item.ImageID')" class="btn btn-warning" data-toggle="modal" data-target="#ModalHide">
+                        <i class="fa fa-ban"></i>
+                    </button>
+                }
+                else
+                {
+                    <button id="@item.ImageID" type="button" onclick="setCurrentUser('@item.ImageID')" class="btn btn-success" data-toggle="modal" data-target="#ModalShow">
+                        <i class="fa fa-check-square-o"></i>
+                    </button>
+                }
+
+                @Html.ActionLink("Edit", "Edit", new { id = item.ImageID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ImageID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ImageID })
+            </td>
+        </tr>
+    }
+
+</table>
+
+
+<!-- Modal -->
+<div class="modal fade" id="ModalHide" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Hide Image</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Are you sure to hide this image?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" onclick="Hide()" class="btn btn-primary">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="ModalShow" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Show Image</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to show this image?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" onclick="Show()" class="btn btn-primary">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/assets/global/plugins/jquery.min.js"></script>
+<script type="text/javascript">
+    var selectedUserId = '';
+
+    function setCurrentUser(id) {
+        selectedUserId = id;
+    }
+
+    function Hide() {
+        $('#ModalHide').modal('hide');
+        $.ajax({
+            type: 'post',
+            url: '/Gallery/HidePhoto',
+            data: { 'id': selectedUserId },
+            success: function (data) {
+                toastr.success('Image hide successfully');
+                ToggleBtns(true);
+            },
+            error: function (data) {
+                toastr.error('Something went wrong, Please try again later.');
+            }
+        });
+    };
+
+    function Show() {
+        $('#ModalShow').modal('hide');
+        $.ajax({
+            type: 'post',
+            url: '/Gallery/ShowPhoto',
+            data: { 'id': selectedUserId },
+            success: function (data) {
+                toastr.success('Image showed successfully');
+                ToggleBtns(false);
+            },
+            error: function (data) {
+                toastr.error('Something went wrong, Please try again later.');
+            }
+        });
+    };
+
+
+    function ToggleBtns(type) {
+        if (type == true) {
+            $('#' + selectedUserId).removeClass('btn-warning').addClass('btn-success');
+            $('#' + selectedUserId).attr('data-target', '#ModalShow');
+            $('#' + selectedUserId).find('i').removeClass('fa-ban').addClass('fa-check-square-o');
+        }
+        else {
+            $('#' + selectedUserId).removeClass('btn-success').addClass('btn-warning');
+            $('#' + selectedUserId).attr('data-target', '#ModalHide');
+            $('#' + selectedUserId).find('i').removeClass('fa-check-square-o').addClass('fa-ban');
+        }
+    }
+</script>
+<script src="~/Scripts/jquery-1.10.2.js"></script>
