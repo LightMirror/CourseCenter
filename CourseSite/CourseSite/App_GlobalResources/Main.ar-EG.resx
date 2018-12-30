@@ -228,4 +228,43 @@
   <data name="TeamMember" xml:space="preserve">
     <value>فريق العمل</value>
   </data>
+  <data name="Content" xml:space="preserve">
+    <value>محتوى المادة بالانجليزية</value>
+  </data>
+  <data name="ContentAr" xml:space="preserve">
+    <value>محتوى المادة بالعربية</value>
+  </data>
+  <data name="Cost" xml:space="preserve">
+    <value>تكلفة</value>
+  </data>
+  <data name="CourseName" xml:space="preserve">
+    <value>اسم المادة بالانجليزية</value>
+  </data>
+  <data name="CourseNameAr" xml:space="preserve">
+    <value>اسم المادة بالعربية</value>
+  </data>
+  <data name="ImagePath" xml:space="preserve">
+    <value>صورة المادة </value>
+  </data>
+  <data name="Objective" xml:space="preserve">
+    <value>الاهداف بالانجليزية</value>
+  </data>
+  <data name="ObjectiveAr" xml:space="preserve">
+    <value>الاهداف بالعربية</value>
+  </data>
+  <data name="Summary" xml:space="preserve">
+    <value>ملخص بالانجليزية</value>
+  </data>
+  <data name="SummaryAr" xml:space="preserve">
+    <value>ملخص بالعربية</value>
+  </data>
+  <data name="TotalHour" xml:space="preserve">
+    <value>عدد ساعات الكورس</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>الحالة</value>
+  </data>
+  <data name="ChoseStatus" xml:space="preserve">
+    <value>----اختر الحالة----</value>
+  </data>
 </root>

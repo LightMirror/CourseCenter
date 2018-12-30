@@ -23,43 +23,47 @@ namespace CourseSite.Models.DAL
         }
 
 
-    public int ID { get; set; }
-    [Required]
-    [Display(Name = "Course Name")]
-    public string Course_EngName { get; set; }
-    [Display(Name = "Course Name")]
-    public string Course_AraName { get; set; }
-    [Display(Name = "Vedio Path")]
-    public string Course_VedioPath { get; set; }
-    [Display(Name = "Image Path")]
-    public string Course_ImgePath { get; set; }
-    public string Course_ImagePath2 { get; set; }
-    [Display(Name = "Objective")]
-    public string Course_EngObjective { get; set; }
-    public string Course_AraObjective { get; set; }
-    [Required]
-    [Display(Name = "Summary")]
-    public string Course_EngSummary { get; set; }
-    public string Course_AraSummary { get; set; }
-    public string Course_ArabicContentPath { get; set; }
-    [Display(Name = "Content")]
-    public string Course_EnglishContent { get; set; }
-    [Display(Name = "Status ID")]
-    public Nullable<int> Course_StatusID { get; set; }
-    [Display(Name = "Total Hour")]
-    public Nullable<decimal> Course_TotalHour { get; set; }
-    [Display(Name = "Cost")]
-    public Nullable<decimal> Course_OrignalCost { get; set; }
-    public Nullable<System.DateTime> Course_CreationDate { get; set; }
-    public string Course_CreationUsers { get; set; }
-    public Nullable<System.DateTime> Course_ModifyDate { get; set; }
-    public string Course_modifyUsers { get; set; }
-    public Nullable<bool> Course_ISInMain { get; set; }
-    public HttpPostedFileBase ImageUpload { get; set; }
+        public int ID { get; set; }
+        [Display(ResourceType = typeof(CourseSite.App_GlobalResources.Main), Name = "CourseName")]
+        [Required(ErrorMessageResourceType = typeof(CourseSite.App_GlobalResources.FAQ), ErrorMessageResourceName = "RequiredFiled")]
+        public string Course_EngName { get; set; }
+        [Display(ResourceType = typeof(CourseSite.App_GlobalResources.Main), Name = "CourseNameAr")]
+        [Required(ErrorMessageResourceType = typeof(CourseSite.App_GlobalResources.FAQ), ErrorMessageResourceName = "RequiredFiled")]
+        public string Course_AraName { get; set; }
+        [Display(Name = "Vedio Path")]
+        public string Course_VedioPath { get; set; }
+        [Display(ResourceType = typeof(CourseSite.App_GlobalResources.Main), Name = "ImagePath")]
+        public string Course_ImgePath { get; set; }
+        public string Course_ImagePath2 { get; set; }
+        [Display(ResourceType = typeof(CourseSite.App_GlobalResources.Main), Name = "Objective")]
+        public string Course_EngObjective { get; set; }
+        [Display(ResourceType = typeof(CourseSite.App_GlobalResources.Main), Name = "ObjectiveAr")]
+        public string Course_AraObjective { get; set; }
+        [Required(ErrorMessageResourceType = typeof(CourseSite.App_GlobalResources.FAQ), ErrorMessageResourceName = "RequiredFiled")]
+        [Display(ResourceType = typeof(CourseSite.App_GlobalResources.Main), Name = "Summary")]
+        public string Course_EngSummary { get; set; }
+        [Display(ResourceType = typeof(CourseSite.App_GlobalResources.Main), Name = "SummaryAr")]
+        public string Course_AraSummary { get; set; }
+        [Display(ResourceType = typeof(CourseSite.App_GlobalResources.Main), Name = "ContentAr")]
+        public string Course_ArabicContentPath { get; set; }
+        [Display(ResourceType = typeof(CourseSite.App_GlobalResources.Main), Name = "Content")]
+        public string Course_EnglishContent { get; set; }
+        [Display(ResourceType = typeof(CourseSite.App_GlobalResources.Main), Name = "Status")]
+        public Nullable<int> Course_StatusID { get; set; }
+        [Display(ResourceType = typeof(CourseSite.App_GlobalResources.Main), Name = "TotalHour")]
+        public Nullable<decimal> Course_TotalHour { get; set; }
+        [Display(ResourceType = typeof(CourseSite.App_GlobalResources.Main), Name = "Cost")]
+        public Nullable<decimal> Course_OrignalCost { get; set; }
+        public Nullable<System.DateTime> Course_CreationDate { get; set; }
+        public string Course_CreationUsers { get; set; }
+        public Nullable<System.DateTime> Course_ModifyDate { get; set; }
+        public string Course_modifyUsers { get; set; }
+        public Nullable<bool> Course_ISInMain { get; set; }
+        public HttpPostedFileBase ImageUpload { get; set; }
 
-    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-    public virtual ICollection<Course_Instractors> Course_Instractors { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Course_Instractors> Course_Instractors { get; set; }
 
-    public virtual Course_status Course_status { get; set; }
-}
+        public virtual Course_status Course_status { get; set; }
+    }
 }

@@ -353,6 +353,7 @@
     </Compile>
     <Compile Include="Models\FAQsRoutines.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\InstractorsRoutines.cs" />
     <Compile Include="Models\MailViewModel.cs" />
     <Compile Include="Models\MainViewModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -501,6 +502,7 @@
     <Content Include="Scripts\_references.js" />
     <Content Include="Uploads\Gallary\defaultcourse.jpg" />
     <Content Include="Uploads\Photo\Courses\WhatsApp Image 2018-12-15 at 8.12.44 PM.jpeg" />
+    <Content Include="Uploads\Photo\instractors\logo.jpg" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -620,16 +622,16 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_GlobalResources\Main.resx">
-      <Generator>GlobalResourceProxyGenerator</Generator>
+    <EmbeddedResource Include="App_GlobalResources\Main.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Main.Designer.cs</LastGenOutput>
-    </Content>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_GlobalResources\Main.ar-EG.resx">
-      <Generator>GlobalResourceProxyGenerator</Generator>
+    <EmbeddedResource Include="App_GlobalResources\Main.ar-EG.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Main.ar-EG.designer.cs</LastGenOutput>
-    </Content>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

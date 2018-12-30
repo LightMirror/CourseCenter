@@ -85,19 +85,19 @@
                     <div class="col-lg-3 col-md-6 footer-links">
                         <h4>@Resources.Main.UsefulLinks</h4>
                         <ul>
-                            <li><i class="fa fa-angle-right"></i> <a href="#intro">@Resources.Main.Home</a></li>
-                            <li><i class="fa fa-angle-right"></i> <a href="#about">@Resources.Main.About</a></li>
-                            <li><i class="fa fa-angle-right"></i> <a href="#hotels">@Resources.Main.Courses</a></li>
-                            <li><i class="fa fa-angle-right"></i> <a href="#faq">@Resources.Main.FAQ</a></li>
-                            <li><i class="fa fa-angle-right"></i> <a href="#contact">@Resources.Main.ContactUS</a></li>
+                            <li><i class="fa fa-angle-right"></i> <a href="@Url.Content("~/#intro")">@Resources.Main.Home</a></li>
+                            <li><i class="fa fa-angle-right"></i> <a href="@Url.Content("~/#about")">@Resources.Main.About</a></li>
+                            <li><i class="fa fa-angle-right"></i> <a href="@Url.Content("~/#hotels")">@Resources.Main.Courses</a></li>
+                            <li><i class="fa fa-angle-right"></i> <a href="@Url.Content("~/#faq")">@Resources.Main.FAQ</a></li>
+                            <li><i class="fa fa-angle-right"></i> <a href="@Url.Content("~/#contact")">@Resources.Main.ContactUS</a></li>
                         </ul>
                     </div>
 
                     <div class="col-lg-3 col-md-6 footer-links">
                         <h4>Useful Links</h4>
                         <ul>
-                            <li><i class="fa fa-angle-right"></i> <a href="#">@Resources.Main.Allcourses</a></li> @*course index all active*@
-                            <li><i class="fa fa-angle-right"></i> <a href="FAQ/AllFAQs">@Resources.Main.FAQ</a></li>
+                            <li><i class="fa fa-angle-right"></i> <a href="~/Course">@Resources.Main.Allcourses</a></li> @*course index all active*@
+                            <li><i class="fa fa-angle-right"></i> <a href="@Url.Content("~/FAQ/AllFAQs")">@Resources.Main.FAQ</a></li>                            
                         </ul>
                     </div>
 
