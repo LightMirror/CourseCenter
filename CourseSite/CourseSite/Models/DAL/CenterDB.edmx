@@ -216,7 +216,7 @@
           <Key>
             <PropertyRef Name="ImageID" />
           </Key>
-          <Property Name="ImageID" Type="int" Nullable="false" />
+          <Property Name="ImageID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ImagePath" Type="nvarchar" MaxLength="300" />
           <Property Name="ImageStatus" Type="bit" Nullable="false" />
         </EntityType>
