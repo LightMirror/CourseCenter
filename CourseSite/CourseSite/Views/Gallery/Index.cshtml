@@ -25,7 +25,21 @@
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.ImagePath)
+                @*@Html.DisplayFor(modelItem => item.ImagePath)*@
+
+                <div class="form-group">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        @*<div class="fileUpload btn btn-primary">
+                            <span>Upload Image</span>
+
+                            <input type="file" class="upload" onchange="readURL(this);" name="file" />
+                            <input type="file" style="display: none;" id="my_file" name="file" />
+                        </div>*@
+                        <span id="previewPane">
+                            <img class="upload" onchange="readURL(this);" name="file" id="img_prev" src="~/Uploads/Gallary/@item.ImagePath" alt="your image" style="width:100px;height:50px">
+                        </span>
+                    </div>
+                </div>
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.ImageStatus)
@@ -34,19 +48,19 @@
                 @if (item.ImageStatus)
                 {
                     <button id="@item.ImageID" type="button" onclick="setCurrentUser('@item.ImageID')" class="btn btn-warning" data-toggle="modal" data-target="#ModalHide">
-                        <i class="fa fa-ban"></i>
+                        <i class="glyphicon glyphicon-eye-close"></i>
                     </button>
                 }
                 else
                 {
                     <button id="@item.ImageID" type="button" onclick="setCurrentUser('@item.ImageID')" class="btn btn-success" data-toggle="modal" data-target="#ModalShow">
-                        <i class="fa fa-check-square-o"></i>
+                        <i class="glyphicon glyphicon-eye-open"></i>
                     </button>
                 }
 
-                @Html.ActionLink("Edit", "Edit", new { id = item.ImageID }) |
+                @*@Html.ActionLink("Edit", "Edit", new { id = item.ImageID }) |
                 @Html.ActionLink("Details", "Details", new { id = item.ImageID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.ImageID })
+                @Html.ActionLink("Delete", "Delete", new { id = item.ImageID })*@
             </td>
         </tr>
     }
@@ -69,7 +83,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" onclick="Hide()" class="btn btn-primary">OK</button>
+                <button type="button" onclick="Hide();" class="btn btn-primary">OK</button>
             </div>
         </div>
     </div>
@@ -94,7 +108,8 @@
         </div>
     </div>
 </div>
-<script src="~/assets/global/plugins/jquery.min.js"></script>
+@*<script src="~/assets/global/plugins/jquery.min.js"></script>*@
+<script src="~/Scripts/bootstrap.min.js"></script>
 <script type="text/javascript">
     var selectedUserId = '';
 
@@ -103,10 +118,10 @@
     }
 
     function Hide() {
-        $('#ModalHide').modal('hide');
+        $('#ModalHide').hide();
         $.ajax({
             type: 'post',
-            url: '/Gallery/HidePhoto',
+            url: '/Gallery/HidePhoto/',
             data: { 'id': selectedUserId },
             success: function (data) {
                 toastr.success('Image hide successfully');
@@ -119,10 +134,10 @@
     };
 
     function Show() {
-        $('#ModalShow').modal('hide');
+        $('#ModalShow').hide();
         $.ajax({
             type: 'post',
-            url: '/Gallery/ShowPhoto',
+            url: '/Gallery/ShowPhoto/',
             data: { 'id': selectedUserId },
             success: function (data) {
                 toastr.success('Image showed successfully');
