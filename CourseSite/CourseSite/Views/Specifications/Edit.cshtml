@@ -11,7 +11,7 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Specifications</h4>
         <hr />
@@ -64,4 +64,26 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+}
+
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<link href="~/Content/toastr.min.css" rel="stylesheet" />
+<script src="~/Scripts/toastr.min.js"></script>
+@if (TempData["succed"] != null)
+{
+    <script type="text/javascript">
+        $(function () {
+
+            toastr.success('@TempData["succed"]');
+        })
+    </script>
+}
+@if (TempData["error"] != null)
+{
+    <script type="text/javascript">
+        $(function () {
+
+            toastr.error(' @TempData["error"]');
+        })
+    </script>
 }

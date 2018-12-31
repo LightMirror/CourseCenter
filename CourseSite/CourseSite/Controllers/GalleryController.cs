@@ -71,7 +71,14 @@ namespace CourseSite.Controllers
                 if (ModelState.IsValid)
                 {
                     db.Gallary.Add(gallary);
-                    db.SaveChanges();
+                    if (db.SaveChanges() > 0)
+                    {
+                        TempData["succed"] = "Succeed Add image ";
+                    }
+                    else
+                    {
+                        TempData["error"] = "Sorry we can not add image, Please try again later.";
+                    }
                     return RedirectToAction("Index");
                 }
 
@@ -169,14 +176,33 @@ namespace CourseSite.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Gallary gallary)
+        public ActionResult Edit(Gallary gallary , HttpPostedFileBase file)
         {
             using (CenterDBEntities db = new CenterDBEntities())
             {
+                string fileName = "";
+
+                if (file != null && file.ContentLength > 0)
+                {
+                    string extention = Path.GetExtension(file.FileName);
+                    fileName = DateTime.Now.Ticks.ToString() + extention;
+                    var path = Path.Combine(Server.MapPath("~/Uploads/Gallary/"), fileName);
+
+                    file.SaveAs(path);
+                }
+                gallary.ImagePath = fileName;
+
                 if (ModelState.IsValid)
                 {
                     db.Entry(gallary).State = EntityState.Modified;
-                    db.SaveChanges();
+                    if (db.SaveChanges() > 0)
+                    {
+                        TempData["succed"] = "Succeed modified image ";
+                    }
+                    else
+                    {
+                        TempData["error"] = "Sorry we can not add image, Please try again later.";
+                    }
                     return RedirectToAction("Index");
                 }
                 return View(gallary);
