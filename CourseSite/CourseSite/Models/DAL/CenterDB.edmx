@@ -204,8 +204,8 @@
           <Property Name="FAQ_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="FAQ_QuestionEng" Type="nvarchar" MaxLength="300" />
           <Property Name="FAQ_QuestionAra" Type="nvarchar" MaxLength="300" />
-          <Property Name="FAQ_AnswerEng" Type="nvarchar" MaxLength="300" />
-          <Property Name="FAQ_AnswerAra" Type="nvarchar" MaxLength="300" />
+          <Property Name="FAQ_AnswerEng" Type="nvarchar" MaxLength="1000" />
+          <Property Name="FAQ_AnswerAra" Type="nvarchar" MaxLength="1000" />
           <Property Name="FAQ_Status" Type="bit" Nullable="false" />
           <Property Name="FAQ_CreattonUser" Type="nvarchar" MaxLength="200" />
           <Property Name="FAQ_CreationDate" Type="datetime" />
@@ -216,7 +216,7 @@
           <Key>
             <PropertyRef Name="ImageID" />
           </Key>
-          <Property Name="ImageID" Type="int" Nullable="false" />
+          <Property Name="ImageID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ImagePath" Type="nvarchar" MaxLength="300" />
           <Property Name="ImageStatus" Type="bit" Nullable="false" />
         </EntityType>
@@ -279,6 +279,10 @@
           <Property Name="Instractor_StatusID" Type="int" />
           <Property Name="Instractor_GenderID" Type="int" />
           <Property Name="Instractor_Birthdate" Type="datetime" />
+          <Property Name="Instractor_Facebook" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Instractor_LinkedIn" Type="nvarchar" MaxLength="1000" />
+          <Property Name="instractor_twitter" Type="nvarchar" MaxLength="1000" />
+          <Property Name="instractor_imagePath" Type="nvarchar" MaxLength="400" />
         </EntityType>
         <EntityType Name="InstractorStatus">
           <Key>
@@ -997,8 +1001,8 @@
           <Property Name="FAQ_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="FAQ_QuestionEng" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
           <Property Name="FAQ_QuestionAra" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
-          <Property Name="FAQ_AnswerEng" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
-          <Property Name="FAQ_AnswerAra" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="FAQ_AnswerEng" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="FAQ_AnswerAra" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
           <Property Name="FAQ_Status" Type="Boolean" Nullable="false" />
           <Property Name="FAQ_CreattonUser" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="FAQ_CreationDate" Type="DateTime" Precision="3" />
@@ -1085,6 +1089,10 @@
           <NavigationProperty Name="Course_Instractors" Relationship="CenterDBModel.FK_Course_Instractors_Instractors" FromRole="Instractors" ToRole="Course_Instractors" />
           <NavigationProperty Name="Gender" Relationship="CenterDBModel.FK_Instractors_Gender" FromRole="Instractors" ToRole="Gender" />
           <NavigationProperty Name="InstractorStatus" Relationship="CenterDBModel.FK_Instractors_InstractorStatus" FromRole="Instractors" ToRole="InstractorStatus" />
+          <Property Name="Instractor_Facebook" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Instractor_LinkedIn" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="instractor_twitter" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="instractor_imagePath" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="InstractorStatus">
           <Key>
@@ -1632,6 +1640,10 @@
           <EntitySetMapping Name="Instractors">
             <EntityTypeMapping TypeName="CenterDBModel.Instractors">
               <MappingFragment StoreEntitySet="Instractors">
+                <ScalarProperty Name="instractor_imagePath" ColumnName="instractor_imagePath" />
+                <ScalarProperty Name="instractor_twitter" ColumnName="instractor_twitter" />
+                <ScalarProperty Name="Instractor_LinkedIn" ColumnName="Instractor_LinkedIn" />
+                <ScalarProperty Name="Instractor_Facebook" ColumnName="Instractor_Facebook" />
                 <ScalarProperty Name="Instractor_Birthdate" ColumnName="Instractor_Birthdate" />
                 <ScalarProperty Name="Instractor_GenderID" ColumnName="Instractor_GenderID" />
                 <ScalarProperty Name="Instractor_StatusID" ColumnName="Instractor_StatusID" />

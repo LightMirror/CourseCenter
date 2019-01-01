@@ -12,27 +12,32 @@ namespace CourseSite.Controllers
 {
     public class SpecificationsController : Controller
     {
-        private CenterDBEntities db = new CenterDBEntities();
 
         // GET: Specifications
         public ActionResult Index()
         {
-            return View(db.Specifications.ToList());
+            using (CenterDBEntities db = new CenterDBEntities())
+            {
+                return View(db.Specifications.ToList());
+            }
         }
 
         // GET: Specifications/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
+            using (CenterDBEntities db = new CenterDBEntities())
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Specifications specifications = db.Specifications.Find(id);
+                if (specifications == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(specifications);
             }
-            Specifications specifications = db.Specifications.Find(id);
-            if (specifications == null)
-            {
-                return HttpNotFound();
-            }
-            return View(specifications);
         }
 
         // GET: Specifications/Create
@@ -46,31 +51,44 @@ namespace CourseSite.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Specification_EngName,Specification_AraName,Specification_EngDescription,Specification_AraDescription")] Specifications specifications)
+        public ActionResult Create(Specifications specifications)
         {
-            if (ModelState.IsValid)
+            using (CenterDBEntities db = new CenterDBEntities())
             {
-                db.Specifications.Add(specifications);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+                if (ModelState.IsValid)
+                {
+                    db.Specifications.Add(specifications);
+                    if (db.SaveChanges() > 0)
+                    {
+                        TempData["succed"] = "Succeed Add Specification ";
+                    }
+                    else
+                    {
+                        TempData["error"] = "Sorry we can not add image, Please try again later.";
+                    }
+                    return RedirectToAction("Index");
+                }
 
-            return View(specifications);
+                return View(specifications);
+            }
         }
 
         // GET: Specifications/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
+            using (CenterDBEntities db = new CenterDBEntities())
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Specifications specifications = db.Specifications.Find(id);
+                if (specifications == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(specifications);
             }
-            Specifications specifications = db.Specifications.Find(id);
-            if (specifications == null)
-            {
-                return HttpNotFound();
-            }
-            return View(specifications);
         }
 
         // POST: Specifications/Edit/5
@@ -78,30 +96,43 @@ namespace CourseSite.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Specification_EngName,Specification_AraName,Specification_EngDescription,Specification_AraDescription")] Specifications specifications)
+        public ActionResult Edit(Specifications specifications)
         {
-            if (ModelState.IsValid)
+            using (CenterDBEntities db = new CenterDBEntities())
             {
-                db.Entry(specifications).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    db.Entry(specifications).State = EntityState.Modified;
+                    if (db.SaveChanges() > 0)
+                    {
+                        TempData["succed"] = "Succeed modified Specification ";
+                    }
+                    else
+                    {
+                        TempData["error"] = "Sorry we can not add image, Please try again later.";
+                    }
+                    return RedirectToAction("Index");
+                }
+                return View(specifications);
             }
-            return View(specifications);
         }
 
         // GET: Specifications/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
+            using (CenterDBEntities db = new CenterDBEntities())
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Specifications specifications = db.Specifications.Find(id);
+                if (specifications == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(specifications);
             }
-            Specifications specifications = db.Specifications.Find(id);
-            if (specifications == null)
-            {
-                return HttpNotFound();
-            }
-            return View(specifications);
         }
 
         // POST: Specifications/Delete/5
@@ -109,19 +140,25 @@ namespace CourseSite.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Specifications specifications = db.Specifications.Find(id);
-            db.Specifications.Remove(specifications);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            using (CenterDBEntities db = new CenterDBEntities())
+            {
+                Specifications specifications = db.Specifications.Find(id);
+                db.Specifications.Remove(specifications);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
         }
 
         protected override void Dispose(bool disposing)
         {
-            if (disposing)
+            using (CenterDBEntities db = new CenterDBEntities())
             {
-                db.Dispose();
+                if (disposing)
+                {
+                    db.Dispose();
+                }
+                base.Dispose(disposing);
             }
-            base.Dispose(disposing);
         }
     }
 }

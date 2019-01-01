@@ -228,4 +228,52 @@
   <data name="TeamMember" xml:space="preserve">
     <value>Team member</value>
   </data>
+  <data name="ChoseStatus" xml:space="preserve">
+    <value>----Chose Status----</value>
+  </data>
+  <data name="Content" xml:space="preserve">
+    <value>Content</value>
+  </data>
+  <data name="ContentAr" xml:space="preserve">
+    <value>Content In Ar</value>
+  </data>
+  <data name="Cost" xml:space="preserve">
+    <value>Cost</value>
+  </data>
+  <data name="CourseName" xml:space="preserve">
+    <value>Course Name</value>
+  </data>
+  <data name="CourseNameAr" xml:space="preserve">
+    <value>Course Name In Ar</value>
+  </data>
+  <data name="ImagePath" xml:space="preserve">
+    <value>Image</value>
+  </data>
+  <data name="Objective" xml:space="preserve">
+    <value>Objective</value>
+  </data>
+  <data name="ObjectiveAr" xml:space="preserve">
+    <value>Objective In Ar</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="Summary" xml:space="preserve">
+    <value>Summary</value>
+  </data>
+  <data name="SummaryAr" xml:space="preserve">
+    <value>Summary In Ar</value>
+  </data>
+  <data name="TotalHour" xml:space="preserve">
+    <value>Total Hour</value>
+  </data>
+  <data name="Facebook" xml:space="preserve">
+    <value>Facebook</value>
+  </data>
+  <data name="linkedIn" xml:space="preserve">
+    <value>linkedIn</value>
+  </data>
+  <data name="Twitter" xml:space="preserve">
+    <value>Twitter</value>
+  </data>
 </root>
