@@ -51,14 +51,21 @@ namespace CourseSite.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Specification_EngName,Specification_AraName,Specification_EngDescription,Specification_AraDescription")] Specifications specifications)
+        public ActionResult Create(Specifications specifications)
         {
             using (CenterDBEntities db = new CenterDBEntities())
             {
                 if (ModelState.IsValid)
                 {
                     db.Specifications.Add(specifications);
-                    db.SaveChanges();
+                    if (db.SaveChanges() > 0)
+                    {
+                        TempData["succed"] = "Succeed Add Specification ";
+                    }
+                    else
+                    {
+                        TempData["error"] = "Sorry we can not add image, Please try again later.";
+                    }
                     return RedirectToAction("Index");
                 }
 
@@ -89,14 +96,21 @@ namespace CourseSite.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Specification_EngName,Specification_AraName,Specification_EngDescription,Specification_AraDescription")] Specifications specifications)
+        public ActionResult Edit(Specifications specifications)
         {
             using (CenterDBEntities db = new CenterDBEntities())
             {
                 if (ModelState.IsValid)
                 {
                     db.Entry(specifications).State = EntityState.Modified;
-                    db.SaveChanges();
+                    if (db.SaveChanges() > 0)
+                    {
+                        TempData["succed"] = "Succeed modified Specification ";
+                    }
+                    else
+                    {
+                        TempData["error"] = "Sorry we can not add image, Please try again later.";
+                    }
                     return RedirectToAction("Index");
                 }
                 return View(specifications);
