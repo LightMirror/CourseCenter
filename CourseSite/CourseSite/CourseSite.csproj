@@ -494,6 +494,7 @@
     <Content Include="Content\toastr.scss" />
     <Content Include="Content\toastr.less" />
     <None Include="Properties\PublishProfiles\CourseSite.pubxml" />
+    <None Include="Properties\PublishProfiles\iatlcegypt.com - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\contactform\contactform.js" />
     <Content Include="Scripts\contactform\Readme.txt" />
