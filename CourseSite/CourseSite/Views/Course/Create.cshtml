@@ -3,56 +3,30 @@
 
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = Resources.Main.Create;
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";   
 }
 
-<style>
-    .drugImage {
-        width: 250px;
-        height: 250px;
-        /*border-width:thin;
-    border-style:dashed;*/
-        padding: 15px;
-    }
-</style>
-<h2>Create</h2> 
-<script type="text/javascript">
-    function previewFileFDP(input) {
-        console.log(input);
-        var preview = document.getElementById('img');
-        t = input.target.files;
-        console.log(t);
-        var file = t.files[0];
-        if (file.type.match('image/png') || file.type.match('image/jpeg') ||
-            file.type.match('image/jpg') || file.type.match('image/bmp') || file.type.match('image/gif')) {
-            var reader = new FileReader();
 
-            reader.onloadend = function () {
-                preview.src = reader.result;
-            }
-
-            if (file) {
-                reader.readAsDataURL(file);
-            }
-
-            //else {
-            //    preview.src = document.querySelector('#<%=hfFDPImagePath.ClientID %>').value;
-            //}
-        } 
-    }
-
-</script>
+<h2>@Resources.Main.Create</h2> 
 
 @using (Html.BeginForm("Create", "Course", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>Courses</h4>
+        <h4>@Resources.Main.Courses</h4>
         <hr />
         <div class="row">
-            <div >
+            <div class="col-md-2 col-md-push-9 text-center">
+                <div class="form-group">
+                    <span id="previewPane">
+                        <img class="upload" onchange="readURL(this);" name="file" id="img_prev" src="~/Uploads/Gallary/defaultcourse.jpg" alt="your image"
+                             style="width:250px;height:250px">
+                    </span>
+                </div>
+            </div>
+            <div  class="col-md-10 col-md-pull-2" >
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class="form-group">
                     @Html.LabelFor(model => model.Course_EngName, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -81,7 +55,7 @@
                 <div class="form-group">
                     @Html.LabelFor(model => model.Course_ImgePath, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-4">                   
-                        @Html.TextBoxFor(model => model.ImageUpload, new { type = "file" ,id="imgFD", onchange = "previewFileFDP(this)" })
+                        @Html.TextBoxFor(model => model.ImageUpload, new { type = "file", id = "file", name = "file", onchange = "readURL(this);" })
                         @Html.ValidationMessageFor(model => model.Course_ImgePath, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -169,9 +143,78 @@
 }
 
     <div>
-        @Html.ActionLink("Back to List", "Index")
+        @Html.ActionLink(Resources.Main.BTL, "Index")
     </div>
 
     @section Scripts {
         @Scripts.Render("~/bundles/jqueryval")
     }
+<script>
+
+            var blank = "http://upload.wikimedia.org/wikipedia/commons/c/c0/Blank.gif";
+
+            function readURL(input) {
+
+                if (input.files && input.files[0]) {
+
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+
+                        $('#img_prev')
+
+                            .attr('src', e.target.result)
+
+                            .height(200);
+
+                    };
+                    reader.readAsDataURL(input.files[0]);
+
+                }
+
+                else {
+
+                    var img = input.value;
+
+                    $('#img_prev').attr('src', img).height(200);
+
+                }
+
+                $("#x").show().css("margin-right", "10px");
+
+            }
+
+            $(document).ready(function () {
+
+                $("#x").click(function () {
+
+                    $("#img_prev").attr("src", blank);
+
+                    $("#x").hide();
+
+                });
+
+            });
+</script>
+<style type="text/css">
+    .fileUpload {
+        position: relative;
+        overflow: hidden;
+        margin: 10px;
+    }
+
+        .fileUpload input.upload {
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin: 0;
+            padding: 0;
+            font-size: 20px;
+            cursor: pointer;
+            opacity: 0;
+            filter: alpha(opacity=0);
+        }
+
+    .field-validation-error {
+        color: #a94442;
+    }
+</style>
