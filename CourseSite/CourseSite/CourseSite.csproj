@@ -264,6 +264,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\CourseData.cs" />
     <Compile Include="Models\CourseVM.cs" />
     <Compile Include="Models\DAL\AspNetRoles.cs">
       <DependentUpon>CenterDB.tt</DependentUpon>
