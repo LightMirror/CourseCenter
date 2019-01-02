@@ -326,14 +326,14 @@
           <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
         <Association Name="FK_Corporates_CorporatesStatus">
-          <End Role="CorporatesStatus" Type="Self.CorporatesStatus" Multiplicity="1" />
-          <End Role="Corporates" Type="Self.Corporates" Multiplicity="0..1" />
+          <End Role="CorporatesStatus" Type="Self.CorporatesStatus" Multiplicity="0..1" />
+          <End Role="Corporates" Type="Self.Corporates" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="CorporatesStatus">
               <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="Corporates">
-              <PropertyRef Name="ID" />
+              <PropertyRef Name="Corporates_statusId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -787,6 +787,10 @@
             <End Role="AspNetRoles" EntitySet="AspNetRoles" />
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
           </AssociationSet>
+          <AssociationSet Name="FK_Corporates_CorporatesStatus1" Association="CenterDBModel.FK_Corporates_CorporatesStatus1">
+            <End Role="CorporatesStatus" EntitySet="CorporatesStatus" />
+            <End Role="Corporates" EntitySet="Corporates" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="AspNetRoles">
           <Key>
@@ -893,6 +897,7 @@
           <Property Name="Corporates_statusId" Type="Int32" />
           <NavigationProperty Name="CorporatesStatus" Relationship="CenterDBModel.FK_Corporates_CorporatesStatus" FromRole="Corporates" ToRole="CorporatesStatus" />
           <NavigationProperty Name="Customers" Relationship="CenterDBModel.FK_Customers_Corporates" FromRole="Corporates" ToRole="Customers" />
+          <NavigationProperty Name="CorporatesStatus1" Relationship="CenterDBModel.FK_Corporates_CorporatesStatus1" FromRole="Corporates" ToRole="CorporatesStatus" />
         </EntityType>
         <EntityType Name="CorporatesStatus">
           <Key>
@@ -902,6 +907,7 @@
           <Property Name="Status_EngName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Status_AraName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Corporates" Relationship="CenterDBModel.FK_Corporates_CorporatesStatus" FromRole="CorporatesStatus" ToRole="Corporates" />
+          <NavigationProperty Name="Corporates1" Relationship="CenterDBModel.FK_Corporates_CorporatesStatus1" FromRole="CorporatesStatus" ToRole="Corporates" />
         </EntityType>
         <EntityType Name="Course_Instractors">
           <Key>
@@ -1361,6 +1367,18 @@
         <Association Name="AspNetUserRoles">
           <End Type="CenterDBModel.AspNetRoles" Role="AspNetRoles" Multiplicity="*" />
           <End Type="CenterDBModel.AspNetUsers" Role="AspNetUsers" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_Corporates_CorporatesStatus1">
+          <End Type="CenterDBModel.CorporatesStatus" Role="CorporatesStatus" Multiplicity="0..1" />
+          <End Type="CenterDBModel.Corporates" Role="Corporates" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CorporatesStatus">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Corporates">
+              <PropertyRef Name="Corporates_statusId" />
+            </Dependent>
+          </ReferentialConstraint>
         </Association>
         </Schema>
     </edmx:ConceptualModels>

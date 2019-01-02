@@ -14,10 +14,18 @@ namespace CourseSite.Models.DAL
     
     public partial class CorporatesStatus
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public CorporatesStatus()
+        {
+            this.Corporates1 = new HashSet<Corporates>();
+        }
+    
         public int ID { get; set; }
         public string Status_EngName { get; set; }
         public string Status_AraName { get; set; }
     
         public virtual Corporates Corporates { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Corporates> Corporates1 { get; set; }
     }
 }

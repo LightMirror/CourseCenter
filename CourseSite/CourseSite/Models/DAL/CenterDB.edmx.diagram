@@ -49,6 +49,7 @@
         <AssociationConnector Association="CenterDBModel.FK_schedules_schedules" />
         <AssociationConnector Association="CenterDBModel.FK_Instractors_InstractorStatus" />
         <AssociationConnector Association="CenterDBModel.AspNetUserRoles" />
+        <AssociationConnector Association="CenterDBModel.FK_Corporates_CorporatesStatus1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

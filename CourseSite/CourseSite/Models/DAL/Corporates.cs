@@ -36,5 +36,6 @@ namespace CourseSite.Models.DAL
         public virtual CorporatesStatus CorporatesStatus { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Customers> Customers { get; set; }
+        public virtual CorporatesStatus CorporatesStatus1 { get; set; }
     }
 }
