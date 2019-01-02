@@ -21,7 +21,7 @@ namespace CourseSite.Models.DAL
         {
             this.GroupCustomers = new HashSet<GroupCustomers>();
         }
-    
+
         public int ID { get; set; }
         [Display(ResourceType = typeof(CourseSite.App_GlobalResources.Cutomers), Name = "CutomEnName")]
         [Required(ErrorMessageResourceType = typeof(CourseSite.App_GlobalResources.Instractors), ErrorMessageResourceName = "FiledISRequired")]
@@ -36,6 +36,7 @@ namespace CourseSite.Models.DAL
         [MaxLength(14, ErrorMessageResourceType = typeof(CourseSite.App_GlobalResources.Instractors), ErrorMessageResourceName = "FiledMaxLengtt")]
         public string Customer_Phone { get; set; }
         [Phone]
+        [Required]
         [Display(ResourceType = typeof(CourseSite.App_GlobalResources.Cutomers), Name = "Mobile")]
         [MaxLength(14, ErrorMessageResourceType = typeof(CourseSite.App_GlobalResources.Instractors), ErrorMessageResourceName = "FiledMaxLengtt")]
         public string Customer_Mobile { get; set; }
@@ -61,7 +62,7 @@ namespace CourseSite.Models.DAL
         [Display(ResourceType = typeof(CourseSite.App_GlobalResources.Cutomers), Name = "Corporate")]
         public Nullable<int> Customer_CorporateID { get; set; }
         [Display(ResourceType = typeof(CourseSite.App_GlobalResources.Instractors), Name = "Instractor_Status")]
-        public Nullable<int> Customer_statusID { get; set; }  
+        public Nullable<int> Customer_statusID { get; set; }
         public virtual Corporates Corporates { get; set; }
         [Display(ResourceType = typeof(CourseSite.App_GlobalResources.Instractors), Name = "Instractor_Status")]
         public virtual CustomerStatus CustomerStatus { get; set; }
