@@ -11,9 +11,7 @@ namespace CourseSite.Models.DAL
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.Security.AccessControl;
-
+    
     public partial class Corporates
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -23,7 +21,6 @@ namespace CourseSite.Models.DAL
         }
     
         public int ID { get; set; }
-        [Display(ResourceType = typeof(CourseSite.App_GlobalResources.Cutomers), Name = "Corporate")]
         public string Corporates_EngName { get; set; }
         public string Corporates_AraName { get; set; }
         public string Corporates_Address { get; set; }
@@ -39,5 +36,6 @@ namespace CourseSite.Models.DAL
         public virtual CorporatesStatus CorporatesStatus { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Customers> Customers { get; set; }
+        public virtual CorporatesStatus CorporatesStatus1 { get; set; }
     }
 }

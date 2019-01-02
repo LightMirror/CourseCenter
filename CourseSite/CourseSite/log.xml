@@ -4,3 +4,8 @@
    at CourseSite.Controllers.HomeController.ChangeLang() in E:\lightmirror\CourseCenter\CourseSite\CourseSite\Controllers\HomeController.cs:line 39 in HomeController.cs</Message></LogEntry>
 <LogEntry><Time>12/14/2018 4:09:42 PM</Time><Message>System.Exception: Exception of type 'System.Exception' was thrown.
    at CourseSite.Controllers.HomeController.ChangeLang() in E:\lightmirror\CourseCenter\CourseSite\CourseSite\Controllers\HomeController.cs:line 39 in HomeController.cs</Message></LogEntry>
+<LogEntry><Time>1/2/2019 12:54:00 AM</Time><Message>System.Data.Entity.Validation.DbEntityValidationException: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+   at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   at System.Data.Entity.DbContext.SaveChanges()
+   at CourseSite.Controllers.CustomersController.Create(Customers customers) in E:\lightmirror\CourseCenter\CourseSite\CourseSite\Controllers\CustomersController.cs:line 71 in CustomersControllers.cs</Message></LogEntry>

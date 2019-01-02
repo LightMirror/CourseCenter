@@ -61,40 +61,54 @@ namespace CourseSite.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ID,Customer_EngName,Customer_AraName,Customer_Phone,Customer_Mobile,Customer_Birthdate,Customer_Address,Customer_Email,Customer_Comment,Customer_GenderId,Customer_imagePath,ImageUpload,Customer_Nid,Customer_CorporateID,Customer_statusID")] Customers customers)
         {
-            if (ModelState.IsValid)
+            try
             {
+                if (ModelState.IsValid)
+                {
+                    using (CenterDBEntities db = new CenterDBEntities())
+                    {
+                        db.Customers.Add(customers);
+                        db.SaveChanges();
+                        if (customers.ImageUpload != null && !string.IsNullOrEmpty(customers.ImageUpload.FileName))
+                        {
+                            string subPath = "~/Uploads/Photo/Cutomers/";
+                            var filename = Path.GetFileName(customers.ImageUpload.FileName);
+                            var formattedFileName = string.Format("{0}-{1}{2}"
+                                                           , customers.Customer_EngName
+                                                           , customers.ID
+                                                           , Path.GetExtension(filename));
+                            bool exists = System.IO.Directory.Exists(subPath);
+                            if (!exists)
+                                System.IO.Directory.CreateDirectory(Server.MapPath("~/Uploads/Photo/Cutomers/"));
+                            subPath = Path.Combine(subPath, formattedFileName);
+
+                            var path = Server.MapPath(subPath);
+                            customers.ImageUpload.SaveAs(path);
+                            customers.Customer_imagePath = subPath;
+                            db.Entry(customers).State = EntityState.Modified;
+                            db.SaveChanges();
+                        }
+                        return RedirectToAction("Index");
+                    }
+                }
                 using (CenterDBEntities db = new CenterDBEntities())
                 {
-                    db.Customers.Add(customers);
-                    db.SaveChanges();
-                    if (customers.ImageUpload != null && !string.IsNullOrEmpty(customers.ImageUpload.FileName))
-                    {
-                        string subPath = "~/Uploads/Photo/Cutomers/";
-                        var filename = Path.GetFileName(customers.ImageUpload.FileName);
-                        var formattedFileName = string.Format("{0}-{1}{2}"
-                                                       , customers.Customer_EngName
-                                                       , customers.ID
-                                                       , Path.GetExtension(filename));
-                        bool exists = System.IO.Directory.Exists(subPath);
-                        if (!exists)
-                            System.IO.Directory.CreateDirectory(Server.MapPath("~/Uploads/Photo/Cutomers/"));
-                        subPath = Path.Combine(subPath, formattedFileName);
-
-                        var path = Server.MapPath(subPath);
-                        customers.ImageUpload.SaveAs(path);
-                        customers.Customer_imagePath = subPath;
-                        db.Entry(customers).State = EntityState.Modified;
-                        db.SaveChanges();
-                    }
-                    return RedirectToAction("Index");
+                    ViewBag.Customer_CorporateID = new SelectList(db.Corporates.ToList(), "ID", "Corporates_EngName", customers.Customer_CorporateID);
+                    ViewBag.Customer_statusID = new SelectList(db.CustomerStatus.ToList(), "ID", "Status_EngName", customers.Customer_statusID);
+                    ViewBag.Customer_GenderId = new SelectList(db.Gender.ToList(), "ID", "Gender_EngName", customers.Customer_GenderId);
+                    return View(customers);
                 }
             }
-            using (CenterDBEntities db = new CenterDBEntities())
+            catch(Exception ex)
             {
-                ViewBag.Customer_CorporateID = new SelectList(db.Corporates.ToList(), "ID", "Corporates_EngName", customers.Customer_CorporateID);
-                ViewBag.Customer_statusID = new SelectList(db.CustomerStatus.ToList(), "ID", "Status_EngName", customers.Customer_statusID);
-                ViewBag.Customer_GenderId = new SelectList(db.Gender.ToList(), "ID", "Gender_EngName", customers.Customer_GenderId);
-                return View(customers);
+                CourseSite.Common.General.LogError(ex, "CustomersControllers.cs");
+                using (CenterDBEntities db = new CenterDBEntities())
+                {
+                    ViewBag.Customer_CorporateID = new SelectList(db.Corporates.ToList(), "ID", "Corporates_EngName");
+                    ViewBag.Customer_statusID = new SelectList(db.CustomerStatus.ToList(), "ID", "Status_EngName");
+                    ViewBag.Customer_GenderId = new SelectList(db.Gender.ToList(), "ID", "Gender_EngName");
+                    return View();
+                }
             }
         }
 
@@ -131,6 +145,24 @@ namespace CourseSite.Controllers
             {
                 using (CenterDBEntities db = new CenterDBEntities())
                 {
+
+                    if (customers.ImageUpload != null && !string.IsNullOrEmpty(customers.ImageUpload.FileName))
+                    {
+                        string subPath = "~/Uploads/Photo/Cutomers/";
+                        var filename = Path.GetFileName(customers.ImageUpload.FileName);
+                        var formattedFileName = string.Format("{0}-{1}{2}"
+                                                       , customers.Customer_EngName
+                                                       , customers.ID
+                                                       , Path.GetExtension(filename));
+                        bool exists = System.IO.Directory.Exists(subPath);
+                        if (!exists)
+                            System.IO.Directory.CreateDirectory(Server.MapPath("~/Uploads/Photo/Cutomers/"));
+                        subPath = Path.Combine(subPath, formattedFileName);
+
+                        var path = Server.MapPath(subPath);
+                        customers.ImageUpload.SaveAs(path);
+                        customers.Customer_imagePath = subPath;                        
+                    }
                     db.Entry(customers).State = EntityState.Modified;
                     db.SaveChanges();
                     return RedirectToAction("Index");
