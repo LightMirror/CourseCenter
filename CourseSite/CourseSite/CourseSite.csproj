@@ -387,6 +387,8 @@
     <Content Include="assets\img\NoImage.png" />
     <Content Include="assets\img\Partners\Alpha.JPG" />
     <Content Include="assets\img\Partners\EAPB.jpeg" />
+    <Content Include="assets\img\speakers\ereny.jpg" />
+    <Content Include="assets\img\speakers\Hesham.jpg" />
     <Content Include="assets\img\__logo.png" />
     <Content Include="assets\img\NewLogo1.jpg" />
     <Content Include="assets\img\speakers\1.jpg" />
@@ -621,6 +623,7 @@
     <Content Include="Views\Gallery\Details.cshtml" />
     <Content Include="Views\Gallery\Edit.cshtml" />
     <Content Include="Views\Gallery\Index.cshtml" />
+    <Content Include="Views\Gallery\_GallaryPV.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -686,7 +689,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>62171</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>

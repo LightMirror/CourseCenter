@@ -22,7 +22,15 @@ namespace CourseSite.Controllers
 
             }
         }
+        
+        public static List<Models.DAL.Gallary> GetActiveGallary()
+        {
+            using (CenterDBEntities db = new CenterDBEntities())
+            {
+                return (db.Gallary.Where(x=>x.ImageStatus == true).ToList());
 
+            }
+        }
         // GET: Gallery/Details/5
         public ActionResult Details(int? id)
         {

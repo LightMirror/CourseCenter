@@ -8,6 +8,7 @@ using System.Linq;
 using System.Web;
 using System.Xml;
 using static System.Net.Mime.MediaTypeNames;
+using CourseSite.Controllers;
 
 [assembly: log4net.Config.XmlConfigurator(Watch = true)]
 namespace CourseSite.Common
@@ -52,7 +53,8 @@ namespace CourseSite.Common
             MainViewModel MVM = new MainViewModel();
             MVM.Faqs = FAQsRoutines.GetTopFAQsForMAin();
             MVM.Courses = CourseRoutine.GetTopCoursesForMAin();
-            return MVM;
+            MVM.Gallary = GalleryController.GetActiveGallary(); 
+                return MVM;
         }
     }
     public class MyXmlLayout : XmlLayoutBase
