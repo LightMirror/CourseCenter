@@ -8,7 +8,7 @@
 <h2>@Resources.Main.Edit</h2>
 <div class="breadcrumb flat">
     <span class="fa fa-home"></span>
-    <a href="#">@Resources.Main.Home</a>
+    <a href="/Home/MainAdmin">@Resources.Main.Home</a>
     <a href="#" class="active">@Resources.Main.Edit</a>
 </div>
 
@@ -25,7 +25,7 @@
             <div class="col-md-2 col-md-push-9 text-center">
                 <div class="form-group">
                     <span id="previewPane">
-                        <img class="upload" onchange="readURL(this);" name="file" id="img_prev" src="~/Uploads/Gallary/defaultcourse.jpg" alt="your image"
+                        <img class="upload" onchange="readURL(this);" name="file" id="img_prev" src="@Url.Content(Model.Course_ImgePath)" alt="your image"
                              style="width:250px;height:250px">
                     </span>
                 </div>

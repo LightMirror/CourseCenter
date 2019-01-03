@@ -70,7 +70,7 @@ namespace CourseSite.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Instractor_EngName,Instractor_AraName,instractor_imagePath,,ImageUpload,Instractor_Address,Instractor_Mobile," + "Instractor_phone,Instractor_Email,Instractor_Facebook,instractor_twitter,Instractor_LinkedIn,Instractor_StatusID,Instractor_GenderID,Instractor_Birthdate")] Instractors instractors)
+        public ActionResult Create([Bind(Include = "ID,Instractor_EngName,Instractor_AraName,instractor_imagePath,,ImageUpload,Instractor_Address,Instractor_Mobile," + "Instractor_phone,Instractor_Email,Instractor_Facebook,instractor_twitter,Instractor_LinkedIn,Instractor_StatusID,Instractor_GenderID,Instractor_Birthdate,instractor_QualificationsEnglish")] Instractors instractors)
         {
             if (ModelState.IsValid)
             {
@@ -132,7 +132,7 @@ namespace CourseSite.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Instractor_EngName,Instractor_AraName,instractor_imagePath,,ImageUpload,Instractor_Address,Instractor_Mobile," + "Instractor_phone,Instractor_Email,Instractor_Facebook,instractor_twitter,Instractor_LinkedIn,Instractor_StatusID,Instractor_GenderID,Instractor_Birthdate")] Instractors instractors)
+        public ActionResult Edit([Bind(Include = "ID,Instractor_EngName,Instractor_AraName,instractor_imagePath,,ImageUpload,Instractor_Address,Instractor_Mobile," + "Instractor_phone,Instractor_Email,Instractor_Facebook,instractor_twitter,Instractor_LinkedIn,Instractor_StatusID,Instractor_GenderID,Instractor_Birthdate,instractor_QualificationsEnglish")] Instractors instractors)
         {
             if (ModelState.IsValid)
             {

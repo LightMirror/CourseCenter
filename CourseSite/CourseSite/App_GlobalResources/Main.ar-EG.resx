@@ -267,4 +267,7 @@
   <data name="ChoseStatus" xml:space="preserve">
     <value>----اختر الحالة----</value>
   </data>
+  <data name="Specifications" xml:space="preserve">
+    <value>التخصصات</value>
+  </data>
 </root>

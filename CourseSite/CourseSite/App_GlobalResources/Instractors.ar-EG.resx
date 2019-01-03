@@ -162,4 +162,7 @@
   <data name="instractor_QualificationsEnglish" xml:space="preserve">
     <value>المؤهلات </value>
   </data>
+  <data name="String1" xml:space="preserve">
+    <value />
+  </data>
 </root>

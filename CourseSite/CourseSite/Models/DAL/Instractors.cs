@@ -60,8 +60,12 @@ namespace CourseSite.Models.DAL
         [Required(ErrorMessageResourceType = typeof(CourseSite.App_GlobalResources.Instractors), ErrorMessageResourceName = "FiledISRequired")]
         public Nullable<int> Instractor_GenderID { get; set; }
 
+        [DataType(DataType.DateTime)]
+        [UIHint("_DateTime")]
         [Display(ResourceType = typeof(CourseSite.App_GlobalResources.Instractors), Name = "Instractor_Birthdate")]
         public Nullable<System.DateTime> Instractor_Birthdate { get; set; }
+
+
         [Display(ResourceType = typeof(CourseSite.App_GlobalResources.Main), Name = "Facebook")]
         public string Instractor_Facebook { get; set; }
         [Display(ResourceType = typeof(CourseSite.App_GlobalResources.Main), Name = "linkedIn")]
@@ -74,7 +78,7 @@ namespace CourseSite.Models.DAL
 
         public string instractor_QualificationsAra { get; set; }
 
-        [Display(ResourceType = typeof(CourseSite.App_GlobalResources.Main), Name = "instractor_QualificationsEnglish")]
+        [Display(Name = "English Qualifications")]
         [Required(ErrorMessageResourceType = typeof(CourseSite.App_GlobalResources.Instractors), ErrorMessageResourceName = "FiledISRequired")]
         public string instractor_QualificationsEnglish { get; set; }
 

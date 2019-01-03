@@ -43,13 +43,15 @@ namespace CourseSite.Models.DAL
         [Required]
         [Display(ResourceType = typeof(CourseSite.App_GlobalResources.Cutomers), Name = "Mobile")]
         [MaxLength(14, ErrorMessageResourceType = typeof(CourseSite.App_GlobalResources.Instractors), ErrorMessageResourceName = "FiledMaxLengtt")]
-
-
         public string Customer_Mobile { get; set; }
+
+
         [Display(ResourceType = typeof(CourseSite.App_GlobalResources.Cutomers), Name = "BirthDate")]
-
-
+        [DataType(DataType.DateTime)]
+        [UIHint("_DateTime")]
         public Nullable<System.DateTime> Customer_Birthdate { get; set; }
+
+
         [Display(ResourceType = typeof(CourseSite.App_GlobalResources.Cutomers), Name = "Address")]
         [MaxLength(300, ErrorMessageResourceType = typeof(CourseSite.App_GlobalResources.Instractors), ErrorMessageResourceName = "FiledMaxLengtt")]
         public string Customer_Address { get; set; }
