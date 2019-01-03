@@ -11,7 +11,9 @@ namespace CourseSite.Models.DAL
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Specifications
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,13 +21,20 @@ namespace CourseSite.Models.DAL
         {
             this.Course_Instractors = new HashSet<Course_Instractors>();
         }
-    
+
         public int ID { get; set; }
+        [DisplayName("Eng_Name")]
         public string Specification_EngName { get; set; }
+        [DisplayName("Ar_Name")]
         public string Specification_AraName { get; set; }
+        [DisplayName("Eng_Description")]
+        [DataType(DataType.MultilineText)]
         public string Specification_EngDescription { get; set; }
+        [DisplayName("Ar_Description")]
+        [DataType(DataType.MultilineText)]
         public string Specification_AraDescription { get; set; }
-    
+
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Course_Instractors> Course_Instractors { get; set; }
     }

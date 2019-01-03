@@ -11,11 +11,14 @@ namespace CourseSite.Models.DAL
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+
     public partial class Gallary
     {
         public int ImageID { get; set; }
+        [DisplayName("Image")]
         public string ImagePath { get; set; }
+        [DisplayName("Status")]
         public bool ImageStatus { get; set; }
     }
 }

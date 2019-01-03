@@ -159,4 +159,7 @@
   <data name="InvalidMobileNumber" xml:space="preserve">
     <value>رقم محمول خاطئ</value>
   </data>
+  <data name="instractor_QualificationsEnglish" xml:space="preserve">
+    <value>المؤهلات </value>
+  </data>
 </root>
