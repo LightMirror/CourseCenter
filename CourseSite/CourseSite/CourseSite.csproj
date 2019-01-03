@@ -515,9 +515,24 @@
     <Content Include="Scripts\toastr.js" />
     <Content Include="Scripts\toastr.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="Uploads\Gallary\636818131705244117.jpg" />
+    <Content Include="Uploads\Gallary\636818944195581248.ico" />
+    <Content Include="Uploads\Gallary\636818974197705129.jpg" />
+    <Content Include="Uploads\Gallary\636820574560891632.jpg" />
+    <Content Include="Uploads\Gallary\636820574751406819.jpg" />
     <Content Include="Uploads\Gallary\defaultcourse.jpg" />
+    <Content Include="Uploads\Photo\Courses\Alpha.JPG" />
+    <Content Include="Uploads\Photo\Courses\Industries-corporate-banner-2.png" />
+    <Content Include="Uploads\Photo\Courses\MainPic.jpg" />
+    <Content Include="Uploads\Photo\Courses\medical-interpreter-2.jpg" />
     <Content Include="Uploads\Photo\Courses\WhatsApp Image 2018-12-15 at 8.12.44 PM.jpeg" />
-    <Content Include="Uploads\Photo\instractors\logo.jpg" />
+    <Content Include="Uploads\Photo\Cutomers\abdulrheem-3.jpg" />
+    <Content Include="Uploads\Photo\Cutomers\gsgrs-2.jpeg" />
+    <Content Include="Uploads\Photo\Cutomers\h-9.jpg" />
+    <Content Include="Uploads\Photo\instractors\Abdulrheem-10.jpg" />
+    <Content Include="Uploads\Photo\instractors\Abdulrheem-11.jpg" />
+    <Content Include="Uploads\Photo\instractors\Abdulrheem-11.png" />
+    <Content Include="Uploads\Photo\instractors\Hesham Abd Elrasoul-12.jpg" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
