@@ -21,24 +21,30 @@ namespace CourseSite.Models.DAL
         {
             this.GroupCustomers = new HashSet<GroupCustomers>();
         }
-
+    
         public int ID { get; set; }
+
         [Display(ResourceType = typeof(CourseSite.App_GlobalResources.Cutomers), Name = "CutomEnName")]
         [Required(ErrorMessageResourceType = typeof(CourseSite.App_GlobalResources.Instractors), ErrorMessageResourceName = "FiledISRequired")]
         [MaxLength(200, ErrorMessageResourceType = typeof(CourseSite.App_GlobalResources.Instractors), ErrorMessageResourceName = "FiledMaxLengtt")]
         public string Customer_EngName { get; set; }
+
         [Display(ResourceType = typeof(CourseSite.App_GlobalResources.Cutomers), Name = "CutomArName")]
         [Required(ErrorMessageResourceType = typeof(CourseSite.App_GlobalResources.Instractors), ErrorMessageResourceName = "FiledISRequired")]
         [MaxLength(200, ErrorMessageResourceType = typeof(CourseSite.App_GlobalResources.Instractors), ErrorMessageResourceName = "FiledMaxLengtt")]
         public string Customer_AraName { get; set; }
+
         [Phone]
         [Display(ResourceType = typeof(CourseSite.App_GlobalResources.Cutomers), Name = "Phone")]
         [MaxLength(14, ErrorMessageResourceType = typeof(CourseSite.App_GlobalResources.Instractors), ErrorMessageResourceName = "FiledMaxLengtt")]
         public string Customer_Phone { get; set; }
+
         [Phone]
         [Required]
         [Display(ResourceType = typeof(CourseSite.App_GlobalResources.Cutomers), Name = "Mobile")]
         [MaxLength(14, ErrorMessageResourceType = typeof(CourseSite.App_GlobalResources.Instractors), ErrorMessageResourceName = "FiledMaxLengtt")]
+
+
         public string Customer_Mobile { get; set; }
         [Display(ResourceType = typeof(CourseSite.App_GlobalResources.Cutomers), Name = "BirthDate")]
         public Nullable<System.DateTime> Customer_Birthdate { get; set; }
@@ -64,6 +70,7 @@ namespace CourseSite.Models.DAL
         public Nullable<int> Customer_CorporateID { get; set; }
         [Display(ResourceType = typeof(CourseSite.App_GlobalResources.Instractors), Name = "Instractor_Status")]
         public Nullable<int> Customer_statusID { get; set; }
+
         public virtual Corporates Corporates { get; set; }
         [Display(ResourceType = typeof(CourseSite.App_GlobalResources.Instractors), Name = "Instractor_Status")]
         public virtual CustomerStatus CustomerStatus { get; set; }
