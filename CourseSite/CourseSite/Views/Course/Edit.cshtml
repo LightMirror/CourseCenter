@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";    
 }
 
-<h2>Edit</h2>
+<h2>@Resources.Main.Edit</h2>
 <div class="breadcrumb flat">
     <span class="fa fa-home"></span>
     <a href="#">@Resources.Main.Home</a>
@@ -15,119 +15,114 @@
 @using (Html.BeginForm("Edit", "Course", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
-        <h4>Courses</h4>
+        <h4>@Resources.Main.Courses</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.ID)
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Course_EngName, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Course_EngName, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Course_EngName, "", new { @class = "text-danger" })
+        <div class="row">
+            <div class="col-md-2 col-md-push-9 text-center">
+                <div class="form-group">
+                    <span id="previewPane">
+                        <img class="upload" onchange="readURL(this);" name="file" id="img_prev" src="~/Uploads/Gallary/defaultcourse.jpg" alt="your image"
+                             style="width:250px;height:250px">
+                    </span>
+                </div>
             </div>
-        </div>
+            <div class="col-md-10 col-md-pull-2">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Course_EngName, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Course_EngName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Course_EngName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Course_AraName, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Course_AraName, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Course_AraName, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Course_AraName, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Course_AraName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Course_AraName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Course_VedioPath, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Course_VedioPath, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Course_VedioPath, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Course_VedioPath, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Course_VedioPath, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Course_VedioPath, "", new { @class = "text-danger" })
+                    </div>
+                </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Course_ImgePath, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.TextBoxFor(model => model.ImageUpload, new { type = "file", id = "imgFD", onchange = "previewFileFDP(this)" })
-                @Html.ValidationMessageFor(model => model.Course_ImgePath, "", new { @class = "text-danger" })
-            </div>
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(model => model.Course_EngObjective, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.TextAreaFor(model => model.Course_EngObjective, 5, 38, new { htmlAttributes = new { @class = "form-control" } }) 
-                @Html.ValidationMessageFor(model => model.Course_EngObjective, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Course_ImgePath, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.ImageUpload, new { type = "file", id = "file", name = "file", onchange = "readURL(this);" })
+                        @Html.ValidationMessageFor(model => model.Course_ImgePath, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Course_EngObjective, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextAreaFor(model => model.Course_EngObjective, 5, 38, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Course_EngObjective, "", new { @class = "text-danger" })
+                    </div>
+                </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Course_AraObjective, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.TextAreaFor(model => model.Course_AraObjective, 5, 38, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Course_AraObjective, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Course_AraObjective, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextAreaFor(model => model.Course_AraObjective, 5, 38, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Course_AraObjective, "", new { @class = "text-danger" })
+                    </div>
+                </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Course_EngSummary, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.TextAreaFor(model => model.Course_EngSummary, 5, 38, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Course_EngSummary, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Course_EngSummary, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextAreaFor(model => model.Course_EngSummary, 5, 38, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Course_EngSummary, "", new { @class = "text-danger" })
+                    </div>
+                </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Course_AraSummary, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.TextAreaFor(model => model.Course_AraSummary, 5, 38, new { htmlAttributes = new { @class = "md-textarea form-control" } })
-                @Html.ValidationMessageFor(model => model.Course_AraSummary, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Course_AraSummary, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextAreaFor(model => model.Course_AraSummary, 5, 38, new { htmlAttributes = new { @class = "md-textarea form-control" } })
+                        @Html.ValidationMessageFor(model => model.Course_AraSummary, "", new { @class = "text-danger" })
+                    </div>
+                </div>
 
-        @*<div class="form-group">
-            @Html.LabelFor(model => model.Course_ArabicContentPath, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Course_ArabicContentPath, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Course_ArabicContentPath, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Course_StatusID, Resources.Main.Status, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("Course_StatusID", CourseSite.Models.CourseRoutine.GetDDLCourseStatus(), htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Course_StatusID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Course_EnglishContent, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Course_EnglishContent, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Course_EnglishContent, "", new { @class = "text-danger" })
-            </div>
-        </div>*@
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Course_TotalHour, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Course_TotalHour, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Course_TotalHour, "", new { @class = "text-danger" })
+                    </div>
+                </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Course_StatusID, Resources.Main.Status, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("Course_StatusID", CourseSite.Models.CourseRoutine.GetDDLCourseStatus(), htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Course_StatusID, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Course_OrignalCost, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Course_OrignalCost, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Course_OrignalCost, "", new { @class = "text-danger" })
+                    </div>
+                </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Course_TotalHour, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Course_TotalHour, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Course_TotalHour, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Course_OrignalCost, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Course_OrignalCost, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Course_OrignalCost, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="@Resources.Main.Save" class="btn btn-default" />
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="@Resources.Main.Save" class="btn btn-default" />
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -140,3 +135,73 @@
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
+<script>
+
+    var blank = "http://upload.wikimedia.org/wikipedia/commons/c/c0/Blank.gif";
+
+    function readURL(input) {
+
+        if (input.files && input.files[0]) {
+
+            var reader = new FileReader();
+            reader.onload = function (e) {
+
+                $('#img_prev')
+
+                    .attr('src', e.target.result)
+
+                    .height(200);
+
+            };
+            reader.readAsDataURL(input.files[0]);
+
+        }
+
+        else {
+
+            var img = input.value;
+
+            $('#img_prev').attr('src', img).height(200);
+
+        }
+
+        $("#x").show().css("margin-right", "10px");
+
+    }
+
+    $(document).ready(function () {
+
+        $("#x").click(function () {
+
+            $("#img_prev").attr("src", blank);
+
+            $("#x").hide();
+
+        });
+
+    });
+</script>
+<style type="text/css">
+    .fileUpload {
+        position: relative;
+        overflow: hidden;
+        margin: 10px;
+    }
+
+        .fileUpload input.upload {
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin: 0;
+            padding: 0;
+            font-size: 20px;
+            cursor: pointer;
+            opacity: 0;
+            filter: alpha(opacity=0);
+        }
+
+    .field-validation-error {
+        color: #a94442;
+    }
+</style>
+

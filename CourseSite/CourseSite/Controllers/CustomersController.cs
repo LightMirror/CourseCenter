@@ -8,12 +8,16 @@ using System.Web;
 using System.Web.Mvc;
 using CourseSite.Models.DAL;
 using System.IO;
+using CourseSite.Models;
+using Microsoft.AspNet.Identity.Owin;
+using Microsoft.AspNet.Identity;
 
 namespace CourseSite.Controllers
 {
     public class CustomersController : Controller
-    {        
-
+    {
+        private ApplicationSignInManager _signInManager;
+        private ApplicationUserManager _userManager;
         // GET: Customers
         public ActionResult Index()
         {
@@ -54,6 +58,20 @@ namespace CourseSite.Controllers
             }
         }
 
+
+        public ApplicationUserManager UserManager
+        {
+            get
+            {
+                return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            }
+            private set
+            {
+                _userManager = value;
+            }
+        }
+
+
         // POST: Customers/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -88,6 +106,23 @@ namespace CourseSite.Controllers
                             db.Entry(customers).State = EntityState.Modified;
                             db.SaveChanges();
                         }
+                        string DefaultPassword = "IATLa@"+customers.ID;
+                        var user = new ApplicationUser { UserName = customers.Customer_Email, Email = customers.Customer_Email };
+                        var result = UserManager.CreateAsync(user, DefaultPassword);
+                        if (result.Result.Succeeded)
+                        {
+                            List<string> Recivers = new List<string>();Recivers.Add(customers.Customer_Email);
+                            string NewLine = @"<br />";
+                            string Body = NewLine + "Emai: " + customers.Customer_Email + NewLine + "Password: " + DefaultPassword;
+                            string Subject = "account credentials("+customers.Customer_EngName+")";
+                            CourseSite.Common.Email.SendEmail(Recivers, Subject, Body);
+                            // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
+                            // Send an email with this link
+                            // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+                            // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+                            // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+                        }
+
                         return RedirectToAction("Index");
                     }
                 }

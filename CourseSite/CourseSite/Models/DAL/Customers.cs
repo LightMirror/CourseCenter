@@ -45,6 +45,7 @@ namespace CourseSite.Models.DAL
         [Display(ResourceType = typeof(CourseSite.App_GlobalResources.Cutomers), Name = "Address")]
         [MaxLength(300, ErrorMessageResourceType = typeof(CourseSite.App_GlobalResources.Instractors), ErrorMessageResourceName = "FiledMaxLengtt")]
         public string Customer_Address { get; set; }
+        [Required]
         [EmailAddress]
         [Display(ResourceType = typeof(CourseSite.App_GlobalResources.Cutomers), Name = "Email")]
         [MaxLength(250, ErrorMessageResourceType = typeof(CourseSite.App_GlobalResources.Instractors), ErrorMessageResourceName = "FiledMaxLengtt")]
