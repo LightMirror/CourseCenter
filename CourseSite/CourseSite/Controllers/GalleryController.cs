@@ -22,15 +22,7 @@ namespace CourseSite.Controllers
 
             }
         }
-        
-        public static List<Models.DAL.Gallary> GetActiveGallary()
-        {
-            using (CenterDBEntities db = new CenterDBEntities())
-            {
-                return (db.Gallary.Where(x=>x.ImageStatus == true).ToList());
 
-            }
-        }
         // GET: Gallery/Details/5
         public ActionResult Details(int? id)
         {
@@ -60,40 +52,33 @@ namespace CourseSite.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Gallary gallary , HttpPostedFileBase file)
+        public ActionResult Create(Gallary gallary, HttpPostedFileBase file)
         {
             using (CenterDBEntities db = new CenterDBEntities())
             {
                 string fileName = "";
+
+                if (file != null && file.ContentLength > 0)
+                {
+                    string extention = Path.GetExtension(file.FileName);
+                    fileName = DateTime.Now.Ticks.ToString() + extention;
+                    var path = Path.Combine(Server.MapPath("~/Uploads/Gallary/"), fileName);
+
+                    file.SaveAs(path);
+                }
+                gallary.ImagePath = fileName;
+
                 if (ModelState.IsValid)
                 {
-                    if (gallary.ImageUpload != null && !string.IsNullOrEmpty(gallary.ImageUpload.FileName))
+                    db.Gallary.Add(gallary);
+                    if (db.SaveChanges() > 0)
                     {
-                        string subPath = "~/assets/img/gallery/";
-                        string extention = Path.GetExtension(file.FileName);
-                        fileName = DateTime.Now.Ticks.ToString() + extention;
-                        bool exists = System.IO.Directory.Exists(subPath);
-                        if (!exists)
-                            System.IO.Directory.CreateDirectory(Server.MapPath("~/assets/img/gallery/"));
-                        subPath = Path.Combine(subPath, fileName);
-                        var path = Server.MapPath(subPath);
-                        gallary.ImageUpload.SaveAs(path);
-                        gallary.ImagePath = subPath;
-                        db.Gallary.Add(gallary);
-                        if (db.SaveChanges() > 0)
-                        {
-                            TempData["succed"] = "Succeed Add image ";
-                        }
-                        else
-                        {
-                            TempData["error"] = "Sorry we can not add image, Please try again later.";
-                        }
+                        TempData["succed"] = "Succeed Add image ";
                     }
                     else
                     {
-                        TempData["error"] = "Please select an image and try again.";
+                        TempData["error"] = "Sorry we can not add image, Please try again later.";
                     }
-                    
                     return RedirectToAction("Index");
                 }
 
@@ -191,43 +176,35 @@ namespace CourseSite.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Gallary gallary , HttpPostedFileBase file)
+        public ActionResult Edit(Gallary gallary, HttpPostedFileBase file)
         {
             using (CenterDBEntities db = new CenterDBEntities())
             {
                 string fileName = "";
+
+                if (file != null && file.ContentLength > 0)
+                {
+                    string extention = Path.GetExtension(file.FileName);
+                    fileName = DateTime.Now.Ticks.ToString() + extention;
+                    var path = Path.Combine(Server.MapPath("~/Uploads/Gallary/"), fileName);
+
+                    file.SaveAs(path);
+                }
+                gallary.ImagePath = fileName;
+
                 if (ModelState.IsValid)
                 {
-                    if (gallary.ImageUpload != null && !string.IsNullOrEmpty(gallary.ImageUpload.FileName))
+                    db.Entry(gallary).State = EntityState.Modified;
+                    if (db.SaveChanges() > 0)
                     {
-                        string subPath = "~/assets/img/gallery/";
-                        string extention = Path.GetExtension(file.FileName);
-                        fileName = DateTime.Now.Ticks.ToString() + extention;
-                        bool exists = System.IO.Directory.Exists(subPath);
-                        if (!exists)
-                            System.IO.Directory.CreateDirectory(Server.MapPath("~/assets/img/gallery/"));
-                        subPath = Path.Combine(subPath, fileName);
-                        var path = Server.MapPath(subPath);
-                        gallary.ImageUpload.SaveAs(path);
-                        gallary.ImagePath = subPath;
-                        db.Gallary.Add(gallary);
-                        if (db.SaveChanges() > 0)
-                        {
-                            TempData["succed"] = "Succeed Add image ";
-                        }
-                        else
-                        {
-                            TempData["error"] = "Sorry we can not add image, Please try again later.";
-                        }
+                        TempData["succed"] = "Succeed modified image ";
                     }
                     else
                     {
-                        TempData["error"] = "Please select an image and try again.";
+                        TempData["error"] = "Sorry we can not add image, Please try again later.";
                     }
-
                     return RedirectToAction("Index");
                 }
-
                 return View(gallary);
             }
         }
@@ -273,6 +250,15 @@ namespace CourseSite.Controllers
                     db.Dispose();
                 }
                 base.Dispose(disposing);
+            }
+        }
+
+        public static List<Models.DAL.Gallary> GetActiveGallary()
+        {
+            using (CenterDBEntities db = new CenterDBEntities())
+            {
+                return (db.Gallary.Where(x => x.ImageStatus == true).ToList());
+
             }
         }
     }

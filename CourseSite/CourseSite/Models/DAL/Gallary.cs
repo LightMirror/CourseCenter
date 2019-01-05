@@ -12,7 +12,6 @@ namespace CourseSite.Models.DAL
     using System;
     using System.Collections.Generic;
     using System.ComponentModel;
-    using System.Web;
 
     public partial class Gallary
     {
@@ -21,7 +20,5 @@ namespace CourseSite.Models.DAL
         public string ImagePath { get; set; }
         [DisplayName("Status")]
         public bool ImageStatus { get; set; }
-
-        public HttpPostedFileBase ImageUpload { get; set; }
     }
 }
