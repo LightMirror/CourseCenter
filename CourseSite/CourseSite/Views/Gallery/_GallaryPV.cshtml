@@ -4,14 +4,16 @@
 <div class="container">
     <div class="section-header">
         <h2>@Resources.Main.Gallery</h2>
-        <p>Check our gallery from the recent events</p>
+        <p>Check our gallery</p>
     </div>
 </div>
 
 <div class="owl-carousel gallery-carousel">
     @foreach (var item in Model)
     {
-        <a href="#" class="venobox" data-gall="gallery-carousel"><img src="@Url.Content(item.ImagePath)" alt=""></a>
+        <a href="@Url.Content(item.ImagePath)" class="venobox" data-gall="gallery-carousel">
+            <img src="@Url.Content(item.ImagePath)" alt="">
+        </a>
     }
     @*<a href="~/assets/img/gallery/1.jpg" class="venobox" data-gall="gallery-carousel"><img src="~/assets/img/gallery/1.jpg" alt=""></a>
         <a href="~/assets/img/gallery/2.jpg" class="venobox" data-gall="gallery-carousel"><img src="~/assets/img/gallery/2.jpg" alt=""></a>

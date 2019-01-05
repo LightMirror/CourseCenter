@@ -65,28 +65,35 @@ namespace CourseSite.Controllers
             using (CenterDBEntities db = new CenterDBEntities())
             {
                 string fileName = "";
-
-                if (file != null && file.ContentLength > 0)
-                {
-                    string extention = Path.GetExtension(file.FileName);
-                    fileName = DateTime.Now.Ticks.ToString() + extention;
-                    var path = Path.Combine(Server.MapPath("~/Uploads/Gallary/"), fileName);
-
-                    file.SaveAs(path);
-                }
-                gallary.ImagePath = fileName;
-
                 if (ModelState.IsValid)
                 {
-                    db.Gallary.Add(gallary);
-                    if (db.SaveChanges() > 0)
+                    if (gallary.ImageUpload != null && !string.IsNullOrEmpty(gallary.ImageUpload.FileName))
                     {
-                        TempData["succed"] = "Succeed Add image ";
+                        string subPath = "~/assets/img/gallery/";
+                        string extention = Path.GetExtension(file.FileName);
+                        fileName = DateTime.Now.Ticks.ToString() + extention;
+                        bool exists = System.IO.Directory.Exists(subPath);
+                        if (!exists)
+                            System.IO.Directory.CreateDirectory(Server.MapPath("~/assets/img/gallery/"));
+                        subPath = Path.Combine(subPath, fileName);
+                        var path = Server.MapPath(subPath);
+                        gallary.ImageUpload.SaveAs(path);
+                        gallary.ImagePath = subPath;
+                        db.Gallary.Add(gallary);
+                        if (db.SaveChanges() > 0)
+                        {
+                            TempData["succed"] = "Succeed Add image ";
+                        }
+                        else
+                        {
+                            TempData["error"] = "Sorry we can not add image, Please try again later.";
+                        }
                     }
                     else
                     {
-                        TempData["error"] = "Sorry we can not add image, Please try again later.";
+                        TempData["error"] = "Please select an image and try again.";
                     }
+                    
                     return RedirectToAction("Index");
                 }
 
@@ -189,30 +196,38 @@ namespace CourseSite.Controllers
             using (CenterDBEntities db = new CenterDBEntities())
             {
                 string fileName = "";
-
-                if (file != null && file.ContentLength > 0)
-                {
-                    string extention = Path.GetExtension(file.FileName);
-                    fileName = DateTime.Now.Ticks.ToString() + extention;
-                    var path = Path.Combine(Server.MapPath("~/Uploads/Gallary/"), fileName);
-
-                    file.SaveAs(path);
-                }
-                gallary.ImagePath = fileName;
-
                 if (ModelState.IsValid)
                 {
-                    db.Entry(gallary).State = EntityState.Modified;
-                    if (db.SaveChanges() > 0)
+                    if (gallary.ImageUpload != null && !string.IsNullOrEmpty(gallary.ImageUpload.FileName))
                     {
-                        TempData["succed"] = "Succeed modified image ";
+                        string subPath = "~/assets/img/gallery/";
+                        string extention = Path.GetExtension(file.FileName);
+                        fileName = DateTime.Now.Ticks.ToString() + extention;
+                        bool exists = System.IO.Directory.Exists(subPath);
+                        if (!exists)
+                            System.IO.Directory.CreateDirectory(Server.MapPath("~/assets/img/gallery/"));
+                        subPath = Path.Combine(subPath, fileName);
+                        var path = Server.MapPath(subPath);
+                        gallary.ImageUpload.SaveAs(path);
+                        gallary.ImagePath = subPath;
+                        db.Gallary.Add(gallary);
+                        if (db.SaveChanges() > 0)
+                        {
+                            TempData["succed"] = "Succeed Add image ";
+                        }
+                        else
+                        {
+                            TempData["error"] = "Sorry we can not add image, Please try again later.";
+                        }
                     }
                     else
                     {
-                        TempData["error"] = "Sorry we can not add image, Please try again later.";
+                        TempData["error"] = "Please select an image and try again.";
                     }
+
                     return RedirectToAction("Index");
                 }
+
                 return View(gallary);
             }
         }
