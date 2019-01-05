@@ -151,6 +151,15 @@ namespace CourseSite.App_GlobalResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Qualifications.
+        /// </summary>
+        public static string instractor_QualificationsEnglish {
+            get {
+                return ResourceManager.GetString("instractor_QualificationsEnglish", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Status.
         /// </summary>
         public static string Instractor_Status {

@@ -12,6 +12,8 @@ namespace CourseSite.Controllers
     public class HomeController : Controller
     {
         public ActionResult Index()
+
+
         {
             MainViewModel MVM = new MainViewModel();
             MVM = CourseSite.Common.General.BuildMainView();

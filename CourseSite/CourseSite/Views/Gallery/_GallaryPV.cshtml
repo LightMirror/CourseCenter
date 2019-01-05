@@ -1,0 +1,20 @@
+﻿@model IEnumerable<CourseSite.Models.DAL.Gallary>
+
+
+<div class="container">
+    <div class="section-header">
+        <h2>@Resources.Main.Gallery</h2>
+        <p>Check our gallery from the recent events</p>
+    </div>
+</div>
+
+<div class="owl-carousel gallery-carousel">
+    @foreach (var item in Model)
+    {
+        <a href="~/Uploads/Gallary/@item.ImagePath" class="venobox" data-gall="gallery-carousel">
+            <img src="~/Uploads/Gallary/@item.ImagePath" alt="">
+        </a>
+    }
+    @*<a href="~/assets/img/gallery/1.jpg" class="venobox" data-gall="gallery-carousel"><img src="~/assets/img/gallery/1.jpg" alt=""></a>
+        <a href="~/assets/img/gallery/8.jpg" class="venobox" data-gall="gallery-carousel"><img src="~/assets/img/gallery/8.jpg" alt=""></a>*@
+</div>

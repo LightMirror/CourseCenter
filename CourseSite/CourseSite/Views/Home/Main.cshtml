@@ -13,9 +13,6 @@
 
 <body>
 
-    <!--==========================
-      Header
-    ============================-->
     <!-- #header -->
     <!--==========================
       Home Section
@@ -25,7 +22,7 @@
             <h2 class="mb-4 pb-0" style="color:#fff;">International Academy<br> Training,<span style="color:aqua"> Languages, </span>and Consulting</h2>
             <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="venobox play-btn mb-4" data-vbtype="video"
                data-autoplay="true"></a>
-            <a href="#about" class="about-btn scrollto">About IATLC</a>
+            <a href="#about" class="about-btn scrollto">@Resources.Main.About</a>
         </div>
     </section>
 
@@ -51,7 +48,10 @@
                     </div>
                     <div class="col-lg-3">
                         <h3>IATLC's Mission </h3>
-                        <p>To serve its’ clients in fields of Training to have a positive impact on their business.</p>
+                        <p style="text-justify:inherit;">
+                            To contribute to the success and growth of both businesses & individuals by improving their operational effectiveness, building their internal capabilities, 
+                            and by giving them appropriate and up to date solutions, that result in client's profitability and long-term sustainability.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -90,12 +90,12 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-lg-4 col-md-6">
+                    <div class="col-lg-4 col-md-6" >
                         <div class="speaker">
-                            <img src="~/assets/img/speakers/1.jpg" alt="Speaker 1" class="img-fluid">
+                            <img src="~/assets/img/speakers/Hesham.jpg" alt="Speaker 1" class="img-fluid">
                             <div class="details">
-                                <h3><a href="speaker-details.html">Brenden Legros</a></h3>
-                                <p>Quas alias incidunt</p>
+                                <h3><a href="speaker-details.html">Hesham AbdElrasoul</a></h3>
+                                <p>Translation Orientation for Medical Translators</p>
                                 <div class="social">
                                     <a href=""><i class="fa fa-twitter"></i></a>
                                     <a href=""><i class="fa fa-facebook"></i></a>
@@ -107,70 +107,10 @@
                     </div>
                     <div class="col-lg-4 col-md-6">
                         <div class="speaker">
-                            <img src="~/assets/img/speakers/2.jpg" alt="Speaker 2" class="img-fluid">
+                            <img src="~/assets/img/speakers/ereny.jpg" alt="Speaker 2" class="img-fluid">
                             <div class="details">
-                                <h3><a href="speaker-details.html">Hubert Hirthe</a></h3>
-                                <p>Consequuntur odio aut</p>
-                                <div class="social">
-                                    <a href=""><i class="fa fa-twitter"></i></a>
-                                    <a href=""><i class="fa fa-facebook"></i></a>
-                                    <a href=""><i class="fa fa-google-plus"></i></a>
-                                    <a href=""><i class="fa fa-linkedin"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="speaker">
-                            <img src="~/assets/img/speakers/3.jpg" alt="Speaker 3" class="img-fluid">
-                            <div class="details">
-                                <h3><a href="speaker-details.html">Cole Emmerich</a></h3>
-                                <p>Fugiat laborum et</p>
-                                <div class="social">
-                                    <a href=""><i class="fa fa-twitter"></i></a>
-                                    <a href=""><i class="fa fa-facebook"></i></a>
-                                    <a href=""><i class="fa fa-google-plus"></i></a>
-                                    <a href=""><i class="fa fa-linkedin"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="speaker">
-                            <img src="~/assets/img/speakers/4.jpg" alt="Speaker 4" class="img-fluid">
-                            <div class="details">
-                                <h3><a href="speaker-details.html">Jack Christiansen</a></h3>
-                                <p>Debitis iure vero</p>
-                                <div class="social">
-                                    <a href=""><i class="fa fa-twitter"></i></a>
-                                    <a href=""><i class="fa fa-facebook"></i></a>
-                                    <a href=""><i class="fa fa-google-plus"></i></a>
-                                    <a href=""><i class="fa fa-linkedin"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="speaker">
-                            <img src="~/assets/img/speakers/5.jpg" alt="Speaker 5" class="img-fluid">
-                            <div class="details">
-                                <h3><a href="speaker-details.html">Alejandrin Littel</a></h3>
-                                <p>Qui molestiae natus</p>
-                                <div class="social">
-                                    <a href=""><i class="fa fa-twitter"></i></a>
-                                    <a href=""><i class="fa fa-facebook"></i></a>
-                                    <a href=""><i class="fa fa-google-plus"></i></a>
-                                    <a href=""><i class="fa fa-linkedin"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="speaker">
-                            <img src="~/assets/img/speakers/6.jpg" alt="Speaker 6" class="img-fluid">
-                            <div class="details">
-                                <h3><a href="speaker-details.html">Willow Trantow</a></h3>
-                                <p>Non autem dicta</p>
+                                <h3><a href="speaker-details.html">Ereny L. Gawargy</a></h3>
+                                <p>IELTS Preparation</p>
                                 <div class="social">
                                     <a href=""><i class="fa fa-twitter"></i></a>
                                     <a href=""><i class="fa fa-facebook"></i></a>
@@ -258,7 +198,12 @@
         ============================-->
         <section id="gallery" class="wow fadeInUp">
 
-            <div class="container">
+            @{
+
+                Html.RenderPartial("~/Views/Gallery/_GallaryPV.cshtml", Model.Gallary);
+            }
+
+            @*<div class="container">
                 <div class="section-header">
                     <h2>Gallery</h2>
                     <p>Check our gallery from the recent events</p>
@@ -266,7 +211,11 @@
             </div>
 
             <div class="owl-carousel gallery-carousel">
-                <a href="~/assets/img/gallery/1.jpg" class="venobox" data-gall="gallery-carousel"><img src="~/assets/img/gallery/1.jpg" alt=""></a>
+                @foreach (var item in Model.Gallary)
+                {
+                    <a href="#" class="venobox" data-gall="gallery-carousel"><img src="@Url.Content(item.ImagePath)" alt=""></a>
+                }
+                @*<a href="~/assets/img/gallery/1.jpg" class="venobox" data-gall="gallery-carousel"><img src="~/assets/img/gallery/1.jpg" alt=""></a>
                 <a href="~/assets/img/gallery/2.jpg" class="venobox" data-gall="gallery-carousel"><img src="~/assets/img/gallery/2.jpg" alt=""></a>
                 <a href="~/assets/img/gallery/3.jpg" class="venobox" data-gall="gallery-carousel"><img src="~/assets/img/gallery/3.jpg" alt=""></a>
                 <a href="~/assets/img/gallery/4.jpg" class="venobox" data-gall="gallery-carousel"><img src="~/assets/img/gallery/4.jpg" alt=""></a>
@@ -274,7 +223,7 @@
                 <a href="~/assets/img/gallery/6.jpg" class="venobox" data-gall="gallery-carousel"><img src="~/assets/img/gallery/6.jpg" alt=""></a>
                 <a href="~/assets/img/gallery/7.jpg" class="venobox" data-gall="gallery-carousel"><img src="~/assets/img/gallery/7.jpg" alt=""></a>
                 <a href="~/assets/img/gallery/8.jpg" class="venobox" data-gall="gallery-carousel"><img src="~/assets/img/gallery/8.jpg" alt=""></a>
-            </div>
+            </div>*@
 
         </section>
 

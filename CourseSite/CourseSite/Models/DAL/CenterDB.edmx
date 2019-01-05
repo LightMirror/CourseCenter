@@ -283,6 +283,8 @@
           <Property Name="Instractor_LinkedIn" Type="nvarchar" MaxLength="1000" />
           <Property Name="instractor_twitter" Type="nvarchar" MaxLength="1000" />
           <Property Name="instractor_imagePath" Type="nvarchar" MaxLength="400" />
+          <Property Name="instractor_QualificationsAra" Type="nvarchar(max)" />
+          <Property Name="instractor_QualificationsEnglish" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="InstractorStatus">
           <Key>
@@ -706,7 +708,6 @@
           <EntitySet Name="GroupCustomers" EntityType="CenterDBModel.GroupCustomers" />
           <EntitySet Name="Groups" EntityType="CenterDBModel.Groups" />
           <EntitySet Name="GroupStatus" EntityType="CenterDBModel.GroupStatus" />
-          <EntitySet Name="Instractors" EntityType="CenterDBModel.Instractors" />
           <EntitySet Name="InstractorStatus" EntityType="CenterDBModel.InstractorStatus" />
           <EntitySet Name="schedules" EntityType="CenterDBModel.schedules" />
           <EntitySet Name="Specifications" EntityType="CenterDBModel.Specifications" />
@@ -729,10 +730,6 @@
           </AssociationSet>
           <AssociationSet Name="FK_Course_Instractors_Course_Instractors" Association="CenterDBModel.FK_Course_Instractors_Course_Instractors">
             <End Role="Courses" EntitySet="Courses" />
-            <End Role="Course_Instractors" EntitySet="Course_Instractors" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Course_Instractors_Instractors" Association="CenterDBModel.FK_Course_Instractors_Instractors">
-            <End Role="Instractors" EntitySet="Instractors" />
             <End Role="Course_Instractors" EntitySet="Course_Instractors" />
           </AssociationSet>
           <AssociationSet Name="FK_Course_Instractors_Specifications" Association="CenterDBModel.FK_Course_Instractors_Specifications">
@@ -763,10 +760,6 @@
             <End Role="Customers" EntitySet="Customers" />
             <End Role="GroupCustomers" EntitySet="GroupCustomers" />
           </AssociationSet>
-          <AssociationSet Name="FK_Instractors_Gender" Association="CenterDBModel.FK_Instractors_Gender">
-            <End Role="Gender" EntitySet="Gender" />
-            <End Role="Instractors" EntitySet="Instractors" />
-          </AssociationSet>
           <AssociationSet Name="FK_GroupCustomers_Groups" Association="CenterDBModel.FK_GroupCustomers_Groups">
             <End Role="Groups" EntitySet="Groups" />
             <End Role="GroupCustomers" EntitySet="GroupCustomers" />
@@ -779,10 +772,6 @@
             <End Role="Groups" EntitySet="Groups" />
             <End Role="schedules" EntitySet="schedules" />
           </AssociationSet>
-          <AssociationSet Name="FK_Instractors_InstractorStatus" Association="CenterDBModel.FK_Instractors_InstractorStatus">
-            <End Role="InstractorStatus" EntitySet="InstractorStatus" />
-            <End Role="Instractors" EntitySet="Instractors" />
-          </AssociationSet>
           <AssociationSet Name="AspNetUserRoles" Association="CenterDBModel.AspNetUserRoles">
             <End Role="AspNetRoles" EntitySet="AspNetRoles" />
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
@@ -791,7 +780,20 @@
             <End Role="CorporatesStatus" EntitySet="CorporatesStatus" />
             <End Role="Corporates" EntitySet="Corporates" />
           </AssociationSet>
-        </EntityContainer>
+          <EntitySet Name="Instractors" EntityType="CenterDBModel.Instractors" />
+          <AssociationSet Name="FK_Course_Instractors_Instractors" Association="CenterDBModel.FK_Course_Instractors_Instractors">
+            <End Role="Instractors" EntitySet="Instractors" />
+            <End Role="Course_Instractors" EntitySet="Course_Instractors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Instractors_Gender" Association="CenterDBModel.FK_Instractors_Gender">
+            <End Role="Gender" EntitySet="Gender" />
+            <End Role="Instractors" EntitySet="Instractors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Instractors_InstractorStatus" Association="CenterDBModel.FK_Instractors_InstractorStatus">
+            <End Role="InstractorStatus" EntitySet="InstractorStatus" />
+            <End Role="Instractors" EntitySet="Instractors" />
+          </AssociationSet>
+          </EntityContainer>
         <EntityType Name="AspNetRoles">
           <Key>
             <PropertyRef Name="Id" />
@@ -918,9 +920,9 @@
           <Property Name="InstractorID" Type="Int32" />
           <Property Name="SpecificationID" Type="Int32" />
           <NavigationProperty Name="Courses" Relationship="CenterDBModel.FK_Course_Instractors_Course_Instractors" FromRole="Course_Instractors" ToRole="Courses" />
-          <NavigationProperty Name="Instractors" Relationship="CenterDBModel.FK_Course_Instractors_Instractors" FromRole="Course_Instractors" ToRole="Instractors" />
           <NavigationProperty Name="Specifications" Relationship="CenterDBModel.FK_Course_Instractors_Specifications" FromRole="Course_Instractors" ToRole="Specifications" />
           <NavigationProperty Name="Groups" Relationship="CenterDBModel.FK_Groups_Groups" FromRole="Course_Instractors" ToRole="Groups" />
+          <NavigationProperty Name="Instractors" Relationship="CenterDBModel.FK_Course_Instractors_Instractors" FromRole="Course_Instractors" ToRole="Instractors" />
         </EntityType>
         <EntityType Name="Course_status">
           <Key>
@@ -1078,28 +1080,6 @@
           <Property Name="GroupStatus_AraName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Groups" Relationship="CenterDBModel.FK_Groups_GroupStatus" FromRole="GroupStatus" ToRole="Groups" />
         </EntityType>
-        <EntityType Name="Instractors">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Instractor_EngName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="Instractor_AraName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="Instractor_Address" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
-          <Property Name="Instractor_Mobile" Type="String" Nullable="false" MaxLength="14" FixedLength="false" Unicode="true" />
-          <Property Name="Instractor_phone" Type="String" MaxLength="14" FixedLength="false" Unicode="true" />
-          <Property Name="Instractor_Email" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="Instractor_StatusID" Type="Int32" />
-          <Property Name="Instractor_GenderID" Type="Int32" />
-          <Property Name="Instractor_Birthdate" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="Course_Instractors" Relationship="CenterDBModel.FK_Course_Instractors_Instractors" FromRole="Instractors" ToRole="Course_Instractors" />
-          <NavigationProperty Name="Gender" Relationship="CenterDBModel.FK_Instractors_Gender" FromRole="Instractors" ToRole="Gender" />
-          <NavigationProperty Name="InstractorStatus" Relationship="CenterDBModel.FK_Instractors_InstractorStatus" FromRole="Instractors" ToRole="InstractorStatus" />
-          <Property Name="Instractor_Facebook" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
-          <Property Name="Instractor_LinkedIn" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
-          <Property Name="instractor_twitter" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
-          <Property Name="instractor_imagePath" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
-        </EntityType>
         <EntityType Name="InstractorStatus">
           <Key>
             <PropertyRef Name="ID" />
@@ -1208,18 +1188,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Course_Instractors_Instractors">
-          <End Type="CenterDBModel.Instractors" Role="Instractors" Multiplicity="0..1" />
-          <End Type="CenterDBModel.Course_Instractors" Role="Course_Instractors" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Instractors">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Course_Instractors">
-              <PropertyRef Name="InstractorID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Course_Instractors_Specifications">
           <End Type="CenterDBModel.Specifications" Role="Specifications" Multiplicity="0..1" />
           <End Type="CenterDBModel.Course_Instractors" Role="Course_Instractors" Multiplicity="*" />
@@ -1304,18 +1272,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Instractors_Gender">
-          <End Type="CenterDBModel.Gender" Role="Gender" Multiplicity="0..1" />
-          <End Type="CenterDBModel.Instractors" Role="Instractors" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Gender">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Instractors">
-              <PropertyRef Name="Instractor_GenderID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_GroupCustomers_Groups">
           <End Type="CenterDBModel.Groups" Role="Groups" Multiplicity="0..1" />
           <End Type="CenterDBModel.GroupCustomers" Role="GroupCustomers" Multiplicity="*" />
@@ -1352,18 +1308,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Instractors_InstractorStatus">
-          <End Type="CenterDBModel.InstractorStatus" Role="InstractorStatus" Multiplicity="0..1" />
-          <End Type="CenterDBModel.Instractors" Role="Instractors" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="InstractorStatus">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Instractors">
-              <PropertyRef Name="Instractor_StatusID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="AspNetUserRoles">
           <End Type="CenterDBModel.AspNetRoles" Role="AspNetRoles" Multiplicity="*" />
           <End Type="CenterDBModel.AspNetUsers" Role="AspNetUsers" Multiplicity="*" />
@@ -1377,6 +1321,66 @@
             </Principal>
             <Dependent Role="Corporates">
               <PropertyRef Name="Corporates_statusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Instractors">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Instractor_EngName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Instractor_AraName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Instractor_Address" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Instractor_Mobile" Type="String" Nullable="false" MaxLength="14" FixedLength="false" Unicode="true" />
+          <Property Name="Instractor_phone" Type="String" MaxLength="14" FixedLength="false" Unicode="true" />
+          <Property Name="Instractor_Email" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Instractor_StatusID" Type="Int32" />
+          <Property Name="Instractor_GenderID" Type="Int32" />
+          <Property Name="Instractor_Birthdate" Type="DateTime" Precision="3" />
+          <Property Name="Instractor_Facebook" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Instractor_LinkedIn" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="instractor_twitter" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="instractor_imagePath" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="instractor_QualificationsAra" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="instractor_QualificationsEnglish" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Course_Instractors" Relationship="CenterDBModel.FK_Course_Instractors_Instractors" FromRole="Instractors" ToRole="Course_Instractors" />
+          <NavigationProperty Name="Gender" Relationship="CenterDBModel.FK_Instractors_Gender" FromRole="Instractors" ToRole="Gender" />
+          <NavigationProperty Name="InstractorStatus" Relationship="CenterDBModel.FK_Instractors_InstractorStatus" FromRole="Instractors" ToRole="InstractorStatus" />
+        </EntityType>
+        <Association Name="FK_Course_Instractors_Instractors">
+          <End Type="CenterDBModel.Instractors" Role="Instractors" Multiplicity="0..1" />
+          <End Type="CenterDBModel.Course_Instractors" Role="Course_Instractors" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Instractors">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Course_Instractors">
+              <PropertyRef Name="InstractorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Instractors_Gender">
+          <End Type="CenterDBModel.Gender" Role="Gender" Multiplicity="0..1" />
+          <End Type="CenterDBModel.Instractors" Role="Instractors" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gender">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Instractors">
+              <PropertyRef Name="Instractor_GenderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Instractors_InstractorStatus">
+          <End Type="CenterDBModel.InstractorStatus" Role="InstractorStatus" Multiplicity="0..1" />
+          <End Type="CenterDBModel.Instractors" Role="Instractors" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InstractorStatus">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Instractors">
+              <PropertyRef Name="Instractor_StatusID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1655,26 +1659,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Instractors">
-            <EntityTypeMapping TypeName="CenterDBModel.Instractors">
-              <MappingFragment StoreEntitySet="Instractors">
-                <ScalarProperty Name="instractor_imagePath" ColumnName="instractor_imagePath" />
-                <ScalarProperty Name="instractor_twitter" ColumnName="instractor_twitter" />
-                <ScalarProperty Name="Instractor_LinkedIn" ColumnName="Instractor_LinkedIn" />
-                <ScalarProperty Name="Instractor_Facebook" ColumnName="Instractor_Facebook" />
-                <ScalarProperty Name="Instractor_Birthdate" ColumnName="Instractor_Birthdate" />
-                <ScalarProperty Name="Instractor_GenderID" ColumnName="Instractor_GenderID" />
-                <ScalarProperty Name="Instractor_StatusID" ColumnName="Instractor_StatusID" />
-                <ScalarProperty Name="Instractor_Email" ColumnName="Instractor_Email" />
-                <ScalarProperty Name="Instractor_phone" ColumnName="Instractor_phone" />
-                <ScalarProperty Name="Instractor_Mobile" ColumnName="Instractor_Mobile" />
-                <ScalarProperty Name="Instractor_Address" ColumnName="Instractor_Address" />
-                <ScalarProperty Name="Instractor_AraName" ColumnName="Instractor_AraName" />
-                <ScalarProperty Name="Instractor_EngName" ColumnName="Instractor_EngName" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="InstractorStatus">
             <EntityTypeMapping TypeName="CenterDBModel.InstractorStatus">
               <MappingFragment StoreEntitySet="InstractorStatus">
@@ -1728,6 +1712,28 @@
               <ScalarProperty Name="Id" ColumnName="RoleId" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="Instractors">
+            <EntityTypeMapping TypeName="CenterDBModel.Instractors">
+              <MappingFragment StoreEntitySet="Instractors">
+                <ScalarProperty Name="instractor_QualificationsEnglish" ColumnName="instractor_QualificationsEnglish" />
+                <ScalarProperty Name="instractor_QualificationsAra" ColumnName="instractor_QualificationsAra" />
+                <ScalarProperty Name="instractor_imagePath" ColumnName="instractor_imagePath" />
+                <ScalarProperty Name="instractor_twitter" ColumnName="instractor_twitter" />
+                <ScalarProperty Name="Instractor_LinkedIn" ColumnName="Instractor_LinkedIn" />
+                <ScalarProperty Name="Instractor_Facebook" ColumnName="Instractor_Facebook" />
+                <ScalarProperty Name="Instractor_Birthdate" ColumnName="Instractor_Birthdate" />
+                <ScalarProperty Name="Instractor_GenderID" ColumnName="Instractor_GenderID" />
+                <ScalarProperty Name="Instractor_StatusID" ColumnName="Instractor_StatusID" />
+                <ScalarProperty Name="Instractor_Email" ColumnName="Instractor_Email" />
+                <ScalarProperty Name="Instractor_phone" ColumnName="Instractor_phone" />
+                <ScalarProperty Name="Instractor_Mobile" ColumnName="Instractor_Mobile" />
+                <ScalarProperty Name="Instractor_Address" ColumnName="Instractor_Address" />
+                <ScalarProperty Name="Instractor_AraName" ColumnName="Instractor_AraName" />
+                <ScalarProperty Name="Instractor_EngName" ColumnName="Instractor_EngName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
 </Mapping></edmx:Mappings>
   </edmx:Runtime>

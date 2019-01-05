@@ -52,7 +52,7 @@ namespace CourseSite.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Gallary gallary , HttpPostedFileBase file)
+        public ActionResult Create(Gallary gallary, HttpPostedFileBase file)
         {
             using (CenterDBEntities db = new CenterDBEntities())
             {
@@ -176,7 +176,7 @@ namespace CourseSite.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Gallary gallary , HttpPostedFileBase file)
+        public ActionResult Edit(Gallary gallary, HttpPostedFileBase file)
         {
             using (CenterDBEntities db = new CenterDBEntities())
             {
@@ -250,6 +250,15 @@ namespace CourseSite.Controllers
                     db.Dispose();
                 }
                 base.Dispose(disposing);
+            }
+        }
+
+        public static List<Models.DAL.Gallary> GetActiveGallary()
+        {
+            using (CenterDBEntities db = new CenterDBEntities())
+            {
+                return (db.Gallary.Where(x => x.ImageStatus == true).ToList());
+
             }
         }
     }

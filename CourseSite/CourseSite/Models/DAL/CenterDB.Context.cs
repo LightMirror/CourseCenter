@@ -45,10 +45,10 @@ namespace CourseSite.Models.DAL
         public virtual DbSet<GroupCustomers> GroupCustomers { get; set; }
         public virtual DbSet<Groups> Groups { get; set; }
         public virtual DbSet<GroupStatus> GroupStatus { get; set; }
-        public virtual DbSet<Instractors> Instractors { get; set; }
         public virtual DbSet<InstractorStatus> InstractorStatus { get; set; }
         public virtual DbSet<schedules> schedules { get; set; }
         public virtual DbSet<Specifications> Specifications { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public virtual DbSet<Instractors> Instractors { get; set; }
     }
 }

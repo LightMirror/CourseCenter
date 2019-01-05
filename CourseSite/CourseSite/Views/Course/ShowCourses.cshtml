@@ -13,7 +13,7 @@
         <span class="glyphicon glyphicon-plus"></span>
         @Html.ActionLink("Create New", "Create") &nbsp;
         <span class="glyphicon glyphicon-refresh"></span>
-        @Html.ActionLink("Refresh Offloading", "Index") &nbsp;
+        @Html.ActionLink("Refresh Offloading", "ShowCourses") &nbsp;
     </p>
 
     <div class="table table-responsive">
@@ -41,7 +41,7 @@
                     @Html.DisplayFor(modelItem => item.Course_TotalHour)
                 </td>
                 <td class="text-center">
-                    <a href="/CompanyProfiles/Edit/@item.ID" class="glyphicon glyphicon-edit btn btn-primary "></a>
+                    <a href="/Course/Edit/@item.ID" class="glyphicon glyphicon-edit btn btn-primary "></a>
                     <a href="/Course/Delete/@item.ID" class="glyphicon glyphicon-trash btn btn-danger" onclick="return confirm('Are you sure you delete this Course?');"></a>
                 </td>
             </tr>

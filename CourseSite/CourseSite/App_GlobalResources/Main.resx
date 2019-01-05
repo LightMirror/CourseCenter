@@ -276,4 +276,7 @@
   <data name="Twitter" xml:space="preserve">
     <value>Twitter</value>
   </data>
+  <data name="Specifications" xml:space="preserve">
+    <value>Specifications</value>
+  </data>
 </root>

@@ -34,6 +34,7 @@ namespace CourseSite.Models.DAL
         [DataType(DataType.MultilineText)]
         public string Specification_AraDescription { get; set; }
 
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Course_Instractors> Course_Instractors { get; set; }
     }

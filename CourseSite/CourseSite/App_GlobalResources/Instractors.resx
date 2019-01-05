@@ -159,4 +159,7 @@
   <data name="InvalidMobileNumber" xml:space="preserve">
     <value>Invalid Mobile Number</value>
   </data>
+  <data name="instractor_QualificationsEnglish" xml:space="preserve">
+    <value>Qualifications</value>
+  </data>
 </root>

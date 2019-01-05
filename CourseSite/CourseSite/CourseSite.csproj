@@ -388,6 +388,8 @@
     <Content Include="assets\img\NoImage.png" />
     <Content Include="assets\img\Partners\Alpha.JPG" />
     <Content Include="assets\img\Partners\EAPB.jpeg" />
+    <Content Include="assets\img\speakers\ereny.jpg" />
+    <Content Include="assets\img\speakers\Hesham.jpg" />
     <Content Include="assets\img\__logo.png" />
     <Content Include="assets\img\NewLogo1.jpg" />
     <Content Include="assets\img\speakers\1.jpg" />
@@ -495,6 +497,9 @@
     <Content Include="Content\toastr.scss" />
     <Content Include="Content\toastr.less" />
     <None Include="Properties\PublishProfiles\CourseSite.pubxml" />
+    <None Include="Properties\PublishProfiles\iatlcegypt.com - Web Deploy %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\iatlcegypt.com - Web Deploy %283%29.pubxml" />
+    <None Include="Properties\PublishProfiles\iatlcegypt.com - Web Deploy %284%29.pubxml" />
     <None Include="Properties\PublishProfiles\iatlcegypt.com - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\contactform\contactform.js" />
@@ -513,9 +518,24 @@
     <Content Include="Scripts\toastr.js" />
     <Content Include="Scripts\toastr.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="Uploads\Gallary\636818131705244117.jpg" />
+    <Content Include="Uploads\Gallary\636818944195581248.ico" />
+    <Content Include="Uploads\Gallary\636818974197705129.jpg" />
+    <Content Include="Uploads\Gallary\636820574560891632.jpg" />
+    <Content Include="Uploads\Gallary\636820574751406819.jpg" />
     <Content Include="Uploads\Gallary\defaultcourse.jpg" />
+    <Content Include="Uploads\Photo\Courses\Alpha.JPG" />
+    <Content Include="Uploads\Photo\Courses\Industries-corporate-banner-2.png" />
+    <Content Include="Uploads\Photo\Courses\MainPic.jpg" />
+    <Content Include="Uploads\Photo\Courses\medical-interpreter-2.jpg" />
     <Content Include="Uploads\Photo\Courses\WhatsApp Image 2018-12-15 at 8.12.44 PM.jpeg" />
-    <Content Include="Uploads\Photo\instractors\logo.jpg" />
+    <Content Include="Uploads\Photo\Cutomers\abdulrheem-3.jpg" />
+    <Content Include="Uploads\Photo\Cutomers\gsgrs-2.jpeg" />
+    <Content Include="Uploads\Photo\Cutomers\h-9.jpg" />
+    <Content Include="Uploads\Photo\instractors\Abdulrheem-10.jpg" />
+    <Content Include="Uploads\Photo\instractors\Abdulrheem-11.jpg" />
+    <Content Include="Uploads\Photo\instractors\Abdulrheem-11.png" />
+    <Content Include="Uploads\Photo\instractors\Hesham Abd Elrasoul-12.jpg" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -622,6 +642,7 @@
     <Content Include="Views\Gallery\Details.cshtml" />
     <Content Include="Views\Gallery\Edit.cshtml" />
     <Content Include="Views\Gallery\Index.cshtml" />
+    <Content Include="Views\Gallery\_GallaryPV.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -687,7 +708,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>62171</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
