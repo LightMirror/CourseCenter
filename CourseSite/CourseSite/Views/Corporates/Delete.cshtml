@@ -1,0 +1,121 @@
+﻿@model CourseSite.Models.DAL.Corporates
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Corporates</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Corporates_EngName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Corporates_EngName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Corporates_AraName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Corporates_AraName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Corporates_Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Corporates_Address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Corporates_phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Corporates_phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Corporates_mobile)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Corporates_mobile)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Corporates_email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Corporates_email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Corporates_FocalPoint)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Corporates_FocalPoint)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Corporates_Summary)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Corporates_Summary)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Corporates_ImagePath1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Corporates_ImagePath1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Corporates_imagePath2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Corporates_imagePath2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CorporatesStatus.Status_EngName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CorporatesStatus.Status_EngName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CorporatesStatus1.Status_EngName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CorporatesStatus1.Status_EngName)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

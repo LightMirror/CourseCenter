@@ -129,34 +129,41 @@ namespace CourseSite.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "ID,Course_EngName,Course_AraName,Course_VedioPath,Course_ImgePath,ImageUpload,Course_ImagePath2,Course_EngObjective,Course_AraObjective,Course_EngSummary,Course_AraSummary,Course_ArabicContentPath,Course_EnglishContent,Course_StatusID,Course_TotalHour,Course_OrignalCost,Course_CreationDate,Course_CreationUsers,Course_ModifyDate,Course_modifyUsers")] Courses courses)
         {
-            using (CenterDBEntities db = new CenterDBEntities())
+            try
             {
-                if (ModelState.IsValid)
-                {      
-                    courses.Course_ModifyDate = DateTime.Now;
-                    if (courses.ImageUpload != null&&!string.IsNullOrEmpty(courses.ImageUpload.FileName))
+                using (CenterDBEntities db = new CenterDBEntities())
+                {
+                    if (ModelState.IsValid)
                     {
-                        string subPath = "~/Uploads/Photo/Courses/";
-                        var filename = Path.GetFileName(courses.ImageUpload.FileName);
-                        var formattedFileName = string.Format("{0}-{1}{2}"
-                                                       , courses.Course_EngName
-                                                       , courses.ID
-                                                       , Path.GetExtension(filename));
-                        bool exists = System.IO.Directory.Exists(subPath);
-                        if (!exists)
-                            System.IO.Directory.CreateDirectory(Server.MapPath("~/Uploads/Photo/Courses/"));
-                        subPath = Path.Combine(subPath, formattedFileName);
+                        courses.Course_ModifyDate = DateTime.Now;
+                        if (courses.ImageUpload != null && !string.IsNullOrEmpty(courses.ImageUpload.FileName))
+                        {
+                            string subPath = "~/Uploads/Photo/Courses/";
+                            var filename = Path.GetFileName(courses.ImageUpload.FileName);
+                            var formattedFileName = string.Format("{0}-{1}{2}"
+                                                           , courses.Course_EngName
+                                                           , courses.ID
+                                                           , Path.GetExtension(filename));
+                            bool exists = System.IO.Directory.Exists(subPath);
+                            if (!exists)
+                                System.IO.Directory.CreateDirectory(Server.MapPath("~/Uploads/Photo/Courses/"));
+                            subPath = Path.Combine(subPath, formattedFileName);
 
-                        var path = Server.MapPath(subPath);
-                        courses.ImageUpload.SaveAs(path);                        
-                        courses.Course_ImgePath = subPath;
+                            var path = Server.MapPath(subPath);
+                            courses.ImageUpload.SaveAs(path);
+                            courses.Course_ImgePath = subPath;
+                        }
+                        db.Entry(courses).State = EntityState.Modified;
+                        db.SaveChanges();
+                        return RedirectToAction("Index");
                     }
-                    db.Entry(courses).State = EntityState.Modified;
-                    db.SaveChanges();
-                    return RedirectToAction("Index");
+                    ViewBag.Course_StatusID = CourseRoutine.GetDDLCourseStatus();
+                    return View(courses);
                 }
-                ViewBag.Course_StatusID = CourseRoutine.GetDDLCourseStatus();
-                return View(courses);
+            }
+            catch(Exception ex)
+            {
+                throw ex;
             }
         }
 

@@ -1,0 +1,115 @@
+﻿@model CourseSite.Models.DAL.Corporates
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Corporates</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Corporates_EngName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Corporates_EngName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Corporates_AraName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Corporates_AraName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Corporates_Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Corporates_Address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Corporates_phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Corporates_phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Corporates_mobile)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Corporates_mobile)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Corporates_email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Corporates_email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Corporates_FocalPoint)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Corporates_FocalPoint)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Corporates_Summary)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Corporates_Summary)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Corporates_ImagePath1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Corporates_ImagePath1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Corporates_imagePath2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Corporates_imagePath2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CorporatesStatus.Status_EngName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CorporatesStatus.Status_EngName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CorporatesStatus1.Status_EngName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CorporatesStatus1.Status_EngName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

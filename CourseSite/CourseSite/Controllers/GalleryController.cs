@@ -14,6 +14,7 @@ namespace CourseSite.Controllers
     public class GalleryController : Controller
     {
         // GET: Gallery
+        [Authorize]
         public ActionResult Index()
         {
             using (CenterDBEntities db = new CenterDBEntities())
@@ -24,6 +25,7 @@ namespace CourseSite.Controllers
         }
 
         // GET: Gallery/Details/5
+        [Authorize]
         public ActionResult Details(int? id)
         {
             using (CenterDBEntities db = new CenterDBEntities())
@@ -42,6 +44,7 @@ namespace CourseSite.Controllers
         }
 
         // GET: Gallery/Create
+        [Authorize]
         public ActionResult Create()
         {
             return View();
@@ -50,6 +53,7 @@ namespace CourseSite.Controllers
         // POST: Gallery/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(Gallary gallary, HttpPostedFileBase file)
@@ -86,6 +90,7 @@ namespace CourseSite.Controllers
             }
         }
 
+        [Authorize]
         public string ShowPhoto(int id)
         {
             if (ShowImage(id))
@@ -98,6 +103,7 @@ namespace CourseSite.Controllers
             }
         }
 
+        [Authorize]
         public string HidePhoto(int id)
         {
             if (HideImage(id))
@@ -109,6 +115,8 @@ namespace CourseSite.Controllers
                 return "Something went wrong, Please try again later.";
             }
         }
+
+        [Authorize]
         private static bool ShowImage(int id)
         {
             using (CenterDBEntities db = new CenterDBEntities())
@@ -131,6 +139,8 @@ namespace CourseSite.Controllers
             }
             return false;
         }
+
+        [Authorize]
         private static bool HideImage(int id)
         {
             using (CenterDBEntities db = new CenterDBEntities())
@@ -153,6 +163,8 @@ namespace CourseSite.Controllers
             }
             return false;
         }
+
+        [Authorize]
         // GET: Gallery/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -174,6 +186,7 @@ namespace CourseSite.Controllers
         // POST: Gallery/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(Gallary gallary, HttpPostedFileBase file)
@@ -209,7 +222,9 @@ namespace CourseSite.Controllers
             }
         }
 
+
         // GET: Gallery/Delete/5
+        [Authorize]
         public ActionResult Delete(int? id)
         {
             using (CenterDBEntities db = new CenterDBEntities())
@@ -228,6 +243,7 @@ namespace CourseSite.Controllers
         }
 
         // POST: Gallery/Delete/5
+        [Authorize]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
