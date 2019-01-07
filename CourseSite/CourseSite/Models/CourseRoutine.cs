@@ -12,7 +12,7 @@ namespace CourseSite.Models
         {
             using (DAL.CenterDBEntities db = new DAL.CenterDBEntities())
             {
-                return db.Courses.Take(6).ToList();
+                return db.Courses.Where(x => x.Course_ISInMain == true).ToList();
             }
         }
 

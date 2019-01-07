@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net.Mail;
 using System.Net.Mime;
 using System.Web;
+using WhatsAppApi;
 
 namespace CourseSite.Common
 {
@@ -69,5 +70,38 @@ namespace CourseSite.Common
                 return false;
             }
         }       
+
+        public static bool SendWhatsapp(string to,string msg)
+        {
+            //Send ( button_click )
+            string from = "201013445122";
+            bool sent = false;
+
+            WhatsApp wa = new WhatsApp(from, "%be%15%cb%c4d%14%0e%b6%de%94%96%0b%da%8c%d6%d9%ffpf%a1", "IATLC", true, true);
+
+            wa.OnConnectSuccess += () =>
+            {
+                wa.OnLoginSuccess += (phoneNumber, data) =>
+                {
+                    wa.SendMessage(to, msg);
+                    sent = true;
+                };
+
+                wa.OnLoginFailed += (data) =>
+                {
+                    sent = false;
+                };
+
+                wa.Login();
+            };
+
+            wa.OnConnectFailed += (ex) =>
+            {
+                sent = false;
+            };
+
+            wa.Connect();
+            return sent;
+        }
     }
 }

@@ -89,4 +89,5 @@ namespace CourseSite.Models.DAL
         [Display(Name = "Arabic HeadLine")]
         public string CompanyHeadLineAra { get; set; }
     }
+
 }

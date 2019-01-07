@@ -6,8 +6,6 @@
 }
 
 <style>
-    
-
   .align-center, .center {
       text-align: center!important;
   }
@@ -2690,6 +2688,12 @@
                     Reviews
                 </a>
             </li>
+
+            <li>
+                <a data-toggle="tab" href="#Program">
+                    Dily program 
+                </a>
+            </li>
         </ul>
 
         <div class="tab-content no-border padding-24">
@@ -2727,7 +2731,7 @@
                                 <div class="profile-info-name"> Total Hour: </div>
 
                                 <div class="profile-info-value">
-                                    <span>32</span>
+                                    <span>@Model.Course_TotalHour</span>
                                 </div>
                             </div>
 
@@ -2738,7 +2742,27 @@
                                     <span>English material and bilingual delivery. </span>
                                 </div>
                             </div>
+
+                            <div class="profile-info-row">
+                                <div class="profile-info-name"> Orignal cost: </div>
+
+                                <div class="profile-info-value">
+                                    <span> @String.Format("{0:n0}", Model.Course_OrignalCost)</span>
+                                </div>
+                            </div>
+
+                            @if (Model.Course_OrignalCostDiscount.HasValue)
+                            {
+                                <div class="profile-info-row">
+                                    <div class="profile-info-name">after discount:</div>
+
+                                    <div class="profile-info-value">
+                                        <span> @String.Format("{0:n0}", Model.Course_OrignalCostDiscount)</span>
+                                    </div>
+                                </div>
+                            }
                         </div>
+                    
 
                         <div class="hr hr-8 dotted"></div>
 
@@ -2748,7 +2772,7 @@
                 <div class="space-20"></div>
 
                 <div class="row">
-                    <div class="col-xs-12 col-sm-6" style="padding-top:20px">
+                    <div class="col-md-12 col-md-6" style="padding-top:20px">
                         <div class="widget-box transparent">
                             <div class="widget-header widget-header-small">
                                 <h4 class="widget-title smaller">
@@ -2758,7 +2782,7 @@
                             </div>
 
                             <div class="widget-body">
-                                <div class="widget-main">
+                                <div class="widget-main" >
                                         @Model.Course_EngObjective
                                 </div>
                             </div>
@@ -2767,7 +2791,7 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-xs-12 col-sm-6" style="padding-top:20px;">
+                    <div class="col-md-12 col-md-6" style="padding-top:20px;">
                         <div class="widget-box transparent">
                             <div class="widget-header widget-header-small">
                                 <h4 class="widget-title smaller">
@@ -2778,9 +2802,7 @@
 
                             <div class="widget-body">
                                 <div class="widget-main">
-                                    <p style="text-justify:initial">
                                         @Model.Course_EngSummary
-                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -2791,224 +2813,12 @@
 
 
             <div id="pictures" class="tab-pane">
-                @*<ul class="ace-thumbnails">
-                        <li>
-                            <a href="#" data-rel="colorbox">
-                                <img alt="150x150" src="http://lorempixel.com/200/200/nature/1/">
-                                <div class="text">
-                                    <div class="inner">Sample Caption on Hover</div>
-                                </div>
-                            </a>
+               
+            </div>
 
-                            <div class="tools tools-bottom">
-                                <a href="#">
-                                    <i class="ace-icon fa fa-link"></i>
-                                </a>
+            <div id="Program" class="tab-pane">
 
-                                <a href="#">
-                                    <i class="ace-icon fa fa-paperclip"></i>
-                                </a>
-
-                                <a href="#">
-                                    <i class="ace-icon fa fa-pencil"></i>
-                                </a>
-
-                                <a href="#">
-                                    <i class="ace-icon fa fa-times red"></i>
-                                </a>
-                            </div>
-                        </li>
-
-                        <li>
-                            <a href="#" data-rel="colorbox">
-                                <img alt="150x150" src="http://lorempixel.com/200/200/nature/2/">
-                                <div class="text">
-                                    <div class="inner">Sample Caption on Hover</div>
-                                </div>
-                            </a>
-
-                            <div class="tools tools-bottom">
-                                <a href="#">
-                                    <i class="ace-icon fa fa-link"></i>
-                                </a>
-
-                                <a href="#">
-                                    <i class="ace-icon fa fa-paperclip"></i>
-                                </a>
-
-                                <a href="#">
-                                    <i class="ace-icon fa fa-pencil"></i>
-                                </a>
-
-                                <a href="#">
-                                    <i class="ace-icon fa fa-times red"></i>
-                                </a>
-                            </div>
-                        </li>
-
-                        <li>
-                            <a href="#" data-rel="colorbox">
-                                <img alt="150x150" src="http://lorempixel.com/200/200/nature/3/">
-                                <div class="text">
-                                    <div class="inner">Sample Caption on Hover</div>
-                                </div>
-                            </a>
-
-                            <div class="tools tools-bottom">
-                                <a href="#">
-                                    <i class="ace-icon fa fa-link"></i>
-                                </a>
-
-                                <a href="#">
-                                    <i class="ace-icon fa fa-paperclip"></i>
-                                </a>
-
-                                <a href="#">
-                                    <i class="ace-icon fa fa-pencil"></i>
-                                </a>
-
-                                <a href="#">
-                                    <i class="ace-icon fa fa-times red"></i>
-                                </a>
-                            </div>
-                        </li>
-
-                        <li>
-                            <a href="#" data-rel="colorbox">
-                                <img alt="150x150" src="http://lorempixel.com/200/200/nature/4/">
-                                <div class="text">
-                                    <div class="inner">Sample Caption on Hover</div>
-                                </div>
-                            </a>
-
-                            <div class="tools tools-bottom">
-                                <a href="#">
-                                    <i class="ace-icon fa fa-link"></i>
-                                </a>
-
-                                <a href="#">
-                                    <i class="ace-icon fa fa-paperclip"></i>
-                                </a>
-
-                                <a href="#">
-                                    <i class="ace-icon fa fa-pencil"></i>
-                                </a>
-
-                                <a href="#">
-                                    <i class="ace-icon fa fa-times red"></i>
-                                </a>
-                            </div>
-                        </li>
-
-                        <li>
-                            <a href="#" data-rel="colorbox">
-                                <img alt="150x150" src="http://lorempixel.com/200/200/nature/5/">
-                                <div class="text">
-                                    <div class="inner">Sample Caption on Hover</div>
-                                </div>
-                            </a>
-
-                            <div class="tools tools-bottom">
-                                <a href="#">
-                                    <i class="ace-icon fa fa-link"></i>
-                                </a>
-
-                                <a href="#">
-                                    <i class="ace-icon fa fa-paperclip"></i>
-                                </a>
-
-                                <a href="#">
-                                    <i class="ace-icon fa fa-pencil"></i>
-                                </a>
-
-                                <a href="#">
-                                    <i class="ace-icon fa fa-times red"></i>
-                                </a>
-                            </div>
-                        </li>
-
-                        <li>
-                            <a href="#" data-rel="colorbox">
-                                <img alt="150x150" src="http://lorempixel.com/200/200/nature/6/">
-                                <div class="text">
-                                    <div class="inner">Sample Caption on Hover</div>
-                                </div>
-                            </a>
-
-                            <div class="tools tools-bottom">
-                                <a href="#">
-                                    <i class="ace-icon fa fa-link"></i>
-                                </a>
-
-                                <a href="#">
-                                    <i class="ace-icon fa fa-paperclip"></i>
-                                </a>
-
-                                <a href="#">
-                                    <i class="ace-icon fa fa-pencil"></i>
-                                </a>
-
-                                <a href="#">
-                                    <i class="ace-icon fa fa-times red"></i>
-                                </a>
-                            </div>
-                        </li>
-
-                        <li>
-                            <a href="#" data-rel="colorbox">
-                                <img alt="150x150" src="http://lorempixel.com/200/200/nature/7/">
-                                <div class="text">
-                                    <div class="inner">Sample Caption on Hover</div>
-                                </div>
-                            </a>
-
-                            <div class="tools tools-bottom">
-                                <a href="#">
-                                    <i class="ace-icon fa fa-link"></i>
-                                </a>
-
-                                <a href="#">
-                                    <i class="ace-icon fa fa-paperclip"></i>
-                                </a>
-
-                                <a href="#">
-                                    <i class="ace-icon fa fa-pencil"></i>
-                                </a>
-
-                                <a href="#">
-                                    <i class="ace-icon fa fa-times red"></i>
-                                </a>
-                            </div>
-                        </li>
-
-                        <li>
-                            <a href="#" data-rel="colorbox">
-                                <img alt="150x150" src="http://lorempixel.com/200/200/nature/1/">
-                                <div class="text">
-                                    <div class="inner">Sample Caption on Hover</div>
-                                </div>
-                            </a>
-
-                            <div class="tools tools-bottom">
-                                <a href="#">
-                                    <i class="ace-icon fa fa-link"></i>
-                                </a>
-
-                                <a href="#">
-                                    <i class="ace-icon fa fa-paperclip"></i>
-                                </a>
-
-                                <a href="#">
-                                    <i class="ace-icon fa fa-pencil"></i>
-                                </a>
-
-                                <a href="#">
-                                    <i class="ace-icon fa fa-times red"></i>
-                                </a>
-                            </div>
-                        </li>
-                    </ul>*@
-            </div><!-- /#pictures -->
+            </div>
         </div>
     </div>
 </div>

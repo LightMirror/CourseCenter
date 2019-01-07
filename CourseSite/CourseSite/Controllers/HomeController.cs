@@ -20,7 +20,7 @@ namespace CourseSite.Controllers
             return View("Main", MVM);
         }
 
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         public ActionResult MainAdmin()
         {
             return View("MainAdmin");

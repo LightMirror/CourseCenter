@@ -35,7 +35,6 @@ namespace CourseSite.Models.DAL
         public virtual DbSet<CorporatesStatus> CorporatesStatus { get; set; }
         public virtual DbSet<Course_Instractors> Course_Instractors { get; set; }
         public virtual DbSet<Course_status> Course_status { get; set; }
-        public virtual DbSet<Courses> Courses { get; set; }
         public virtual DbSet<Customerabsent> Customerabsent { get; set; }
         public virtual DbSet<Customers> Customers { get; set; }
         public virtual DbSet<CustomerStatus> CustomerStatus { get; set; }
@@ -48,7 +47,7 @@ namespace CourseSite.Models.DAL
         public virtual DbSet<InstractorStatus> InstractorStatus { get; set; }
         public virtual DbSet<schedules> schedules { get; set; }
         public virtual DbSet<Specifications> Specifications { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Instractors> Instractors { get; set; }
+        public virtual DbSet<Courses> Courses { get; set; }
     }
 }

@@ -1,0 +1,100 @@
+﻿@model IEnumerable<CourseSite.Models.DAL.Corporates>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Corporates_EngName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Corporates_AraName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Corporates_Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Corporates_phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Corporates_mobile)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Corporates_email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Corporates_FocalPoint)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Corporates_Summary)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Corporates_ImagePath1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Corporates_imagePath2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CorporatesStatus.Status_EngName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CorporatesStatus1.Status_EngName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Corporates_EngName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Corporates_AraName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Corporates_Address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Corporates_phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Corporates_mobile)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Corporates_email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Corporates_FocalPoint)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Corporates_Summary)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Corporates_ImagePath1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Corporates_imagePath2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CorporatesStatus.Status_EngName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CorporatesStatus1.Status_EngName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

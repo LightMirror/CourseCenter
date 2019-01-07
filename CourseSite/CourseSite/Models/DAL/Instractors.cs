@@ -86,5 +86,6 @@ namespace CourseSite.Models.DAL
         public virtual ICollection<Course_Instractors> Course_Instractors { get; set; }
         public virtual Gender Gender { get; set; }
         public virtual InstractorStatus InstractorStatus { get; set; }
+
     }
 }

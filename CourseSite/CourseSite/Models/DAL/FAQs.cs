@@ -35,4 +35,5 @@ namespace CourseSite.Models.DAL
         public string FAQ_ModifiedUser { get; set; }
         public Nullable<System.DateTime> FAQ_ModifiedDate { get; set; }
     }
+
 }

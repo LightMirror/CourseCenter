@@ -37,5 +37,6 @@ namespace CourseSite.Models.DAL
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Course_Instractors> Course_Instractors { get; set; }
+
     }
 }

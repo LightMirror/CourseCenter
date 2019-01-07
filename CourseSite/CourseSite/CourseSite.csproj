@@ -18,10 +18,10 @@
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
-    <IISExpressSSLPort />
-    <IISExpressAnonymousAuthentication />
-    <IISExpressWindowsAuthentication />
-    <IISExpressUseClassicPipelineMode />
+    <IISExpressSSLPort>62171</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>disabled</IISExpressWindowsAuthentication>
+    <IISExpressUseClassicPipelineMode>false</IISExpressUseClassicPipelineMode>
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
@@ -150,6 +150,10 @@
       <Private>True</Private>
       <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="WhatsAppApi, Version=1.0.2.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Whatsapp.NET.1.2.2\lib\WhatsAppApi.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">
@@ -247,6 +251,7 @@
     <Compile Include="Common\UImanger.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CompanyProfilesController.cs" />
+    <Compile Include="Controllers\CorporatesController.cs" />
     <Compile Include="Controllers\CourseController.cs" />
     <Compile Include="Controllers\Course_InstractorsController.cs" />
     <Compile Include="Controllers\CustomerabsentsController.cs" />
@@ -354,9 +359,6 @@
     <Compile Include="Models\DAL\Specifications.cs">
       <DependentUpon>CenterDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DAL\sysdiagrams.cs">
-      <DependentUpon>CenterDB.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\FAQsRoutines.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\InstractorsRoutines.cs" />
@@ -417,6 +419,8 @@
     <Content Include="assets\img\venue-gallery\7.jpg" />
     <Content Include="assets\img\venue-gallery\8.jpg" />
     <Content Include="assets\img\venue-info-bg.jpg" />
+    <Content Include="Content\AutoComplete.css" />
+    <Content Include="Content\bootstrap-datetimepicker.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\breadcrumb.css" />
@@ -475,6 +479,8 @@
     </Content>
     <Content Include="Scripts\ai.0.22.9-build00167.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
+    <Content Include="Scripts\bootstrap-datepicker.js" />
+    <Content Include="Scripts\bootstrap-datetimepicker.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -500,6 +506,8 @@
     <None Include="Properties\PublishProfiles\iatlcegypt.com - Web Deploy %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\iatlcegypt.com - Web Deploy %283%29.pubxml" />
     <None Include="Properties\PublishProfiles\iatlcegypt.com - Web Deploy %284%29.pubxml" />
+    <None Include="Properties\PublishProfiles\iatlcegypt.com - Web Deploy %285%29.pubxml" />
+    <None Include="Properties\PublishProfiles\iatlcegypt.com - Web Deploy %286%29.pubxml" />
     <None Include="Properties\PublishProfiles\iatlcegypt.com - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\contactform\contactform.js" />
@@ -645,6 +653,12 @@
     <Content Include="Views\Gallery\Edit.cshtml" />
     <Content Include="Views\Gallery\Index.cshtml" />
     <Content Include="Views\Gallery\_GallaryPV.cshtml" />
+    <Content Include="Views\Corporates\Create.cshtml" />
+    <Content Include="Views\Corporates\Delete.cshtml" />
+    <Content Include="Views\Corporates\Details.cshtml" />
+    <Content Include="Views\Corporates\Edit.cshtml" />
+    <Content Include="Views\Corporates\Index.cshtml" />
+    <Content Include="Views\Course_Instractors\InstractorPMView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -709,11 +723,11 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>False</UseIIS>
+          <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>62171</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:11223/</IISUrl>
+          <IISUrl>http://localhost:62171/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

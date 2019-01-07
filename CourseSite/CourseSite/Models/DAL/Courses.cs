@@ -90,15 +90,21 @@ namespace CourseSite.Models.DAL
 
         public string Course_modifyUsers { get; set; }
 
-
+        [Display(Name = "In Main Site")]
         public Nullable<bool> Course_ISInMain { get; set; }
+
+        [Display(Name = "In Main Site")]
+        public bool InMain { get; set; }
 
         public HttpPostedFileBase ImageUpload { get; set; }
 
+        [Display(Name = "After discount")]
+        public Nullable<decimal> Course_OrignalCostDiscount { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Course_Instractors> Course_Instractors { get; set; }
 
         public virtual Course_status Course_status { get; set; }
+        
     }
 }

@@ -9,6 +9,7 @@ using System.Net;
 using System.Data.Entity;
 using System.IO;
 using System.Drawing;
+using Microsoft.AspNet.Identity;
 
 namespace CourseSite.Controllers
 {
@@ -25,6 +26,8 @@ namespace CourseSite.Controllers
                 return View("Index", MVM);
             }
         }
+
+        [Authorize]
         [HttpGet]
         public ActionResult ShowCourses()
         {
@@ -54,26 +57,29 @@ namespace CourseSite.Controllers
         }
 
         // GET: Cors/Create
+        [Authorize]
         public ActionResult Create()
         {
-
-            ViewBag.Course_StatusID = CourseRoutine.GetDDLCourseStatus();
-                return View();
+            CenterDBEntities db = new CenterDBEntities();
+            ViewBag.Course_StatusID = ViewBag.ToArea = new SelectList(db.Course_status, "ID", "Status_EngName");
+            return View();
         }
 
         // POST: Cors/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Course_EngName,Course_AraName,Course_VedioPath,Course_ImgePath,ImageUpload,Course_EngObjective,Course_AraObjective,Course_EngSummary,Course_AraSummary,Course_ArabicContentPath,Course_EnglishContent,Course_StatusID,Course_TotalHour,Course_OrignalCost")] Courses courses)
+        public ActionResult Create([Bind(Include = "ID,Course_EngName,Course_AraName,Course_VedioPath,Course_ImgePath,ImageUpload,Course_EngObjective,Course_AraObjective,Course_EngSummary,Course_AraSummary,Course_ArabicContentPath,Course_EnglishContent,Course_StatusID,Course_TotalHour,Course_OrignalCost,InMain")] Courses courses)
         {
             using (CenterDBEntities db = new CenterDBEntities())
             {
                 if (ModelState.IsValid)
                 {
                     courses.Course_CreationDate = DateTime.Now;
-                    courses.Course_ModifyDate = DateTime.Now;                 
+                    courses.Course_ModifyDate = DateTime.Now;
+                    courses.Course_ISInMain = courses.InMain;             
                     db.Courses.Add(courses);
                     db.SaveChanges();
                     if (courses.ImageUpload != null &&  !string.IsNullOrEmpty(courses.ImageUpload.FileName))
@@ -95,15 +101,16 @@ namespace CourseSite.Controllers
                         db.Entry(courses).State = EntityState.Modified;
                         db.SaveChanges();
                     }         
-                    return RedirectToAction("Index");
+                    return RedirectToAction("ShowCourses");
                 }
-
-                ViewBag.Course_StatusID = CourseRoutine.GetDDLCourseStatus();
+                
+                ViewBag.Course_StatusID = ViewBag.ToArea = new SelectList(db.Course_status, "ID", "Status_EngName");
                 return View(courses);
             }
         }
 
         // GET: Cors/Edit/5
+        [Authorize]
         public ActionResult Edit(int? id)
         {
             using (CenterDBEntities db = new CenterDBEntities())
@@ -117,7 +124,11 @@ namespace CourseSite.Controllers
                 {
                     return HttpNotFound();
                 }
-                ViewBag.Course_StatusID = CourseRoutine.GetDDLCourseStatus();
+                if (courses.Course_ISInMain.HasValue)
+                    courses.InMain = true;
+                else
+                    courses.InMain = false;
+                ViewBag.Course_StatusID = ViewBag.ToArea = new SelectList(db.Course_status, "ID", "Status_EngName", courses.Course_StatusID);
                 return View(courses);
             }
         }
@@ -125,43 +136,54 @@ namespace CourseSite.Controllers
         // POST: Cors/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Course_EngName,Course_AraName,Course_VedioPath,Course_ImgePath,ImageUpload,Course_ImagePath2,Course_EngObjective,Course_AraObjective,Course_EngSummary,Course_AraSummary,Course_ArabicContentPath,Course_EnglishContent,Course_StatusID,Course_TotalHour,Course_OrignalCost,Course_CreationDate,Course_CreationUsers,Course_ModifyDate,Course_modifyUsers")] Courses courses)
+        public ActionResult Edit([Bind(Include = "ID,Course_EngName,Course_AraName,Course_VedioPath,InMain,Course_ImgePath,ImageUpload,Course_ImagePath2,Course_EngObjective,Course_AraObjective,Course_EngSummary,Course_AraSummary,Course_ArabicContentPath,Course_EnglishContent,Course_StatusID,Course_TotalHour,Course_OrignalCost,Course_CreationDate,Course_CreationUsers,Course_ModifyDate,Course_modifyUsers")] Courses courses)
         {
-            using (CenterDBEntities db = new CenterDBEntities())
+            try
             {
-                if (ModelState.IsValid)
-                {      
-                    courses.Course_ModifyDate = DateTime.Now;
-                    if (courses.ImageUpload != null&&!string.IsNullOrEmpty(courses.ImageUpload.FileName))
+                using (CenterDBEntities db = new CenterDBEntities())
+                {
+                    if (ModelState.IsValid)
                     {
-                        string subPath = "~/Uploads/Photo/Courses/";
-                        var filename = Path.GetFileName(courses.ImageUpload.FileName);
-                        var formattedFileName = string.Format("{0}-{1}{2}"
-                                                       , courses.Course_EngName
-                                                       , courses.ID
-                                                       , Path.GetExtension(filename));
-                        bool exists = System.IO.Directory.Exists(subPath);
-                        if (!exists)
-                            System.IO.Directory.CreateDirectory(Server.MapPath("~/Uploads/Photo/Courses/"));
-                        subPath = Path.Combine(subPath, formattedFileName);
+                        courses.Course_ModifyDate = DateTime.Now;
+                        courses.Course_ISInMain = courses.InMain;
+                        var userID = User.Identity.GetUserId();
+                        courses.Course_modifyUsers = userID;
+                        if (courses.ImageUpload != null && !string.IsNullOrEmpty(courses.ImageUpload.FileName))
+                        {
+                            string subPath = "~/Uploads/Photo/Courses/";
+                            var filename = Path.GetFileName(courses.ImageUpload.FileName);
+                            var formattedFileName = string.Format("{0}-{1}{2}"
+                                                           , courses.Course_EngName
+                                                           , courses.ID
+                                                           , Path.GetExtension(filename));
+                            bool exists = System.IO.Directory.Exists(subPath);
+                            if (!exists)
+                                System.IO.Directory.CreateDirectory(Server.MapPath("~/Uploads/Photo/Courses/"));
+                            subPath = Path.Combine(subPath, formattedFileName);
 
-                        var path = Server.MapPath(subPath);
-                        courses.ImageUpload.SaveAs(path);                        
-                        courses.Course_ImgePath = subPath;
+                            var path = Server.MapPath(subPath);
+                            courses.ImageUpload.SaveAs(path);
+                            courses.Course_ImgePath = subPath;
+                        }
+                        db.Entry(courses).State = EntityState.Modified;
+                        db.SaveChanges();
+                        return RedirectToAction("ShowCourses");
                     }
-                    db.Entry(courses).State = EntityState.Modified;
-                    db.SaveChanges();
-                    return RedirectToAction("Index");
+                    ViewBag.Course_StatusID = ViewBag.ToArea = new SelectList(db.Course_status, "ID", "Status_EngName", courses.Course_StatusID);
+                    return View(courses);
                 }
-                ViewBag.Course_StatusID = CourseRoutine.GetDDLCourseStatus();
-                return View(courses);
+            }
+            catch(Exception ex)
+            {
+                throw ex;
             }
         }
 
         // GET: Cors/Delete/5
-        [ValidateAntiForgeryToken]
+        [Authorize]
         public ActionResult DeleteConfirmed(int id)
         {
             using (CenterDBEntities db = new CenterDBEntities())
@@ -169,7 +191,7 @@ namespace CourseSite.Controllers
                 Courses courses = db.Courses.Find(id);
                 db.Courses.Remove(courses);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("ShowCourses");
             }
         }
 
