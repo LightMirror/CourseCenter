@@ -12,5 +12,6 @@ namespace CourseSite.Models
         public List<DAL.Courses> Courses { get; set; }
 
         public List<DAL.Gallary> Gallary { get; set; }
+        public List<DAL.Instractors> Instarctors { get; set; }
     }
 }

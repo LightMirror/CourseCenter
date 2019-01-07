@@ -4,37 +4,57 @@
     ViewBag.Title = Resources.Main.List;
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
+@if (TempData["Done"] != null)
+{
+    <div id="clos" class="alert alert-success alert-dismissible fade in">
+        <a href="#clos" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <p> @TempData["Done"].ToString()</p>
+    </div>
+}
+@if (TempData["Error"] != null)
+{
+    <div id="clos" class="alert alert-danger alert-dismissible fade in">
+        <a href="#clos" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <p> @TempData["Error"].ToString()</p>
+    </div>
+}
 
 <h2>@Resources.Main.List @Resources.Cutomers.CutomersTitle </h2>
 
-<p>
-    @Html.ActionLink(@Resources.Main.CreateNew, "Create")
-</p>
-<div class="table table-responsive">
-    <table class="table table-hover table-striped table-bordered table-margin-bottom-clear ">
-        <tr>
-            <th class="text-center" style="background-color: #CED8F6;">
-                @Html.DisplayNameFor(model => model.Customer_EngName)
-            </th>
-            <th class="text-center" style="background-color: #CED8F6;">
-                @Html.DisplayNameFor(model => model.Customer_AraName)
-            </th>
-            <th></th>
-        </tr>
+<div class="container">
 
-        @foreach (var item in Model) {
+    <p>
+        <span class="glyphicon glyphicon-plus"></span>
+        @Html.ActionLink("Create New", "Create") &nbsp;
+        <span class="glyphicon glyphicon-refresh"></span>
+        @Html.ActionLink(Resources.Main.List +" "+ Resources.Cutomers.CutomersTitle, "ShowCourses") &nbsp;
+    </p>
+
+    <div class="table table-responsive">
+        <table class="table table-hover table-margin-bottom-clear ">
             <tr>
-                <td  class="text-center">
-                    @Html.DisplayFor(modelItem => item.Customer_EngName)
-                </td >
-                <td  class="text-center">
-                    @Html.DisplayFor(modelItem => item.Customer_AraName)
-                </td>
-                <td  class="text-center">
-                    @Html.ActionLink(Resources.Main.Edit + " ", "Edit", new { id=item.ID }, new { @class = "glyphicon glyphicon-edit btn btn-primary" })
-                </td>
+                <th class="text-center" style="background-color: #CED8F6;">
+                    @Html.DisplayNameFor(model => model.Customer_EngName)
+                </th>
+                <th class="text-center" style="background-color: #CED8F6;">
+                    Actions
+                </th>
             </tr>
-}
 
-    </table>
-</div>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td class="text-center">
+                        @Html.DisplayFor(modelItem => item.Customer_EngName)
+                    </td>
+                    <td class="text-center">
+                        <a href="/Customers/Edit/@item.ID" class="glyphicon glyphicon-edit btn btn-primary "></a>
+                        <a href="/Customers/DeleteConfirmed/@item.ID" class="glyphicon glyphicon-trash btn btn-danger" onclick="return confirm('Are you sure you delete this Course?');"></a>
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+
+    </div>

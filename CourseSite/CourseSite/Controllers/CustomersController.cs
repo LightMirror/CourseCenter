@@ -19,6 +19,7 @@ namespace CourseSite.Controllers
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
         // GET: Customers
+        [Authorize]
         public ActionResult Index()
         {
             using (CenterDBEntities db = new CenterDBEntities())
@@ -29,6 +30,7 @@ namespace CourseSite.Controllers
         }
 
         // GET: Customers/Details/5
+        [Authorize]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -47,6 +49,7 @@ namespace CourseSite.Controllers
         }
 
         // GET: Customers/Create
+        [Authorize]
         public ActionResult Create()
         {
             using (CenterDBEntities db = new CenterDBEntities())
@@ -75,6 +78,7 @@ namespace CourseSite.Controllers
         // POST: Customers/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ID,Customer_EngName,Customer_AraName,Customer_Phone,Customer_Mobile,Customer_Birthdate,Customer_Address,Customer_Email,Customer_Comment,Customer_GenderId,Customer_imagePath,ImageUpload,Customer_Nid,Customer_CorporateID,Customer_statusID")] Customers customers)
@@ -111,16 +115,24 @@ namespace CourseSite.Controllers
                         var result = UserManager.CreateAsync(user, DefaultPassword);
                         if (result.Result.Succeeded)
                         {
-                            List<string> Recivers = new List<string>();Recivers.Add(customers.Customer_Email);
-                            string NewLine = @"<br />";
-                            string Body = NewLine + "Emai: " + customers.Customer_Email + NewLine + "Password: " + DefaultPassword;
+                            List<string> Recivers = new List<string>();
+                            Recivers.Add(customers.Customer_Email);
+                            string Body = "Welcome In IATLC Academy." + Environment.NewLine + "Your ID:" + customers.ID.ToString() + Environment.NewLine + "Emai: " + customers.Customer_Email + Environment.NewLine + "Password: " + DefaultPassword + Environment.NewLine + "Please save this message";
                             string Subject = "account credentials("+customers.Customer_EngName+")";
                             CourseSite.Common.Email.SendEmail(Recivers, Subject, Body);
+                            CourseSite.Common.Email.SendWhatsapp("20" + customers.Customer_Mobile.ToString(), Body);
+
                             // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                             // Send an email with this link
                             // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                             // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                             // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+                        }
+                        else
+                        {
+                            db.Customers.Remove(customers);
+                            db.SaveChanges();
+                            TempData["Error"] = "Customer exist before, please change customer email and try again";
                         }
 
                         return RedirectToAction("Index");
@@ -148,6 +160,7 @@ namespace CourseSite.Controllers
         }
 
         // GET: Customers/Edit/5
+        [Authorize]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -172,6 +185,7 @@ namespace CourseSite.Controllers
         // POST: Customers/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "ID,Customer_EngName,Customer_AraName,Customer_Phone,Customer_Mobile,Customer_Birthdate,Customer_Address,Customer_Email,Customer_Comment,Customer_GenderId,Customer_imagePath,Customer_Nid,Customer_CorporateID,Customer_statusID")] Customers customers)
@@ -212,34 +226,21 @@ namespace CourseSite.Controllers
             }
         }
 
-        // GET: Customers/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            using (CenterDBEntities db = new CenterDBEntities())
-            {
-                Customers customers = db.Customers.Find(id);
-                if (customers == null)
-                {
-                    return HttpNotFound();
-                }
-                return View(customers);
-            }
-        }
 
         // POST: Customers/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
+        [Authorize]
         public ActionResult DeleteConfirmed(int id)
         {
+            
             using (CenterDBEntities db = new CenterDBEntities())
             {
                 Customers customers = db.Customers.Find(id);
+                var currentUser = UserManager.FindByEmail(customers.Customer_Email);
                 db.Customers.Remove(customers);
-                db.SaveChanges();
+                if(db.SaveChanges()>0)
+                {
+                    
+                }
                 return RedirectToAction("Index");
             }
         }

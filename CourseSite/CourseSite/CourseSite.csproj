@@ -18,10 +18,10 @@
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
-    <IISExpressSSLPort />
-    <IISExpressAnonymousAuthentication />
-    <IISExpressWindowsAuthentication />
-    <IISExpressUseClassicPipelineMode />
+    <IISExpressSSLPort>62171</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>disabled</IISExpressWindowsAuthentication>
+    <IISExpressUseClassicPipelineMode>false</IISExpressUseClassicPipelineMode>
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
@@ -149,6 +149,10 @@
     <Reference Include="Antlr3.Runtime">
       <Private>True</Private>
       <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="WhatsAppApi, Version=1.0.2.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Whatsapp.NET.1.2.2\lib\WhatsAppApi.dll</HintPath>
+      <Private>True</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -353,9 +357,6 @@
       <DependentUpon>CenterDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DAL\Specifications.cs">
-      <DependentUpon>CenterDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DAL\sysdiagrams.cs">
       <DependentUpon>CenterDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\FAQsRoutines.cs" />
@@ -655,6 +656,7 @@
     <Content Include="Views\Corporates\Details.cshtml" />
     <Content Include="Views\Corporates\Edit.cshtml" />
     <Content Include="Views\Corporates\Index.cshtml" />
+    <Content Include="Views\Course_Instractors\InstractorPMView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -720,11 +722,11 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>False</UseIIS>
+          <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>62171</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:11223/</IISUrl>
+          <IISUrl>http://localhost:62171/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

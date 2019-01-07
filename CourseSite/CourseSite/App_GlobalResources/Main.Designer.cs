@@ -232,6 +232,15 @@ namespace CourseSite.App_GlobalResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to delete.
+        /// </summary>
+        public static string delete {
+            get {
+                return ResourceManager.GetString("delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Details.
         /// </summary>
         public static string Details {

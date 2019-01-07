@@ -21,8 +21,16 @@
             <div class="col-md-4 col-md-push-8 text-center">
                 <div class="form-group">
                     <span id="previewPane">
-                        <img class="upload" onchange="readURL(this);" name="file" id="img_prev" src="@Url.Content(Model.Customer_imagePath)" alt="your image"
-                             style="width:250px;height:250px">
+                        @if (!string.IsNullOrEmpty(Model.Customer_imagePath))
+                        {
+                            <img class="upload" onchange="readURL(this);" name="file" id="img_prev" src="@Url.Content(Model.Customer_imagePath)" alt="your image"
+                                 style="width:250px;height:250px">
+                        }
+                        else
+                        {
+                            <img class="upload" onchange="readURL(this);" name="file" id="img_prev" src="~/Uploads/Gallary/defaultcourse.jpg" alt="your image"
+                                 style="width:250px;height:250px">
+                        }
                     </span>
                 </div>
             </div>

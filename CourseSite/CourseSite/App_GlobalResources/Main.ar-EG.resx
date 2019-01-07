@@ -270,4 +270,7 @@
   <data name="Specifications" xml:space="preserve">
     <value>التخصصات</value>
   </data>
+  <data name="delete" xml:space="preserve">
+    <value>حذف</value>
+  </data>
 </root>

@@ -21,7 +21,7 @@ namespace CourseSite.Models.DAL
         {
             this.GroupCustomers = new HashSet<GroupCustomers>();
         }
-    
+
         public int ID { get; set; }
 
         [Display(ResourceType = typeof(CourseSite.App_GlobalResources.Cutomers), Name = "CutomEnName")]
@@ -96,4 +96,5 @@ namespace CourseSite.Models.DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<GroupCustomers> GroupCustomers { get; set; }
     }
+
 }

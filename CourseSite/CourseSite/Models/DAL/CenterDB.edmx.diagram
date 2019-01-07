@@ -15,7 +15,6 @@
         <EntityTypeShape EntityType="CenterDBModel.CorporatesStatus" Width="1.5" PointX="1.5" PointY="13.625" />
         <EntityTypeShape EntityType="CenterDBModel.Course_Instractors" Width="1.5" PointX="11.25" PointY="5" />
         <EntityTypeShape EntityType="CenterDBModel.Course_status" Width="1.5" PointX="6.75" PointY="14.625" />
-        <EntityTypeShape EntityType="CenterDBModel.Courses" Width="1.5" PointX="9" PointY="12.875" />
         <EntityTypeShape EntityType="CenterDBModel.Customerabsent" Width="1.5" PointX="10.5" PointY="9.25" />
         <EntityTypeShape EntityType="CenterDBModel.Customers" Width="1.5" PointX="3" PointY="4" />
         <EntityTypeShape EntityType="CenterDBModel.CustomerStatus" Width="1.5" PointX="0.75" PointY="2.125" />
@@ -28,15 +27,12 @@
         <EntityTypeShape EntityType="CenterDBModel.InstractorStatus" Width="1.5" PointX="3.75" PointY="1.375" />
         <EntityTypeShape EntityType="CenterDBModel.schedules" Width="1.5" PointX="15.75" PointY="4.875" />
         <EntityTypeShape EntityType="CenterDBModel.Specifications" Width="1.5" PointX="9" PointY="0.875" />
-        <EntityTypeShape EntityType="CenterDBModel.sysdiagrams" Width="1.5" PointX="11.75" PointY="0.75" />
         <AssociationConnector Association="CenterDBModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
         <AssociationConnector Association="CenterDBModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
         <AssociationConnector Association="CenterDBModel.FK_Corporates_CorporatesStatus" />
         <AssociationConnector Association="CenterDBModel.FK_Customers_Corporates" />
-        <AssociationConnector Association="CenterDBModel.FK_Course_Instractors_Course_Instractors" />
         <AssociationConnector Association="CenterDBModel.FK_Course_Instractors_Specifications" />
         <AssociationConnector Association="CenterDBModel.FK_Groups_Groups" />
-        <AssociationConnector Association="CenterDBModel.FK_Courses_Course_status" />
         <AssociationConnector Association="CenterDBModel.FK_Customerabsent_Customerabsent" />
         <AssociationConnector Association="CenterDBModel.FK_Customers_CustomerStatus" />
         <AssociationConnector Association="CenterDBModel.FK_Customers_Gender" />
@@ -50,6 +46,9 @@
         <AssociationConnector Association="CenterDBModel.FK_Course_Instractors_Instractors" />
         <AssociationConnector Association="CenterDBModel.FK_Instractors_Gender" />
         <AssociationConnector Association="CenterDBModel.FK_Instractors_InstractorStatus" />
+        <EntityTypeShape EntityType="CenterDBModel.Courses" Width="1.5" PointX="9" PointY="12.75" />
+        <AssociationConnector Association="CenterDBModel.FK_Course_Instractors_Course_Instractors" />
+        <AssociationConnector Association="CenterDBModel.FK_Courses_Course_status" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
