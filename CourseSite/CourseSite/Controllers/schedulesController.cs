@@ -12,35 +12,44 @@ namespace CourseSite.Controllers
 {
     public class schedulesController : Controller
     {
-        private CenterDBEntities db = new CenterDBEntities();
 
         // GET: schedules
         public ActionResult Index()
         {
-            var schedules = db.schedules.Include(s => s.Groups);
-            return View(schedules.ToList());
+            using (CenterDBEntities db = new CenterDBEntities())
+            {
+                var schedules = db.schedules.Include(s => s.Groups);
+                return View(schedules.ToList());
+            }
+           
         }
 
         // GET: schedules/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
+            using (CenterDBEntities db = new CenterDBEntities())
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                schedules schedules = db.schedules.Find(id);
+                if (schedules == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(schedules);
             }
-            schedules schedules = db.schedules.Find(id);
-            if (schedules == null)
-            {
-                return HttpNotFound();
-            }
-            return View(schedules);
         }
 
         // GET: schedules/Create
         public ActionResult Create()
         {
-            ViewBag.Schedule_GroupID = new SelectList(db.Groups, "Group_ID", "Group_CreationUser");
-            return View();
+            using (CenterDBEntities db = new CenterDBEntities())
+            {
+                ViewBag.Schedule_GroupID = new SelectList(db.Groups, "Group_ID", "Group_CreationUser");
+                return View();
+            }
         }
 
         // POST: schedules/Create
@@ -48,33 +57,41 @@ namespace CourseSite.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Schedule_ID,Schedule_GroupID,Schedule_DatetimeFrom,Schedule_DateTimeTo,Schedule_CreationDate,Schedule_CreationUser,Schedule_ModifiedDate,Schedule_ModifiedUser")] schedules schedules)
+        public ActionResult Create(schedules schedules)
         {
-            if (ModelState.IsValid)
+            using (CenterDBEntities db = new CenterDBEntities())
             {
-                db.schedules.Add(schedules);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+                if (ModelState.IsValid)
+                {
+                    schedules.Schedule_CreationUser = User.Identity.Name;
+                    schedules.Schedule_CreationDate = DateTime.Now;
+                    db.schedules.Add(schedules);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
 
-            ViewBag.Schedule_GroupID = new SelectList(db.Groups, "Group_ID", "Group_CreationUser", schedules.Schedule_GroupID);
-            return View(schedules);
+                ViewBag.Schedule_GroupID = new SelectList(db.Groups, "Group_ID", "Group_CreationUser", schedules.Schedule_GroupID);
+                return View(schedules);
+            }
         }
 
         // GET: schedules/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
+            using (CenterDBEntities db = new CenterDBEntities())
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                schedules schedules = db.schedules.Find(id);
+                if (schedules == null)
+                {
+                    return HttpNotFound();
+                }
+                ViewBag.Schedule_GroupID = new SelectList(db.Groups, "Group_ID", "Group_CreationUser", schedules.Schedule_GroupID);
+                return View(schedules);
             }
-            schedules schedules = db.schedules.Find(id);
-            if (schedules == null)
-            {
-                return HttpNotFound();
-            }
-            ViewBag.Schedule_GroupID = new SelectList(db.Groups, "Group_ID", "Group_CreationUser", schedules.Schedule_GroupID);
-            return View(schedules);
         }
 
         // POST: schedules/Edit/5
@@ -82,31 +99,39 @@ namespace CourseSite.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Schedule_ID,Schedule_GroupID,Schedule_DatetimeFrom,Schedule_DateTimeTo,Schedule_CreationDate,Schedule_CreationUser,Schedule_ModifiedDate,Schedule_ModifiedUser")] schedules schedules)
+        public ActionResult Edit(schedules schedules)
         {
-            if (ModelState.IsValid)
+            using (CenterDBEntities db = new CenterDBEntities())
             {
-                db.Entry(schedules).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    schedules.Schedule_ModifiedUser = User.Identity.Name;
+                    schedules.Schedule_ModifiedDate = DateTime.Now;
+                    db.Entry(schedules).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                ViewBag.Schedule_GroupID = new SelectList(db.Groups, "Group_ID", "Group_CreationUser", schedules.Schedule_GroupID);
+                return View(schedules);
             }
-            ViewBag.Schedule_GroupID = new SelectList(db.Groups, "Group_ID", "Group_CreationUser", schedules.Schedule_GroupID);
-            return View(schedules);
         }
 
         // GET: schedules/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
+            using (CenterDBEntities db = new CenterDBEntities())
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                schedules schedules = db.schedules.Find(id);
+                if (schedules == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(schedules);
             }
-            schedules schedules = db.schedules.Find(id);
-            if (schedules == null)
-            {
-                return HttpNotFound();
-            }
-            return View(schedules);
         }
 
         // POST: schedules/Delete/5
@@ -114,19 +139,25 @@ namespace CourseSite.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            schedules schedules = db.schedules.Find(id);
-            db.schedules.Remove(schedules);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            using (CenterDBEntities db = new CenterDBEntities())
+            {
+                schedules schedules = db.schedules.Find(id);
+                db.schedules.Remove(schedules);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
         }
 
         protected override void Dispose(bool disposing)
         {
-            if (disposing)
+            using (CenterDBEntities db = new CenterDBEntities())
             {
-                db.Dispose();
+                if (disposing)
+                {
+                    db.Dispose();
+                }
+                base.Dispose(disposing);
             }
-            base.Dispose(disposing);
         }
     }
 }

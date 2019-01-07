@@ -10,28 +10,16 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
+<table class="table table-bordered table-responsive table-hover">
     <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Schedule_GroupID)
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.Schedule_DatetimeFrom)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Schedule_DateTimeTo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Schedule_CreationDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Schedule_CreationUser)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Schedule_ModifiedDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Schedule_ModifiedUser)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Groups.Group_CreationUser)
         </th>
         <th></th>
     </tr>
@@ -39,30 +27,20 @@
 @foreach (var item in Model) {
     <tr>
         <td>
+            @Html.DisplayFor(modelItem => item.Schedule_GroupID)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.Schedule_DatetimeFrom)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Schedule_DateTimeTo)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Schedule_CreationDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Schedule_CreationUser)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Schedule_ModifiedDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Schedule_ModifiedUser)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Groups.Group_CreationUser)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Schedule_ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Schedule_ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Schedule_ID })
+            @Html.ActionLink("Edit", "Edit", new { id = item.Schedule_ID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.Schedule_ID }) |
+            <a href="~/schedules/Delete/@item.Schedule_ID" class="btn btn-warning" onclick="return confirm('Are you sure you want to delete this schedule?');">
+                Delete
+            </a>
         </td>
     </tr>
 }
