@@ -1,0 +1,40 @@
+﻿
+@model IEnumerable<CourseSite.Models.DAL.Instractors>
+
+@foreach (var item in Model)
+{
+    <div class="col-lg-4 col-md-6">
+        <div class="speaker">
+           @if (!string.IsNullOrEmpty(item.instractor_imagePath))
+           {
+            <img src="@Url.Content(item.instractor_imagePath)" alt="Speaker 1" class="img-fluid">
+           }
+           else
+           {
+            <img src="~/assets/img/speakers/ereny.jpg" alt="Speaker 2" class="img-fluid">
+           }
+            <div class="details">
+                <h3>
+                    <a href="speaker-details.html">
+                        @if (CourseSite.Common.UImanger.CurrentLang != "en")
+                {
+                            @item.Instractor_AraName
+                        }
+                        else
+                        {
+                            @item.Instractor_EngName
+                        }
+                    </a>
+                </h3>
+                @*<p>@item.</p>*@
+                <div class="social">
+                    <a href="@item.instractor_twitter"><i class="fa fa-twitter"></i></a>
+                    <a href="@item.Instractor_Facebook"><i class="fa fa-facebook"></i></a>
+                    @*<a href=""><i class="fa fa-google-plus"></i></a>*@
+                    <a href="@item.Instractor_LinkedIn"><i class="fa fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+

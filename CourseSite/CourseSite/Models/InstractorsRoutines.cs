@@ -16,5 +16,12 @@ namespace CourseSite.Models
                 return (new SelectList(db.InstractorStatus.ToList(), "ID", CourseSite.Common.UImanger.CurrentLang == "en" ? "Status_EngName" : "Status_AraName"));
             }
         }
+        public static List<Instractors> GetAll()
+        {
+            using (DAL.CenterDBEntities db = new DAL.CenterDBEntities())
+            {
+                return db.Instractors.ToList();
+            }
+        }
     }
 }

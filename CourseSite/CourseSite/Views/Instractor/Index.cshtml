@@ -5,12 +5,11 @@
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h2>Index</h2>
 <p>
     <span class="glyphicon glyphicon-plus"></span>
     @Html.ActionLink(Resources.Main.CreateNew, "Create")&nbsp;
     <span class="glyphicon glyphicon-refresh"></span>
-    @Html.ActionLink("Refresh Offloading", "Index") &nbsp;
+    @Html.ActionLink("Refresh Page", "Index") &nbsp;
 </p>
 <div class="table table-responsive">
     <table class="table table-hover table-striped table-bordered table-margin-bottom-clear ">
@@ -46,8 +45,8 @@
                 }
 
                 <td class="text-center">
-                    @Html.ActionLink(Resources.Main.Edit+" ", "Edit", new { id = item.ID }, new { @class = "glyphicon glyphicon-edit btn btn-primary" })
-
+                     <a href="/Instractor/Edit/@item.ID" class="glyphicon glyphicon-edit btn btn-primary "></a>
+                    <a href="/Instractor/DeleteConfirmed/@item.ID" class="glyphicon glyphicon-trash btn btn-danger" onclick="return confirm('Are you sure you delete this Course?');"></a>
                 </td>
             </tr>
             }

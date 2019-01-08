@@ -117,6 +117,7 @@ namespace CourseSite.Controllers
             using (CenterDBEntities db = new CenterDBEntities())
             {
                 Instractors instractors = db.Instractors.Find(id);
+               
                 if (instractors == null)
                 {
                     return HttpNotFound();
@@ -136,7 +137,12 @@ namespace CourseSite.Controllers
         {
             if (ModelState.IsValid)
             {
+                string oldimagepath = "";
                 using (CenterDBEntities db = new CenterDBEntities())
+                {
+                    oldimagepath=db.Instractors.Where(x => x.ID == instractors.ID).SingleOrDefault().instractor_imagePath;
+                }
+                    using (CenterDBEntities db = new CenterDBEntities())
                 {
                     if (instractors.ImageUpload != null && !string.IsNullOrEmpty(instractors.ImageUpload.FileName))
                     {
@@ -155,7 +161,11 @@ namespace CourseSite.Controllers
                         instractors.ImageUpload.SaveAs(path);
                         instractors.instractor_imagePath = subPath;                        
                     }
+                    else
+                    {
 
+                        instractors.instractor_imagePath = oldimagepath;
+                    }
                     db.Entry(instractors).State = EntityState.Modified;
                     db.SaveChanges();
                     return RedirectToAction("Index");
@@ -166,28 +176,6 @@ namespace CourseSite.Controllers
             return View(instractors);
         }
 
-        // GET: Instractor/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            using (CenterDBEntities db = new CenterDBEntities())
-            {
-                Instractors instractors = db.Instractors.Find(id);
-
-                if (instractors == null)
-                {
-                    return HttpNotFound();
-                }
-                return View(instractors);
-            }
-        }
-
-        // POST: Instractor/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
             using (CenterDBEntities db = new CenterDBEntities())
