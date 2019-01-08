@@ -12,8 +12,6 @@ namespace CourseSite.Controllers
     public class HomeController : Controller
     {
         public ActionResult Index()
-
-
         {
             MainViewModel MVM = new MainViewModel();
             MVM = CourseSite.Common.General.BuildMainView();
@@ -65,7 +63,7 @@ namespace CourseSite.Controllers
             string RealBody = "Name: " +EVM.Name+ NewLine;
             RealBody += "E-mail: " + EVM.email + NewLine;
             RealBody += "Message:" + NewLine + EVM.message;
-            List<string> Recivers = new List<string>();Recivers.Add("info@iatlcegypt.com");
+            List<string> Recivers = new List<string>();Recivers.Add("hadyaskalany@outlook.com");
             CourseSite.Common.Email.SendEmail(Recivers, EVM.subject, RealBody);
             return View("Main");
         }

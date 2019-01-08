@@ -53,8 +53,9 @@ namespace CourseSite.Common
             MainViewModel MVM = new MainViewModel();
             MVM.Faqs = FAQsRoutines.GetTopFAQsForMAin();
             MVM.Courses = CourseRoutine.GetTopCoursesForMAin();
-            MVM.Gallary = GalleryController.GetActiveGallary(); 
-                return MVM;
+            MVM.Gallary = GalleryController.GetActiveGallary();
+            MVM.Instarctors = InstractorsRoutines.GetAll();
+            return MVM;
         }
     }
     public class MyXmlLayout : XmlLayoutBase
