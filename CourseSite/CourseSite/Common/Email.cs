@@ -17,7 +17,7 @@ namespace CourseSite.Common
             {
                 
                 var Senderemail = new MailAddress("lightmirror.eg@gmail.com");
-                var Password = "lightmirror@123";
+                var Password = "P@ssw0rdIATLC";
                 // var Reciveremail = new MailAddress(recevir);
 
                 var Sub = subject;
@@ -29,10 +29,10 @@ namespace CourseSite.Common
                 var stmp = new SmtpClient
                 {
                     Host = "smtp.gmail.com",
-                    Port = 587, // use this port with Enabe SSL
+                    Port = 25, // use this port with Enabe SSL
                     EnableSsl = true,
                     DeliveryMethod = System.Net.Mail.SmtpDeliveryMethod.Network,
-                    UseDefaultCredentials = false,
+                    UseDefaultCredentials = true,
                     Credentials = new System.Net.NetworkCredential(Senderemail.Address, Password)
                 };
 
@@ -66,7 +66,7 @@ namespace CourseSite.Common
             }
             catch (Exception ex)
             {
-                throw new Exception();
+                throw ex;
                 return false;
             }
         }       
