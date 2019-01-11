@@ -552,6 +552,11 @@
     <None Include="Properties\PublishProfiles\iatlcegypt.com - Web Deploy.pubxml" />
     <Content Include="Scripts\contactform\contactform.js" />
     <Content Include="Scripts\contactform\Readme.txt" />
+
+    <None Include="Scripts\jquery-1.10.2-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
     <None Include="Scripts\jquery-1.12.4.intellisense.js" />
     <Content Include="Scripts\jquery-1.12.4.js" />
     <Content Include="Scripts\jquery-1.12.4.min.js" />
