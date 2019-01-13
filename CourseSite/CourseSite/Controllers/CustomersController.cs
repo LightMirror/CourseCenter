@@ -119,8 +119,8 @@ namespace CourseSite.Controllers
                             Recivers.Add(customers.Customer_Email);
                             string Body = "Welcome In IATLC Academy." + Environment.NewLine + "Your ID:" + customers.ID.ToString() + Environment.NewLine + "Emai: " + customers.Customer_Email + Environment.NewLine + "Password: " + DefaultPassword + Environment.NewLine + "Please save this message";
                             string Subject = "account credentials("+customers.Customer_EngName+")";
-                            CourseSite.Common.Email.SendEmail(Recivers, Subject, Body);
-                            CourseSite.Common.Email.SendWhatsapp("20" + customers.Customer_Mobile.ToString(), Body);
+                           // CourseSite.Common.Email.SendEmail(Recivers, Subject, Body);
+                            //CourseSite.Common.Email.SendWhatsapp("20" + customers.Customer_Mobile.ToString(), Body);
 
                             // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                             // Send an email with this link
@@ -130,8 +130,11 @@ namespace CourseSite.Controllers
                         }
                         else
                         {
-                            db.Customers.Remove(customers);
-                            db.SaveChanges();
+                            List<string> Recivers = new List<string>();
+                            Recivers.Add(customers.Customer_Email);
+                            string Body = "Welcome In IATLC Academy." + Environment.NewLine + "Your ID:" + customers.ID.ToString() + Environment.NewLine + "Emai: " + customers.Customer_Email + Environment.NewLine + "Password: " + DefaultPassword + Environment.NewLine + "Please save this message";
+                            string Subject = "account credentials(" + customers.Customer_EngName + ")";
+                            //CourseSite.Common.Email.SendEmail(Recivers, Subject, Body);
                             TempData["Error"] = "Customer exist before, please change customer email and try again";
                         }
 
@@ -156,6 +159,7 @@ namespace CourseSite.Controllers
                     ViewBag.Customer_GenderId = new SelectList(db.Gender.ToList(), "ID", "Gender_EngName");
                     return View();
                 }
+                throw ex;
             }
         }
 
