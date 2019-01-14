@@ -9,3 +9,14 @@
    at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
    at System.Data.Entity.DbContext.SaveChanges()
    at CourseSite.Controllers.CustomersController.Create(Customers customers) in E:\lightmirror\CourseCenter\CourseSite\CourseSite\Controllers\CustomersController.cs:line 71 in CustomersControllers.cs</Message></LogEntry>
+<LogEntry><Time>1/12/2019 2:35:19 AM</Time><Message>System.Net.Mail.SmtpException: Failure sending mail. ---&gt; System.IO.IOException: Unable to read data from the transport connection: net_io_connectionclosed.
+   at System.Net.Mail.SmtpReplyReaderFactory.ProcessRead(Byte[] buffer, Int32 offset, Int32 read, Boolean readLine)
+   at System.Net.Mail.SmtpReplyReaderFactory.ReadLines(SmtpReplyReader caller, Boolean oneLine)
+   at System.Net.Mail.SmtpReplyReaderFactory.ReadLine(SmtpReplyReader caller)
+   at System.Net.Mail.SmtpConnection.GetConnection(ServicePoint servicePoint)
+   at System.Net.Mail.SmtpTransport.GetConnection(ServicePoint servicePoint)
+   at System.Net.Mail.SmtpClient.GetConnection()
+   at System.Net.Mail.SmtpClient.Send(MailMessage message)
+   --- End of inner exception stack trace ---
+   at CourseSite.Common.Email.SendEmail(List`1 recevir, String subject, String body, Attachment attachment)
+   at CourseSite.Controllers.CustomersController.Create(Customers customers) in CustomersControllers.cs</Message></LogEntry>
