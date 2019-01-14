@@ -23,7 +23,7 @@ namespace CourseSite.Models.DAL
         }
 
         public int ID { get; set; }
-        [DisplayName("Eng_Name")]
+        [DisplayName("Specification Name")]
         public string Specification_EngName { get; set; }
         [DisplayName("Ar_Name")]
         public string Specification_AraName { get; set; }
