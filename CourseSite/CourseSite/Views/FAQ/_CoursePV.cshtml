@@ -24,8 +24,55 @@
                         </h4>
 
                         <p>@item.Course_TotalHour <span style="color:firebrick">Hours</span> </p>
-                        <a href="~/Course/Details/@item.ID" class="btn"  style="background-color:#6DCADB; color:#fff; margin-bottom:3px; margin-left:3px"> More details </a>
+                        <a href="~/Course/Details/@item.ID" class="btn"  style="background-color:#6DCADB; color:#fff; margin-bottom:3px; margin-left:5px"> More details </a>
+                        <a href="#" data-toggle="modal" data-target="#myModal"  class="btn" style="background-color:#6DCADB; color:#fff; margin-bottom:3px; margin-left:5px"> Book now </a>
+                    </div>
+                </div>
 
+
+                <div class="modal about-modal fade" id="myModal" tabindex="-1" role="dialog">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">@item.Course_EngName</h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="out-info">
+                                   @using (Html.BeginForm("Book", "Course", FormMethod.Post))
+                                   {
+                                    <div class="widget-body">
+                                        <div class="widget-main">
+                                            <strong>Let Us Call You......</strong>
+                                        </div>
+                                    </div>
+                                    <br />
+                                       <div  class="form-horizontal">
+                                           <div class="form-group">
+                                               @Html.TextBox("Name", null,new { required = "required" , @class = "form-control col-md-4", placeholder = "Full Name " })
+                                               <br />
+                                               @Html.TextBox("Mobile", null,new { required = "required", type = "phone" , @class = "form-control col-md-4", placeholder = "Phone" })
+                                               <br />
+                                               @Html.TextBox("C_Name", item.Course_EngName, new { required = "required" , @class = "form-control col-md-4", placeholder = "Course name " })
+                                               <br />
+                                               <button type="submit" class="btn col-md-4 glyphicon glyphicon-pencil " >
+                                                   Book Course 
+                                               </button>
+                                           </div>
+                                       </div>
+                                   }
+
+                                    <div class="widget-body">
+                                        <div class="widget-main">
+                                           <strong>Course Objective</strong> 
+                                        </div>
+                                    </div>
+                                    <p>
+                                        @item.Course_EngObjective
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             }

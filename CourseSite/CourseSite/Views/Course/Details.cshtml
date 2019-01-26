@@ -2683,17 +2683,14 @@
                 </a>
             </li>
 
+            @if (!string.IsNullOrEmpty(Model.Course_VedioPath))
+            {
             <li>
                 <a data-toggle="tab" href="#pictures">
-                    Reviews
+                    More Details
                 </a>
             </li>
-
-            <li>
-                <a data-toggle="tab" href="#Program">
-                    Dily program 
-                </a>
-            </li>
+            }
         </ul>
 
         <div class="tab-content no-border padding-24">
@@ -2739,7 +2736,7 @@
                                 <div class="profile-info-name"> Language: </div>
 
                                 <div class="profile-info-value">
-                                    <span>English material and bilingual delivery. </span>
+                                    <span>English material.</span>
                                 </div>
                             </div>
 
@@ -2811,14 +2808,15 @@
 
             </div><!-- /#home -->
 
+            @if (!string.IsNullOrEmpty(Model.Course_VedioPath))
+            {
+                <div id="pictures" class="tab-pane">
 
-            <div id="pictures" class="tab-pane">
-               
+                    <img src="@Url.Content(Model.Course_VedioPath)" />
             </div>
+            }
 
-            <div id="Program" class="tab-pane">
 
-            </div>
         </div>
     </div>
 </div>

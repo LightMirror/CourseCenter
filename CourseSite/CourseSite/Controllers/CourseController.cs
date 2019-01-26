@@ -108,6 +108,19 @@ namespace CourseSite.Controllers
                 return View(courses);
             }
         }
+        
+
+        [HttpPost]
+        public ActionResult Book(FormCollection Vales)
+        {
+            string Body = "Systmatic message, FYI, the below customer need to book course [" + Vales["C_Name"].ToString() + "]." + Environment.NewLine +
+                "Customer Name: " + Vales["Name"].ToString() + "."+Environment.NewLine +
+                "Mobile number: " + Vales["Mobile"].ToString() +"."+ Environment.NewLine +
+                "Thanks,";
+            CourseSite.Common.Email.SendEmailByMailjet("info@iatlcegypt.com","New Book",Body,null,null);
+            return RedirectToAction("Index");
+        }
+
 
         // GET: Cors/Edit/5
         [Authorize]

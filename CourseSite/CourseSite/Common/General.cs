@@ -28,9 +28,9 @@ namespace CourseSite.Common
             Log.Error(ex.ToString() + " in " + fileName);            
             string FilePath = System.Web.Hosting.HostingEnvironment.MapPath("~");
             FilePath += "\\log.xml";
-            System.Net.Mail.Attachment attachment = new System.Net.Mail.Attachment(FilePath);
-            List<string> ErrorRecivers = new List<string> { "eng.abdulrheem@gmail.com" };
-            Email.SendEmail(ErrorRecivers, "Exception in CourseSite", "Please check attahced file to finde Log Exception", attachment);
+            //System.Net.Mail.Attachment attachment = new System.Net.Mail.Attachment(FilePath);
+            //List<string> ErrorRecivers = new List<string> { "eng.abdulrheem@gmail.com" };
+            //Email.SendEmail(ErrorRecivers, "Exception in CourseSite", "Please check attahced file to finde Log Exception", attachment);
         }
         /// <summary>
         /// Logs error the an XML file using log4net
@@ -42,9 +42,9 @@ namespace CourseSite.Common
             Log.Error(message);
             string FilePath = System.Web.Hosting.HostingEnvironment.MapPath("~");
             FilePath += "\\log.xml";
-            System.Net.Mail.Attachment attachment = new System.Net.Mail.Attachment(FilePath);
-            List<string> ErrorRecivers = new List<string> { "eng.abdulrheem@gmail.com" };
-            Email.SendEmail(ErrorRecivers, "Exception in CourseSite", "Please check attahced file to finde Log Exception", attachment);
+           // System.Net.Mail.Attachment attachment = new System.Net.Mail.Attachment(FilePath);
+           // List<string> ErrorRecivers = new List<string> { "eng.abdulrheem@gmail.com" };
+            //Email.SendEmail(ErrorRecivers, "Exception in CourseSite", "Please check attahced file to finde Log Exception", attachment);
         }
 
         #endregion

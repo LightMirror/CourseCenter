@@ -20,3 +20,40 @@
    --- End of inner exception stack trace ---
    at CourseSite.Common.Email.SendEmail(List`1 recevir, String subject, String body, Attachment attachment)
    at CourseSite.Controllers.CustomersController.Create(Customers customers) in CustomersControllers.cs</Message></LogEntry>
+<LogEntry><Time>1/15/2019 9:44:03 PM</Time><Message>Microsoft.Exchange.WebServices.Data.ServiceRequestException: The request failed. The remote server returned an error: (401) Unauthorized. ---&gt; System.Net.WebException: The remote server returned an error: (401) Unauthorized.
+   at System.Net.HttpWebRequest.GetResponse()
+   at Microsoft.Exchange.WebServices.Data.EwsHttpWebRequest.Microsoft.Exchange.WebServices.Data.IEwsHttpWebRequest.GetResponse() in \\REDMOND\EXCHANGE\BUILD\E15\15.00.0913.015\SOURCES\sources\dev\EwsManagedApi\src\EwsManagedApi\Core\EwsHttpWebRequest.cs:line 113
+   at Microsoft.Exchange.WebServices.Data.ServiceRequestBase.GetEwsHttpWebResponse(IEwsHttpWebRequest request) in \\REDMOND\EXCHANGE\BUILD\E15\15.00.0913.015\SOURCES\sources\dev\EwsManagedApi\src\EwsManagedApi\Core\Requests\ServiceRequestBase.cs:line 821
+   --- End of inner exception stack trace ---
+   at CourseSite.Common.Email.SendEmail(String recevir, String subject, String body, Attachment attachment) in C:\Users\hady_askalany\Documents\GitHub\CourseCenter\CourseSite\CourseSite\Common\Email.cs:line 158
+   at CourseSite.Controllers.CustomersController.Create(Customers customers) in C:\Users\hady_askalany\Documents\GitHub\CourseCenter\CourseSite\CourseSite\Controllers\CustomersController.cs:line 133 in CustomersControllers.cs</Message></LogEntry>
+<LogEntry><Time>1/15/2019 10:02:46 PM</Time><Message>System.InvalidOperationException: An asynchronous operation cannot be started at this time. Asynchronous operations may only be started within an asynchronous handler or module or during certain events in the Page lifecycle. If this exception occurred while executing a Page, ensure that the Page is marked &lt;%@ Page Async="true" %&gt;. This exception may also indicate an attempt to call an "async void" method, which is generally unsupported within ASP.NET request processing. Instead, the asynchronous method should return a Task, and the caller should await it.
+   at System.Web.AspNetSynchronizationContext.OperationStarted()
+   at System.Runtime.CompilerServices.AsyncVoidMethodBuilder.Create()
+   at CourseSite.Common.Email.SendEmailByMailjet(String recevir, String subject, String body)
+   at CourseSite.Controllers.CustomersController.Create(Customers customers) in C:\Users\hady_askalany\Documents\GitHub\CourseCenter\CourseSite\CourseSite\Controllers\CustomersController.cs:line 133 in CustomersControllers.cs</Message></LogEntry>
+<LogEntry><Time>1/22/2019 7:53:49 PM</Time><Message>Twilio.Exceptions.ApiException: A 'To' phone number is required.
+   at Twilio.Clients.TwilioRestClient.ProcessResponse(Response response)
+   at Twilio.Clients.TwilioRestClient.Request(Request request)
+   at Twilio.Rest.Api.V2010.Account.MessageResource.Create(CreateMessageOptions options, ITwilioRestClient client)
+   at CourseSite.Common.Email.SendSMS(String body, String pone) in C:\Users\hady_askalany\Documents\GitHub\CourseCenter\CourseSite\CourseSite\Common\Email.cs:line 204 in Email.cs</Message></LogEntry>
+<LogEntry><Time>1/22/2019 8:14:52 PM</Time><Message>Twilio.Exceptions.ApiException: A 'To' phone number is required.
+   at Twilio.Clients.TwilioRestClient.ProcessResponse(Response response)
+   at Twilio.Clients.TwilioRestClient.Request(Request request)
+   at Twilio.Rest.Api.V2010.Account.MessageResource.Create(CreateMessageOptions options, ITwilioRestClient client)
+   at CourseSite.Common.Email.SendSMS(String body, String pone) in Email.cs</Message></LogEntry>
+<LogEntry><Time>1/22/2019 8:25:24 PM</Time><Message>Twilio.Exceptions.ApiException: A 'To' phone number is required.
+   at Twilio.Clients.TwilioRestClient.ProcessResponse(Response response)
+   at Twilio.Clients.TwilioRestClient.Request(Request request)
+   at Twilio.Rest.Api.V2010.Account.MessageResource.Create(CreateMessageOptions options, ITwilioRestClient client)
+   at CourseSite.Common.Email.SendSMS(String body, String pone) in Email.cs</Message></LogEntry>
+<LogEntry><Time>1/22/2019 8:29:37 PM</Time><Message>Twilio.Exceptions.ApiException: A 'To' phone number is required.
+   at Twilio.Clients.TwilioRestClient.ProcessResponse(Response response)
+   at Twilio.Clients.TwilioRestClient.Request(Request request)
+   at Twilio.Rest.Api.V2010.Account.MessageResource.Create(CreateMessageOptions options, ITwilioRestClient client)
+   at CourseSite.Common.Email.SendSMS(String body, String pone) in C:\Users\hady_askalany\Documents\GitHub\CourseCenter\CourseSite\CourseSite\Common\Email.cs:line 204 in Email.cs</Message></LogEntry>
+<LogEntry><Time>1/22/2019 8:31:54 PM</Time><Message>Twilio.Exceptions.ApiException: A 'To' phone number is required.
+   at Twilio.Clients.TwilioRestClient.ProcessResponse(Response response)
+   at Twilio.Clients.TwilioRestClient.Request(Request request)
+   at Twilio.Rest.Api.V2010.Account.MessageResource.Create(CreateMessageOptions options, ITwilioRestClient client)
+   at CourseSite.Common.Email.SendSMS(String body, String pone) in Email.cs</Message></LogEntry>

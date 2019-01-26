@@ -59,13 +59,12 @@ namespace CourseSite.Controllers
         public ActionResult SendEmailMessage([Bind(Include = "name,email,subject,message")]MailViewModel EVM)
         {
 
-            string NewLine = "\n";
-            string RealBody = "Name: " +EVM.Name+ NewLine;
-            RealBody += "E-mail: " + EVM.email + NewLine;
-            RealBody += "Message:" + NewLine + EVM.message;
-            List<string> Recivers = new List<string>();Recivers.Add("hadyaskalany@outlook.com");
-            CourseSite.Common.Email.SendEmail(Recivers, EVM.subject, RealBody);
-            return View("Main");
+            string RealBody = "Name: " +EVM.Name+"," + Environment.NewLine;
+            RealBody += "E-mail: " + EVM.email + ", " + Environment.NewLine;
+            RealBody += "Message: " + EVM.message+ ", " + Environment.NewLine;
+            CourseSite.Common.Email.SendEmailByMailjet("info@iatlcegypt.com", "New Book", RealBody, null, null);
+            TempData["Success"] = "Email sent, Thanks.";
+            return View();
         }
     }
 }

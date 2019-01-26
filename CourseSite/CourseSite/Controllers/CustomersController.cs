@@ -116,8 +116,10 @@ namespace CourseSite.Controllers
                         if (result.Result.Succeeded)
                         {
                             string Body = "Welcome In IATLC Academy." + Environment.NewLine + "Your ID:" + customers.ID.ToString() + Environment.NewLine + "Emai: " + customers.Customer_Email + Environment.NewLine + "Password: " + DefaultPassword + Environment.NewLine + "Please save this message";
-                            string Subject = "account credentials("+customers.Customer_EngName+")";
-                           // CourseSite.Common.Email.SendEmail(customers.Customer_Email, Subject, Body);
+                            string Body2 = "Welcome In IATLC Academy." + Environment.NewLine + "Emai: " + customers.Customer_Email + Environment.NewLine + "Password: " + DefaultPassword;
+                            string Subject = "account credentials(" + customers.Customer_EngName + ")";
+                            string phonenumber = "+2" + customers.Customer_Mobile;
+                            CourseSite.Common.Email.SendEmailByMailjet(customers.Customer_Email, Subject, Body, Body2,phonenumber);
                             //CourseSite.Common.Email.SendWhatsapp("20" + customers.Customer_Mobile.ToString(), Body);
 
                             // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
@@ -129,8 +131,10 @@ namespace CourseSite.Controllers
                         else
                         {
                             string Body = "Welcome In IATLC Academy." + Environment.NewLine + "Your ID:" + customers.ID.ToString() + Environment.NewLine + "Emai: " + customers.Customer_Email + Environment.NewLine + "Password: " + DefaultPassword + Environment.NewLine + "Please save this message";
+                            string Body2 = "Welcome In IATLC Academy." + Environment.NewLine + "Emai: " + customers.Customer_Email + Environment.NewLine + "Password: " + DefaultPassword ;
                             string Subject = "account credentials(" + customers.Customer_EngName + ")";
-                            //CourseSite.Common.Email.SendEmail(customers.Customer_Email, Subject, Body);
+                            string phonenumber = "+2" + customers.Customer_Mobile;
+                            CourseSite.Common.Email.SendEmailByMailjet(customers.Customer_Email, Subject, Body, Body2, phonenumber);
                             TempData["Error"] = "Customer exist before, please change customer email and try again";
                         }
 
